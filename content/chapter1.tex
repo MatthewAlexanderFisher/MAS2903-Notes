@@ -1,0 +1,909 @@
+\chapter{Introduction}
+
+Consider the following three experiments.
+\subsection*{Experiment 1: Fisher's tea lady}
+The tea lady claims to know whether milk or tea is poured in first:
+for 10 pairs of cups of tea she makes the correct choice each time.
+\subsection*{Experiment 2: Music expert}
+The expert claims he can distinguish between a page from a Haydn score
+and a page from a Mozart score: he does so correctly 10 times.
+\subsection*{Experiment 3: The Drunk}
+A somewhat inebriated friend at a party claims they can predict the
+outcome of the toss of a coin: they do so correctly 10 times.
+
+Let $\theta=\text{Pr}(\text{correct choice})$. Let's suppose the tea lady, the music expert and the drunk \textit{cannot} do as they claim; then, just by guessing, we could expect each of them to `get it right' 5 times out of 10, i.e. $\theta=1/2$. We could then test the null hypothesis $H_0:\theta=1/2$, giving
+'$$p\text{--value}=\left(\frac{1}{2}\right)^{10}=0.00098 < 0.1\%.$$
+From this $p-$value, we would conclude that we had very strong
+evidence against the null hypothesis (that the choices were made
+randomly), and perhaps feel justified in validating each claim.  But
+does this make sense? Surely, we have some additional information
+about what values of $\theta$ are plausible for each experiment. Prior
+to each experiment, our beliefs about $\theta$ may be
+
+Experiment 1: $\theta>0.5$ -- folklore (and science!) suggests this may be possible;
+
+Experiment 2: $0.9<\theta<1.0$ -- we expect an ``expert'' to be
+correct;
+
+Experiment 3: $\theta=0.5$ -- no way of guessing correctly with a
+``fair'' coin.
+
+The traditional approach to Statistics, sometimes called {\it
+Frequentist Statistics} or {\it Classical Statistics}, may try to take
+this prior information into account by modifying the pure significance
+testing approach described above to an assessment of an
+``appropriate'' hypothesis test. For example, in Experiment~2, the
+test may be of $H_0:\theta\geq 0.9$ against $H_1:\theta<0.9$.
+
+However, in Bayesian Statistics, we attempt to calibrate our prior
+information about unknown quantities by constructing a probability
+distribution which describes how likely we believe different values
+are to occur. This prior information is then combined with that from
+experimental data using Bayes Theorem. The key ingredients of a
+Bayesian analysis are
+\begin{itemize}
+\item A statistical model for the experimental data.
+\item Quantifiable prior information about any unknown parameters.
+\end{itemize}
+Before we consider any detailed descriptions of Bayesian analyses, we
+recap the various interpretations of probability and highlight the
+subjective approach.
+
+\section{Probability}
+The concept of probability (chance) has been around for a very long
+time, particularly in the area of gambling. Games of chance have been
+played since about 3500 B.C.; the Egyptians started using cubical dice
+around 2000 B.C. The mathematical theory of probability was started
+around the 17th century by Galilei, Pascal and Fermat to solve (again)
+gambling problems. There are three main ways of understanding and
+thinking about probability.
+
+\subsection*{Frequency interpretation}
+The probability of an outcome is the relative frequency with which the
+outcome would be obtained if the experiment were repeated a large
+number of times under similar conditions. For example, if a coin is
+tossed 1,000,000 times and a head appears $n$ times then
+$$
+\text{Pr(Head)}=\frac{n}{1,000,000}.
+$$ 
+We would expect this probability to be about 0.5.  Most of your
+courses will have used the frequentist interpretation: repeated
+sampling ideas are fundamental to the techniques described.
+
+\subsection*{Classical interpretation}
+This is based on the concept of equally likely outcomes resulting from
+ideas of symmetry. If the
+outcome of an experiment must be one of $n$ different outcomes and
+these $n$ outcomes are equally likely then the probability of each
+outcome is $1/n$.
+
+\subsection*{Subjective interpretation}
+Your subjective probability for an outcome $A$ represents your own
+judgement of the likelihood that the outcome will occur. This
+judgement will be based on the beliefs and information $H$ you have
+at the time.
+
+One way of determining (or quantifying) a subjective value for
+$\text{Pr}_H(A)$ is to consider a series of possible bets with outcome
+
+win \pounds $c$ if $A$ occurs and \pounds 0 if $A^{\text{c}}$ occurs.
+
+How much would you be prepared to pay (stake) for placing such a bet?
+In terms of expected winnings, you should be prepared to stake \pounds $cp$
+if you believe that $\text{Pr}_H(A)=p$.  Why? 
+
+
+ 
+\framebox[17cm]{ \parbox[t]{16cm}{
+
+
+
+
+\huge
+\ding{46}
+
+\normalsize
+
+
+
+}}
+
+
+
+
+
+One problem with this approach is that, in general, $p$ will depend
+on~$c$: a person who is willing to bet
+\pounds 1 on the spin of a coin to win \pounds 2 if it lands heads may
+refuse to to bet if the stakes are raised to \pounds 1000 -- most
+people are \textit{risk--averse}. Therefore, we shall restrict our attention to
+the $c=1$ case: pay \pounds $p$ for the bet
+
+win \pounds 1 if $A$ occurs and \pounds 0 if $A^{\text{c}}$ occurs.
+
+
+You can make sure that your bet is ``honest'' by randomising between
+whether you ``host'' the bet or ``place'' the bet. For example,
+suppose you believe that $\text{Pr}_H(A)=0.5$. An ``honest'' bet would mean
+that you would buy the bet for a maximum stake of \pounds
+0.50. However, if you weren't honest you might try to buy the bet for
+any amount less than \pounds 0.50, say \pounds 0.20. If you were
+hosting the bet, you would take the bet for any amount more than
+\pounds $p$, say for \pounds 0.80. These conflicting interests can be
+offset if, when choosing $p$, it is equally likely that you are
+hosting the bet or placing the bet. In such circumstances it is in
+your own interests to give the value of $p$ that you believe to be
+``correct''.
+
+\paragraph{Example 1.1}{~\\
+Consider the following events and their probabilities:
+\begin{enumerate}
+\item The probability $\text{Pr}(\text{Newcastle Utd win the Premier League
+this season})$ could only be determined using a subjective assessment.
+\item The probability $\text{Pr}(\text{M\&S student chosen at random was born in
+January})$ could be determined using a frequency or classical
+interpretation (with a list of all M\&S students and their birth dates)
+or a subjective interpretation.
+\item The probability $\text{Pr}(\text{England win the toss at a given Test
+Match})$ could be determined using either the classical or subjective
+interpretation.
+\end{enumerate}}
+
+There are potential drawbacks with each of these ways of understanding
+probability:
+
+\textbf{Frequency interpretation}
+\begin{itemize}
+\item It does not say how many times the experiment should be repeated.
+\item ``Similar conditions'' is a vague concept.
+\item It is not appropriate for many probability calculations of one-off
+events.
+\item Standard statistical methods using the frequentist approach are
+not totally objective since they require subjective judgements about
+the validity of probability models, choice of hypotheses and
+interpretation of results (for instance, see BMI example in Section 2.4 of the preface to these lecture notes). 
+\end{itemize}
+
+\textbf{Classical interpretation}
+\begin{itemize}
+\item Only applies to equally likely outcomes.
+\item Depends on a subjective assessment of whether symmetry arguments
+apply. 
+\item It is not appropriate for many probability calculations of one--off
+events.
+\end{itemize}
+
+\textbf{Subjective interpretation}
+\begin{itemize}
+\item It is not objective -- but perhaps it is more obvious (honest) about when
+subjective beliefs are used.
+\item It requires people to be {\it coherent}: they will not make any
+wagers which they are certain to lose; also, they will not prefer to
+suffer a given penalty when there is the option of another penalty
+which is certainly smaller. For example, being coherent results implies
+\begin{align*}
+\text{Pr}(A_1|H)>\text{Pr}(A_2|H)\quad\text{and}\quad &\text{Pr}(A_2|H)>\text{Pr}(A_3|H) \\
+&\Longrightarrow\quad \text{Pr}(A_1|H)>\text{Pr}(A_3|H).
+\end{align*}
+\end{itemize}
+
+Each of these interpretations use quite different methods of
+reasoning. In this course -- unlike any other course you have taken so far -- we will concentrate on the subjective interpretation and
+describe how, if carefully used, it can be a more useful approach than
+the other two methods.
+
+\section{Bayes Theorem}
+Before we state Bayes Theorem, we need a recap of conditional
+probability.
+
+\paragraph{Definition 1.1: Definition}{~\\
+Consider two events $E$ and $F$, where $\textnormal{Pr}(F)>0$. The
+\textit{conditional probability} of $E$ given that $F$ has occurred is
+$$
+\textnormal{Pr}(E|F)=\frac{\textnormal{Pr}(E\cap F)}{\textnormal{Pr}(F)}.
+$$}
+
+\paragraph{Definition 1.2: Definition}{~\\
+The events $E_1,E_2,\ldots,E_n$ form a {\it partition} of the sample
+space ${\cal S}$ if they are disjoint events ($E_i\cap E_j=\emptyset$,
+$i\neq j$) with $\textnormal{Pr}(E_i)>0$, $i=1,2,\ldots,n$, and
+$\displaystyle{\cup_{i=1}^n E_i}={\cal S}$.
+Figure~\ref{fig:partition} gives a diagram of a typical partition with
+an additional event $F$.
+
+\begin{figure}[ht]
+
+\includegraphics{images/partition.svg}
+\caption{Diagram of a partition $E_1,E_2,\ldots,E_n$ and an event $F$}
+\label{fig:partition}
+
+\end{figure}}
+\clearpage
+\paragraph{Theorem 1.1: Law of Total Probability}{\label{theorem: law of total probability} ~\\
+If $E_1,E_2,\ldots,E_n$ are a {\it partition} of ${\cal S}$ and $F$ is
+any event then
+$$
+\text{Pr}(F)=\sum_{i=1}^n \text{Pr}(F|E_i)\text{Pr}(E_i).
+$$}
+\paragraph{Proof}{Theorem}{\ref{theorem: law of total probability}}
+As $E_1,E_2,\ldots,E_n$ are a {\it partition} of ${\cal S}$, we have
+\begin{align*}
+\text{Pr}(F)&=\sum_{i=1}^n \text{Pr}(F\cap E_i) \\
+&=\sum_{i=1}^n \text{Pr}(F|E_i)\text{Pr}(E_i).
+\end{align*}
+\paragraph{Theorem 1.2: Bayes Theorem}{\label{theorem: bayes} ~\\
+If $E_1,E_2,\ldots,E_n$ are a {\it partition} of ${\cal S}$ and $F$ is
+any event with $\text{Pr}(F)>0$ then
+$$\text{Pr}(E_i|F)=\frac{\text{Pr}(F|E_i)\text{Pr}(E_i)}{\sum_{j=1}^n \text{Pr}(F|E_j)\text{Pr}(E_j)},
+\quad\quad i=1,2,\ldots,n. $$}
+
+\paragraph{Proof of Theorem 1.2}{
+
+
+{
+Using the definition of conditional probability, for $i=1,2,\ldots,n$,
+\begin{align*}
+\text{Pr}(E_i|F)&=\frac{\text{Pr}(E_i\cap F)}{\text{Pr}(F)} \\
+                & \\
+&=\frac{\text{Pr}(F|E_i)\text{Pr}(E_i)}{\text{Pr}(F)} \quad\text{again using the
+definition}\\ 
+            & \\
+&=\frac{\text{Pr}(F|E_i)\text{Pr}(E_i)}{\sum_{j=1}^n \text{Pr}(F|E_j)\text{Pr}(E_j)}
+\quad\text{using the Law of Total Probability}.
+\end{align*}
+}
+
+}
+
+
+\newpage
+
+\paragraph{Example 1.2}{~\\
+A laboratory blood test is 95\% effective in detecting a certain
+disease when it is present. However, the test also yields a ``false
+positive'' result for 1\% of healthy people tested. Also, 0.5\% of the
+population actually have the disease.
+
+\begin{itemize}
+\item [(a)] Calculate the probability that a person who tests positive actually has the disease.
+\item [(b)] Find the probability that a person who tests negative does \textit{not} have the disease.
+\end{itemize}}
+
+
+\paragraph{Solution to Example 1.2}{
+    
+    Let $D=\text{person}$ has the disease, $+ve=$ test is positive and $-ve=$ test is negative.  
+
+    From the question
+    we have $\text{Pr}(+ve|D)=0.95$, $\text{Pr}(+ve|D^c)=0.01$, $\text{Pr}(D)=0.005$ and
+    $\text{Pr}(D^c)=0.995$.  Also, $D$ and $D^c$ form a partition of ${\cal
+    S}$. Therefore, by Bayes Theorem
+    \begin{align*}
+    \text{Pr}(D\,|\, +ve) &=\frac{\text{Pr}(+ve|D)\text{Pr}(D)}{\text{Pr}(+ve|D)\text{Pr}(D)+\text{Pr}(+ve|D^c)\text{Pr}(D^c)} \\
+    &=\frac{0.95\times 0.005}{0.95\times 0.005~+~0.01\times 0.995} \\ \\
+    &\approx 0.323
+    \end{align*}
+    and
+    \begin{align*}
+    \text{Pr}(D^c|-ve) &=\frac{\text{Pr}(-ve|D^c)\text{Pr}(D^c)}{\text{Pr}(-ve|D^c)\text{Pr}(D^c)+\text{Pr}(-ve|D)\text{Pr}(D)} \\
+    &=\frac{0.99\times 0.995}{0.99\times 0.995~+~0.05\times 0.005} \\ \\
+    &\approx 0.9997.
+    \end{align*}
+    Therefore, very few people who test negative will have the
+    disease. However, a high proportion (67\%) who test positive do not
+    have the disease.
+    
+}
+
+
+\newpage
+
+
+\paragraph{Example 1.3}{~\\
+Suppose that your car suffers from two intermittent problems, one
+caused by a fault in the engine ($\theta_1$) and the other due to a
+fault in the gearbox ($\theta_2$). These occur with probabilities 0.4
+and 0.6 respectively. When examined your car exhibits one of the
+following symptoms
+\begin{align*}
+x_1:&~\text{overheating only}, \\
+x_2:&~\text{irregular traction only}, \\
+x_3:&~\text{both symptoms}.
+\end{align*}
+Suppose it is known in the garage trade that these symptoms occur with
+probabilities that depend on the fault. The probabilities
+$\text{Pr}(x|\theta)$ are given in Table~\ref{tab:garagelik}. Construct a
+diagnostic rule for these symptoms and determine the probability of
+misdiagnosis.
+\begin{table}[h]
+\bigskip
+
+\begin{tabular}{|l|ccc|}
+\cline{2-4}
+\multicolumn{1}{c|}{~}& O/H & I/T & Both \\
+\multicolumn{1}{c|}{~}& $x_1$ & $x_2$ & $x_3$ \\
+\hline
+$\theta_1$: fault in engine & 0.1 & 0.4 & 0.5 \\
+\hline
+$\theta_2$: fault in gearbox & 0.5 & 0.3 & 0.2 \\
+\hline
+\end{tabular}
+\caption{Likelihood of symptoms for both faults.}
+\label{tab:garagelik}
+
+\end{table}
+
+
+
+\paragraph{Solution to Example 1.3}{
+    
+}
+
+{
+    
+    First we must calculate the posterior probabilities $\text{Pr}(\theta_1|x)$
+    and $\text{Pr}(\theta_2|x)$ for $x=x_1,x_2,x_3$. Since $\theta_1$ and
+    $\theta_2$ form a partition, we can use Bayes Theorem as follows.
+    
+    We have
+    \begin{align*}
+    \text{Pr}(\theta_1|x_1)
+    &=\frac{\text{Pr}(X=x_1|\theta_1)\text{Pr}(\theta_1)}
+    {\text{Pr}(X=x_1|\theta_1)\text{Pr}(\theta_1)+\text{Pr}(X=x_1|\theta_2)\text{Pr}(\theta_2)} \\
+    &=\frac{0.1\times 0.4}{0.1\times 0.4+0.5\times 0.6} \\
+    &=\frac{4}{34} \\
+    &=0.118
+    \end{align*}
+    \begin{align*}
+    \text{Pr}(\theta_1|x_2)
+    &=\frac{\text{Pr}(X=x_2|\theta_1)\text{Pr}(\theta_1)}
+    {\text{Pr}(X=x_2|\theta_1)\text{Pr}(\theta_1)+\text{Pr}(X=x_2|\theta_2)\text{Pr}(\theta_2)} \\
+    &=\frac{0.4\times 0.4}{0.4\times 0.4+0.3\times 0.6} \\
+    &=\frac{16}{34} \\
+    &=0.471 \\ \\
+    \text{Pr}(\theta_1|x_3)
+    &=\frac{\text{Pr}(X=x_3|\theta_1)\text{Pr}(\theta_1)}
+    {\text{Pr}(X=x_3|\theta_1)\text{Pr}(\theta_1)+\text{Pr}(X=x_3|\theta_2)\text{Pr}(\theta_2)} \\
+    &=\frac{0.5\times 0.4}{0.5\times 0.4+0.2\times 0.6} \\
+    &=\frac{20}{32} \\
+    &=0.625
+    \end{align*}
+    Also, $\text{Pr}(\theta_2|x_i)=1-\text{Pr}(\theta_1|x_i)$, $i=1,2,3$ and so we
+    obtain the posterior distributions $\text{Pr}(\theta|x)$ given in
+    Table~\ref{tab:garagepost}.
+    
+}
+
+\begin{table}[!h]
+\bigskip
+
+\begin{tabular}{|l|c|c|c|}
+\cline{2-4}
+\multicolumn{1}{c|}{~}& O/H & I/T & Both \\
+\multicolumn{1}{c|}{~}& $x_1$ & $x_2$ & $x_3$ \\
+\hline
+$\theta_1$: fault in engine & 0.118 & 0.471 & 0.625 \\
+$\theta_2$: fault in gearbox & 0.882 & 0.529 & 0.375 \\
+\hline
+\end{tabular}
+\caption{Posterior probabilities of the faults for various symptoms.}
+\label{tab:garagepost}
+
+\end{table}
+
+This table is very informative. For example, it shows that if both
+symptoms~($x_3$) are observed, then the probability that the fault is
+in the engine ($\theta_1$) changes from 0.4 to 0.625. In terms of
+odds
+\begin{align*}
+\text{Prior odds}&:\frac{\text{Pr}(\theta_1)}{\text{Pr}(\theta_2)}
+=\frac{0.4}{0.6}=\frac{2}{3}\quad\text{or 3:2 in favour of }\theta_2 \\
+\text{Posterior odds}&:\frac{\text{Pr}(\theta_1|x_3)}{\text{Pr}(\theta_2|x_3)}
+=\frac{0.625}{0.375}=
+\frac{5}{3}\quad\text{or 5:3 in favour of }\theta_1.
+\end{align*}
+
+\clearpage
+
+We are now in a position to design our diagnostic rule. This is simply
+a rule which diagnoses a symptom ($x$) as being due to some particular
+fault ($\theta$). Consider first that we observe overheating
+only~($x_1$). The posterior probabilities are in favour of declaring
+the fault as in the gearbox~($\theta_2$) since
+$\text{Pr}(\theta_2|x_1)>\text{Pr}(\theta_1|x_1)$. In the same way, we can determine
+the best (most likely) diagnosis having observed irregular traction
+only~($x_2$) and both symptoms~($x_3$), giving the diagnostic rule in
+Table~\ref{tab:garagediag}.
+
+\begin{table}[ht]
+\bigskip
+
+\begin{tabular}{|l|l|}
+\hline
+\quad\quad Symptom & \quad\quad Diagnosis \\
+\hline
+overheating only ($x_1$) & fault in gearbox ($\theta_2$) \\
+irregular traction only ($x_2$) & fault in gearbox ($\theta_2$) \\
+both symptoms ($x_3$) & fault in engine ($\theta_1$) \\
+\hline
+\end{tabular}
+\caption{Diagnostic rule for faults.}
+\label{tab:garagediag}
+
+\end{table}
+
+ {
+     
+         If we were to carry out this diagnostic rule repeatedly then the
+        probability of misdiagnosing a fault is
+        \begin{align*}
+        \text{Pr}(\text{Misdiagnosis}) &=\text{Pr}(\theta_1,X=x_1)+Pr(\theta_1,X=x_2)+\text{Pr}(\theta_2,X=x_3) \\
+        &=\text{Pr}(X=x_1|\theta_1)\text{Pr}(\theta_1)+\text{Pr}(X=x_2|\theta_1)\text{Pr}(\theta_1) +\text{Pr}(X=x_3|\theta_2)\text{Pr}(\theta_2) \\
+        &=(0.1\times 0.4)+(0.4\times 0.4)+(0.2\times 0.6) \\
+        &=0.32.
+        \end{align*}
+        Therefore, in repeated use of this rule, around a third of the
+        diagnoses will be wrong.
+     
+ }}
+
+\clearpage
+
+\paragraph{Example 1.4}{~\\
+A student sits a multiple choice exam in which there are $m$
+alternative answers to each question. The student either knows the
+answer (with probability $\theta$) or guesses randomly (with
+probability $1-\theta$). What is the probability that the student
+actually knew the answer to a question they answered correctly?
+\label{ex:multiple}
+
+\paragraph{Solution to Example 1.4}{
+     
+        Let
+        \begin{align*}
+        C&=\text{student answers question correctly} \\
+        K&=\text{student knows answer}.
+        \end{align*}
+        We require $Pr(K|C)$. From the question we have $Pr(K)=\theta$,
+        $Pr(K^c)=1-\theta$, $Pr(C|K)=1$ and $Pr(C|K^c)=\frac{1}{m}$.  Also,
+        $K$ and $K^c$ form a partition of ${\cal S}$. Therefore, by Bayes
+        Theorem
+        \begin{align*}
+        Pr(K|C)&=\frac{Pr(C|K)Pr(K)}{Pr(C|K)Pr(K)+Pr(C|K^c)Pr(K^c)} \\
+        &=\frac{1\times\theta}{1\times\theta~+~\frac{1}{m}\times(1-\theta)} \\
+        &=\frac{m\theta}{1+(m-1)\theta}.
+        \end{align*}
+     
+ }
+
+Suppose that there are $m=5$ alternative answers for each question. We
+can see the effect of observing a correct answer on our belief
+that the student actually knows the answer by calculating $\text{Pr}(K|C)$
+for various~$\theta$ -- see Table~\ref{tab:kc}.}
+
+\begin{table}[h]
+\bigskip
+
+\begin{tabular}{|c|c|}
+\hline
+$\text{Pr}(K)$ & $\text{Pr}(K|C)$ \\
+$=\theta$ & $=5\theta/(1+4\theta)$ \\
+\hline
+0.0 & 0.000 \\
+0.1 & 0.357 \\
+0.2 & 0.556 \\
+0.3 & 0.682 \\
+0.4 & 0.769 \\
+0.5 & 0.833 \\
+0.6 & 0.882 \\
+0.7 & 0.921 \\
+0.8 & 0.952 \\
+0.9 & 0.978 \\
+1.0 & 1.000 \\
+\hline
+\end{tabular}
+\caption{Values of $\text{Pr}(K|C)$ for various values of $\text{Pr}(K)$.}
+\label{tab:kc}
+
+\end{table}
+
+The main problem with this solution is that, in order to use this
+table we must know the exact value of $\theta$: we have actually found
+an expression for $\text{Pr}(K|C,\theta)$ and not for $\text{Pr}(K|C)$.  If we know
+$\theta$ fairly accurately -- say it was between $0.49$ and $0.51$ --
+then, in practice, we can conclude that $\text{Pr}(K|C)$ is around
+0.83. However, if we are less certain about a correct value for
+$\theta$ we might be able to express our uncertainty through a
+probability distribution for $\theta$. We will see more about this in
+the next Chapter.
+
+\clearpage
+
+\section{Likelihood}
+Suppose that an experiment results in data $\underline{x}e$ and we decide to model the data using a probability (density) function $f(\underline{x}|\theta)$. This p(d)f describes how likely different data~$\underline{x}$ are to occur given a value of the (unknown) parameter $\theta$. However, once we have observed the data, $f(\underline{x}|\theta)$ tells us how likely different values of the parameters~$\theta$ are: it is then known as the \emph{likelihood function} for $\theta$. In other courses you may have seen it written as $L(\theta|\underline{x})$ or $L(\theta)$ but, whatever the notation used for the likelihood function, it is simply the joint probability (density) function of the data, $f(\underline{x}|\theta)$, regarded as a function of~$\theta$ rather than of~$\underline{x}$.
+
+The likelihood function can be simplified if we have further structure in the data. For example, we may have independent observations, in which case
+\begin{equation}
+\label{eq:indep}
+f(\underline{x}|\theta)=\prod_{i=1}^n f_{X_i}(x_i|\theta),
+\end{equation}
+or independent and identically distributed observations (random sample), so that
+\begin{equation}
+\label{eq:iid}
+f(\underline{x}|\theta)=\prod_{i=1}^n f_{X}(x_i|\theta).
+\end{equation}
+In this course, we will not consider models with correlated observations. Moreover, we will concentrate on how to make inferences from random samples using prior information. This will require extensive use of the \eqref{eq:iid} form of the likelihood function.
+
+\clearpage
+
+\paragraph{Example 1.5}{Suppose we have a random sample $\underline{x}e$ of radioactive particle counts. A typical model for such data would be $X_i|\theta\sim \text{Poisson}(\theta)$, usually abbreviated $X_{i}|\theta\sim\text{Po}(\theta)$, (independent). Determine the likelihood function for~$\theta$.
+
+\paragraph{Solution to Example 1.5}{
+    
+        Since the data is IID, we have
+        \begin{align*}
+            f(\underline{x}|\theta) &= \prod_{i=1}^n f_{X}(x_i|\theta) = \prod_{i=1}^n \frac{\theta^{x_i} e^{-\theta}}{x_i!} \\
+            &= \frac{\theta^{\sum_{i=1}^n x_i} e^{-\theta n}}{\prod_{i=1}^n x_i!} = \frac{\theta^{n\bar{x}} e^{-n\theta}}{\prod_{i=1}^n x_i!}.
+        \end{align*}
+    
+}
+
+\label{ex:poissonex}}
+
+\paragraph{Example 1.6}{~\\
+Suppose we have a random sample $\underline{x}e$ of times between radioactive particle emissions. If the emissions occur randomly in time then a plausible model for such data would be $X_i|\theta\sim \text{Exponential}(\theta)$, usually abbreviated $X_{i}|\theta \sim \text{Exp}(\theta)$, (independent). Determine the likelihood function for~$\theta$.
+
+\paragraph{Solution to Example 1.6}{
+    
+        Since the data is IID, we have
+        \begin{align*}
+            f(\underline{x}|\theta) &= \prod_{i=1}^n f_{X}(x_i) = \prod_{i=1}^n \theta e^{-\theta x_i} \\
+            &= \theta^n e^{-\theta \sum_{i=1}^n x_i} = \theta^n e^{- n \theta \bar{x}}.
+        \end{align*}
+    
+}}
+
+\clearpage
+
+\paragraph{Example 1.7}{~\\
+Suppose we have a random sample $\underline{x}e$ from a normal distribution: $X_i|\mu,\sigma\sim \mathcal{N}(\mu,\sigma^2)$, $i=1,2,\ldots,n$ (independent). Determine the likelihood function for~$(\mu,\sigma)$.
+
+\paragraph{Solution to Example 1.7}{
+    
+        The (joint) probability density function is
+        \begin{align*}
+        f(\underline{x}|\mu,\sigma)
+        &=\prod_{i=1}^n \frac{1}{\sqrt{2\pi\sigma^2}}
+        \exp\left\{-\frac{(x_i-\mu)^2}{2\sigma^2}\right\} \\
+        &=(2\pi)^{-n/2}\sigma^{-n}
+        \exp\left\{-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i-\mu)^2\right\} \\
+        &=(2\pi)^{-n/2}\sigma^{-n}
+        \exp\left\{-\frac{1}{2\sigma^2}
+        \left(\sum x_i^2-2\mu\sum x_i+n\mu^2\right)\right\}.
+        \end{align*}
+    
+}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newcommand{\comb}[2]{\,^{#1}\text{C}_{#2}}
+

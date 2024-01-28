@@ -1,0 +1,1099 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Introduction &#8212; MAS2903 - Notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/chapter1';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bayes Theorem for Distributions" href="chapter2.html" />
+    <link rel="prev" title="MAS2903: Introduction to Bayesian Methods" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="MAS2903 - Notes - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="MAS2903 - Notes - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    MAS2903: Introduction to  Bayesian Methods
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2.html">Bayes Theorem for Distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter3.html">Priors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter4.html">Bayesian inference</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/chapter1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/chapter1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-1-fisher-s-tea-lady-experiment-1-fishers-tea-lady-unnumbered">Experiment 1: Fisher’s tea lady {#experiment-1-fishers-tea-lady .unnumbered}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-2-music-expert-experiment-2-music-expert-unnumbered">Experiment 2: Music expert {#experiment-2-music-expert .unnumbered}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-3-the-drunk-experiment-3-the-drunk-unnumbered">Experiment 3: The Drunk {#experiment-3-the-drunk .unnumbered}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability">Probability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-interpretation-frequency-interpretation-unnumbered">Frequency interpretation {#frequency-interpretation .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-interpretation-classical-interpretation-unnumbered">Classical interpretation {#classical-interpretation .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subjective-interpretation-subjective-interpretation-unnumbered">Subjective interpretation {#subjective-interpretation .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-1">Example 1.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayes-theorem">Bayes Theorem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-1-1-definition">Definition 1.1: Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-1-2-definition">Definition 1.2: Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem-1-1-law-of-total-probability">Theorem 1.1: Law of Total Probability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof">Proof</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem-1-2-bayes-theorem">Theorem 1.2: Bayes Theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-theorem-1-2">Proof of Theorem 1.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-2">Example 1.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-1-2">Solution to Example 1.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-3">Example 1.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-1-3">Solution to Example 1.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-4">Example 1.4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-1-4">Solution to Example 1.4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#likelihood">Likelihood</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-5">Example 1.5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-1-5">Solution to Example 1.5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-6">Example 1.6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-1-6">Solution to Example 1.6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-7">Example 1.7</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-1-7">Solution to Example 1.7</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>Consider the following three experiments.</p>
+<section id="experiment-1-fisher-s-tea-lady-experiment-1-fishers-tea-lady-unnumbered">
+<h2>Experiment 1: Fisher’s tea lady {#experiment-1-fishers-tea-lady .unnumbered}<a class="headerlink" href="#experiment-1-fisher-s-tea-lady-experiment-1-fishers-tea-lady-unnumbered" title="Link to this heading">#</a></h2>
+<p>The tea lady claims to know whether milk or tea is poured in first: for
+10 pairs of cups of tea she makes the correct choice each time.</p>
+</section>
+<section id="experiment-2-music-expert-experiment-2-music-expert-unnumbered">
+<h2>Experiment 2: Music expert {#experiment-2-music-expert .unnumbered}<a class="headerlink" href="#experiment-2-music-expert-experiment-2-music-expert-unnumbered" title="Link to this heading">#</a></h2>
+<p>The expert claims he can distinguish between a page from a Haydn score
+and a page from a Mozart score: he does so correctly 10 times.</p>
+</section>
+<section id="experiment-3-the-drunk-experiment-3-the-drunk-unnumbered">
+<h2>Experiment 3: The Drunk {#experiment-3-the-drunk .unnumbered}<a class="headerlink" href="#experiment-3-the-drunk-experiment-3-the-drunk-unnumbered" title="Link to this heading">#</a></h2>
+<p>A somewhat inebriated friend at a party claims they can predict the
+outcome of the toss of a coin: they do so correctly 10 times.</p>
+<p>Let <span class="math notranslate nohighlight">\(\theta=\text{Pr}(\text{correct choice})\)</span>. Let’s suppose the tea
+lady, the music expert and the drunk <em>cannot</em> do as they claim; then,
+just by guessing, we could expect each of them to ‘get it right’ 5 times
+out of 10, i.e. <span class="math notranslate nohighlight">\(\theta=1/2\)</span>. We could then test the null hypothesis
+<span class="math notranslate nohighlight">\(H_0:\theta=1/2\)</span>, giving
+‘</p>
+<div class="math notranslate nohighlight">
+\[p\text{--value}=\left(\frac{1}{2}\right)^{10}=0.00098 &lt; 0.1\%.\]</div>
+<p>From
+this <span class="math notranslate nohighlight">\(p-\)</span>value, we would conclude that we had very strong evidence
+against the null hypothesis (that the choices were made randomly), and
+perhaps feel justified in validating each claim. But does this make
+sense? Surely, we have some additional information about what values of
+<span class="math notranslate nohighlight">\(\theta\)</span> are plausible for each experiment. Prior to each experiment,
+our beliefs about <span class="math notranslate nohighlight">\(\theta\)</span> may be</p>
+<p>Experiment 1: <span class="math notranslate nohighlight">\(\theta&gt;0.5\)</span> – folklore (and science!) suggests this may
+be possible;</p>
+<p>Experiment 2: <span class="math notranslate nohighlight">\(0.9&lt;\theta&lt;1.0\)</span> – we expect an “expert” to be correct;</p>
+<p>Experiment 3: <span class="math notranslate nohighlight">\(\theta=0.5\)</span> – no way of guessing correctly with a “fair”
+coin.</p>
+<p>The traditional approach to Statistics, sometimes called <em>Frequentist
+Statistics</em> or <em>Classical Statistics</em>, may try to take this prior
+information into account by modifying the pure significance testing
+approach described above to an assessment of an “appropriate” hypothesis
+test. For example, in Experiment 2, the test may be of
+<span class="math notranslate nohighlight">\(H_0:\theta\geq 0.9\)</span> against <span class="math notranslate nohighlight">\(H_1:\theta&lt;0.9\)</span>.</p>
+<p>However, in Bayesian Statistics, we attempt to calibrate our prior
+information about unknown quantities by constructing a probability
+distribution which describes how likely we believe different values are
+to occur. This prior information is then combined with that from
+experimental data using Bayes Theorem. The key ingredients of a Bayesian
+analysis are</p>
+<ul class="simple">
+<li><p>A statistical model for the experimental data.</p></li>
+<li><p>Quantifiable prior information about any unknown parameters.</p></li>
+</ul>
+<p>Before we consider any detailed descriptions of Bayesian analyses, we
+recap the various interpretations of probability and highlight the
+subjective approach.</p>
+</section>
+<section id="probability">
+<h2>Probability<a class="headerlink" href="#probability" title="Link to this heading">#</a></h2>
+<p>The concept of probability (chance) has been around for a very long
+time, particularly in the area of gambling. Games of chance have been
+played since about 3500 B.C.; the Egyptians started using cubical dice
+around 2000 B.C. The mathematical theory of probability was started
+around the 17th century by Galilei, Pascal and Fermat to solve (again)
+gambling problems. There are three main ways of understanding and
+thinking about probability.</p>
+<section id="frequency-interpretation-frequency-interpretation-unnumbered">
+<h3>Frequency interpretation {#frequency-interpretation .unnumbered}<a class="headerlink" href="#frequency-interpretation-frequency-interpretation-unnumbered" title="Link to this heading">#</a></h3>
+<p>The probability of an outcome is the relative frequency with which the
+outcome would be obtained if the experiment were repeated a large number
+of times under similar conditions. For example, if a coin is tossed
+1,000,000 times and a head appears <span class="math notranslate nohighlight">\(n\)</span> times then</p>
+<div class="math notranslate nohighlight">
+\[\text{Pr(Head)}=\frac{n}{1,000,000}.\]</div>
+<p>We would expect this
+probability to be about 0.5. Most of your courses will have used the
+frequentist interpretation: repeated sampling ideas are fundamental to
+the techniques described.</p>
+</section>
+<section id="classical-interpretation-classical-interpretation-unnumbered">
+<h3>Classical interpretation {#classical-interpretation .unnumbered}<a class="headerlink" href="#classical-interpretation-classical-interpretation-unnumbered" title="Link to this heading">#</a></h3>
+<p>This is based on the concept of equally likely outcomes resulting from
+ideas of symmetry. If the outcome of an experiment must be one of <span class="math notranslate nohighlight">\(n\)</span>
+different outcomes and these <span class="math notranslate nohighlight">\(n\)</span> outcomes are equally likely then the
+probability of each outcome is <span class="math notranslate nohighlight">\(1/n\)</span>.</p>
+</section>
+<section id="subjective-interpretation-subjective-interpretation-unnumbered">
+<h3>Subjective interpretation {#subjective-interpretation .unnumbered}<a class="headerlink" href="#subjective-interpretation-subjective-interpretation-unnumbered" title="Link to this heading">#</a></h3>
+<p>Your subjective probability for an outcome <span class="math notranslate nohighlight">\(A\)</span> represents your own
+judgement of the likelihood that the outcome will occur. This judgement
+will be based on the beliefs and information <span class="math notranslate nohighlight">\(H\)</span> you have at the time.</p>
+<p>One way of determining (or quantifying) a subjective value for
+<span class="math notranslate nohighlight">\(\text{Pr}_H(A)\)</span> is to consider a series of possible bets with outcome</p>
+<p>win £<span class="math notranslate nohighlight">\(c\)</span> if <span class="math notranslate nohighlight">\(A\)</span> occurs and £0 if <span class="math notranslate nohighlight">\(A^{\text{c}}\)</span> occurs.</p>
+<p>How much would you be prepared to pay (stake) for placing such a bet? In
+terms of expected winnings, you should be prepared to stake £<span class="math notranslate nohighlight">\(cp\)</span> if you
+believe that <span class="math notranslate nohighlight">\(\text{Pr}_H(A)=p\)</span>. Why?</p>
+<p>One problem with this approach is that, in general, <span class="math notranslate nohighlight">\(p\)</span> will depend
+on <span class="math notranslate nohighlight">\(c\)</span>: a person who is willing to bet £1 on the spin of a coin to win
+£2 if it lands heads may refuse to to bet if the stakes are raised to
+£1000 – most people are <em>risk–averse</em>. Therefore, we shall restrict
+our attention to the <span class="math notranslate nohighlight">\(c=1\)</span> case: pay £<span class="math notranslate nohighlight">\(p\)</span> for the bet</p>
+<p>win £1 if <span class="math notranslate nohighlight">\(A\)</span> occurs and £0 if <span class="math notranslate nohighlight">\(A^{\text{c}}\)</span> occurs.</p>
+<p>You can make sure that your bet is “honest” by randomising between
+whether you “host” the bet or “place” the bet. For example, suppose you
+believe that <span class="math notranslate nohighlight">\(\text{Pr}_H(A)=0.5\)</span>. An “honest” bet would mean that you
+would buy the bet for a maximum stake of £ 0.50. However, if you weren’t
+honest you might try to buy the bet for any amount less than £0.50, say
+£0.20. If you were hosting the bet, you would take the bet for any
+amount more than £<span class="math notranslate nohighlight">\(p\)</span>, say for £0.80. These conflicting interests can be
+offset if, when choosing <span class="math notranslate nohighlight">\(p\)</span>, it is equally likely that you are hosting
+the bet or placing the bet. In such circumstances it is in your own
+interests to give the value of <span class="math notranslate nohighlight">\(p\)</span> that you believe to be “correct”.</p>
+<section id="example-1-1">
+<h4>Example 1.1<a class="headerlink" href="#example-1-1" title="Link to this heading">#</a></h4>
+<p><br />
+Consider the following events and their probabilities:</p>
+<ol class="arabic simple">
+<li><p>The probability
+<span class="math notranslate nohighlight">\(\text{Pr}(\text{Newcastle Utd win the Premier League     this season})\)</span> could only be determined using a subjective
+assessment.</p></li>
+<li><p>The probability
+<span class="math notranslate nohighlight">\(\text{Pr}(\text{M\&amp;S student chosen at random was born in     January})\)</span> could be determined using a frequency or classical
+interpretation (with a list of all M&amp;S students and their birth
+dates) or a subjective interpretation.</p></li>
+<li><p>The probability
+<span class="math notranslate nohighlight">\(\text{Pr}(\text{England win the toss at a given Test     Match})\)</span> could be determined using either the classical or
+subjective interpretation.</p></li>
+</ol>
+<p>There are potential drawbacks with each of these ways of understanding
+probability:</p>
+<p><strong>Frequency interpretation</strong></p>
+<ul class="simple">
+<li><p>It does not say how many times the experiment should be repeated.</p></li>
+<li><p>“Similar conditions” is a vague concept.</p></li>
+<li><p>It is not appropriate for many probability calculations of one-off
+events.</p></li>
+<li><p>Standard statistical methods using the frequentist approach are not
+totally objective since they require subjective judgements about the
+validity of probability models, choice of hypotheses and
+interpretation of results (for instance, see BMI example in Section
+2.4 of the preface to these lecture notes).</p></li>
+</ul>
+<p><strong>Classical interpretation</strong></p>
+<ul class="simple">
+<li><p>Only applies to equally likely outcomes.</p></li>
+<li><p>Depends on a subjective assessment of whether symmetry arguments
+apply.</p></li>
+<li><p>It is not appropriate for many probability calculations of one–off
+events.</p></li>
+</ul>
+<p><strong>Subjective interpretation</strong></p>
+<ul class="simple">
+<li><p>It is not objective – but perhaps it is more obvious (honest) about
+when subjective beliefs are used.</p></li>
+<li><p>It requires people to be <em>coherent</em>: they will not make any wagers
+which they are certain to lose; also, they will not prefer to suffer
+a given penalty when there is the option of another penalty which is
+certainly smaller. For example, being coherent results implies</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    \text{Pr}(A_1|H)&gt;\text{Pr}(A_2|H)\quad\text{and}\quad &amp;\text{Pr}(A_2|H)&gt;\text{Pr}(A_3|H) \\
+    &amp;\Longrightarrow\quad \text{Pr}(A_1|H)&gt;\text{Pr}(A_3|H).
+    \end{aligned}\end{split}\]</div>
+<p>Each of these interpretations use quite different methods of reasoning.
+In this course – unlike any other course you have taken so far – we
+will concentrate on the subjective interpretation and describe how, if
+carefully used, it can be a more useful approach than the other two
+methods.</p>
+</section>
+</section>
+</section>
+<section id="bayes-theorem">
+<h2>Bayes Theorem<a class="headerlink" href="#bayes-theorem" title="Link to this heading">#</a></h2>
+<p>Before we state Bayes Theorem, we need a recap of conditional
+probability.</p>
+<section id="definition-1-1-definition">
+<h3>Definition 1.1: Definition<a class="headerlink" href="#definition-1-1-definition" title="Link to this heading">#</a></h3>
+<p><br />
+Consider two events <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(F\)</span>, where <span class="math notranslate nohighlight">\(\textnormal{Pr}(F)&gt;0\)</span>. The
+<em>conditional probability</em> of <span class="math notranslate nohighlight">\(E\)</span> given that <span class="math notranslate nohighlight">\(F\)</span> has occurred is</p>
+<div class="math notranslate nohighlight">
+\[
+\textnormal{Pr}(E|F)=\frac{\textnormal{Pr}(E\cap F)}{\textnormal{Pr}(F)}.\]</div>
+</section>
+<section id="definition-1-2-definition">
+<h3>Definition 1.2: Definition<a class="headerlink" href="#definition-1-2-definition" title="Link to this heading">#</a></h3>
+<p><br />
+The events <span class="math notranslate nohighlight">\(E_1,E_2,\ldots,E_n\)</span> form a <em>partition</em> of the sample space
+<span class="math notranslate nohighlight">\({\cal S}\)</span> if they are disjoint events (<span class="math notranslate nohighlight">\(E_i\cap E_j=\emptyset\)</span>,
+<span class="math notranslate nohighlight">\(i\neq j\)</span>) with <span class="math notranslate nohighlight">\(\textnormal{Pr}(E_i)&gt;0\)</span>, <span class="math notranslate nohighlight">\(i=1,2,\ldots,n\)</span>, and
+<span class="math notranslate nohighlight">\(\displaystyle{\cup_{i=1}^n E_i}={\cal S}\)</span>.
+Figure <span class="xref std std-ref">fig:partition</span>{reference-type=”ref”
+reference=”fig:partition”} gives a diagram of a typical partition with
+an additional event <span class="math notranslate nohighlight">\(F\)</span>.</p>
+<p><img alt="Diagram of a partition  and an event" src="content/images/partition.svg" />{#fig:partition}</p>
+</section>
+<section id="theorem-1-1-law-of-total-probability">
+<h3>Theorem 1.1: Law of Total Probability<a class="headerlink" href="#theorem-1-1-law-of-total-probability" title="Link to this heading">#</a></h3>
+<p>[]{#theorem: law of total probability
+label=”theorem: law of total probability”}  <br />
+If <span class="math notranslate nohighlight">\(E_1,E_2,\ldots,E_n\)</span> are a <em>partition</em> of <span class="math notranslate nohighlight">\({\cal S}\)</span> and <span class="math notranslate nohighlight">\(F\)</span> is any
+event then</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Pr}(F)=\sum_{i=1}^n \text{Pr}(F|E_i)\text{Pr}(E_i).\]</div>
+</section>
+<section id="proof">
+<h3>Proof<a class="headerlink" href="#proof" title="Link to this heading">#</a></h3>
+<p>Theorem[[theorem: law of total probability]](#theorem: law of total probability){reference-type=”ref”
+reference=”theorem: law of total probability”} As <span class="math notranslate nohighlight">\(E_1,E_2,\ldots,E_n\)</span>
+are a <em>partition</em> of <span class="math notranslate nohighlight">\({\cal S}\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{Pr}(F)&amp;=\sum_{i=1}^n \text{Pr}(F\cap E_i) \\
+&amp;=\sum_{i=1}^n \text{Pr}(F|E_i)\text{Pr}(E_i).
+\end{aligned}\end{split}\]</div>
+</section>
+<section id="theorem-1-2-bayes-theorem">
+<h3>Theorem 1.2: Bayes Theorem<a class="headerlink" href="#theorem-1-2-bayes-theorem" title="Link to this heading">#</a></h3>
+<p>[]{#theorem: bayes label=”theorem: bayes”}  <br />
+If <span class="math notranslate nohighlight">\(E_1,E_2,\ldots,E_n\)</span> are a <em>partition</em> of <span class="math notranslate nohighlight">\({\cal S}\)</span> and <span class="math notranslate nohighlight">\(F\)</span> is any
+event with <span class="math notranslate nohighlight">\(\text{Pr}(F)&gt;0\)</span> then</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Pr}(E_i|F)=\frac{\text{Pr}(F|E_i)\text{Pr}(E_i)}{\sum_{j=1}^n \text{Pr}(F|E_j)\text{Pr}(E_j)},
+\quad\quad i=1,2,\ldots,n.\]</div>
+</section>
+<section id="proof-of-theorem-1-2">
+<h3>Proof of Theorem 1.2<a class="headerlink" href="#proof-of-theorem-1-2" title="Link to this heading">#</a></h3>
+<p>Using the definition of conditional probability, for <span class="math notranslate nohighlight">\(i=1,2,\ldots,n\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{Pr}(E_i|F)&amp;=\frac{\text{Pr}(E_i\cap F)}{\text{Pr}(F)} \\
+                &amp; \\
+&amp;=\frac{\text{Pr}(F|E_i)\text{Pr}(E_i)}{\text{Pr}(F)} \quad\text{again using the
+definition}\\ 
+            &amp; \\
+&amp;=\frac{\text{Pr}(F|E_i)\text{Pr}(E_i)}{\sum_{j=1}^n \text{Pr}(F|E_j)\text{Pr}(E_j)}
+\quad\text{using the Law of Total Probability}.
+\end{aligned}\end{split}\]</div>
+</section>
+<section id="example-1-2">
+<h3>Example 1.2<a class="headerlink" href="#example-1-2" title="Link to this heading">#</a></h3>
+<p><br />
+A laboratory blood test is 95% effective in detecting a certain disease
+when it is present. However, the test also yields a “false positive”
+result for 1% of healthy people tested. Also, 0.5% of the population
+actually have the disease.</p>
+<ul class="simple">
+<li><p>Calculate the probability that a person who tests positive actually
+has the disease.</p></li>
+<li><p>Find the probability that a person who tests negative does <em>not</em>
+have the disease.</p></li>
+</ul>
+</section>
+<section id="solution-to-example-1-2">
+<h3>Solution to Example 1.2<a class="headerlink" href="#solution-to-example-1-2" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(D=\text{person}\)</span> has the disease, <span class="math notranslate nohighlight">\(+ve=\)</span> test is positive and
+<span class="math notranslate nohighlight">\(-ve=\)</span> test is negative.</p>
+<p>From the question we have <span class="math notranslate nohighlight">\(\text{Pr}(+ve|D)=0.95\)</span>,
+<span class="math notranslate nohighlight">\(\text{Pr}(+ve|D^c)=0.01\)</span>, <span class="math notranslate nohighlight">\(\text{Pr}(D)=0.005\)</span> and
+<span class="math notranslate nohighlight">\(\text{Pr}(D^c)=0.995\)</span>. Also, <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(D^c\)</span> form a partition of <span class="math notranslate nohighlight">\({\cal     S}\)</span>. Therefore, by Bayes Theorem</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    \text{Pr}(D\,|\, +ve) &amp;=\frac{\text{Pr}(+ve|D)\text{Pr}(D)}{\text{Pr}(+ve|D)\text{Pr}(D)+\text{Pr}(+ve|D^c)\text{Pr}(D^c)} \\
+    &amp;=\frac{0.95\times 0.005}{0.95\times 0.005~+~0.01\times 0.995} \\ \\
+    &amp;\approx 0.323
+    
+\end{aligned}\end{split}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    \text{Pr}(D^c|-ve) &amp;=\frac{\text{Pr}(-ve|D^c)\text{Pr}(D^c)}{\text{Pr}(-ve|D^c)\text{Pr}(D^c)+\text{Pr}(-ve|D)\text{Pr}(D)} \\
+    &amp;=\frac{0.99\times 0.995}{0.99\times 0.995~+~0.05\times 0.005} \\ \\
+    &amp;\approx 0.9997.
+    
+\end{aligned}\end{split}\]</div>
+<p>Therefore, very few people who test negative will have
+the disease. However, a high proportion (67%) who test positive do not
+have the disease.</p>
+</section>
+<section id="example-1-3">
+<h3>Example 1.3<a class="headerlink" href="#example-1-3" title="Link to this heading">#</a></h3>
+<p><br />
+Suppose that your car suffers from two intermittent problems, one caused
+by a fault in the engine (<span class="math notranslate nohighlight">\(\theta_1\)</span>) and the other due to a fault in
+the gearbox (<span class="math notranslate nohighlight">\(\theta_2\)</span>). These occur with probabilities 0.4 and 0.6
+respectively. When examined your car exhibits one of the following
+symptoms</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+x_1:&amp;~\text{overheating only}, \\
+x_2:&amp;~\text{irregular traction only}, \\
+x_3:&amp;~\text{both symptoms}.
+\end{aligned}\end{split}\]</div>
+<p>Suppose it is known in the garage trade that these
+symptoms occur with probabilities that depend on the fault. The
+probabilities <span class="math notranslate nohighlight">\(\text{Pr}(x|\theta)\)</span> are given in
+Table <span class="xref std std-ref">tab:garagelik</span>{reference-type=”ref”
+reference=”tab:garagelik”}. Construct a diagnostic rule for these
+symptoms and determine the probability of misdiagnosis.</p>
+</section>
+<section id="solution-to-example-1-3">
+<h3>Solution to Example 1.3<a class="headerlink" href="#solution-to-example-1-3" title="Link to this heading">#</a></h3>
+<p>First we must calculate the posterior probabilities
+<span class="math notranslate nohighlight">\(\text{Pr}(\theta_1|x)\)</span> and <span class="math notranslate nohighlight">\(\text{Pr}(\theta_2|x)\)</span> for <span class="math notranslate nohighlight">\(x=x_1,x_2,x_3\)</span>.
+Since <span class="math notranslate nohighlight">\(\theta_1\)</span> and <span class="math notranslate nohighlight">\(\theta_2\)</span> form a partition, we can use Bayes
+Theorem as follows.</p>
+<p>We have</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    \text{Pr}(\theta_1|x_1)
+    &amp;=\frac{\text{Pr}(X=x_1|\theta_1)\text{Pr}(\theta_1)}
+    {\text{Pr}(X=x_1|\theta_1)\text{Pr}(\theta_1)+\text{Pr}(X=x_1|\theta_2)\text{Pr}(\theta_2)} \\
+    &amp;=\frac{0.1\times 0.4}{0.1\times 0.4+0.5\times 0.6} \\
+    &amp;=\frac{4}{34} \\
+    &amp;=0.118
+    
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    \text{Pr}(\theta_1|x_2)
+    &amp;=\frac{\text{Pr}(X=x_2|\theta_1)\text{Pr}(\theta_1)}
+    {\text{Pr}(X=x_2|\theta_1)\text{Pr}(\theta_1)+\text{Pr}(X=x_2|\theta_2)\text{Pr}(\theta_2)} \\
+    &amp;=\frac{0.4\times 0.4}{0.4\times 0.4+0.3\times 0.6} \\
+    &amp;=\frac{16}{34} \\
+    &amp;=0.471 \\ \\
+    \text{Pr}(\theta_1|x_3)
+    &amp;=\frac{\text{Pr}(X=x_3|\theta_1)\text{Pr}(\theta_1)}
+    {\text{Pr}(X=x_3|\theta_1)\text{Pr}(\theta_1)+\text{Pr}(X=x_3|\theta_2)\text{Pr}(\theta_2)} \\
+    &amp;=\frac{0.5\times 0.4}{0.5\times 0.4+0.2\times 0.6} \\
+    &amp;=\frac{20}{32} \\
+    &amp;=0.625
+    
+\end{aligned}\end{split}\]</div>
+<p>Also,
+<span class="math notranslate nohighlight">\(\text{Pr}(\theta_2|x_i)=1-\text{Pr}(\theta_1|x_i)\)</span>, <span class="math notranslate nohighlight">\(i=1,2,3\)</span> and so we
+obtain the posterior distributions <span class="math notranslate nohighlight">\(\text{Pr}(\theta|x)\)</span> given in
+Table <span class="xref std std-ref">tab:garagepost</span>{reference-type=”ref”
+reference=”tab:garagepost”}.</p>
+<p>This table is very informative. For example, it shows that if both
+symptoms (<span class="math notranslate nohighlight">\(x_3\)</span>) are observed, then the probability that the fault is in
+the engine (<span class="math notranslate nohighlight">\(\theta_1\)</span>) changes from 0.4 to 0.625. In terms of odds</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{Prior odds}&amp;:\frac{\text{Pr}(\theta_1)}{\text{Pr}(\theta_2)}
+=\frac{0.4}{0.6}=\frac{2}{3}\quad\text{or 3:2 in favour of }\theta_2 \\
+\text{Posterior odds}&amp;:\frac{\text{Pr}(\theta_1|x_3)}{\text{Pr}(\theta_2|x_3)}
+=\frac{0.625}{0.375}=
+\frac{5}{3}\quad\text{or 5:3 in favour of }\theta_1.
+\end{aligned}\end{split}\]</div>
+<p>We are now in a position to design our diagnostic rule. This is simply a
+rule which diagnoses a symptom (<span class="math notranslate nohighlight">\(x\)</span>) as being due to some particular
+fault (<span class="math notranslate nohighlight">\(\theta\)</span>). Consider first that we observe overheating
+only (<span class="math notranslate nohighlight">\(x_1\)</span>). The posterior probabilities are in favour of declaring the
+fault as in the gearbox (<span class="math notranslate nohighlight">\(\theta_2\)</span>) since
+<span class="math notranslate nohighlight">\(\text{Pr}(\theta_2|x_1)&gt;\text{Pr}(\theta_1|x_1)\)</span>. In the same way, we
+can determine the best (most likely) diagnosis having observed irregular
+traction only (<span class="math notranslate nohighlight">\(x_2\)</span>) and both symptoms (<span class="math notranslate nohighlight">\(x_3\)</span>), giving the diagnostic
+rule in Table <span class="xref std std-ref">tab:garagediag</span>{reference-type=”ref”
+reference=”tab:garagediag”}.</p>
+<p>If we were to carry out this diagnostic rule repeatedly then the
+probability of misdiagnosing a fault is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+        \text{Pr}(\text{Misdiagnosis}) &amp;=\text{Pr}(\theta_1,X=x_1)+Pr(\theta_1,X=x_2)+\text{Pr}(\theta_2,X=x_3) \\
+        &amp;=\text{Pr}(X=x_1|\theta_1)\text{Pr}(\theta_1)+\text{Pr}(X=x_2|\theta_1)\text{Pr}(\theta_1) +\text{Pr}(X=x_3|\theta_2)\text{Pr}(\theta_2) \\
+        &amp;=(0.1\times 0.4)+(0.4\times 0.4)+(0.2\times 0.6) \\
+        &amp;=0.32.
+        
+\end{aligned}\end{split}\]</div>
+<p>Therefore, in repeated use of this rule, around a third
+of the diagnoses will be wrong.</p>
+</section>
+<section id="example-1-4">
+<h3>Example 1.4<a class="headerlink" href="#example-1-4" title="Link to this heading">#</a></h3>
+<p><br />
+A student sits a multiple choice exam in which there are <span class="math notranslate nohighlight">\(m\)</span> alternative
+answers to each question. The student either knows the answer (with
+probability <span class="math notranslate nohighlight">\(\theta\)</span>) or guesses randomly (with probability <span class="math notranslate nohighlight">\(1-\theta\)</span>).
+What is the probability that the student actually knew the answer to a
+question they answered correctly? []{#ex:multiple label=”ex:multiple”}</p>
+</section>
+<section id="solution-to-example-1-4">
+<h3>Solution to Example 1.4<a class="headerlink" href="#solution-to-example-1-4" title="Link to this heading">#</a></h3>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+        C&amp;=\text{student answers question correctly} \\
+        K&amp;=\text{student knows answer}.
+        
+\end{aligned}\end{split}\]</div>
+<p>We require <span class="math notranslate nohighlight">\(Pr(K|C)\)</span>. From the question we have
+<span class="math notranslate nohighlight">\(Pr(K)=\theta\)</span>, <span class="math notranslate nohighlight">\(Pr(K^c)=1-\theta\)</span>, <span class="math notranslate nohighlight">\(Pr(C|K)=1\)</span> and
+<span class="math notranslate nohighlight">\(Pr(C|K^c)=\frac{1}{m}\)</span>. Also, <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(K^c\)</span> form a partition of
+<span class="math notranslate nohighlight">\({\cal S}\)</span>. Therefore, by Bayes Theorem</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+        Pr(K|C)&amp;=\frac{Pr(C|K)Pr(K)}{Pr(C|K)Pr(K)+Pr(C|K^c)Pr(K^c)} \\
+        &amp;=\frac{1\times\theta}{1\times\theta~+~\frac{1}{m}\times(1-\theta)} \\
+        &amp;=\frac{m\theta}{1+(m-1)\theta}.
+        
+\end{aligned}\end{split}\]</div>
+<p>Suppose that there are <span class="math notranslate nohighlight">\(m=5\)</span> alternative answers for each question. We
+can see the effect of observing a correct answer on our belief that the
+student actually knows the answer by calculating <span class="math notranslate nohighlight">\(\text{Pr}(K|C)\)</span> for
+various <span class="math notranslate nohighlight">\(\theta\)</span> – see Table <span class="xref std std-ref">tab:kc</span>{reference-type=”ref”
+reference=”tab:kc”}.</p>
+<p>The main problem with this solution is that, in order to use this table
+we must know the exact value of <span class="math notranslate nohighlight">\(\theta\)</span>: we have actually found an
+expression for <span class="math notranslate nohighlight">\(\text{Pr}(K|C,\theta)\)</span> and not for <span class="math notranslate nohighlight">\(\text{Pr}(K|C)\)</span>. If
+we know <span class="math notranslate nohighlight">\(\theta\)</span> fairly accurately – say it was between <span class="math notranslate nohighlight">\(0.49\)</span> and
+<span class="math notranslate nohighlight">\(0.51\)</span> – then, in practice, we can conclude that <span class="math notranslate nohighlight">\(\text{Pr}(K|C)\)</span> is
+around 0.83. However, if we are less certain about a correct value for
+<span class="math notranslate nohighlight">\(\theta\)</span> we might be able to express our uncertainty through a
+probability distribution for <span class="math notranslate nohighlight">\(\theta\)</span>. We will see more about this in
+the next Chapter.</p>
+</section>
+</section>
+<section id="likelihood">
+<h2>Likelihood<a class="headerlink" href="#likelihood" title="Link to this heading">#</a></h2>
+<p>Suppose that an experiment results in data <span class="math notranslate nohighlight">\(\underline{x}e\)</span> and we
+decide to model the data using a probability (density) function
+<span class="math notranslate nohighlight">\(f(\underline{x}|\theta)\)</span>. This p(d)f describes how likely different
+data <span class="math notranslate nohighlight">\(\underline{x}\)</span> are to occur given a value of the (unknown)
+parameter <span class="math notranslate nohighlight">\(\theta\)</span>. However, once we have observed the data,
+<span class="math notranslate nohighlight">\(f(\underline{x}|\theta)\)</span> tells us how likely different values of the
+parameters <span class="math notranslate nohighlight">\(\theta\)</span> are: it is then known as the <em>likelihood function</em>
+for <span class="math notranslate nohighlight">\(\theta\)</span>. In other courses you may have seen it written as
+<span class="math notranslate nohighlight">\(L(\theta|\underline{x})\)</span> or <span class="math notranslate nohighlight">\(L(\theta)\)</span> but, whatever the notation used
+for the likelihood function, it is simply the joint probability
+(density) function of the data, <span class="math notranslate nohighlight">\(f(\underline{x}|\theta)\)</span>, regarded as a
+function of <span class="math notranslate nohighlight">\(\theta\)</span> rather than of <span class="math notranslate nohighlight">\(\underline{x}\)</span>.</p>
+<p>The likelihood function can be simplified if we have further structure
+in the data. For example, we may have independent observations, in which
+case</p>
+<div class="math notranslate nohighlight">
+\[
+\label{eq:indep}
+f(\underline{x}|\theta)=\prod_{i=1}^n f_{X_i}(x_i|\theta),\]</div>
+<p>or
+independent and identically distributed observations (random sample), so
+that</p>
+<div class="math notranslate nohighlight">
+\[
+\label{eq:iid}
+f(\underline{x}|\theta)=\prod_{i=1}^n f_{X}(x_i|\theta).\]</div>
+<p>In this
+course, we will not consider models with correlated observations.
+Moreover, we will concentrate on how to make inferences from random
+samples using prior information. This will require extensive use of the
+<span class="xref std std-ref">eq:iid</span>{reference-type=”eqref” reference=”eq:iid”} form of
+the likelihood function.</p>
+<section id="example-1-5">
+<h3>Example 1.5<a class="headerlink" href="#example-1-5" title="Link to this heading">#</a></h3>
+<p>Suppose we have a random sample <span class="math notranslate nohighlight">\(\underline{x}e\)</span> of radioactive particle
+counts. A typical model for such data would be
+<span class="math notranslate nohighlight">\(X_i|\theta\sim \text{Poisson}(\theta)\)</span>, usually abbreviated
+<span class="math notranslate nohighlight">\(X_{i}|\theta\sim\text{Po}(\theta)\)</span>, (independent). Determine the
+likelihood function for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+</section>
+<section id="solution-to-example-1-5">
+<h3>Solution to Example 1.5<a class="headerlink" href="#solution-to-example-1-5" title="Link to this heading">#</a></h3>
+<p>Since the data is IID, we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+            f(\underline{x}|\theta) &amp;= \prod_{i=1}^n f_{X}(x_i|\theta) = \prod_{i=1}^n \frac{\theta^{x_i} e^{-\theta}}{x_i!} \\
+            &amp;= \frac{\theta^{\sum_{i=1}^n x_i} e^{-\theta n}}{\prod_{i=1}^n x_i!} = \frac{\theta^{n\bar{x}} e^{-n\theta}}{\prod_{i=1}^n x_i!}.
+        
+\end{aligned}\end{split}\]</div>
+<p>[]{#ex:poissonex label=”ex:poissonex”}</p>
+</section>
+<section id="example-1-6">
+<h3>Example 1.6<a class="headerlink" href="#example-1-6" title="Link to this heading">#</a></h3>
+<p><br />
+Suppose we have a random sample <span class="math notranslate nohighlight">\(\underline{x}e\)</span> of times between
+radioactive particle emissions. If the emissions occur randomly in time
+then a plausible model for such data would be
+<span class="math notranslate nohighlight">\(X_i|\theta\sim \text{Exponential}(\theta)\)</span>, usually abbreviated
+<span class="math notranslate nohighlight">\(X_{i}|\theta \sim \text{Exp}(\theta)\)</span>, (independent). Determine the
+likelihood function for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+</section>
+<section id="solution-to-example-1-6">
+<h3>Solution to Example 1.6<a class="headerlink" href="#solution-to-example-1-6" title="Link to this heading">#</a></h3>
+<p>Since the data is IID, we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+            f(\underline{x}|\theta) &amp;= \prod_{i=1}^n f_{X}(x_i) = \prod_{i=1}^n \theta e^{-\theta x_i} \\
+            &amp;= \theta^n e^{-\theta \sum_{i=1}^n x_i} = \theta^n e^{- n \theta \bar{x}}.
+        
+\end{aligned}\end{split}\]</div>
+</section>
+<section id="example-1-7">
+<h3>Example 1.7<a class="headerlink" href="#example-1-7" title="Link to this heading">#</a></h3>
+<p><br />
+Suppose we have a random sample <span class="math notranslate nohighlight">\(\underline{x}e\)</span> from a normal
+distribution: <span class="math notranslate nohighlight">\(X_i|\mu,\sigma\sim \mathcal{N}(\mu,\sigma^2)\)</span>,
+<span class="math notranslate nohighlight">\(i=1,2,\ldots,n\)</span> (independent). Determine the likelihood function
+for <span class="math notranslate nohighlight">\((\mu,\sigma)\)</span>.</p>
+</section>
+<section id="solution-to-example-1-7">
+<h3>Solution to Example 1.7<a class="headerlink" href="#solution-to-example-1-7" title="Link to this heading">#</a></h3>
+<p>The (joint) probability density function is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+        f(\underline{x}|\mu,\sigma)
+        &amp;=\prod_{i=1}^n \frac{1}{\sqrt{2\pi\sigma^2}}
+        \exp\left\{-\frac{(x_i-\mu)^2}{2\sigma^2}\right\} \\
+        &amp;=(2\pi)^{-n/2}\sigma^{-n}
+        \exp\left\{-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i-\mu)^2\right\} \\
+        &amp;=(2\pi)^{-n/2}\sigma^{-n}
+        \exp\left\{-\frac{1}{2\sigma^2}
+        \left(\sum x_i^2-2\mu\sum x_i+n\mu^2\right)\right\}.
+        
+\end{aligned}\end{split}\]</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MAS2903: Introduction to  Bayesian Methods</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chapter2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bayes Theorem for Distributions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-1-fisher-s-tea-lady-experiment-1-fishers-tea-lady-unnumbered">Experiment 1: Fisher’s tea lady {#experiment-1-fishers-tea-lady .unnumbered}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-2-music-expert-experiment-2-music-expert-unnumbered">Experiment 2: Music expert {#experiment-2-music-expert .unnumbered}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-3-the-drunk-experiment-3-the-drunk-unnumbered">Experiment 3: The Drunk {#experiment-3-the-drunk .unnumbered}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability">Probability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-interpretation-frequency-interpretation-unnumbered">Frequency interpretation {#frequency-interpretation .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-interpretation-classical-interpretation-unnumbered">Classical interpretation {#classical-interpretation .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subjective-interpretation-subjective-interpretation-unnumbered">Subjective interpretation {#subjective-interpretation .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-1">Example 1.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayes-theorem">Bayes Theorem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-1-1-definition">Definition 1.1: Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-1-2-definition">Definition 1.2: Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem-1-1-law-of-total-probability">Theorem 1.1: Law of Total Probability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof">Proof</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem-1-2-bayes-theorem">Theorem 1.2: Bayes Theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-theorem-1-2">Proof of Theorem 1.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-2">Example 1.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-1-2">Solution to Example 1.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-3">Example 1.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-1-3">Solution to Example 1.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-4">Example 1.4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-1-4">Solution to Example 1.4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#likelihood">Likelihood</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-5">Example 1.5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-1-5">Solution to Example 1.5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-6">Example 1.6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-1-6">Solution to Example 1.6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-7">Example 1.7</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-1-7">Solution to Example 1.7</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Matthew Fisher
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

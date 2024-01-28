@@ -1,0 +1,1124 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Bayesian inference &#8212; MAS2903 - Notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/chapter4';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Priors" href="chapter3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="MAS2903 - Notes - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="MAS2903 - Notes - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    MAS2903: Introduction to  Bayesian Methods
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2.html">Bayes Theorem for Distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter3.html">Priors</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Bayesian inference</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/chapter4.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/chapter4.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Bayesian inference</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation">Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-estimates-point-estimates-unnumbered">Point estimates {#point-estimates .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interval-estimates">Interval estimates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-confidence-intervals-interpretation-of-confidence-intervals-unnumbered">Interpretation of confidence intervals {#interpretation-of-confidence-intervals .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-1">Example 4.1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-1">Solution to Example 4.1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-2">Example 4.2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-2">Solution to Example 4.2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-3">Example 4.3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-3">Solution to Example 4.3</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-of-hdis-for-unimodal-distributions-computation-of-hdis-for-unimodal-distributions-unnumbered">Computation of HDIs for unimodal distributions {#computation-of-hdis-for-unimodal-distributions .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-hdi-reference-type-ref-reference-ex-hdi-continued-example-exhdi-continued-unnumbered">Example <span class="xref std std-ref">ex:hdi</span>{reference-type=”ref” reference=”ex:hdi”} (continued) {#example-exhdi-continued .unnumbered}</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction">Prediction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-4">Example 4.4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-4">Solution to Example 4.4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-4-1-definition">Definition 4.1: Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-5">Example 4.5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-5">Solution to Example 4.5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-distribution-predictive-distribution-unnumbered">Predictive distribution {#predictive-distribution .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-4-2-inverse-beta-distribution">Definition 4.2: Inverse-Beta Distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-6">Example 4.6</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-6">Solution to Example 4.6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="bayesian-inference">
+<h1>Bayesian inference<a class="headerlink" href="#bayesian-inference" title="Link to this heading">#</a></h1>
+<p>The posterior distribution <span class="math notranslate nohighlight">\(\pi(\theta|\underline{x})\)</span> summarises all
+our information about <span class="math notranslate nohighlight">\(\theta\)</span> to date. However, sometimes it is helpful
+to reduce this distribution to a few key summary measures.</p>
+<section id="estimation">
+<h2>Estimation<a class="headerlink" href="#estimation" title="Link to this heading">#</a></h2>
+<section id="point-estimates-point-estimates-unnumbered">
+<h3>Point estimates {#point-estimates .unnumbered}<a class="headerlink" href="#point-estimates-point-estimates-unnumbered" title="Link to this heading">#</a></h3>
+<p>There are many useful summaries for a typical value of a random variable
+with a particular distribution; for example, the mean, mode and median.
+The mode is used more often as a summary than is the case in frequentist
+statistics.</p>
+</section>
+<section id="interval-estimates">
+<span id="id1"></span><h3>Interval estimates<a class="headerlink" href="#interval-estimates" title="Link to this heading">#</a></h3>
+<p><a class="reference internal" href="#interval-estimates">Section</a></p>
+<p>A more useful summary of the posterior distribution is one which also
+reflects its variation. For example, a <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> <em>Bayesian
+credible interval</em> for <span class="math notranslate nohighlight">\(\theta\)</span> is any region <span class="math notranslate nohighlight">\(C_\alpha\)</span> that satisfies
+<span class="math notranslate nohighlight">\(\text{Pr}(\theta\in C_\alpha|\underline{x})=1-\alpha\)</span>. If <span class="math notranslate nohighlight">\(\theta\)</span> is a
+continuous quantity with posterior probability density function
+<span class="math notranslate nohighlight">\(\pi(\theta|\underline{x})\)</span> then</p>
+<div class="math notranslate nohighlight">
+\[\int_{C_\alpha} \pi(\theta|\underline{x})\,d\theta = 1-\alpha.\]</div>
+<p>The
+usual correction is made for discrete <span class="math notranslate nohighlight">\(\theta\)</span>, that is, we take the
+largest region <span class="math notranslate nohighlight">\(C_\alpha\)</span> such that <span class="math notranslate nohighlight">\(\text{Pr}(\theta\in C_\alpha|\underline{x})\leq 1-\alpha\)</span>.</p>
+<p>Clearly these intervals are not unique, since there will be many
+intervals with the correct probability coverage for a given posterior
+distribution.</p>
+<p>A <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> <em>highest density interval</em> (HDI) for <span class="math notranslate nohighlight">\(\theta\)</span> is the
+region <span class="math notranslate nohighlight">\(C_\alpha=\{\theta:~\pi(\theta|\underline{x})\geq\gamma\}\)</span> where
+<span class="math notranslate nohighlight">\(\gamma\)</span> is chosen so that
+<span class="math notranslate nohighlight">\(\text{Pr}(\theta\in C_\alpha|\underline{x})=1-\alpha\)</span>. This region is
+sometimes called a <em>most plausible Bayesian credible interval</em>. If the
+posterior distribution has many modes then it is possible that the HDI
+will be the union of several disjoint regions; for example, the HDI
+could take the form <span class="math notranslate nohighlight">\(C_\alpha=(a,b)\cup(c,d)\cup(e,f)\)</span>, where
+<span class="math notranslate nohighlight">\(a&lt;b&lt;c&lt;d&lt;e&lt;f\)</span>.</p>
+</section>
+<section id="interpretation-of-confidence-intervals-interpretation-of-confidence-intervals-unnumbered">
+<h3>Interpretation of confidence intervals {#interpretation-of-confidence-intervals .unnumbered}<a class="headerlink" href="#interpretation-of-confidence-intervals-interpretation-of-confidence-intervals-unnumbered" title="Link to this heading">#</a></h3>
+<p>Suppose <span class="math notranslate nohighlight">\(C_B\)</span> is a 95% Bayesian credible interval for <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(C_F\)</span>
+is a 95% frequentist confidence interval for <span class="math notranslate nohighlight">\(\theta\)</span>. These intervals
+do not have the same interpretation:</p>
+<ul class="simple">
+<li><p>The probability that <span class="math notranslate nohighlight">\(C_B\)</span> contains <span class="math notranslate nohighlight">\(\theta\)</span> is 0.95.</p></li>
+<li><p>The probability that <span class="math notranslate nohighlight">\(C_F\)</span> contains <span class="math notranslate nohighlight">\(\theta\)</span> is either 0 or 1 —
+since <span class="math notranslate nohighlight">\(\theta\)</span> does not have a (non-degenerate) probability
+distribution.</p></li>
+<li><p>The interval <span class="math notranslate nohighlight">\(C_F\)</span> covers the true value <span class="math notranslate nohighlight">\(\theta\)</span> on 95% of
+occasions — in repeated applications of the formula.</p></li>
+</ul>
+<section id="example-4-1">
+<h4>Example 4.1<a class="headerlink" href="#example-4-1" title="Link to this heading">#</a></h4>
+<p><br />
+Suppose that the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is a
+<span class="math notranslate nohighlight">\(\text{Beta}(1,24)\)</span> distribution, with probability density function</p>
+<div class="math notranslate nohighlight">
+\[\pi(\theta|\underline{x})=24\,(1-\theta)^{23}, \quad 0&lt;\theta&lt;1.\]</div>
+<p>A
+plot of this distribution is given in Figure
+<span class="xref std std-ref">fig:ci1</span>{reference-type=”ref” reference=”fig:ci1”}.</p>
+<p><img alt="Plot of the  posterior densityfunction" src="../_images/betaposterior.svg" />{#fig:ci1}</p>
+<p>Determine the <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> HDI for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+</section>
+<section id="solution-to-example-4-1">
+<h4>Solution to Example 4.1<a class="headerlink" href="#solution-to-example-4-1" title="Link to this heading">#</a></h4>
+<p>The HDI must include those values of <span class="math notranslate nohighlight">\(\theta\)</span> with highest posterior
+density and so must take the form <span class="math notranslate nohighlight">\(C_\alpha=(0,b)\)</span>. The end-point <span class="math notranslate nohighlight">\(b\)</span>
+must satisfy</p>
+<div class="math notranslate nohighlight">
+\[\int_0^b 24\,(1-\theta)^{23}\,d\theta = 1-\alpha.\]</div>
+<p>Now</p>
+<div class="math notranslate nohighlight">
+\[\int_0^b 24\,(1-\theta)^{23}\,d\theta 
+    = \left[-(1-\theta)^{24}\right]^b_0 = 1-(1-b)^{24}.\]</div>
+<p>Hence</p>
+<div class="math notranslate nohighlight">
+\[1-(1-b)^{24}=1-\alpha \quad\Longrightarrow \quad 1-b=\alpha^{1/24}
+    \quad\Longrightarrow \quad b=1-\alpha^{1/24}.\]</div>
+<p>Therefore, a
+<span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> HDI for <span class="math notranslate nohighlight">\(\theta\)</span> is <span class="math notranslate nohighlight">\((0,1-\alpha^{1/24})\)</span>.</p>
+</section>
+<section id="example-4-2">
+<h4>Example 4.2<a class="headerlink" href="#example-4-2" title="Link to this heading">#</a></h4>
+<p><br />
+Suppose we have a random sample <span class="math notranslate nohighlight">\(\underline{x}e\)</span> from a
+<span class="math notranslate nohighlight">\(\mathcal{N}(\mu,1/\tau)\)</span> distribution (where <span class="math notranslate nohighlight">\(\tau\)</span> is known). We have
+seen that, assuming vague prior knowledge, the posterior distribution is
+<span class="math notranslate nohighlight">\(\mu|\underline{x}\sim \mathcal{N}(\bar x,1/(n\tau))\)</span>. Determine the <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> HDI
+for <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+</section>
+<section id="solution-to-example-4-2">
+<h4>Solution to Example 4.2<a class="headerlink" href="#solution-to-example-4-2" title="Link to this heading">#</a></h4>
+<p>This distribution has a symmetric bell shape and so the HDI takes the
+form <span class="math notranslate nohighlight">\(C_\alpha=(a,b)\)</span> with end-points</p>
+<div class="math notranslate nohighlight">
+\[a=\bar x - \frac{z_{\alpha/2}}{\sqrt{n\tau}}
+    \quad\quad\text{and}\quad\quad
+    b=\bar x + \frac{z_{\alpha/2}}{\sqrt{n\tau}},\]</div>
+<p>where <span class="math notranslate nohighlight">\(z_\alpha\)</span> is
+the upper <span class="math notranslate nohighlight">\(\alpha\)</span>-quantile of the <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span> distribution.
+Therefore, the 95% HDI for <span class="math notranslate nohighlight">\(\mu\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\left(\bar x - \frac{1.96}{\sqrt{n\tau}},\,
+    \bar x + \frac{1.96}{\sqrt{n\tau}}\right).\]</div>
+<p>Note that this interval
+is numerically identical to the 95% frequentist confidence interval for
+the (population) mean of a normal random sample with known variance.
+However, the interpretation is very different.</p>
+</section>
+<section id="example-4-3">
+<h4>Example 4.3<a class="headerlink" href="#example-4-3" title="Link to this heading">#</a></h4>
+<p><br />
+Suppose that the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is a []{#ex:hdi
+label=”ex:hdi”} <span class="math notranslate nohighlight">\(\text{Beta}(2,23)\)</span> distribution, with probability
+density function</p>
+<div class="math notranslate nohighlight">
+\[\pi(\theta|\underline{x})=552\,\theta(1-\theta)^{22}, \quad 0&lt;\theta&lt;1.\]</div>
+<p>A plot of this distribution is given in Figure
+<span class="xref std std-ref">fig:ci2</span>{reference-type=”ref” reference=”fig:ci2”}.</p>
+<p><img alt="Plot of the  posterior densityfunction" src="../_images/betaposterior2.svg" />{#fig:ci2}</p>
+<p>Determine the <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> HDI for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+</section>
+<section id="solution-to-example-4-3">
+<h4>Solution to Example 4.3<a class="headerlink" href="#solution-to-example-4-3" title="Link to this heading">#</a></h4>
+<p>Since the posterior density is unimodal, we seek <span class="math notranslate nohighlight">\(0 &lt; a &lt; b &lt; 1\)</span> such
+that</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Pr}(\theta \in (a,b)|\underline{x}) = 1 - \alpha\]</div>
+<p>and
+<span class="math notranslate nohighlight">\(\pi(a|\underline{x}) = \pi(b|\underline{x})\)</span>.</p>
+<p>Letting <span class="math notranslate nohighlight">\(F(a|\underline{x}) = \text{Pr}(\theta &lt; a|\underline{x})\)</span>
+denote the posterior CDF, this is equivalent to seeking <span class="math notranslate nohighlight">\(0&lt;a&lt;b&lt;1\)</span> such
+that</p>
+<div class="math notranslate nohighlight">
+\[
+F(b|\underline{x}) - F(a|\underline{x}) = 1 - \alpha\]</div>
+<p>and
+<span class="math notranslate nohighlight">\(\pi(a|\underline{x}) = \pi(b|\underline{x})\)</span>.</p>
+</section>
+</section>
+<section id="computation-of-hdis-for-unimodal-distributions-computation-of-hdis-for-unimodal-distributions-unnumbered">
+<h3>Computation of HDIs for unimodal distributions {#computation-of-hdis-for-unimodal-distributions .unnumbered}<a class="headerlink" href="#computation-of-hdis-for-unimodal-distributions-computation-of-hdis-for-unimodal-distributions-unnumbered" title="Link to this heading">#</a></h3>
+<p>Suppose that we require the HDI (<span class="math notranslate nohighlight">\(a,b\)</span>) for a unimodal distribution with
+density <span class="math notranslate nohighlight">\(f(\cdot)\)</span> and distribution function <span class="math notranslate nohighlight">\(F(\cdot)\)</span>. We have seen
+that if one of the end-points is known (because of the shape of the
+distribution) or the distribution is symmetric then the solution is in
+terms of the distribution’s percentage points. When this is not the
+case, the problem requires a numerical scheme to find <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>
+satisfying</p>
+<div class="math notranslate nohighlight">
+\[
+F(b)-F(a)=1-\alpha \quad\quad\text{and}\quad\quad f(a)=f(b).\]</div>
+<p>The
+solution can be found by noticing that it also minimizes the function</p>
+<div class="math notranslate nohighlight">
+\[
+g(a,b)=\bigl\{F(b)-F(a)-(1-\alpha)\bigr\}^2+k\bigl\{f(b)-f(a)\bigr\}^2,\]</div>
+<p>where <span class="math notranslate nohighlight">\(k&gt;0\)</span> is a tuning parameter that tries to ensure that both terms
+are zeroed. Therefore, we can used the <code class="docutils literal notranslate"><span class="pre">R</span></code> optimizer function <code class="docutils literal notranslate"><span class="pre">optim</span></code> to
+determine <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+</section>
+<section id="example-ex-hdi-reference-type-ref-reference-ex-hdi-continued-example-exhdi-continued-unnumbered">
+<h3>Example <span class="xref std std-ref">ex:hdi</span>{reference-type=”ref” reference=”ex:hdi”} (continued) {#example-exhdi-continued .unnumbered}<a class="headerlink" href="#example-ex-hdi-reference-type-ref-reference-ex-hdi-continued-example-exhdi-continued-unnumbered" title="Link to this heading">#</a></h3>
+<p>Suppose we need the 95% HDI for <span class="math notranslate nohighlight">\(\theta\)</span> when
+<span class="math notranslate nohighlight">\(\theta|\underline{x}\sim \text{Beta}(2,23)\)</span>. One slight complication
+with using the above method to determine the HDI <span class="math notranslate nohighlight">\((a,b)\)</span> is that both
+<span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are restricted to the unit interval. However, the <code class="docutils literal notranslate"><span class="pre">R</span></code>
+function <code class="docutils literal notranslate"><span class="pre">optim</span></code> has options for dealing with such cases. It also needs
+initial guesses at the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. Here we base these on the
+values of the 95% equi-tailed Bayesian credible interval. We also take
+<span class="math notranslate nohighlight">\(k=0.0001\)</span> to balance the conditions to be zeroed.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">R</span></code> code to determine <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">b</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">g1</span> <span class="o">=</span> <span class="p">(</span><span class="n">pbeta</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">23</span><span class="p">)</span> <span class="o">-</span> <span class="n">pbeta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">23</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.95</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span>
+    <span class="n">g2</span> <span class="o">=</span> <span class="mf">0.0001</span> <span class="o">*</span> <span class="p">(</span><span class="n">dbeta</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">23</span><span class="p">)</span> <span class="o">-</span> <span class="n">dbeta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">23</span><span class="p">))</span><span class="o">^</span><span class="mi">2</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">g1</span> <span class="o">+</span> <span class="n">g2</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">initiala</span><span class="o">=</span><span class="n">qbeta</span><span class="p">(</span><span class="mf">0.025</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">23</span><span class="p">)</span>
+<span class="n">initialb</span><span class="o">=</span><span class="n">qbeta</span><span class="p">(</span><span class="mf">0.975</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">23</span><span class="p">)</span>
+<span class="n">res</span><span class="o">=</span><span class="n">optim</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="n">initiala</span><span class="p">,</span><span class="n">initialb</span><span class="p">),</span><span class="n">g</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;L-BFGS-B&quot;</span><span class="p">,</span><span class="n">lower</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">a</span><span class="o">=</span><span class="n">res</span><span class="err">$</span><span class="n">par</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="n">b</span><span class="o">=</span><span class="n">res</span><span class="err">$</span><span class="n">par</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>and gives <span class="math notranslate nohighlight">\(a=0.002211733\)</span> and <span class="math notranslate nohighlight">\(b=0.1840109\)</span>, with <span class="math notranslate nohighlight">\(F(b)-F(a)=0.9500041\)</span>
+and <span class="math notranslate nohighlight">\(f(b)-f(a)=-0.004484121\)</span>. Thus the 95% HDI is
+<span class="math notranslate nohighlight">\((0.002211733,0.1840109)\)</span>.</p>
+</section>
+</section>
+<section id="prediction">
+<h2>Prediction<a class="headerlink" href="#prediction" title="Link to this heading">#</a></h2>
+<p>Much of statistical inference (both Frequentist and Bayesian) is aimed
+towards making statements about a parameter <span class="math notranslate nohighlight">\(\theta\)</span>. Often the
+inferences are used as a yardstick for similar future experiments. For
+example, we may want to predict the outcome when the experiment is
+performed again.</p>
+<p>Clearly there will be uncertainty about the future outcome of an
+experiment. Suppose this future outcome <span class="math notranslate nohighlight">\(Y\)</span> is described by a
+probability (density) function <span class="math notranslate nohighlight">\(f(y|\theta)\)</span>. There are several ways we
+could make inferences about what values of <span class="math notranslate nohighlight">\(Y\)</span> are likely. For example,
+if we have an estimate <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> of <span class="math notranslate nohighlight">\(\theta\)</span> we might base our
+inferences on <span class="math notranslate nohighlight">\(f(y|\theta=\hat{\theta})\)</span>. Obviously this is not the best
+we can do, as such inferences ignore the fact that it is very unlikely
+that <span class="math notranslate nohighlight">\(\theta=\hat{\theta}\)</span>.</p>
+<p>Implicit in the Bayesian framework is the concept of the <em>predictive
+distribution</em>. This distribution describes how likely are different
+outcomes of a future experiment. The predictive probability (density)
+function is calculated as</p>
+<div class="math notranslate nohighlight">
+\[
+f(y|\underline{x})=\int_\Theta
+f(y|\theta)\,\pi(\theta|\underline{x})\,d\theta\]</div>
+<p>when <span class="math notranslate nohighlight">\(\theta\)</span> is a
+continuous quantity. From this equation, we can see that the predictive
+distribution is formed by weighting the possible values of <span class="math notranslate nohighlight">\(\theta\)</span> in
+the future experiment <span class="math notranslate nohighlight">\(f(y|\theta)\)</span> by how likely we believe they are to
+occur <span class="math notranslate nohighlight">\(\pi(\theta|\underline{x})\)</span>.</p>
+<p>If the true value of <span class="math notranslate nohighlight">\(\theta\)</span> were known, say <span class="math notranslate nohighlight">\(\theta_0\)</span>, then any
+prediction can do no better than one based on <span class="math notranslate nohighlight">\(f(y|\theta=\theta_0)\)</span>.
+However, as (generally) <span class="math notranslate nohighlight">\(\theta\)</span> is unknown, the predictive distribution
+is used as the next best alternative.</p>
+<p>We can use the predictive distribution to provide a useful range of
+plausible values for the outcome of a future experiment. This
+<em>prediction interval</em> is similar to a HDI interval. A <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span>
+<em>prediction interval</em> for <span class="math notranslate nohighlight">\(Y\)</span> is the region
+<span class="math notranslate nohighlight">\(C_\alpha=\{y:~f(y|\underline{x})\geq\gamma\}\)</span> where <span class="math notranslate nohighlight">\(\gamma\)</span> is chosen
+so that <span class="math notranslate nohighlight">\(\text{Pr}(Y\in C_\alpha|\underline{x})=1-\alpha\)</span>.</p>
+<section id="example-4-4">
+<h3>Example 4.4<a class="headerlink" href="#example-4-4" title="Link to this heading">#</a></h3>
+<p><br />
+Suppose that <span class="math notranslate nohighlight">\(X\)</span> is the number of expensive goods sold in a shop over 24
+days. If <span class="math notranslate nohighlight">\(\theta\)</span> is the expected number of sales per day then it may be
+plausible that <span class="math notranslate nohighlight">\(X|\theta\sim Po(24\,\theta)\)</span>. Also, suppose our prior
+distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is as given in
+Table <span class="xref std std-ref">tab:predprior</span>{reference-type=”ref”
+reference=”tab:predprior”}.</p>
+<p>Clearly, we believe that the most likely value of <span class="math notranslate nohighlight">\(\theta\)</span> is 1/4,
+indicating that we would expect around 6 expensive goods to be sold in
+any 24 day period. Suppose now that we observe that <span class="math notranslate nohighlight">\(x=10\)</span> expensive
+goods were sold in the last 24 days. This will impact our beliefs about
+<span class="math notranslate nohighlight">\(\theta\)</span>. We can calculate the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> as
+follows. The likelihood term is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{Pr}(X=10|\theta)
+=\frac{(24\theta)^{10} e^{-24\theta}}{10!} 
+&amp;=\begin{cases} 0.1048 &amp; \text{if }\theta=1/2 \\
+                 0.0413 &amp; \text{if }\theta=1/4 \\
+                 0.0008 &amp; \text{if }\theta=1/8\\
+   \end{cases}
+\end{aligned}\end{split}\]</div>
+<p>and so, using Bayes Theorem</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\pi(\theta=1/2|x=10)&amp;=\frac{\text{Pr}(X=10|\theta=1/2)\pi(\theta=1/2)}
+{[\text{Pr}(X=10|\theta=1/2)\pi(\theta=1/2)+\text{Pr}(X=10|\theta=1/4)\pi(\theta=1/4)} +\text{Pr}(X=10|\theta=1/8)\pi(\theta=1/8)] \\
+&amp; \\
+&amp;=\frac{0.1048\times 0.2}{0.1048\times 0.2+0.0413\times
+0.5+0.0008\times 0.3} \\ \\
+&amp;=0.501 \\ \\
+\pi(\theta=1/4|x=10)&amp;=\cdots=0.493 \\
+\pi(\theta=1/8|x=10)&amp;=\cdots=0.006.
+\end{aligned}\end{split}\]</div>
+<p>Thus, the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is as
+shown in Table <span class="xref std std-ref">tab:predpost</span>{reference-type=”ref”
+reference=”tab:predpost”}, with most likely value of <span class="math notranslate nohighlight">\(\theta\)</span> now being
+1/2, and standard deviation <span class="math notranslate nohighlight">\(\textnormal{SD}(\theta|x=10)=0.126\)</span>.</p>
+<p>Suppose now we want to predict the number of sales <span class="math notranslate nohighlight">\(Y\)</span> in the next 24
+days. If there have been no changes in the sales process (no special
+advertising campaigns etc) then we can take <span class="math notranslate nohighlight">\(Y|\theta\sim \text{Poisson}(24\,\theta)\)</span>. Determine the predictive probability
+function for <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+</section>
+<section id="solution-to-example-4-4">
+<h3>Solution to Example 4.4<a class="headerlink" href="#solution-to-example-4-4" title="Link to this heading">#</a></h3>
+<p>As <span class="math notranslate nohighlight">\(\theta\)</span> is discrete, the predictive probability function for <span class="math notranslate nohighlight">\(Y\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+        f(y&amp;|x=10)\\
+        &amp;=\sum_{\theta=\frac{1}{2},\frac{1}{4},\frac{1}{8}} 
+        f(y|\theta)\,\pi(\theta|x=10) \\
+        &amp;=\left(0.501\times\frac{12^ye^{-12}}{y!}\right) +
+        \left(0.493\times\frac{6^ye^{-6}}{y!}\right)+
+        \left(0.006\times\frac{3^ye^{-3}}{y!}\right) \\
+        &amp;=\frac{0.501\times 12^ye^{-12}+0.493\times 6^ye^{-6}+0.006\times 3^ye^{-3}}
+        {y!}
+        
+\end{aligned}\end{split}\]</div>
+<p>For example</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+        \text{Pr}(Y=10|x=10)&amp;=
+        \frac{0.501\times 12^{10}e^{-12}+0.493\times 6^{10}e^{-6}+
+        0.006\times 3^{10}e^{-3}}{10!}\\
+        &amp;=0.073.
+        
+\end{aligned}\end{split}\]</div>
+<p>This probability can be compared with a more naive predictive
+probability calculated assuming that <span class="math notranslate nohighlight">\(\theta=\hat{\theta}\)</span>, the
+likelihood mode. Here <span class="math notranslate nohighlight">\(\hat{\theta}=1/2\)</span> and so
+<span class="math notranslate nohighlight">\(Y|\theta=\hat{\theta}\sim Po(24\hat{\theta})\equiv Po(12)\)</span>, whence</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Pr}(Y=10|\theta=\hat{\theta})=\frac{12^{10} e^{-12}}{10!}=0.1048.\]</div>
+<p>In the same manner, we can calculate the entire predictive distribution
+and naive predictive distribution; see
+Table <span class="xref std std-ref">tab:predsimple</span>{reference-type=”ref”
+reference=”tab:predsimple”}.</p>
+<p>Notice that the correct predictive probability distribution has more
+probability out in the tails of its distribution, that is, the
+probabilities of 0, 1, 2, <span class="math notranslate nohighlight">\(\ldots\)</span> are larger than their “naive”
+equivalents. This is a common occurrence. It is due to ignoring the
+uncertainty about the parameter estimate. Essentially, the naive
+predictive distribution is a predictive distribution which, instead of
+using the correct posterior distribution, uses the degenerate posterior
+distribution</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\pi^*(\theta|x=10)=\begin{cases} 1 &amp; \text{if } \theta=1/2 \\
+                                 0 &amp; \text{otherwise}, \\
+              \end{cases}\end{split}\]</div>
+<p>a distribution with standard deviation
+<span class="math notranslate nohighlight">\(\textnormal{SD}_{\pi^*}(\theta|x=10)=0\)</span>. The correct posterior standard
+deviation of <span class="math notranslate nohighlight">\(\theta\)</span> is <span class="math notranslate nohighlight">\(\textnormal{SD}_\pi(\theta|x=10)=0.126\)</span>.
+Therefore, the predictive distribution using the naive posterior <span class="math notranslate nohighlight">\(\pi^*\)</span>
+is, loosely speaking, too confident that it “knows” the value of
+<span class="math notranslate nohighlight">\(\theta\)</span> and so produces a predictive distribution with too small a
+standard deviation:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\textnormal{SD}(Y|x=10)=
+\begin{cases} 4.26  &amp; \text{using the correct }\pi(\theta|x=10) \\
+              3.46  &amp; \text{using the naive }\pi^*(\theta|x=10). \\
+         \end{cases}\end{split}\]</div>
+<p>These standard deviations can be calculated from
+Table <span class="xref std std-ref">tab:predsimple</span>{reference-type=”ref”
+reference=”tab:predsimple”}.</p>
+<p>We can also use the above table of predictive probabilities to determine
+a prediction interval for <span class="math notranslate nohighlight">\(Y\)</span>. Using the correct predictive
+distribution, and recalling the highest density feature of prediction
+intervals, we obtain <span class="math notranslate nohighlight">\(\text{Pr}(2\leq Y\leq 17|x=10)=0.959\)</span>. The
+corresponding naive calculation is <span class="math notranslate nohighlight">\(\text{Pr}(6\leq Y\leq 19|\theta=\hat{\theta})=0.958\)</span>. Hence the correct (approximate) 96%
+prediction interval for <span class="math notranslate nohighlight">\(Y\)</span> is <span class="math notranslate nohighlight">\(\{2,3,\ldots,17\}\)</span>. The naive version,
+and hence narrower interval, is <span class="math notranslate nohighlight">\(\{6,7,\ldots,19\}\)</span>.</p>
+</section>
+<section id="definition-4-1-definition">
+<h3>Definition 4.1: Definition<a class="headerlink" href="#definition-4-1-definition" title="Link to this heading">#</a></h3>
+<p><br />
+The random variable <span class="math notranslate nohighlight">\(Y\)</span> follows a Beta-binomial <span class="math notranslate nohighlight">\(\text{BetaBin}(n,a,b)\)</span>
+distribution (<span class="math notranslate nohighlight">\(n\)</span> positive integer, <span class="math notranslate nohighlight">\(a&gt;0\)</span>, <span class="math notranslate nohighlight">\(b&gt;0\)</span>) if it has probability
+function</p>
+<div class="math notranslate nohighlight">
+\[
+f(y|n,a,b)=\binom{n}{y}\frac{\mathrm{B}(y+a,b+n-y)}{\mathrm{B}(a,b)}, \quad\quad
+y=0,1,\ldots,n,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathrm{B}(a,b)\)</span> is the beta function defined
+in <span class="xref std std-ref">eq:betafn</span>{reference-type=”eqref”
+reference=”eq:betafn”}. It can be shown that</p>
+<div class="math notranslate nohighlight">
+\[
+\text{E}[Y] =\frac{na}{a+b}\quad\quad\text{and}\quad\quad
+\text{Var}[Y]=\frac{nab(a+b+n)}{(a+b)^2(a+b+1)}.\]</div>
+</section>
+<section id="example-4-5">
+<h3>Example 4.5<a class="headerlink" href="#example-4-5" title="Link to this heading">#</a></h3>
+<p><br />
+Suppose that <span class="math notranslate nohighlight">\(X\)</span> is the number of defective items in a sample of size 5.
+If the items are defective independently of one another and they each
+have the same probability <span class="math notranslate nohighlight">\(\theta\)</span> of being defective then
+<span class="math notranslate nohighlight">\(X|\theta\sim \text{Bin}(5,\theta)\)</span>. Suppose we believe that defective
+items are quite unlikely and so take a <span class="math notranslate nohighlight">\(\text{Beta}(1,19)\)</span> prior
+distribution with mean and standard deviation</p>
+<div class="math notranslate nohighlight">
+\[
+\text{E}[\theta]=0.05\quad\quad\text{and}\quad\quad \textnormal{SD}(\theta)=0.048.\]</div>
+<p>Suppose we take a sample of size 5 and observe <span class="math notranslate nohighlight">\(x=1\)</span> defective item. In
+this case, the likelihood mode is <span class="math notranslate nohighlight">\(\hat{\theta}=1/5=0.2\)</span>, higher than
+the prior mean. We have seen previously that, in such cases, the
+posterior distribution is a <span class="math notranslate nohighlight">\(\text{Beta}\)</span> distribution whose first and
+second parameters are those of the prior distribution incremented by the
+number of success and the number of failures respectively. Thus, the
+posterior distribution is a <span class="math notranslate nohighlight">\(\text{Beta}(2,23)\)</span> distribution, with mean
+and standard deviation</p>
+<div class="math notranslate nohighlight">
+\[
+\text{E}[\theta|x=1]=0.08\quad\quad\text{and}\quad\quad \textnormal{SD}(\theta|x=1)=0.053.\]</div>
+<p>The posterior mean is larger than the prior mean and the standard
+deviation has also increased (slightly).</p>
+<p>If we observe another sample of 5 items, what is the predictive
+probability distribution of the number found to be defective?</p>
+</section>
+<section id="solution-to-example-4-5">
+<h3>Solution to Example 4.5<a class="headerlink" href="#solution-to-example-4-5" title="Link to this heading">#</a></h3>
+<p>Suppose the number of defective items in this future sample is <span class="math notranslate nohighlight">\(Y\)</span>, with
+<span class="math notranslate nohighlight">\(Y|\theta\sim \text{Bin}(5,\theta)\)</span>. The predictive probability function
+of <span class="math notranslate nohighlight">\(Y\)</span> is, for <span class="math notranslate nohighlight">\(y=0,1,2,\ldots,5\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    f(y|x=1)
+    &amp;=\int_\Theta f(y|\theta)\,\pi(\theta|x=1)\,d\theta \\
+    &amp;=\int_0^1 \binom{5}{y}\theta^y(1-\theta)^{5-y}
+    \times \frac{\theta(1-\theta)^{22}}{\mathrm{B}(2,23)}\,d\theta \\
+    &amp;=\binom{5}{y}\frac{1}{\mathrm{B}(2,23)}
+    \int_0^1 \theta^{y+1}(1-\theta)^{27-y}\,d\theta \\
+    &amp;=\binom{5}{y}\frac{\mathrm{B}(y+2,28-y)}{\mathrm{B}(2,23)},
+    
+\end{aligned}\end{split}\]</div>
+<p>That is, <span class="math notranslate nohighlight">\(Y|x=1\sim \text{BetaBin}(5,2,23)\)</span>.</p>
+<p>We can compare this predictive distribution with a naive predictive
+distribution based on an estimate of <span class="math notranslate nohighlight">\(\theta\)</span>, for example, the
+likelihood mode or the posterior mode. Here we shall base our naive
+predictive distribution on the posterior mode <span class="math notranslate nohighlight">\(\hat{\theta}=1/23\)</span>, that
+is, use the distribution <span class="math notranslate nohighlight">\(Y|\theta=\hat\theta\sim \text{Bin}(5,1/23)\)</span>.
+Thus, the naive predictive probability function is, for
+<span class="math notranslate nohighlight">\(y=0,1,\ldots,5\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned}
+f(y|\theta=\hat{\theta})&amp;=\binom{5}{y}\hat{\theta}^y(1-\hat{\theta})^{5-y} 
+=\binom{5}{y}\frac{22^{5-y}}{23^5}.
+\end{aligned}\]</div>
+<p>Numerical values for the predictive and naive predictive probability
+functions are given in
+Table <span class="xref std std-ref">tab:predbetabin</span>{reference-type=”ref”
+reference=”tab:predbetabin”}.</p>
+<p>Again, the naive predictive distribution is a predictive distribution
+which, instead of using the correct posterior distribution, uses a
+degenerate posterior distribution <span class="math notranslate nohighlight">\(\pi^*(\theta|x=1)\)</span> which essentially
+allows only one value: <span class="math notranslate nohighlight">\(\text{Pr}_{\pi^*}(\theta=1/23|x=1)=1\)</span> and
+standard deviation <span class="math notranslate nohighlight">\(\textnormal{SD}_{\pi^*}(\theta|x=1)=0\)</span>. Note that
+the correct posterior standard deviation of <span class="math notranslate nohighlight">\(\theta\)</span> is
+<span class="math notranslate nohighlight">\(\textnormal{SD}_\pi(\theta|x=1)=0.053\)</span>. Using a degenerate posterior
+distribution results in the naive predictive distribution having too
+small a standard deviation:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\textnormal{SD}(Y|x=1)=
+\begin{cases} 0.652 &amp; \text{using the correct }\pi(\theta|x=1) \\
+              0.456 &amp; \text{using the naive }\pi^*(\theta|x=1), \\
+\end{cases}\end{split}\]</div>
+<p>these values being calculated from
+<span class="math notranslate nohighlight">\(\text{BetaBin}(5,2,23)\)</span> and binomial <span class="math notranslate nohighlight">\(\text{Bin}(5,1/23)\)</span>
+distributions.</p>
+<p>Using the numerical table of predictive probabilities, we can see that
+<span class="math notranslate nohighlight">\(\{0,1\}\)</span> is a 93.2% prediction set/interval. This is to be contrasted
+with the more “optimistic” calculation using the naive predictive
+distribution which shows that <span class="math notranslate nohighlight">\(\{0,1\}\)</span> is a 98.3% prediction
+set/interval.</p>
+</section>
+<section id="predictive-distribution-predictive-distribution-unnumbered">
+<h3>Predictive distribution {#predictive-distribution .unnumbered}<a class="headerlink" href="#predictive-distribution-predictive-distribution-unnumbered" title="Link to this heading">#</a></h3>
+<p>In the previous example, a non-trivial integral had to be evaluated.
+However, when the past data <span class="math notranslate nohighlight">\(\underline{x}\)</span> and future data <span class="math notranslate nohighlight">\(y\)</span> are
+independent (given <span class="math notranslate nohighlight">\(\theta\)</span>) and we use a conjugate prior distribution,
+another (easier) method can be used to determine the predictive
+distribution.</p>
+<p>Using Bayes Theorem, the posterior density for <span class="math notranslate nohighlight">\(\theta\)</span> given
+<span class="math notranslate nohighlight">\(\underline{x}\)</span> and <span class="math notranslate nohighlight">\(y\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\pi(\theta|\underline{x},y)&amp;=\frac{\pi(\theta)f(\underline{x},y|\theta)}{f(\underline{x},y)}\\
+&amp;=\frac{\pi(\theta)f(\underline{x}|\theta)f(y|\theta)}{f(\underline{x})f(y|\underline{x})}
+\\
+&amp;=\frac{\pi(\theta|\underline{x})\,f(y|\theta)}{f(y|\underline{x})}.
+\end{aligned}\end{split}\]</div>
+<p>Rearranging, we obtain:</p>
+<div class="math notranslate nohighlight">
+\[
+f(y|\underline{x}) =\frac{f(y|\theta)\pi(\theta|\underline{x})}{\pi(\theta|\underline{x},y)}.\]</div>
+<p>The right-hand-side of this equation looks as if it depends on <span class="math notranslate nohighlight">\(\theta\)</span>,
+but, in fact, any terms in <span class="math notranslate nohighlight">\(\theta\)</span> will be cancelled between the
+numerator and denominator.</p>
+<p>Reworking the previous example using this formula, we have</p>
+<div class="math notranslate nohighlight">
+\[
+\theta\sim \text{Beta}(1,19),\quad X|\theta\sim \text{Bin}(5,\theta),\quad 
+Y|\theta\sim \text{Bin}(5,\theta)\]</div>
+<p>from which we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+\theta|x=1\sim \text{Beta}(2,23),\quad \theta|x=1,y\sim \text{Beta}(y+2,28-y).\]</div>
+<p>Therefore, for <span class="math notranslate nohighlight">\(y=0,1,2,\ldots,5\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+f(y|x=1)&amp;=\frac{f(y|\theta)\pi(\theta|x=1)}{\pi(\theta|x=1,y)}\\
+{}
+&amp;=\frac{\begin{pmatrix} 5 \\ y \\ \end{pmatrix} 
+\theta^y(1-\theta)^{5-y}
+\times \frac{\theta(1-\theta)^{22}}{\mathrm{B}(2,23)}}
+{\frac{\theta^{y+1}(1-\theta)^{27-y}}{\mathrm{B}(y+2,28-y)}}\\ 
+{}
+&amp;=\begin{pmatrix} 5 \\ y \\ \end{pmatrix} \frac{\mathrm{B}(y+2,28-y)}{\mathrm{B}(2,23)}.
+\end{aligned}\end{split}\]</div>
+<section id="definition-4-2-inverse-beta-distribution">
+<h4>Definition 4.2: Inverse-Beta Distribution<a class="headerlink" href="#definition-4-2-inverse-beta-distribution" title="Link to this heading">#</a></h4>
+<p><br />
+The random variable <span class="math notranslate nohighlight">\(Y\)</span> follows a Inverse-Beta distribution, denoted
+<span class="math notranslate nohighlight">\(Y\sim\textnormal{\text{InvBeta}}(a,b,c)\)</span> with parameters <span class="math notranslate nohighlight">\(a&gt;0\)</span>, <span class="math notranslate nohighlight">\(b&gt;0\)</span>
+and <span class="math notranslate nohighlight">\(c&gt;0\)</span>, if it has probability density function</p>
+<div class="math notranslate nohighlight">
+\[
+f(y|a,b,c)=\frac{c^by^{a-1}}{\mathrm{B}(a,b)(y+c)^{a+b}} \quad\quad y&gt;0,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathrm{B}(a,b)\)</span> is the beta function defined in
+<span class="xref std std-ref">eq:betafn</span>{reference-type=”eqref”
+reference=”eq:betafn”}. It can be shown that</p>
+<div class="math notranslate nohighlight">
+\[
+\text{E}[Y]=\frac{ac}{b-1}\quad\quad\text{and}\quad\quad \text{Var}[Y]=\frac{ac^2(a+b-1)}{(b-1)^2(b-2)}.\]</div>
+<p>The distribution gets its name because
+<span class="math notranslate nohighlight">\(Y/(Y+c)\sim \textnormal{\text{Beta}}(a,b)\)</span>. Also note that if
+<span class="math notranslate nohighlight">\(Y\sim \textnormal{\text{InvBeta}}(a,b,1)\)</span> then
+<span class="math notranslate nohighlight">\(cY\sim \textnormal{\text{InvBeta}}(a,b,c)\)</span>.</p>
+</section>
+<section id="example-4-6">
+<h4>Example 4.6<a class="headerlink" href="#example-4-6" title="Link to this heading">#</a></h4>
+<p><br />
+Suppose we have a random sample <span class="math notranslate nohighlight">\(\underline{x}e\)</span> from a
+<span class="math notranslate nohighlight">\(\text{Gamma}(k,\theta)\)</span> distribution, where <span class="math notranslate nohighlight">\(k\)</span> is known, and our prior
+beliefs are described by a <span class="math notranslate nohighlight">\(\text{Gamma}(g,h)\)</span> distribution. The
+likelihood function is</p>
+<div class="math notranslate nohighlight">
+\[
+f(\underline{x}|\theta)=\prod_{i=1}^n \frac{\theta^k x_i^{k-1}e^{-\theta x_i}}{\Gamma(k)}\propto\theta^{nk}e^{-n\bar x\theta}.\]</div>
+<p>Therefore, using Bayes Theorem, the posterior density is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+  \pi(\theta|\underline{x}) &amp;\propto\pi(\theta)\,f(\underline{x}|\theta) \\
+  &amp;\propto\theta^{g-1}e^{-h\theta}\times\theta^{nk}e^{-n\bar x\theta}, \quad\theta&gt;0 \\
+  &amp;\propto\theta^{g+nk-1}e^{-(h+n\bar x)\theta},\quad\theta&gt;0.
+\end{aligned}\end{split}\]</div>
+<p>Hence, the posterior distribution is a
+<span class="math notranslate nohighlight">\(\text{Gamma}(g+nk,h+n\bar x)\)</span> distribution. Notice that this implies
+that the gamma distribution is the conjugate prior distribution for the
+model “random sample from a <span class="math notranslate nohighlight">\(\text{Gamma}(k,\theta)\)</span> distribution, with
+<span class="math notranslate nohighlight">\(k\)</span> known”. Determine the predictive distribution for a future
+outcome <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+</section>
+<section id="solution-to-example-4-6">
+<h4>Solution to Example 4.6<a class="headerlink" href="#solution-to-example-4-6" title="Link to this heading">#</a></h4>
+<p>Clearly, the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> conditional on both the
+data <span class="math notranslate nohighlight">\(\underline{x}\)</span> and the future observation <span class="math notranslate nohighlight">\(y\)</span> is given by
+<span class="math notranslate nohighlight">\(\theta|\underline{x},y\sim \text{Gamma}(G+k,H+y)\)</span>. Therefore, the
+predictive density function is, for <span class="math notranslate nohighlight">\(y&gt;0\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    f(y|\underline{x})&amp;=\frac{f(y|\theta)\pi(\theta|\underline{x})}{\pi(\theta|\underline{x},y)}\\
+    {}
+    &amp;=\frac{\frac{\theta^k y^{k-1}e^{-\theta y}}{\Gamma(k)}
+    \times \frac{H^G\theta^{G-1}e^{-H\theta}}{\Gamma(G)}}
+    {\frac{(H+y)^{G+k}\theta^{G+k-1}e^{-(H+y)\theta}}{\Gamma(G+k)}}\\
+    {}
+    &amp;=\frac{\Gamma(G+k)H^Gy^{k-1}}{\Gamma(k)\Gamma(G)(H+y)^{G+k}}\\ 
+    {}
+    &amp;=\frac{H^Gy^{k-1}}{\mathrm{B}(k,G)(H+y)^{G+k}},
+    
+\end{aligned}\end{split}\]</div>
+<p>That is,
+<span class="math notranslate nohighlight">\(Y|\underline{x}\sim \textnormal{\text{InvBeta}}(k,G,H)\)</span>.<br />
+Consider the case where the data follow an exponential distribution,
+that is, where <span class="math notranslate nohighlight">\(k=1\)</span>. Determine the predictive density function and the
+<span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> prediction interval for <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p><strong>The End</strong></p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chapter3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Priors</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation">Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-estimates-point-estimates-unnumbered">Point estimates {#point-estimates .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interval-estimates">Interval estimates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-confidence-intervals-interpretation-of-confidence-intervals-unnumbered">Interpretation of confidence intervals {#interpretation-of-confidence-intervals .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-1">Example 4.1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-1">Solution to Example 4.1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-2">Example 4.2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-2">Solution to Example 4.2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-3">Example 4.3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-3">Solution to Example 4.3</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-of-hdis-for-unimodal-distributions-computation-of-hdis-for-unimodal-distributions-unnumbered">Computation of HDIs for unimodal distributions {#computation-of-hdis-for-unimodal-distributions .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-hdi-reference-type-ref-reference-ex-hdi-continued-example-exhdi-continued-unnumbered">Example <span class="xref std std-ref">ex:hdi</span>{reference-type=”ref” reference=”ex:hdi”} (continued) {#example-exhdi-continued .unnumbered}</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction">Prediction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-4">Example 4.4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-4">Solution to Example 4.4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-4-1-definition">Definition 4.1: Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-5">Example 4.5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-5">Solution to Example 4.5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-distribution-predictive-distribution-unnumbered">Predictive distribution {#predictive-distribution .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-4-2-inverse-beta-distribution">Definition 4.2: Inverse-Beta Distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-6">Example 4.6</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-6">Solution to Example 4.6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Matthew Fisher
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

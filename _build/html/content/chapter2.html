@@ -1,0 +1,1687 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Bayes Theorem for Distributions &#8212; MAS2903 - Notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/chapter2';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Priors" href="chapter3.html" />
+    <link rel="prev" title="Introduction" href="chapter1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="MAS2903 - Notes - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="MAS2903 - Notes - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    MAS2903: Introduction to  Bayesian Methods
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Bayes Theorem for Distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter3.html">Priors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter4.html">Bayesian inference</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/chapter2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/chapter2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Bayes Theorem for Distributions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayes-theorem-bayes-theorem-unnumbered">Bayes Theorem {#bayes-theorem .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-2-1-continuous-uniform-distribution">Definition 2.1: Continuous Uniform distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-of-uniform-pdfs">Plot of Uniform pdfs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-2-2-beta-distribution">Definition 2.2: Beta distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-2-3-gamma-distribution">Definition 2.3: Gamma distribution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayes-theorem-for-distributions-in-action">Bayes Theorem for distributions in action</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-1">Example 2.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-1">Solution to Example 2.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-2">Example 2.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-2">Solution to Example 2.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-3">Example 2.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-3">Solution to Example 2.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-4">Example 2.4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-4">Solution to Example 2.4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-5">Example 2.5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-5">Solution to Example 2.5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-6">Example 2.6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-6-a">Solution to Example 2.6(a)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-6-b">Solution to Example 2.6(b)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-6-c">Solution to Example 2.6(c)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-6-d">Solution to Example 2.6(d)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-7">Example 2.7</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-7-a">Solution to Example 2.7(a)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-7-b">Solution to Example 2.7(b)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-7-c">Solution to Example 2.7(c)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-7-d">Solution to Example 2.7(d)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-8">Example 2.8</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-8-a">Solution to Example 2.8(a)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-8-b">Solution to Example 2.8(b)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-8-c">Solution to Example 2.8(c)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjugacy">Conjugacy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-2-4-conjugate-prior">Definition 2.4: Conjugate Prior</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-9">Example 2.9</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-9">Solution to Example 2.9</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-10">Example 2.10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-10">Solution to Example 2.10</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="bayes-theorem-for-distributions">
+<h1>Bayes Theorem for Distributions<a class="headerlink" href="#bayes-theorem-for-distributions" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Suppose we have data <span class="math notranslate nohighlight">\(\underline{x}\)</span> which we model using the
+probability (density) function <span class="math notranslate nohighlight">\(f(\underline{x}|\theta)\)</span>, which depends
+on a single parameter <span class="math notranslate nohighlight">\(\theta\)</span>. Once we have observed the data,
+<span class="math notranslate nohighlight">\(f(\underline{x}|\theta)\)</span> is the <em>likelihood function</em> for <span class="math notranslate nohighlight">\(\theta\)</span> and
+is a function of <span class="math notranslate nohighlight">\(\theta\)</span> (for fixed <span class="math notranslate nohighlight">\(\underline{x}\)</span>) rather than
+of <span class="math notranslate nohighlight">\(\underline{x}\)</span> (for fixed <span class="math notranslate nohighlight">\(\theta\)</span>).</p>
+<p>Also, suppose we have prior beliefs about likely values of <span class="math notranslate nohighlight">\(\theta\)</span>
+expressed by a probability (density) function <span class="math notranslate nohighlight">\(\pi(\theta)\)</span>. We can
+combine both pieces of information using the following version of Bayes
+Theorem. The resulting distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is called the posterior
+distribution for <span class="math notranslate nohighlight">\(\theta\)</span> as it expresses our beliefs about <span class="math notranslate nohighlight">\(\theta\)</span>
+<em>after</em> seeing the data. It summarises all our current knowledge about
+the parameter <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<section id="bayes-theorem-bayes-theorem-unnumbered">
+<h3>Bayes Theorem {#bayes-theorem .unnumbered}<a class="headerlink" href="#bayes-theorem-bayes-theorem-unnumbered" title="Link to this heading">#</a></h3>
+<p>The posterior probability (density) function for <span class="math notranslate nohighlight">\(\theta\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\pi(\theta|\underline{x})=\frac{\pi(\theta)\,f(\underline{x}|\theta)}{f(\underline{x})}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+f(\underline{x})=
+\begin{cases}
+\int_\Theta\pi(\theta)\,f(\underline{x}|\theta)\,d\theta &amp; \text{if
+$\theta$ is continuous}, \\ \\
+\sum_\Theta\pi(\theta)\,f(\underline{x}|\theta) &amp; \text{if $\theta$ is discrete}.
+\end{cases}\end{split}\]</div>
+<p>Notice that, as <span class="math notranslate nohighlight">\(f(\underline{x})\)</span> is not a function of
+<span class="math notranslate nohighlight">\(\theta\)</span>, Bayes Theorem can be rewritten as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\pi(\theta|\underline{x})&amp;\propto \pi(\theta)\times f(\underline{x}|\theta) \\
+i.e. \, \text{posterior}&amp;\propto\text{prior}\times\text{likelihood}.
+\end{aligned}\end{split}\]</div>
+<p>Thus, to obtain the posterior distribution, we need:</p>
+<ul class="simple">
+<li><p>data, from which we can form the <em>likelihood</em>
+<span class="math notranslate nohighlight">\(f(\underline{x}|\theta)\)</span>, and</p></li>
+<li><p>a suitable distribution, <span class="math notranslate nohighlight">\(\pi(\theta)\)</span>, that represents our <em>prior
+beliefs</em> about <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+</ul>
+<p>You should now be comfortable with how to obtain the likelihood. But how
+do we specify a prior (point 2)? In Chapter 3 we will consider different
+approaches to specifying prior distributions.</p>
+<p>For now, we will assume someone else has done this for us; the main aim
+of this chapter is simply to operate Bayes Theorem for distributions to
+obtain the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>Before we do this, it will be worth re–familiarising ourselves with
+some continuous probability distributions you have met before, and which
+we will use extensively in this course: the uniform, beta and gamma
+distributions (indeed, I will assume that you are more than familiar
+with some other ‘standard’ distributions we will use – e.g. the
+exponential, Normal, Poisson, and binomial, and so will <em>not</em> review
+these here).</p>
+<section id="definition-2-1-continuous-uniform-distribution">
+<h4>Definition 2.1: Continuous Uniform distribution<a class="headerlink" href="#definition-2-1-continuous-uniform-distribution" title="Link to this heading">#</a></h4>
+<p><br />
+The random variable <span class="math notranslate nohighlight">\(Y\)</span> follows a Uniform distribution, denoted
+<span class="math notranslate nohighlight">\(U(a,b)\)</span>, if it has probability density function</p>
+<div class="math notranslate nohighlight">
+\[
+f(y|a,b) = \frac{1}{b-a}, \quad \quad a\leq y \leq b.\]</div>
+<p>This form of
+probability density function ensures that all values in the range
+<span class="math notranslate nohighlight">\([a,b]\)</span> are <em>equally likely</em>, hence the name “uniform”. This
+distribution is sometimes called the <em>rectangular distribution</em> because
+of its shape.</p>
+<p>You should remember from MAS1608 that</p>
+<div class="math notranslate nohighlight">
+\[
+\text{E}[Y] = \frac{a+b}{2} \quad \text{and} \quad \text{Var}[Y] = \frac{(b-a)^{2}}{12}.\]</div>
+<p>In the space below, sketch the probability density functions for
+<span class="math notranslate nohighlight">\(U(0,1)\)</span> and <span class="math notranslate nohighlight">\(U(10,50)\)</span>.</p>
+</section>
+<section id="plot-of-uniform-pdfs">
+<h4>Plot of Uniform pdfs<a class="headerlink" href="#plot-of-uniform-pdfs" title="Link to this heading">#</a></h4>
+</section>
+<section id="definition-2-2-beta-distribution">
+<h4>Definition 2.2: Beta distribution<a class="headerlink" href="#definition-2-2-beta-distribution" title="Link to this heading">#</a></h4>
+<p><br />
+The random variable <span class="math notranslate nohighlight">\(Y\)</span> follows a beta <span class="math notranslate nohighlight">\(\textnormal{\text{Beta}}(a,b)\)</span>
+distribution (<span class="math notranslate nohighlight">\(a&gt;0\)</span>, []{#def:beta label=”def:beta”} <span class="math notranslate nohighlight">\(b&gt;0\)</span>) if it has
+probability density function</p>
+<div class="math notranslate nohighlight">
+\[
+f(y|a,b)=\frac{y^{a-1}(1-y)^{b-1}}{\mathrm{B}(a,b)},\quad\quad 0&lt;y&lt;1.
+\label{eq:betapdf}\]</div>
+<p>The constant term <span class="math notranslate nohighlight">\(\mathrm{B}(a,b)\)</span>, also known as
+the <em>beta function</em>, ensures that the density integrates to one.
+Therefore</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{B}(a,b)=\int_0^1
+y^{a-1}(1-y)^{b-1}\,dy.
+\label{eq:betafn}\]</div>
+<p>It can be shown that the beta function can be
+expressed in terms of another function, called the <em>gamma function</em>
+<span class="math notranslate nohighlight">\(\Gamma(\cdot)\)</span>, as</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{B}(a,b) =\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)},\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\label{eq:gammafn}
+\Gamma(a)=\int_0^\infty x^{a-1}e^{-x}\,dx.\]</div>
+<p>Tables are available for
+both <span class="math notranslate nohighlight">\(\mathrm{B}(a,b)\)</span> and <span class="math notranslate nohighlight">\(\Gamma(a)\)</span>. However, these functions are
+very simple to evaluate when <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are integers since the gamma
+function is a generalisation of the factorial function. In particular,
+when <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are integers, we have</p>
+<div class="math notranslate nohighlight">
+\[
+\Gamma(a)=(a-1)!\quad\text{and}\quad 
+\mathrm{B}(a,b)=\frac{(a-1)!(b-1)!}{(a+b-1)!}.\]</div>
+<p>For example,</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{B}(2,3)=\frac{1!\times2!}{4!}=\frac{1}{12}.\]</div>
+<p>It can be shown,
+using the identity <span class="math notranslate nohighlight">\(\Gamma(a)=(a-1)\Gamma(a-1)\)</span>, that</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned}
+\text{E}[Y]&amp;=\frac{a}{a+b},\quad\quad\text{and}\quad\quad 
+\text{Var}[Y]=\frac{ab}{(a+b)^2(a+b+1)}. 
+\end{aligned}\]</div>
+<p>Also,</p>
+<div class="math notranslate nohighlight">
+\[
+\textnormal{Mode}(Y)=\frac{a-1}{a+b-2}, \quad\text{if $a&gt;1$ and $b&gt;1$}.\]</div>
+</section>
+<section id="definition-2-3-gamma-distribution">
+<h4>Definition 2.3: Gamma distribution<a class="headerlink" href="#definition-2-3-gamma-distribution" title="Link to this heading">#</a></h4>
+<p><br />
+The random variable <span class="math notranslate nohighlight">\(Y\)</span> follows a Gamma <span class="math notranslate nohighlight">\(\text{Gamma}(a,b)\)</span> distribution
+(<span class="math notranslate nohighlight">\(a&gt;0\)</span>, <span class="math notranslate nohighlight">\(b&gt;0\)</span>) if it has probability density function</p>
+<div class="math notranslate nohighlight">
+\[
+f(y|a,b) =\frac{b^ay^{a-1}e^{-by}}{\Gamma(a)},\quad\quad y&gt;0,\]</div>
+<p>where
+<span class="math notranslate nohighlight">\(\Gamma(a)\)</span> is the gamma function defined in
+<span class="xref std std-ref">eq:gammafn</span>{reference-type=”eqref”
+reference=”eq:gammafn”}. It can be shown that</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned}
+\text{E}[Y]&amp;=\frac{a}{b}\quad\quad\text{and}\quad\quad 
+\text{Var}[Y]=\frac{a}{b^2}. 
+\end{aligned}\]</div>
+<p>Also,</p>
+<div class="math notranslate nohighlight">
+\[
+\textnormal{Mode}(Y)=\frac{a-1}{b}, \quad\text{if $a\geq 1$}.\]</div>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">R</span></code> to visualise the beta and gamma distributions for various
+values of <span class="math notranslate nohighlight">\((a,b)\)</span> (and indeed any other standard probability
+distribution you have met so far). For example, we know that the beta
+distribution is valid for all values in the range <span class="math notranslate nohighlight">\((0,1)\)</span>. In <code class="docutils literal notranslate"><span class="pre">R</span></code>, we
+can set this up by typing:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">seq</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which specifies <span class="math notranslate nohighlight">\(x\)</span> to take all values in the range 0 to 1, in steps of
+0.01. The following code then calculates the density of
+<span class="math notranslate nohighlight">\(\text{Beta}(2,5)\)</span>, as given by Equation
+<span class="xref std std-ref">eq:betapdf</span>{reference-type=”eqref”
+reference=”eq:betapdf”} with <span class="math notranslate nohighlight">\(a=2\)</span> and <span class="math notranslate nohighlight">\(b=5\)</span>:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">dbeta</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Plotting <span class="math notranslate nohighlight">\(y\)</span> against <span class="math notranslate nohighlight">\(x\)</span> and joining with lines gives the
+<span class="math notranslate nohighlight">\(\text{Beta}(2,5)\)</span> density shown in Figure 2.1 (top left); in <code class="docutils literal notranslate"><span class="pre">R</span></code> this
+is achieved by typing:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;l&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Also shown in Figure 2.1 are densities for the <span class="math notranslate nohighlight">\(\text{Beta}(0.5,0.5)\)</span>
+(top right), <span class="math notranslate nohighlight">\(\text{Beta}(77,5)\)</span> (bottom left) and <span class="math notranslate nohighlight">\(\text{Beta}(10,10)\)</span>
+(bottom right) distributions. Notice that different combinations of
+<span class="math notranslate nohighlight">\((a,b)\)</span> give rise to different shapes of distribution between the limits
+of 0 and 1 – symmetric, positively skewed and negatively skewed:
+careful choices of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> could thus be used to express our prior
+beliefs about probabilities/proportions we think might be more or less
+likely to occur. When <span class="math notranslate nohighlight">\(a=b\)</span> we have a distribution which is symmetric
+about 0.5. Similar plots can be constructed for any standard
+distribution of interest using, for example, <code class="docutils literal notranslate"><span class="pre">dgamma</span></code> or <code class="docutils literal notranslate"><span class="pre">dnorm</span></code> instead
+of <code class="docutils literal notranslate"><span class="pre">dbeta</span></code> for the gamma or Normal distributions, respectively; Figure
+2.2 shows densities for various gamma distributions.</p>
+<p><img alt="Plots of  densities for various values of." src="content/images/figures/betaplot1.svg" /></p>
+<p><img alt="Plots of  densities, for various values of." src="../_images/gammaplot1.svg" /></p>
+</section>
+</section>
+</section>
+<section id="bayes-theorem-for-distributions-in-action">
+<h2>Bayes Theorem for distributions in action<a class="headerlink" href="#bayes-theorem-for-distributions-in-action" title="Link to this heading">#</a></h2>
+<p>We will now see Bayes Theorem for distributions in operation. Remember
+– for now, we will assume that someone else has provided the prior
+distribution for <span class="math notranslate nohighlight">\(\theta\)</span>. In Chapter 3 we will consider how this might
+be done.</p>
+<section id="example-2-1">
+<h3>Example 2.1<a class="headerlink" href="#example-2-1" title="Link to this heading">#</a></h3>
+<p><br />
+Consider an experiment with a possibly biased coin. Let []{#ex:coin
+label=”ex:coin”} <span class="math notranslate nohighlight">\(\theta=\text{Pr}(\text{Head})\)</span>. Suppose that, before
+conducting the experiment, we believe that all values of <span class="math notranslate nohighlight">\(\theta\)</span> are
+equally likely: this gives a prior distribution <span class="math notranslate nohighlight">\(\theta\sim U(0,1)\)</span>, and
+so</p>
+<div class="math notranslate nohighlight">
+\[
+\pi(\theta)=1,\quad\quad0&lt;\theta&lt;1.
+\label{eq:p1}\]</div>
+<p>Note that with this prior distribution
+<span class="math notranslate nohighlight">\(\text{E}[\theta]=0.5\)</span>. We now toss the coin 5 times and observe 1 head.
+Determine the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> given this data.</p>
+</section>
+<section id="solution-to-example-2-1">
+<h3>Solution to Example 2.1<a class="headerlink" href="#solution-to-example-2-1" title="Link to this heading">#</a></h3>
+<p>The data is an observation on the random variable <span class="math notranslate nohighlight">\(X|\theta\sim         \text{Bin}(5,\theta)\)</span>. This gives a likelihood function</p>
+<div class="math notranslate nohighlight">
+\[
+f(x=1|\theta)=5\theta(1-\theta)^4
+        \label{eq:p2}\]</div>
+<p>which favours values of <span class="math notranslate nohighlight">\(\theta\)</span> near its
+maximum <span class="math notranslate nohighlight">\(\theta=0.2\)</span>. Therefore, we have a conflict of opinions: the
+prior distribution <span class="xref std std-ref">eq:p1</span>{reference-type=”eqref”
+reference=”eq:p1”} suggests that <span class="math notranslate nohighlight">\(\theta\)</span> is probably around 0.5 and the
+data <span class="xref std std-ref">eq:p2</span>{reference-type=”eqref” reference=”eq:p2”}
+suggest that it is around 0.2. We can use Bayes Theorem to combine these
+two sources of information in a coherent way. First</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+        f(x=1) &amp;=\int_\Theta\pi(\theta)f(x=1\, |\,\theta)\,d\theta = \int_0^1 1\times 5\theta(1-\theta)^4\,d\theta \\
+        &amp;=\int_0^1 \theta\times 5(1-\theta)^4\,d\theta =\left[-(1-\theta)^5\,\theta\right]^1_0
+        +\int_0^1 (1-\theta)^5\,d\theta \\
+        &amp;=0 + \left[-\frac{(1-\theta)^6}{6}\right]^1_0 =\frac{1}{6}. 
+        
+\end{aligned}\end{split}\]</div>
+<p>Therefore, the posterior density is (for <span class="math notranslate nohighlight">\(0&lt;\theta&lt;1\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+        \pi(\theta|x=1)&amp;=\frac{\pi(\theta)f(x=1|\theta)}{f(x=1)} =\frac{5\theta(1-\theta)^4}{1/6}\\
+        &amp;=30\,\theta(1-\theta)^4 =\frac{\theta(1-\theta)^4}{\mathrm{B}(2,5)},\quad\quad 0&lt;\theta&lt;1,
+        
+\end{aligned}\end{split}\]</div>
+<p>and so the posterior distribution is
+<span class="math notranslate nohighlight">\(\theta|x=1\sim \textnormal{\text{Beta}}(2,5)\)</span> – see
+Definition <a class="reference internal" href="#def:beta"><span class="xref myst">[def:beta]</span></a>{reference-type=”ref”
+reference=”def:beta”}. This distribution has its mode at <span class="math notranslate nohighlight">\(\theta=0.2\)</span>,
+and mean at <span class="math notranslate nohighlight">\(\text{E}[\theta|x=1]=2/7=0.286\)</span>.</p>
+<p>The main difficulty in calculating the posterior distribution was in
+obtaining the <span class="math notranslate nohighlight">\(f(x)\)</span> term. However, in many cases we can recognise the
+posterior distribution without the need to calculate this constant term
+(constant with respect to <span class="math notranslate nohighlight">\(\theta\)</span>). In this example, we can calculate
+the posterior distribution as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\pi(\theta|\underline{x})&amp;\propto\pi(\theta)f(x=1|\theta) \\
+&amp;\propto 1\times 5\theta(1-\theta)^4,\quad\quad 0&lt;\theta&lt;1  \\
+&amp;=k\theta(1-\theta)^4,\quad\quad 0&lt;\theta&lt;1.
+\end{aligned}\end{split}\]</div>
+<p>As <span class="math notranslate nohighlight">\(\theta\)</span> is a continuous quantity, what we would like
+to know is what continuous distribution defined on <span class="math notranslate nohighlight">\((0,1)\)</span> has a
+probability density function which takes the form
+<span class="math notranslate nohighlight">\(k\theta^{g-1}(1-\theta)^{h-1}\)</span>. The answer is the
+<span class="math notranslate nohighlight">\(\textnormal{\text{Beta}}(g,h)\)</span> distribution. Therefore, choosing <span class="math notranslate nohighlight">\(g\)</span>
+and <span class="math notranslate nohighlight">\(h\)</span> appropriately, we can see that the posterior distribution is
+<span class="math notranslate nohighlight">\(\theta|x=1\sim \textnormal{\text{Beta}}(2,5)\)</span>.</p>
+<p><strong>Summary:</strong></p>
+<p>It is possible that we have a biased coin. If we suppose that all values
+of <span class="math notranslate nohighlight">\(\theta=\text{Pr(Head)}\)</span> are equally likely and then observe 1 head
+out of 5, then the most likely value of <span class="math notranslate nohighlight">\(\theta\)</span> is 0.2 — the same as
+the most likely value from the data alone (not surprising!). However, on
+average, we would expect <span class="math notranslate nohighlight">\(\theta\)</span> to be around 0.286. Uncertainty about
+<span class="math notranslate nohighlight">\(\theta\)</span> has changed from a (prior) standard deviation of 0.289 to a
+(posterior) standard deviation of 0.160. The changes in our beliefs
+about <span class="math notranslate nohighlight">\(\theta\)</span> are more fully described by the prior and posterior
+distributions shown in Figure <span class="xref std std-ref">fig:betaplot2</span>{reference-type=”ref”
+reference=”fig:betaplot2”}.</p>
+<p><img alt="Prior (dashed) and posterior (solid) densities for" src="content/images/figures/priorplot1.svg" />{#fig:betaplot2}</p>
+</section>
+<section id="example-2-2">
+<h3>Example 2.2<a class="headerlink" href="#example-2-2" title="Link to this heading">#</a></h3>
+<p><br />
+Consider an experiment to determine how good a music expert is at
+[]{#ex:mozart label=”ex:mozart”} distinguishing between pages from Haydn
+and Mozart scores. Let <span class="math notranslate nohighlight">\(\theta=\text{Pr}(\text{correct choice})\)</span>.
+Suppose that, before conducting the experiment, we have been told that
+the expert is very competent. In fact, it is suggested that we should
+have a prior distribution which has a mode around <span class="math notranslate nohighlight">\(\theta=0.95\)</span> and for
+which <span class="math notranslate nohighlight">\(\textnormal{Pr}(\theta&lt;0.8)\)</span> is very small. We choose
+<span class="math notranslate nohighlight">\(\theta\sim \textnormal{\text{Beta}}(77,5)\)</span>, with probability density
+function</p>
+<div class="math notranslate nohighlight">
+\[
+\pi(\theta)=128107980\,\theta^{76}(1-\theta)^4,\quad\quad 0&lt;\theta&lt;1.
+\label{eq:p3}\]</div>
+<p>A graph of this prior density is given in Figure
+ <span class="xref std std-ref">fig:betaplot3</span>{reference-type=”ref” reference=”fig:betaplot3”}.</p>
+<p><img alt="Prior density for the music expert'sskill." src="content/images/priorplot2.svg" />{#fig:betaplot3}</p>
+<p>In the experiment, the music expert makes the correct choice 9 out of 10
+times. Determine the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> given this
+information.</p>
+</section>
+<section id="solution-to-example-2-2">
+<h3>Solution to Example 2.2<a class="headerlink" href="#solution-to-example-2-2" title="Link to this heading">#</a></h3>
+<p>We have an observation on the random variable <span class="math notranslate nohighlight">\(X|\theta\sim         \text{Bin}(10,\theta)\)</span>. This gives a likelihood function of</p>
+<div class="math notranslate nohighlight">
+\[
+f(x=9|\theta)=10\,\theta^9(1-\theta)
+        \label{eq:p4}\]</div>
+<p>which favours values of <span class="math notranslate nohighlight">\(\theta\)</span> near its
+maximum <span class="math notranslate nohighlight">\(\theta=0.9\)</span>. We combine these two sources of information using
+Bayes Theorem. The posterior density function is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+        \label{eq:p5}
+        \pi(\theta|x=9)&amp;\propto\pi(\theta)f(x=9|\theta) \notag \\
+        &amp;\propto 128107980\,\theta^{76}(1-\theta)^4\times 10\,\theta^9(1-\theta),
+        \quad\quad 0&lt;\theta&lt;1 \notag \\
+        &amp;=k\theta^{85}(1-\theta)^5,\quad\quad 0&lt;\theta&lt;1.
+        
+\end{aligned}\end{split}\]</div>
+<p>We can recognise this density function as one from the
+Beta family. So, the posterior distribution is <span class="math notranslate nohighlight">\(\theta|x=9\sim         \textnormal{\text{Beta}}(86,6)\)</span>.</p>
+<p><strong>Summary:</strong></p>
+<p>The changes in our beliefs about <span class="math notranslate nohighlight">\(\theta\)</span> are described by the prior and
+posterior distributions shown in
+Figure <span class="xref std std-ref">fig:betaplot4</span>{reference-type=”ref”
+reference=”fig:betaplot4”} and summarised in
+Table <span class="xref std std-ref">tab:betaplot4</span>{reference-type=”ref”
+reference=”tab:betaplot4”}.</p>
+<p><img alt="Prior (dashed) and posterior (solid) densities for the music expert'sskill for the." src="../_images/priorposterior1.svg" />{#fig:betaplot4}</p>
+<p>Notice that, having observed only a 90% success rate in the experiment,
+the posterior mode and mean are smaller than their prior values. Also,
+the experiment has largely confirmed our ideas about <span class="math notranslate nohighlight">\(\theta\)</span>, with the
+uncertainty about <span class="math notranslate nohighlight">\(\theta\)</span> being only very slightly reduced.</p>
+</section>
+<section id="example-2-3">
+<h3>Example 2.3<a class="headerlink" href="#example-2-3" title="Link to this heading">#</a></h3>
+<p><br />
+Max, a video game pirate, is trying to identify the proportion of
+potential customers <span class="math notranslate nohighlight">\(\theta\)</span> who might be interested in buying <em>Call of
+Duty: Modern Warfare II</em> next month. []{#ex:max label=”ex:max”} Based on
+the proportion of customers who have bought similarly violent games from
+him in the past, he assumes that
+<span class="math notranslate nohighlight">\(\theta \sim \textnormal{\text{Beta}}(2.5,12)\)</span>; a plot of this prior
+density is shown in Figure <span class="xref std std-ref">fig:maxprior</span>{reference-type=”ref”
+reference=”fig:maxprior”}.</p>
+<p><img alt="Max's prior density." src="../_images/priorplot3.svg" />{#fig:maxprior}</p>
+<p>Max asks five potential customers if they would buy <em>Call of Duty:
+Modern Warfare II</em> from him, and four say they would. Using this
+information, what is Max’s posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span>?</p>
+</section>
+<section id="solution-to-example-2-3">
+<h3>Solution to Example 2.3<a class="headerlink" href="#solution-to-example-2-3" title="Link to this heading">#</a></h3>
+<p>We have been told that the prior for <span class="math notranslate nohighlight">\(\theta\)</span> is a <span class="math notranslate nohighlight">\(\text{Beta}(2.5,12)\)</span>
+distribution – this has density given by</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{\mathrm{B}(2.5,12)}\theta^{2.5-1}(1-\theta)^{12-1} = 435.1867\theta^{1.5}(1-\theta)^{11}.
+    \label{eq:max1}\]</div>
+<p>We have an observation on the random variable
+<span class="math notranslate nohighlight">\(X|\theta \sim \text{Bin}(5,\theta)\)</span>. This gives a likelihood function
+of</p>
+<div class="math notranslate nohighlight">
+\[
+f(x=4|\theta)  = \comb{5}{4} \theta^{4}(1-\theta)^{1} = 5 \theta^{4}(1-\theta),
+    \label{eq:max2}\]</div>
+<p>which favours values of <span class="math notranslate nohighlight">\(\theta\)</span> near its maximum
+0.8. We combine our prior information
+(<span class="xref std std-ref">eq:max1</span>{reference-type=”ref” reference=”eq:max1”}) with
+the data (<span class="xref std std-ref">eq:max2</span>{reference-type=”ref”
+reference=”eq:max2”}) – to obtain our posterior distribution – using
+Bayes Theorem. The posterior density function is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    \pi(\theta|x=4) &amp;\propto&amp; \pi(\theta)f(x=4|\theta)\\
+                    &amp;\propto&amp; 435.1867 \theta^{1.5}(1-\theta)^{11} \times 5 \theta^{4}(1-\theta), \qquad 0&lt;\theta&lt;1,  \\
+    
+\end{aligned}\end{split}\]</div>
+<p>giving</p>
+<div class="math notranslate nohighlight">
+\[
+\pi(\theta|x=4) = k \theta^{5.5}(1-\theta)^{12}, \qquad 0&lt;\theta&lt;1.
+    \label{eq:max3}\]</div>
+<p>You should recognise this density function as one
+from the beta family. In fact, we have a <span class="math notranslate nohighlight">\(\text{Beta}(6.5, 13)\)</span>, i.e.
+<span class="math notranslate nohighlight">\(\theta|x=4 \sim \text{Beta}(6.5,13)\)</span>.</p>
+<p><strong>Summary:</strong></p>
+<p>The changes in our beliefs about <span class="math notranslate nohighlight">\(\theta\)</span> are described by the prior and
+posterior distributions shown in Figure 2.7 and summarised in Table 2.2.</p>
+<p><img alt="Prior (dashed) and posterior (solid) densities for Max'sproblem." src="../_images/priorposterior2.svg" /></p>
+<hr class="docutils" />
+<p>2-4                                                           Prior                                                              Likelihood                                                             Posterior
+                               (<span class="xref std std-ref">eq:max1</span>{reference-type=”ref” reference=”eq:max1”})   (<span class="xref std std-ref">eq:max2</span>{reference-type=”ref” reference=”eq:max2”})   (<span class="xref std std-ref">eq:max3</span>{reference-type=”ref” reference=”eq:max3”})
+<span class="math notranslate nohighlight">\(\textnormal{Mode}(\theta)\)</span>                                   0.12                                                                   0.8                                                                  0.314
+<span class="math notranslate nohighlight">\(\text{E}[\theta]\)</span>                                            0.172                                                                  –                                                                   0.333
+<span class="math notranslate nohighlight">\(\textnormal{SD}(\theta)\)</span>                                     0.096                                                                  –                                                                   0.104</p>
+<hr class="docutils" />
+<p>: Changes in beliefs about <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>Notice how the posterior has been “pulled” from the prior towards the
+observed value: the mode has moved up from 0.12 to 0.314, and the mean
+has moved up from 0.172 to 0.333. Having just one observation in the
+likelihood, we see that there is hardly any change in the standard
+deviation from prior to posterior: we would expect to see a decrease in
+standard deviation with the addition of more data values.</p>
+</section>
+<section id="example-2-4">
+<h3>Example 2.4<a class="headerlink" href="#example-2-4" title="Link to this heading">#</a></h3>
+<p><br />
+Table <span class="xref std std-ref">tab:earth</span>{reference-type=”ref” reference=”tab:earth”}
+shows some data on the times between serious []{#ex:earth
+label=”ex:earth”} earthquakes. An earthquake is included if its
+magnitude is at least 7.5 on the Richter scale or if over 1000 people
+were killed. Recording starts on 16 December 1902 (4500 killed in
+Turkistan). The table includes data on 21 earthquakes, that is,
+20 “waiting times” between earthquakes.</p>
+<p>It is believed that earthquakes happen in a random haphazard kind of way
+and that times between earthquakes can be described by an exponential
+distribution. Data over a much longer period suggest that this
+exponential assumption is plausible. Therefore, we will assume that
+these data are a random sample from an exponential distribution with
+rate <span class="math notranslate nohighlight">\(\theta\)</span> (and mean <span class="math notranslate nohighlight">\(1/\theta\)</span>). The parameter <span class="math notranslate nohighlight">\(\theta\)</span> describes
+the rate at which earthquakes occur.</p>
+<p>An expert on earthquakes has prior beliefs about the rate of
+earthquakes, <span class="math notranslate nohighlight">\(\theta\)</span>, described by a <span class="math notranslate nohighlight">\(\text{Gamma}(10,4000)\)</span>
+distribution, which has density density</p>
+<div class="math notranslate nohighlight">
+\[
+\label{eq:earthprior}
+\pi(\theta)=\frac{4000^{10}\,\theta^9e^{-4000\theta}}{\Gamma(10)}, 
+\quad\theta&gt;0,\]</div>
+<p>and mean <span class="math notranslate nohighlight">\(\text{E}[\theta]=0.0025\)</span>. A plot of this
+prior distribution can be found in
+Figure <span class="xref std std-ref">fig:earthprior</span>{reference-type=”ref”
+reference=”fig:earthprior”}. As you might expect, the expert believes
+that, realistically, only very small values of <span class="math notranslate nohighlight">\(\theta\)</span> are likely,
+though larger values are not ruled out! Determine the posterior
+distribution for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p><img alt="Prior density for the earthquake rate" src="../_images/priorplot4.svg" />{#fig:earthprior}</p>
+</section>
+<section id="solution-to-example-2-4">
+<h3>Solution to Example 2.4<a class="headerlink" href="#solution-to-example-2-4" title="Link to this heading">#</a></h3>
+<p>The data are observations on <span class="math notranslate nohighlight">\(X_i|\theta\sim Exp(\theta)\)</span>,
+<span class="math notranslate nohighlight">\(i=1,2,\ldots,20\)</span> (independent). Therefore, the likelihood function
+for <span class="math notranslate nohighlight">\(\theta\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    \label{eq:earthlik}
+    f(\underline{x}|\theta)&amp;=\prod_{i=1}^{20} \theta e^{-\theta x_i}, 
+    \quad\quad\theta&gt;0 \notag \\
+    &amp;=\theta^{20}\exp\left(-\theta\sum_{i=1}^{20} x_i\right),
+    \quad\quad\theta&gt;0 \notag \\
+    &amp;=\theta^{20} e^{-9633\theta},
+    \quad\quad\theta&gt;0. 
+    
+\end{aligned}\end{split}\]</div>
+<p>We now apply Bayes Theorem to combine the expert opinion
+with the observed data. The posterior density function is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    \label{eq:earthpost}
+    \pi(\theta|\underline{x})&amp;\propto\pi(\theta)f(\underline{x}|\theta) \notag \\
+    &amp;\propto\frac{4000^{10}\,\theta^{9}e^{-4000\theta}}{\Gamma(10)}\times
+    \theta^{20} e^{-9633\theta},\quad\quad\theta&gt;0 \notag  \\
+    &amp;=k\,\theta^{30-1}e^{-13633\theta},\quad\quad\theta&gt;0.
+    
+\end{aligned}\end{split}\]</div>
+<p>The only continuous distribution which takes the form
+<span class="math notranslate nohighlight">\(k\theta^{g-1}e^{-h\theta}\)</span>, <span class="math notranslate nohighlight">\(\theta&gt;0\)</span> is the <span class="math notranslate nohighlight">\(\text{Gamma}(g,h)\)</span>
+distribution. Therefore, the posterior distribution must be
+<span class="math notranslate nohighlight">\(\theta|\underline{x}\sim     \text{Gamma}(30,13633)\)</span>.</p>
+<p><strong>Summary:</strong></p>
+<p>The data have updated our beliefs about <span class="math notranslate nohighlight">\(\theta\)</span> from a
+<span class="math notranslate nohighlight">\(\text{Gamma}(10,4000)\)</span> distribution to a<br />
+<span class="math notranslate nohighlight">\(\text{Gamma}(30,13633)\)</span> distribution. Plots of these distributions are
+given in Figure <span class="xref std std-ref">fig:earthpost</span>{reference-type=”ref”
+reference=”fig:earthpost”}, and
+Table <span class="xref std std-ref">tab:earthsum</span>{reference-type=”ref”
+reference=”tab:earthsum”} gives a summary of the main changes induced by
+incorporating the data. Notice that, as the mode of the likelihood
+function is close to that of the prior distribution, the information in
+the data is consistent with that in the prior distribution. This results
+in a reduction in variability from the prior to the posterior
+distributions. The similarity between the prior beliefs and the data has
+reduced the uncertainty we have about the likely earthquake
+rate <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p><img alt="Prior (dashed) and posterior (solid) densities for the earthquake rate." src="../_images/priorposterior3.svg" />{#fig:earthpost}</p>
+</section>
+<section id="example-2-5">
+<h3>Example 2.5<a class="headerlink" href="#example-2-5" title="Link to this heading">#</a></h3>
+<p><br />
+We now consider the general case of the problem discussed in
+Example <span class="xref std std-ref">ex:earth</span>{reference-type=”ref”
+reference=”ex:earth”}. Suppose <span class="math notranslate nohighlight">\(X_i|\theta\sim \text{Exp}(\theta)\)</span>,
+<span class="math notranslate nohighlight">\(i=1,2,\ldots,n\)</span> (independent) and our prior beliefs about <span class="math notranslate nohighlight">\(\theta\)</span> are
+summarised by a <span class="math notranslate nohighlight">\(\text{Gamma}(g,h)\)</span> distribution (with <span class="math notranslate nohighlight">\(g\)</span> and <span class="math notranslate nohighlight">\(h\)</span>
+known), with density</p>
+<div class="math notranslate nohighlight">
+\[
+\label{eq:p6}
+\pi(\theta)=\frac{h^g\,\theta^{g-1}e^{-h\theta}}{\Gamma(g)}, 
+\quad\theta&gt;0.\]</div>
+<p>Determine the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+</section>
+<section id="solution-to-example-2-5">
+<h3>Solution to Example 2.5<a class="headerlink" href="#solution-to-example-2-5" title="Link to this heading">#</a></h3>
+<p>The likelihood function for <span class="math notranslate nohighlight">\(\theta\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    \label{eq:p7}
+   f(\underline{x}|\theta)&amp;=\prod_{i=1}^n \theta e^{-\theta x_i}, 
+    \quad\quad\theta&gt;0 \notag \\
+    &amp;= \theta^n e^{-n\bar x\theta}, \quad\quad\theta&gt;0. 
+    
+\end{aligned}\end{split}\]</div>
+<p>We now apply Bayes Theorem. The posterior density
+function is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    \pi(\theta|\underline{x})&amp;\propto\pi(\theta)f(\underline{x}|\theta) \notag \\
+    &amp;\propto\frac{h^g\,\theta^{g-1}e^{-h\theta}}{\Gamma(g)}\times
+    \theta^n e^{-n\bar x\theta},\quad\quad\theta&gt;0. \notag \\
+    \pi(\theta|\underline{x})
+    \label{eq:p8}
+    &amp;=k\theta^{g+n-1}e^{-(h+n\bar x)\theta},\quad\quad\theta&gt;0.
+    
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is a constant that does not depend on
+<span class="math notranslate nohighlight">\(\theta\)</span>. Therefore, the posterior distribution takes the form
+<span class="math notranslate nohighlight">\(k\theta^{g-1}e^{-h\theta}\)</span>, <span class="math notranslate nohighlight">\(\theta&gt;0\)</span> and so must be a gamma
+distribution. Thus we have
+<span class="math notranslate nohighlight">\(\theta|\underline{x}\sim \text{Gamma}(g+n,h+n\bar x)\)</span>.</p>
+<p><strong>Summary:</strong></p>
+<p>If we have a random sample from an <span class="math notranslate nohighlight">\(\text{Exp}(\theta)\)</span> distribution and
+our prior beliefs about <span class="math notranslate nohighlight">\(\theta\)</span> follow a <span class="math notranslate nohighlight">\(\text{Gamma}(g,h)\)</span>
+distribution then, after incorporating the data, our (posterior) beliefs
+about <span class="math notranslate nohighlight">\(\theta\)</span> follow a <span class="math notranslate nohighlight">\(\text{Gamma}(g+n,h+n\bar x)\)</span> distribution. The
+changes in our beliefs about <span class="math notranslate nohighlight">\(\theta\)</span> are summarised in
+Table <span class="xref std std-ref">tab:gam</span>{reference-type=”ref” reference=”tab:gam”}, taking
+<span class="math notranslate nohighlight">\(g\geq 1\)</span>.</p>
+<p>Notice that the posterior mean is greater than the prior mean if and
+only if the likelihood mode is greater than the prior mean, that is,</p>
+<div class="math notranslate nohighlight">
+\[
+\text{E}[\theta|\underline{x}]&gt;\text{E}[\theta]\quad\iff\quad 
+\textnormal{Mode}(f(\underline{x}|\theta))&gt;\text{E}[\theta].\]</div>
+<p>The
+standard deviation of the posterior distribution is smaller than that of
+the prior distribution if and only if the sample mean is large enough,
+that is</p>
+<div class="math notranslate nohighlight">
+\[
+\textnormal{SD}(\theta|\underline{x})&lt;\textnormal{SD}(\theta)\quad\iff\quad \bar x &gt; k.\]</div>
+</section>
+<section id="example-2-6">
+<h3>Example 2.6<a class="headerlink" href="#example-2-6" title="Link to this heading">#</a></h3>
+<p><br />
+Software engineers at <strong>Twitter</strong> are interested in the click-through
+rate <span class="math notranslate nohighlight">\(\theta\)</span> of their advertisement recommender.</p>
+<p>The <strong>click-through rate</strong> is the proportion of clicks out of the total
+number of impressions of an online advertisement.</p>
+<p>The engineers assess the click-through rate by testing their recommender
+on users of Twitter. They obtain a total of <span class="math notranslate nohighlight">\(n\)</span> impressions.</p>
+<ul class="simple">
+<li><p>Using a <strong>Beta prior</strong>, quantify <strong>your prior beliefs</strong> about
+<span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+</ul>
+</section>
+<section id="solution-to-example-2-6-a">
+<h3>Solution to Example 2.6(a)<a class="headerlink" href="#solution-to-example-2-6-a" title="Link to this heading">#</a></h3>
+<p>By plotting different Beta distributions, or by specifying
+<span class="math notranslate nohighlight">\(\text{E}[\theta]\)</span> and <span class="math notranslate nohighlight">\(\text{Var}[\theta]\)</span> and solving the system of
+equations to specify <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, I arrived at the following prior:</p>
+<div class="math notranslate nohighlight">
+\[
+\theta \sim \text{Beta}(5, 100).\]</div>
+<p>This places the vast majority of
+the probability mass for values <span class="math notranslate nohighlight">\(\theta &lt; 0.2\)</span>. I chose this because I
+expect that the click-through rate is very small, but I also have some
+uncertainty about <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<ul class="simple">
+<li><p>Specify a <strong>probability model</strong> for the number of successful clicks.</p></li>
+</ul>
+</section>
+<section id="solution-to-example-2-6-b">
+<h3>Solution to Example 2.6(b)<a class="headerlink" href="#solution-to-example-2-6-b" title="Link to this heading">#</a></h3>
+<p>In each given impression, a user either clicks on the advert or does
+not. A success is if the user does click on the advert. Therefore,
+assuming independence between each impression (which is plausible), the
+appropriate model is</p>
+<div class="math notranslate nohighlight">
+\[
+X|\theta \sim \text{Binomial}(n, \theta),\]</div>
+<p>where
+<span class="math notranslate nohighlight">\(n\)</span> is the total number of impressions.</p>
+<ul class="simple">
+<li><p>Using your probability model, and a general
+<span class="math notranslate nohighlight">\(\theta \sim \text{Beta}(a,b)\)</span> prior, derive the posterior
+distribution.</p></li>
+</ul>
+</section>
+<section id="solution-to-example-2-6-c">
+<h3>Solution to Example 2.6(c)<a class="headerlink" href="#solution-to-example-2-6-c" title="Link to this heading">#</a></h3>
+<p>The prior is <span class="math notranslate nohighlight">\(\theta\sim \text{Beta}(a,b)\)</span> and so the prior pdf is</p>
+<div class="math notranslate nohighlight">
+\[
+\pi(\theta) = \frac{\theta^{a-1}(1-\theta)^{b-1}}{\mathrm{B}(a,b)}.\]</div>
+<p>Our probability model was <span class="math notranslate nohighlight">\(X|\theta \sim \text{Binomial}(n, \theta)\)</span>.
+Therefore, the posterior is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+        \pi(\theta|x) &amp;\propto \pi(\theta) f(x|\theta) \\
+        &amp;\propto \frac{\theta^{a-1}(1-\theta)^{b-1}}{\mathrm{B}(a,b)} \times \binom{n}{x} \theta^{x}(1-\theta)^{n-x} \\
+        &amp;\propto \theta^{a + x - 1} (1-\theta)^{b + n - x - 1}.
+    
+\end{aligned}\end{split}\]</div>
+<p>We recognise this as the same form as the Beta pdf and
+we conclude that</p>
+<div class="math notranslate nohighlight">
+\[
+\theta | x \sim \text{Beta}(a + x, b + n - x).\]</div>
+<ul class="simple">
+<li><p>Using your prior and the following data, derive your <strong>posterior
+distribution</strong>. Out <span class="math notranslate nohighlight">\(n=10,000\)</span> impressions, there were 47 successful
+clicks.</p></li>
+</ul>
+</section>
+<section id="solution-to-example-2-6-d">
+<h3>Solution to Example 2.6(d)<a class="headerlink" href="#solution-to-example-2-6-d" title="Link to this heading">#</a></h3>
+<p>My prior was <span class="math notranslate nohighlight">\(\theta \sim \text{Beta}(5, 100)\)</span>. Using the update formula
+from part (c), with <span class="math notranslate nohighlight">\(n = 10000\)</span> and <span class="math notranslate nohighlight">\(x = 47\)</span>, my revised belief about
+<span class="math notranslate nohighlight">\(\theta\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+\theta | x \sim \text{Beta}(52, 10053).\]</div>
+<p>Note that
+<span class="math notranslate nohighlight">\(\text{E}[\theta|x] = \frac{52}{10053} = 0.00517\)</span> (3 s.f.) and
+<span class="math notranslate nohighlight">\(\text{Var}[\theta|x] = 5.07\times 10^{-7}\)</span> (3 s.f.). Due to the amount
+of data, the posterior is dominated by the likelihood function since the
+variance is so small.</p>
+<p><strong>Summary:</strong></p>
+<p>The prior, likelihood function and posterior can be seen in
+Figure <span class="xref std std-ref">fig:clickthrough</span>{reference-type=”ref”
+reference=”fig:clickthrough”}. Here, I used my prior
+<span class="math notranslate nohighlight">\(\theta \sim \text{Beta}(5,100)\)</span>. Our changes in belief about the
+click-through rate <span class="math notranslate nohighlight">\(\theta\)</span> are summarised in
+Table <span class="xref std std-ref">tab:clickthrough</span>{reference-type=”ref”
+reference=”tab:clickthrough”}, after incorporating the data.</p>
+<p>Note how our posterior beliefs are dominated by the likelihood function.
+This is because we have so much data (<span class="math notranslate nohighlight">\(n = 10000\)</span>).</p>
+<p><img alt="Prior, likelihood function and posterior of the click-through rate." src="../_images/clickthroughrate_priorposterior.svg" />{#fig:clickthrough}</p>
+</section>
+<section id="example-2-7">
+<h3>Example 2.7<a class="headerlink" href="#example-2-7" title="Link to this heading">#</a></h3>
+<p><br />
+You are attempting to measure the <strong>speed of a particle</strong> <span class="math notranslate nohighlight">\(\theta\)</span> and
+quantify the uncertainty in the measurement. The experiment is set-up
+such that the particle <strong>travels</strong> <span class="math notranslate nohighlight">\(1\)</span>km and the measurements are the
+speed of the particle <span class="math notranslate nohighlight">\(X_i|\theta\)</span>, for <span class="math notranslate nohighlight">\(i = 1,\ldots, n\)</span> in kilometers
+per second (<span class="math notranslate nohighlight">\(km/s\)</span>).</p>
+<p>There are a <strong>multitude of factors</strong> that additively result in
+<strong>measurement error</strong> for the speed of the particle.</p>
+<ul class="simple">
+<li><p>Using a <strong>normal prior</strong>, quantify <strong>your prior beliefs</strong> about
+<span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+</ul>
+</section>
+<section id="solution-to-example-2-7-a">
+<h3>Solution to Example 2.7(a)<a class="headerlink" href="#solution-to-example-2-7-a" title="Link to this heading">#</a></h3>
+<p>Since there are physical constraints on the speed <span class="math notranslate nohighlight">\(\theta\)</span>, note that a
+normal prior may not be appropriate. This is because a normal
+distribution places probability mass over all the real line. Since we
+are measuring speed, we should have <span class="math notranslate nohighlight">\(0 &lt; \theta &lt; c\)</span>, where
+<span class="math notranslate nohighlight">\(c = 299792 km/s\)</span> is the speed of light.</p>
+<p>In any case, since we are asked to use a normal prior and we have no
+knowledge of the type of the particle being considered, a prior with
+little information is appropriate. For example:</p>
+<div class="math notranslate nohighlight">
+\[
+\theta \sim \mathcal{N}(1.5\times 10^5, (4\times 10^4)^2).\]</div>
+<p>This
+places little mass outside the regions <span class="math notranslate nohighlight">\(\theta &lt; 0\)</span> and <span class="math notranslate nohighlight">\(\theta &gt; c\)</span> and
+does not provide much information about the speed of the particle.</p>
+<ul class="simple">
+<li><p>Why is a <strong>normal distribution</strong> appropriate for the likelihood?
+Write down the likelihood.</p></li>
+</ul>
+</section>
+<section id="solution-to-example-2-7-b">
+<h3>Solution to Example 2.7(b)<a class="headerlink" href="#solution-to-example-2-7-b" title="Link to this heading">#</a></h3>
+<p>Since there an accumulation of random errors, by the central limit
+theorem <span class="math notranslate nohighlight">\(X_i|\theta\sim\mathcal{N}(\theta, \sigma^2)\)</span> is a sensible
+model. There will also be independence between each measurement. From
+Example 1.7, the likelihood is</p>
+<div class="math notranslate nohighlight">
+\[
+f(\underline{x}|\theta,\sigma) =  (2\pi)^{-n/2}\sigma^{-n}
+        \exp\left\{-\frac{1}{2\sigma^2}
+        \left(\sum_{i=1}^n x_i^2-2\theta\sum_{i=1}^n x_i+n\theta^2\right)\right\}.\]</div>
+<ul class="simple">
+<li><p>Assuming that the <strong>standard deviation</strong> of the measurements
+<span class="math notranslate nohighlight">\(\sigma\)</span> is know, derive the posterior using a general
+<span class="math notranslate nohighlight">\(\theta \sim \mathcal{N}(\mu_0, \sigma^2_0)\)</span> prior.</p></li>
+</ul>
+</section>
+<section id="solution-to-example-2-7-c">
+<h3>Solution to Example 2.7(c)<a class="headerlink" href="#solution-to-example-2-7-c" title="Link to this heading">#</a></h3>
+<p>We will use the fact that <span class="math notranslate nohighlight">\(e^{x+y} = e^x e^y\)</span> throughout this example.
+First, note that</p>
+<div class="math notranslate nohighlight">
+\[
+f(\underline{x}|\theta, \sigma) \propto \exp\left\{-\frac{1}{2\sigma^2}(-2\theta n\bar{x} + n\theta^2)\right\}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\pi(\theta) \propto \exp\left\{-\frac{1}{2\sigma^2_0}(\theta^2 - 2 \mu_0 \theta)\right\}.\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+        \pi(\theta|\underline{x}) &amp;\propto \exp\left\{-\frac{1}{2\sigma^2}(-2\theta n\bar{x} + n\theta^2)\right\}\exp\left\{-\frac{1}{2\sigma^2_0}(\theta^2 - 2 \mu_0 \theta)\right\} \\
+        &amp;\propto \exp\left\{-\frac{1}{2}\left(\frac{n}{\sigma^2} \theta^2 - 2 \frac{n\bar{x}}{\sigma^2}\theta + \frac{\theta^2}{\sigma_0^2} - 2\frac{\mu_0}{\sigma_0^2} \theta \right)\right\} \\
+        &amp;\propto \exp\left\{-\frac{1}{2}\left(\left(\frac{n}{\sigma^2} + \frac{1}{\sigma_0^2}\right)\theta^2 - 2\left(\frac{n\bar{x}}{\sigma^2} + \frac{\mu_0}{\sigma_0^2}\right)\theta\right)\right\} \\
+        &amp;\propto \exp\left\{-\frac{1}{2}\left(\frac{\theta^2 - 2\left(\frac{n}{\sigma^2} + \frac{1}{\sigma_0^2}\right)^{-1}\left(\frac{n\bar{x}}{\sigma^2} + \frac{\mu_0}{\sigma_0^2}\right)\theta }{\left(\frac{n}{\sigma^2} + \frac{1}{\sigma_0^2}\right)^{-1}}\right)\right\}
+    
+\end{aligned}\end{split}\]</div>
+<p>Let
+<span class="math notranslate nohighlight">\(V = \left(\frac{n}{\sigma^2} + \frac{1}{\sigma_0^2}\right)^{-1}\)</span> and
+<span class="math notranslate nohighlight">\(M = \left(\frac{n}{\sigma^2} + \frac{1}{\sigma_0^2}\right)^{-1}\left(\frac{n\bar{x}}{\sigma^2} + \frac{\mu_0}{\sigma_0^2}\right)\)</span>.
+Then,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+        \pi(\theta|\underline{x}) &amp;\propto \exp\left\{-\frac{1}{2V}(\theta^2 - 2M\theta)\right\} \\
+        &amp;\propto \exp\left\{-\frac{1}{2V}(\theta^2 - 2M\theta)\right\} \exp\left(-\frac{1}{2V}M^2\right) \\
+        &amp;\propto \exp\left\{-\frac{1}{2V}(\theta^2 - 2M\theta + M^2)\right\} \\
+        &amp;\propto \exp\left\{-\frac{1}{2V}(\theta - M)^2\right\}.
+    
+\end{aligned}\end{split}\]</div>
+<p>We recognise this as the form of a Normal distribution
+with mean <span class="math notranslate nohighlight">\(M\)</span> and variance <span class="math notranslate nohighlight">\(V\)</span>. So,</p>
+<div class="math notranslate nohighlight">
+\[
+\theta |\underline{x} \sim \mathcal{N}(M,V).\]</div>
+<ul>
+<li><p>Suppose you attempted to measure the speed of the particle <span class="math notranslate nohighlight">\(4\)</span> times
+and obtained the measurements (in <span class="math notranslate nohighlight">\(km/s\)</span>): 306135, 293227, 307985,
+301298.</p>
+<p>Using your prior, setting <span class="math notranslate nohighlight">\(\sigma = 5000\)</span> and using this data,
+derive your <strong>posterior distribution</strong>.</p>
+</li>
+</ul>
+</section>
+<section id="solution-to-example-2-7-d">
+<h3>Solution to Example 2.7(d)<a class="headerlink" href="#solution-to-example-2-7-d" title="Link to this heading">#</a></h3>
+<p>Using our posterior update rule from part (c) with
+<span class="math notranslate nohighlight">\(\bar{x} = 302161.25\)</span>, <span class="math notranslate nohighlight">\(\sigma^2 = 5000^2\)</span>, <span class="math notranslate nohighlight">\(\mu_0 = 150000\)</span> and
+<span class="math notranslate nohighlight">\(\sigma_0^2 = 40000^2\)</span>, the posterior is</p>
+<div class="math notranslate nohighlight">
+\[
+\theta | \underline{x} \sim \mathcal{N}(271729, 2236.068^2).\]</div>
+<p><strong>Summary:</strong></p>
+<p>From part (c), we know that if our data <span class="math notranslate nohighlight">\(\underline{x}\)</span> is IID normally
+distributed with unknown mean <span class="math notranslate nohighlight">\(\theta\)</span> and we choose a Normal prior
+distribution</p>
+<div class="math notranslate nohighlight">
+\[
+\theta \sim \mathcal{N}(\mu_0,\sigma^2_0)\]</div>
+<p>to quantify
+our uncertainty about <span class="math notranslate nohighlight">\(\theta\)</span>, then the distribution of the posterior
+<span class="math notranslate nohighlight">\(\theta|\underline{x}\sim \mathcal{N}(M, V)\)</span> is again normally
+distributed with mean <span class="math notranslate nohighlight">\(M\)</span> and variance <span class="math notranslate nohighlight">\(V\)</span>, where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    M &amp;= \left(\frac{n}{\sigma^2} + \frac{1}{\sigma_0^2}\right)^{-1}\left(\frac{n\bar{x}}{\sigma^2} + \frac{\mu_0}{\sigma_0^2}\right), \\
+    V &amp;= \left(\frac{n}{\sigma^2} + \frac{1}{\sigma_0^2}\right)^{-1}.
+\end{aligned}\end{split}\]</div>
+<p>The prior, likelihood function and posterior can be seen in
+Figure <span class="xref std std-ref">fig:speed</span>{reference-type=”ref” reference=”fig:speed”}.</p>
+<p><img alt="Prior, likelihood function and posterior of the speed of the particle." src="../_images/speed_priorposterior.svg" />{#fig:speed}</p>
+</section>
+<section id="example-2-8">
+<h3>Example 2.8<a class="headerlink" href="#example-2-8" title="Link to this heading">#</a></h3>
+<p><br />
+Let <span class="math notranslate nohighlight">\(Y\)</span> be the retreat, in feet, of the <em>Zachariae Isstrøm</em> glacier. A
+<em>Pareto</em> distribution with rate <span class="math notranslate nohighlight">\(\theta\)</span> is often used to model such
+geophysical activity, with probability density function</p>
+<div class="math notranslate nohighlight">
+\[
+f(y|\kappa,\theta) = \theta\kappa^{\theta}y^{-(\theta+1)}, \qquad \theta,\kappa&gt;0 \text{ and } y&gt;\kappa.\]</div>
+<ul class="simple">
+<li><p>Obtain the likelihood function for <span class="math notranslate nohighlight">\(\theta\)</span> given the parameter
+<span class="math notranslate nohighlight">\(\kappa\)</span> and some observed data <span class="math notranslate nohighlight">\(y_{1}, y_{2}, \ldots, y_{n}\)</span>
+(independent).</p></li>
+</ul>
+</section>
+<section id="solution-to-example-2-8-a">
+<h3>Solution to Example 2.8(a)<a class="headerlink" href="#solution-to-example-2-8-a" title="Link to this heading">#</a></h3>
+<p>The likelihood function is simply the product of the probability density
+function evaluated at each observation <span class="math notranslate nohighlight">\(y_{i}\)</span>, (<span class="math notranslate nohighlight">\(i=1, \ldots, n\)</span>), i.e.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    f(\underline{y} | \theta, \kappa) &amp;= \theta\kappa^{\theta}y_{1}^{-(\theta+1)} \times \cdots \times \theta\kappa^{\theta}y_{n}^{-(\theta+1)}  \notag \\
+                                   &amp; \notag \\
+                                   &amp;= \theta^{n} \kappa^{n\theta} \prod_{i=1}^{n}y_{i}^{-(\theta+1)}.
+    
+\end{aligned}\end{split}\]</div>
+<ul class="simple">
+<li><p>Suppose we observe a retreat of 20 feet at the <em>Zachariae Isstrøm</em>
+glacier in 2012. Write down the likelihood function for <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+</ul>
+</section>
+<section id="solution-to-example-2-8-b">
+<h3>Solution to Example 2.8(b)<a class="headerlink" href="#solution-to-example-2-8-b" title="Link to this heading">#</a></h3>
+<p>We simply substitute <span class="math notranslate nohighlight">\(n=1\)</span> and <span class="math notranslate nohighlight">\(y_{1}=20\)</span> into the likelihood, giving</p>
+<div class="math notranslate nohighlight">
+\[
+f(\theta|\kappa,y_{1}=20)     =\theta \kappa^{\theta} 20^{-(\theta+1)}.\]</div>
+<ul class="simple">
+<li><p>Using the prior <span class="math notranslate nohighlight">\(\theta \sim \text{Gamma}(9,0.36)\)</span> for the rate of
+retreat and assuming <span class="math notranslate nohighlight">\(\kappa\)</span> is known to be 12, obtain the
+posterior distribution <span class="math notranslate nohighlight">\(\pi(\theta|y_{1}=20)\)</span>.</p></li>
+</ul>
+</section>
+<section id="solution-to-example-2-8-c">
+<h3>Solution to Example 2.8(c)<a class="headerlink" href="#solution-to-example-2-8-c" title="Link to this heading">#</a></h3>
+<p>Using Bayes Theorem, and following the examples in Chapter 2, we know
+that</p>
+<div class="math notranslate nohighlight">
+\[
+\pi(\theta|y_{1}=20) \propto \pi(\theta)\times f(y_1 =20 | \theta).\]</div>
+<p>Recall from Example 3.4 that our elicited prior for <span class="math notranslate nohighlight">\(\theta\)</span> is
+<span class="math notranslate nohighlight">\(\text{Gamma}(9,0.36)\)</span>, which has density</p>
+<div class="math notranslate nohighlight">
+\[
+\pi(\theta) = \frac{0.36^{9}\theta^{8}e^{-0.36\theta}}{\Gamma(9)}.\]</div>
+<p>Combining this with the likelihood above (and using <span class="math notranslate nohighlight">\(\kappa=12\)</span>) gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+        \pi(\theta|y_{1}=20)   &amp;= \frac{0.36^{9}\theta^{8}e^{-0.36\theta}}{\Gamma(9)} \times \theta 12^{\theta}20^{-(\theta+1)} \notag \\
+           &amp;  \notag \\
+                               &amp;\propto \theta^{9} e^{-0.36 \theta} 12^{\theta} 20^{-(\theta+1)}  \notag \\
+            &amp; &amp;\notag   \\
+                               &amp;\propto \theta^{9}e^{-0.36 \theta}12^{\theta} 20^{-\theta}.
+        
+\end{aligned}\end{split}\]</div>
+<p>Now consider the term <span class="math notranslate nohighlight">\(12^{\theta}20^{-\theta}\)</span>. Taking logs, we get</p>
+<div class="math notranslate nohighlight">
+\[
+\theta \text{ln}12 - \theta \text{ln}20  = (\text{ln}12 - \text{ln}20)\theta;\]</div>
+<p>exponentiating to ‘re–balance’, you should see that</p>
+<div class="math notranslate nohighlight">
+\[
+12^{\theta}20^{-\theta} = e^{(\text{ln}12 - \text{ln}20)\theta}.\]</div>
+<p>Substituting back into (3.6) gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+          \pi(\theta|y_{1}=20)  &amp;\propto&amp; \theta^{9}e^{-0.36 \theta} e^{(\text{ln}12 - \text{ln}20)\theta}     \qquad \text{i.e.}     \\
+                   &amp; &amp; \\
+                                &amp;\propto&amp; \theta^{9}e^{-0.36\theta +(\text{ln}12-\text{ln}20)\theta}    \\
+                         &amp; &amp; \\
+                                &amp;\propto&amp; \theta^{9}e^{-0.87 \theta}.
+        
+\end{aligned}\end{split}\]</div>
+<p>Referring to our definition of the gamma distribution on
+page 25 of these notes, you should recognise this as a
+<span class="math notranslate nohighlight">\(\text{Gamma}(10,0.87)\)</span> distribution.</p>
+<p><img alt="Prior (dashed) and posterior (solid) densities for the rate of glacialretreat at the Zachariae Isstrømglacier." src="../_images/glacier_posterior.svg" /></p>
+</section>
+</section>
+<section id="conjugacy">
+<h2>Conjugacy<a class="headerlink" href="#conjugacy" title="Link to this heading">#</a></h2>
+<p>In Example 2.5, a gamma prior leads to a gamma posterior. This is an
+example of <em>conjugacy</em>, where choosing a prior in a family of
+distributions always leads to a posterior in the same family. The formal
+definition is as follows:</p>
+<section id="definition-2-4-conjugate-prior">
+<h3>Definition 2.4: Conjugate Prior<a class="headerlink" href="#definition-2-4-conjugate-prior" title="Link to this heading">#</a></h3>
+<p><br />
+Suppose that data <span class="math notranslate nohighlight">\(\underline{x}\)</span> are modelled with distribution
+<span class="math notranslate nohighlight">\(f(\underline{x}|\theta)\)</span>. A family <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> of prior distributions
+for <span class="math notranslate nohighlight">\(\theta\)</span> is <em>conjugate</em> to <span class="math notranslate nohighlight">\(f(\underline{x}|\theta)\)</span> if for every
+prior distribution <span class="math notranslate nohighlight">\(\pi(\theta)\in\mathcal{P}\)</span>, the posterior
+distribution <span class="math notranslate nohighlight">\(\pi(\theta|\underline{x})\)</span> is also in <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>.</p>
+<p>Notice that the conjugate family depends crucially on the model chosen
+for the data <span class="math notranslate nohighlight">\(\underline{x}\)</span>. So we say (for example) that the Gamma
+distribution is a conjugate prior for the exponential model.</p>
+<p>There are usually simple formulae to update the conjugate prior to the
+corresponding posterior. For instance, Example 2.5 showed that a
+<span class="math notranslate nohighlight">\(\text{Gamma}(g,h)\)</span> prior for an exponential model leads to a
+<span class="math notranslate nohighlight">\(\text{Gamma}(g+n,h+n\bar x)\)</span> distribution. For this reason, conjugate
+priors are usually a convenient choice to reduce the mathematical and
+computational effort of deriving the posterior.</p>
+<p>Some examples of conjugacy are as follows:</p>
+<ol class="arabic simple">
+<li><p>Binomial random sample, Beta prior distribution <span class="math notranslate nohighlight">\(\longrightarrow\)</span>
+Beta posterior distribution (Examples 2.1 – 2.3)</p></li>
+<li><p>Exponential random sample, Gamma prior distribution
+<span class="math notranslate nohighlight">\(\longrightarrow\)</span> Gamma posterior distribution (Examples 2.4 – 2.5)</p></li>
+<li><p>Normal random sample (known variance), Normal prior distribution
+<span class="math notranslate nohighlight">\(\longrightarrow\)</span> Normal posterior distribution (Example 2.6)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{Gamma}(k,\theta)\)</span> random sample (<span class="math notranslate nohighlight">\(k\)</span> known), Gamma prior
+distribution <span class="math notranslate nohighlight">\(\longrightarrow\)</span> Gamma posterior distribution.</p></li>
+</ol>
+</section>
+<section id="example-2-9">
+<h3>Example 2.9<a class="headerlink" href="#example-2-9" title="Link to this heading">#</a></h3>
+<p>[]{#ex:normal label=”ex:normal”} <br />
+Suppose we have a random sample from a normal distribution. In Bayesian
+statistics, when dealing with the normal distribution, the mathematics
+is more straightforward if we work with the precision
+(<span class="math notranslate nohighlight">\(=1/\text{variance}\)</span>) of the distribution rather than the variance
+itself. So we will assume that this population has unknown mean <span class="math notranslate nohighlight">\(\mu\)</span>
+but known precision <span class="math notranslate nohighlight">\(\tau\)</span>. That is,</p>
+<div class="math notranslate nohighlight">
+\[
+X_i|\mu\sim \mathcal{N}(\mu,1/\tau),\]</div>
+<p>for <span class="math notranslate nohighlight">\(i=1,2,\ldots,n\)</span>
+(independent), where <span class="math notranslate nohighlight">\(\tau\)</span> is known. Suppose our prior beliefs about
+<span class="math notranslate nohighlight">\(\mu\)</span> can be summarised by a <span class="math notranslate nohighlight">\(\mathcal{N}(b,1/d)\)</span> distribution, with
+probability density function</p>
+<div class="math notranslate nohighlight">
+\[
+\label{eq:p11}
+\pi(\mu)=
+\left(\frac{d}{2\pi}\right)^{1/2}\exp\left\{-\frac{d}{2}(\mu-b)^2\right\}.\]</div>
+<p>Determine the posterior distribution for <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+</section>
+<section id="solution-to-example-2-9">
+<h3>Solution to Example 2.9<a class="headerlink" href="#solution-to-example-2-9" title="Link to this heading">#</a></h3>
+<p>The likelihood function for <span class="math notranslate nohighlight">\(\mu\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+        f(\underline{x}|\mu)&amp;=\prod_{i=1}^n 
+        \left(\frac{\tau}{2\pi}\right)^{1/2}
+        \exp\left\{-\frac{\tau}{2}(x_i-\mu)^2\right\}  \\
+        &amp;= \left(\frac{\tau}{2\pi}\right)^{n/2}
+        \exp\left\{-\frac{\tau}{2}\sum_{i=1}^n (x_i-\mu)^2\right\} \\
+        &amp;= \left(\frac{\tau}{2\pi}\right)^{n/2}
+        \exp\left\{-\frac{\tau}{2}\sum_{i=1}^n (x_i-\bar x+\bar x-\mu)^2\right\} \\
+        &amp;= \left(\frac{\tau}{2\pi}\right)^{n/2}
+        \exp\left\{-\frac{\tau}{2}\left[\sum_{i=1}^n (x_i-\bar x)^2+n(\bar x-\mu)^2\right]\right\} 
+        
+\end{aligned}\end{split}\]</div>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[
+s^2 =\frac{1}{n}\sum_{i=1}^n (x_i-\bar x)^2\]</div>
+<p>and
+then</p>
+<div class="math notranslate nohighlight">
+\[
+f(\underline{x} | \mu) = \left(\frac{\tau}{2\pi}\right)^{n/2}
+        \exp\left\{-\frac{n\tau}{2}\left[s^2+(\bar x-\mu)^2\right]\right\}. \label{eq:p10}\]</div>
+<p>Applying Bayes Theorem, the posterior density function is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+        \pi(\mu|\underline{x})&amp;\propto\pi(\mu)f(\underline{x} | \mu)\\
+        &amp;\propto \left(\frac{d}{2\pi}\right)^{1/2}\exp\left\{-\frac{d}{2}(\mu-b)^2\right\} \times \left(\frac{\tau}{2\pi}\right)^{n/2}
+        \exp\left\{-\frac{n\tau}{2}\left[s^2+(\bar x-\mu)^2\right]\right\} \\
+        &amp;=k_1\exp\left\{-\frac{1}{2}\left[d(\mu-b)^2+n\tau(\bar x-\mu)^2\right]\right\}
+        
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(k_1\)</span> is a constant that does not depend on <span class="math notranslate nohighlight">\(\mu\)</span>.
+Now the exponent can be simplified by expanding terms in <span class="math notranslate nohighlight">\(\mu\)</span> and then
+completing the square, as follows.</p>
+<p>We have</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+d(\mu-b)^2&amp;+n\tau(\bar x-\mu)^2\\
+&amp;=d(\mu^2-2b\mu+b^2)+n\tau(\bar x^2-2\bar x\mu+\mu^2)\\
+&amp;=(d+n\tau)\mu^2-2(db+n\tau\bar x)\mu
++db^2+n\tau\bar x^2\\
+&amp;=(d+n\tau)\left\{\mu
+-\left(\frac{db+n\tau\bar x}{d+n\tau}\right)\right\}^2+c
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(c\)</span> does not depend on <span class="math notranslate nohighlight">\(\mu\)</span>. Let</p>
+<div class="math notranslate nohighlight">
+\[
+\label{eq:p12}
+B=\frac{db+n\tau\bar x}{d+n\tau}\quad\quad\text{and}\quad\quad
+D=d+n\tau.\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\label{eq:p13}
+\pi(\mu|\underline{x})&amp;=k_1\exp\left\{-\frac{D}{2}(\mu-B)^2-\frac{c}{2}\right\}
+\notag \\
+&amp;=k\exp\left\{-\frac{D}{2}(\mu-B)^2\right\},
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is a constant that does not depend on <span class="math notranslate nohighlight">\(\mu\)</span>.
+Therefore, the posterior distribution takes the form
+<span class="math notranslate nohighlight">\(k\exp\{-D(\mu-B)^2/2\}\)</span>, <span class="math notranslate nohighlight">\(-\infty&lt;\mu&lt;\infty\)</span> and so must be a normal
+distribution: we have <span class="math notranslate nohighlight">\(\mu|\underline{x}\sim \mathcal{N}(B,1/D)\)</span>.</p>
+<p><strong>Summary:</strong></p>
+<p>If we have a random sample from a <span class="math notranslate nohighlight">\(\mathcal{N}(\mu,1/\tau)\)</span> distribution
+(with <span class="math notranslate nohighlight">\(\tau\)</span> known) and our prior beliefs about <span class="math notranslate nohighlight">\(\mu\)</span> follow a
+<span class="math notranslate nohighlight">\(\mathcal{N}(b,1/d)\)</span> distribution then, after incorporating the data,
+our (posterior) beliefs about <span class="math notranslate nohighlight">\(\mu\)</span> follow a <span class="math notranslate nohighlight">\(\mathcal{N}(B,1/D)\)</span>
+distribution.</p>
+<p>Notice that the way prior information and observed data combine is
+through the parameters of the normal distribution:</p>
+<div class="math notranslate nohighlight">
+\[
+B = \frac{db+n\tau\bar x}{d+n\tau}
+\quad\quad\text{and}\quad\quad 
+D = d+n\tau.\]</div>
+<p>Notice also that the posterior variance (and precision)
+does not depend on the data, and the posterior mean is a convex
+combination of the prior and sample means, that is,</p>
+<div class="math notranslate nohighlight">
+\[
+B=\alpha b+(1-\alpha)\bar x,\]</div>
+<p>for some <span class="math notranslate nohighlight">\(\alpha\in(0,1)\)</span>. This
+equation for the posterior mean, which can be rewritten as</p>
+<div class="math notranslate nohighlight">
+\[
+\text{E}[\mu|\underline{x}]=\alpha \text{E}[\mu]+(1-\alpha)\bar x,\]</div>
+<p>arises in other models and is known as the <em>Bayes linear rule</em>.</p>
+<p>The changes in our beliefs about <span class="math notranslate nohighlight">\(\mu\)</span> are summarised in
+Table <span class="xref std std-ref">tab:norknown</span>{reference-type=”ref”
+reference=”tab:norknown”}. Notice that the posterior mean is greater
+than the prior mean if and only if the likelihood mode (sample mean) is
+greater than the prior mean, that is</p>
+<div class="math notranslate nohighlight">
+\[
+\text{E}[\mu|\underline{x}] &gt; \text{E}[\mu] \quad\iff\quad \textnormal{Mode}(f(\underline{x}|\mu))&gt;\text{E}[\mu].\]</div>
+<p>Also, the standard deviation of the posterior distribution is smaller
+than that of the prior distribution.</p>
+</section>
+<section id="example-2-10">
+<h3>Example 2.10<a class="headerlink" href="#example-2-10" title="Link to this heading">#</a></h3>
+<p><br />
+The ages of <em>Ennerdale granophyre</em> rocks can be determined using
+[]{#ex:rocks label=”ex:rocks”} the relative proportions of rubidium–87
+and strontium–87 in the rock. An expert in the field suggests that the
+ages of such rocks (in millions of years)
+<span class="math notranslate nohighlight">\(X|\mu\sim \mathcal{N}(\mu,8^2)\)</span> and that a prior distribution
+<span class="math notranslate nohighlight">\(\mu\sim \mathcal{N}(370,20^2)\)</span> is appropriate. A rock is found whose
+chemical analysis yields <span class="math notranslate nohighlight">\(x=421\)</span>. What is the posterior distribution for
+<span class="math notranslate nohighlight">\(\mu\)</span> and what is the probability that the rock will be older than 400
+million years?</p>
+</section>
+<section id="solution-to-example-2-10">
+<h3>Solution to Example 2.10<a class="headerlink" href="#solution-to-example-2-10" title="Link to this heading">#</a></h3>
+<p>We have <span class="math notranslate nohighlight">\(n=1\)</span>, <span class="math notranslate nohighlight">\(\bar x=x=421\)</span>, <span class="math notranslate nohighlight">\(\tau=1/64\)</span>, <span class="math notranslate nohighlight">\(b=370\)</span> and <span class="math notranslate nohighlight">\(d=1/400\)</span>.
+Therefore, we have:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+        B&amp;=\frac{db+n\tau\bar x}{d+n\tau}
+        =\frac{370/400+421/64}{1/400+1/64}=414.0\\
+        D&amp;=d+n\tau=1/400+1/64=1/7.43^2
+        
+\end{aligned}\end{split}\]</div>
+<p>and so the posterior distribution is
+<span class="math notranslate nohighlight">\(\mu|x=421\sim \mathcal{N}(414.0,7.43^2)\)</span>. The (posterior) probability
+that the rock will be older than 400 million years is</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned}
+        Pr(\mu&gt;400|x=421)=0.9702
+        
+\end{aligned}\]</div>
+<p>calculated using the <span class="math notranslate nohighlight">\(R\)</span> commands <span class="math notranslate nohighlight">\(1-\texttt{pnorm}(400,414,7.43)\)</span> or
+<span class="math notranslate nohighlight">\(1-\texttt{pnorm}(-1.884)\)</span> or <span class="math notranslate nohighlight">\(\texttt{pnorm}(1.884)\)</span>. Without the
+chemical analysis, the only basis for determining the age of the rock is
+via the prior distribution: the (prior) probability that the rock will
+be older than 400 million years is <span class="math notranslate nohighlight">\(Pr(\mu&gt;400)=0.0668\)</span> calculated using
+the R command <span class="math notranslate nohighlight">\(1-\texttt{pnorm}(400,370,20)\)</span>.</p>
+<p>This highlights the benefit of taking the chemical measurements. Note
+that the large difference between these probabilities is not necessarily
+due to the expert’s prior distribution being inaccurate, <em>per se</em>, it is
+probably due to the large prior uncertainty about rock ages, as shown in
+Figure <span class="xref std std-ref">fig:normalplot</span>{reference-type=”ref”
+reference=”fig:normalplot”}.</p>
+<p><img alt="Prior (dashed) and posterior (solid) densities for the age of therock." src="../_images/priorposterior4.svg" />{#fig:normalplot}</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chapter1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chapter3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Priors</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayes-theorem-bayes-theorem-unnumbered">Bayes Theorem {#bayes-theorem .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-2-1-continuous-uniform-distribution">Definition 2.1: Continuous Uniform distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-of-uniform-pdfs">Plot of Uniform pdfs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-2-2-beta-distribution">Definition 2.2: Beta distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-2-3-gamma-distribution">Definition 2.3: Gamma distribution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayes-theorem-for-distributions-in-action">Bayes Theorem for distributions in action</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-1">Example 2.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-1">Solution to Example 2.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-2">Example 2.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-2">Solution to Example 2.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-3">Example 2.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-3">Solution to Example 2.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-4">Example 2.4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-4">Solution to Example 2.4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-5">Example 2.5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-5">Solution to Example 2.5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-6">Example 2.6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-6-a">Solution to Example 2.6(a)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-6-b">Solution to Example 2.6(b)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-6-c">Solution to Example 2.6(c)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-6-d">Solution to Example 2.6(d)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-7">Example 2.7</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-7-a">Solution to Example 2.7(a)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-7-b">Solution to Example 2.7(b)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-7-c">Solution to Example 2.7(c)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-7-d">Solution to Example 2.7(d)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-8">Example 2.8</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-8-a">Solution to Example 2.8(a)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-8-b">Solution to Example 2.8(b)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-8-c">Solution to Example 2.8(c)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjugacy">Conjugacy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-2-4-conjugate-prior">Definition 2.4: Conjugate Prior</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-9">Example 2.9</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-9">Solution to Example 2.9</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-10">Example 2.10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-2-10">Solution to Example 2.10</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Matthew Fisher
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
