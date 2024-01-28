@@ -185,7 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    MAS2903: Introduction to  Bayesian Methods
+                    MAS2903: Introduction to Bayesian Methods
                 </a>
             </li>
         </ul>
@@ -347,7 +347,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>MAS2903: Introduction to  Bayesian Methods</h1>
+    <h1>MAS2903: Introduction to Bayesian Methods</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -357,8 +357,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heading">Heading</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MAS2903: Introduction to Bayesian Methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preface-what-is-bayesian-statistics">Preface: What is Bayesian Statistics?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivating-example">Motivating example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-frequentist-vs-bayesian-debate">The frequentist vs. Bayesian debate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-history-of-bayesian-statistics">The history of Bayesian statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recent-developments">Recent developments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#newcastle-s-contribution">Newcastle’s contribution</a></li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -370,31 +381,251 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="mas2903-introduction-to-bayesian-methods">
-<h1>MAS2903: Introduction to  Bayesian Methods<a class="headerlink" href="#mas2903-introduction-to-bayesian-methods" title="Link to this heading">#</a></h1>
-<section id="heading">
-<span id="heading-target"></span><h2>Heading<a class="headerlink" href="#heading" title="Link to this heading">#</a></h2>
-<p>{#paragraph-target}
-This is a paragraph, with an <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute.</p>
-<p>This is a [span with an <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute]{#span-target}.</p>
-<div class="admonition note" id="directive-target">
-<p class="admonition-title">Note</p>
-<p>This is a directive with a <code class="docutils literal notranslate"><span class="pre">name</span></code> option</p>
-</div>
-<p><a class="reference internal" href="#heading-target">reference1</a>, <a class="reference internal" href="#paragraph-target"><span class="xref myst">reference2</span></a>,
-<a class="reference internal" href="#span-target"><span class="xref myst">reference3</span></a>, <a class="reference internal" href="#directive-target">reference4</a></p>
-<div class="toctree-wrapper compound">
+<h1>MAS2903: Introduction to Bayesian Methods<a class="headerlink" href="#mas2903-introduction-to-bayesian-methods" title="Link to this heading">#</a></h1>
+<p><strong>Dr. Matthew Fisher</strong></p>
+<p>Office: Room 4.13, Herschel Building</p>
+<p>Email: <code class="docutils literal notranslate"><span class="pre">matthew.fisher&#64;newcastle.ac.uk</span></code></p>
+<p><strong>Assessment</strong></p>
+<p>MAS2903 is a 10 credit module assessed via a formal written examination
+in the summer (likely a traditional 2 hour written paper, taken
+in-person under exam conditions) and some in-course assessment. The
+make-up is 80% summer exam, 20% in-course assessment. Further details:</p>
+<ul class="simple">
+<li><p>Summer exam, 100 marks in total</p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapter2.html">Bayes Theorem for Distributions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapter3.html">Priors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapter4.html">Bayesian inference</a></li>
+<li><p>Section A (40 marks): Consisting mainly of short,
+straightforward, data-response style questions; perhaps with
+some multiple choice elements</p></li>
+<li><p>Section B (60 marks): Longer, harder questions, requiring some
+contextual discussion and interpretation. Questions more
+mathematically challenging</p></li>
+<li><p>Answer <em>all</em> questions in <em>both</em> parts</p></li>
 </ul>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Here is a note</p>
-</div>
+</li>
+<li><p>In-course assessment, 80 marks in total</p>
+<ul>
+<li><p>Problem Solving Exercises 1 (20 marks)</p></li>
+<li><p>Numbas Assessment 1 (20 marks)</p></li>
+<li><p>Problem Solving Exercises 2 (20 marks)</p></li>
+<li><p>Numbas Assessment 2 (20 marks)</p></li>
+</ul>
+</li>
+</ul>
+<p>Some of the questions in the in-course assessment will require you to
+produce plots in <code class="docutils literal notranslate"><span class="pre">R</span></code> or <code class="docutils literal notranslate"><span class="pre">Python</span></code>, so it might be a good idea to type up your
+solutions and upload a single PDF file (which includes any necessary
+plots/computing work) to Canvas.</p>
+<p><strong>Books and other resources</strong></p>
+<p>At various points in the module you will be directed to additional
+reading, should you want extra examples or just another source of
+information relating to the material presented in the notes. This will
+primarily be text books (many of which are available to view online),
+but perhaps other sources (e.g. journal publications, magazine articles
+etc.).</p>
+<p>Some useful books include:</p>
+<ul class="simple">
+<li><p>“<em>Bayes Rule: A Tutorial Introduction to Bayesian Analysis</em>” - James
+Stone</p></li>
+<li><p>“<em>Doing Bayesian Data Analysis: A Tutorial with R, JAGS, and
+Stan</em>” - John Krushke</p></li>
+<li><p>“<em>Bayesian Statistics: An Introduction</em>” - Peter Lee</p></li>
+</ul>
+<p>“Bayes rule” is a good introduction to the main concepts in Bayesian
+statistics but doesn’t cover everything in this course. The other books
+are broader references which go well beyond the contents of this course.</p>
+<p><strong>Acknowledgements</strong></p>
+<p>These notes are a small modification on notes by Dr Lee Fawcett.</p>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="preface-what-is-bayesian-statistics">
+<h1>Preface: What is Bayesian Statistics?<a class="headerlink" href="#preface-what-is-bayesian-statistics" title="Link to this heading">#</a></h1>
+<p>There are two main approaches to statistics: <em>frequentist</em> (or
+classical) statistics and <em>Bayesian</em> statistics. All of the statistics
+teaching you’ve encountered so far is likely to be about frequentist
+methods. Bayesian methods are substantially different and can feel quite
+strange to start with. So, before starting the main course material,
+this <em>non-examinable</em> preface explains the concepts behind Bayesian
+statistics and how they differ from frequentist approaches.</p>
+<p>One way of defining statistics is as a way to learn about the world from
+some data which is subject to random variation. For example, in <em>climate
+science</em> we want to learn about the climate given some imperfect
+measurements. Some statistical questions that we might ask in this field
+are:</p>
+<ul class="simple">
+<li><p>What is our best estimate of the world temperature this year?<br />
+This is referred to as a <em>point estimation</em> problem.</p></li>
+<li><p>What is a plausible range of values?<br />
+This is referred to as an <em>interval estimation</em> (or uncertainty
+quantification) problem.</p></li>
+<li><p>What will the temperature be in 100 years?<br />
+This is a <em>prediction</em> problem.</p></li>
+<li><p>Is the climate warming?<br />
+This is a <em>hypothesis testing</em> problem.</p></li>
+</ul>
+<p>Frequentist and Bayesian methods address all these types of problem:
+point estimation, interval estimation, prediction and hypothesis
+testing. But they use different approaches to do so. Some typical
+frequentist approaches include:</p>
+<ul class="simple">
+<li><p>Least squares (point estimation)</p></li>
+<li><p>Maximum likelihood (point estimation)</p></li>
+<li><p>Confidence intervals (interval estimation)</p></li>
+<li><p>Test statistics and p-values (hypothesis testing)</p></li>
+</ul>
+<p>Bayesian statistics doesn’t use any of these familiar methods! However,
+there are some connections between them and their Bayesian alternatives
+which will be explored later in the course. For example we’ll see that
+the idea of the <em>likelihood function</em> is very important in Bayesian
+statistics.</p>
+<section id="motivating-example">
+<h2>Motivating example<a class="headerlink" href="#motivating-example" title="Link to this heading">#</a></h2>
+<p>Air France Flight 447 disappeared over the Atlantic Ocean on June 1st
+2009, during an overnight flight from Rio de Janeiro to Paris. A search
+and rescue mission was launched the following morning. After five days
+some floating wreckage was found, but there was no sign of the “black
+box” recorders which would reveal what had happened to the flight, and
+the search stalled.</p>
+<p>The black boxes could be anywhere within an area of the South Atlantic
+the size of Switzerland (6,500 square miles). The “mid-Atlantic ridge”
+on the ocean floor lies between two tectonic plates and is just as
+mountainous as Switzerland! It’s also so remote that scientists have not
+yet charted the sea-bed. The search method used was sonar-detectors,
+emitting sound waves which would bounce back once they hit something.
+However, after two years of meticulously searching an area north of the
+plane’s trajectory (after analysing debris drift), nothing had been
+found.</p>
+<p>Metron, Inc., of Retson, Virginia had been performing Bayesian analyses
+to help the search effort. Included in their analysis were:</p>
+<ol class="arabic simple">
+<li><p>Data from 9 previous airline crashes involving loss of pilot
+control - reduced search area to 1,600 square miles.</p></li>
+<li><p>Expert opinions on the credibility of the flight data.</p></li>
+<li><p>Expert opinions about whether or not the black box ‘pingers’ might
+have become damaged on impact.</p></li>
+<li><p>Positions/recovery times of bodies found drifting - expert opinions
+assigned to the reliability of this data because of the turbulent
+equatorial waters.</p></li>
+<li><p>Expert information from oceanographers: Sea state, visibility,
+underwater geography,…</p></li>
+</ol>
+<p>All were combined through Bayes Theorem to give a probability map of the
+most likely locations to search. In April 2011 they decided to try
+assuming that the ‘pingers’ in item 3 were probably damaged. One week
+later the black boxes were found!<a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+</section>
+<section id="the-frequentist-vs-bayesian-debate">
+<h2>The frequentist vs. Bayesian debate<a class="headerlink" href="#the-frequentist-vs-bayesian-debate" title="Link to this heading">#</a></h2>
+<p>This example illustrates some key features of the Bayesian approach:</p>
+<ul class="simple">
+<li><p>It incorporates expert opinion.</p></li>
+<li><p>It outputs a probability distribution over the possible choices.</p></li>
+<li><p>The calculations required are all based on Bayes Theorem.</p></li>
+</ul>
+<p>In contrast, in frequentist statistics, it is difficult (but not
+impossible) to incorporate opinions, and the output is not in the form
+of a probability distribution. For example a 95% frequentist confidence
+interval is a range which will contain the true value 95% of the time if
+the analysis is repeated a large number of times for different data
+obtained under the same process<a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. In contrast a Bayesian 95% interval
+estimate (see Chapter 4) is a range with a 95% probability of containing
+the true value. This Bayesian version is arguably much easier to
+interpret.</p>
+<p>There has been a decades-long argument about whether Bayesian or
+frequentist methods are better. Both sides have some good points. For
+example, there is the argument we’ve just made about Bayesian interval
+estimates being easy to interpret. On the other hand one of the main
+arguments against the Bayesian approach is that it is <em>subjective</em>. This
+is because its results are based on expert opinions, and if we got a
+different opinion from another expert our results would change even
+though the data are the same! Bayesians have counter-arguments.</p>
+<p>In practice many problems are better suited to be tackled with methods
+from one approach or the other. For example Bayesian statistics was well
+suited to the Air France example as incorporating expert knowledge was
+particularly important in the solution. Therefore it’s good to be
+familiar with both Bayesian and frequentist methods.</p>
+</section>
+<section id="the-history-of-bayesian-statistics">
+<h2>The history of Bayesian statistics<a class="headerlink" href="#the-history-of-bayesian-statistics" title="Link to this heading">#</a></h2>
+<p>The reason why we use the word “Bayesian” is because Bayes Theorem is
+crucial for statistical analysis if we adopt the Bayesian approach.
+Thomas Bayes (1702–1761; see picture below) was a Presbyterian minister
+in Tunbridge Wells, Kent. Bayes solution to a problem in probability
+theory was presented in the <em>Essay towards Solving a Problem in the
+Doctrine of Chances</em>, published posthumously by his friend Richard Price
+in the <em>Philosophical Transactions of the Royal Society of London</em>. This
+paper gave us Bayes Theorem. Its modern form is due to Pierre-Simon
+Laplace who generalised Bayes work and produced the first theory of
+Bayesian inference, which was referred to as “inverse probability”.
+Laplace’s theory had weaknesses<a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> and in the early 20th century it was
+replaced by the more rigorous frequentist approach. R. A. Fisher was one
+of the leading creators of this approach. He was also the first to use
+the term “Bayesian statistics”.</p>
+<p>Nonetheless there was still some interest in Bayesian methods. For
+example, Alan Turing’s group invented some new Bayesian methods to help
+break the Enigma code in World War II. Before and, increasingly, after
+the war a few researchers worked on developing a rigorous theory of
+Bayesian statistics.</p>
+<p>Bruno de Finetti (1906–1985) was an Italian probabilist who developed
+his ideas on <em>subjective probability</em><a class="footnote-reference brackets" href="#id8" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> from the 1920s onwards,
+drawing upon ideas from H. Jeffreys, I.J. Good (one of the Enigma
+codebreakers) and B.O. Koopman. His classic book on the topic is <em>The
+Theory of Probability</em> (1974).</p>
+<p>Dennis Lindley (1923–2013) was a leading British Bayesian. In his early
+career, he worked to find a mathematical basis for the subject of
+statistics. In 1954, Lindley met Leonard Savage and both found a deeper
+justification for statistics in Bayesian theory, turning into critics of
+the classical statistical inference they had hoped to justify.</p>
+<p>Many of these theoretical advances are covered in this course. However,
+Bayesian statistics was still little used in practice. The difficulty
+was that applying Bayes theorem often became very mathematically
+challenging, resulting in problems that were too difficult or impossible
+to solve by hand.</p>
+<section id="recent-developments">
+<h3>Recent developments<a class="headerlink" href="#recent-developments" title="Link to this heading">#</a></h3>
+<p>In the 1990s a solution to these mathematical problems was developed,
+making use of the emergence of more powerful computers and “Markov chain
+Monte Carlo” (MCMC) numerical algorithms. If you take 3rd and 4th year
+Bayesian courses you will be introduced to these techniques. MCMC, and
+subsequent developments, have revolutionised the use of Bayesian
+Statistics, to the extent that today Bayesian data analyses are as
+popular as frequentist approaches and are routinely used in fields as
+diverse as artificial intelligence, biology, astrophysics and sociology.</p>
+</section>
+<section id="newcastle-s-contribution">
+<h3>Newcastle’s contribution<a class="headerlink" href="#newcastle-s-contribution" title="Link to this heading">#</a></h3>
+<p>Since 1980, the number of academic staff in Mathematics &amp; Statistics at
+Newcastle publishing advanced research using Bayesian methods has
+increased dramatically. In the 1980s, there was only one Bayesian at
+Newcastle. Now there are at least 12. Our Bayesian research topics
+include environmental extremes, genetics, and modelling biological
+systems at a molecular level.</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id5" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>For more details see
+<code class="docutils literal notranslate"><span class="pre">https://www.technologyreview.com/s/527506/how-statisticians-found-</span></code>
+<code class="docutils literal notranslate"><span class="pre">air-france-flight-447-two-years-after-it-crashed-into-atlantic/</span></code>.</p>
+</aside>
+<aside class="footnote brackets" id="id6" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Here 95% is the <em>long-run frequency</em> that the interval contains
+the correct value. This kind of property is where the name
+“frequentist” comes from.</p>
+</aside>
+<aside class="footnote brackets" id="id7" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>For example it relied mainly on <em>flat priors</em>, which will be
+discussed and criticised in Chapter 3.</p>
+</aside>
+<aside class="footnote brackets" id="id8" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>Covered in Chapter 1.</p>
+</aside>
+</aside>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -452,8 +683,19 @@ This is a paragraph, with an <code class="docutils literal notranslate"><span cl
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heading">Heading</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MAS2903: Introduction to Bayesian Methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preface-what-is-bayesian-statistics">Preface: What is Bayesian Statistics?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivating-example">Motivating example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-frequentist-vs-bayesian-debate">The frequentist vs. Bayesian debate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-history-of-bayesian-statistics">The history of Bayesian statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recent-developments">Recent developments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#newcastle-s-contribution">Newcastle’s contribution</a></li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
