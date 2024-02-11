@@ -1,4 +1,4 @@
-# Introduction
+# Chapter 1: Introduction
 
 Consider the following three experiments.
 
@@ -64,7 +64,7 @@ Before we consider any detailed descriptions of Bayesian analyses, we
 recap the various interpretations of probability and highlight the
 subjective approach.
 
-## Probability
+## Section 1.1: Probability
 
 The concept of probability (chance) has been around for a very long
 time, particularly in the area of gambling. Games of chance have been
@@ -104,7 +104,7 @@ will be based on the beliefs and information $H$ you have at the time.
 One way of determining (or quantifying) a subjective value for
 $\text{Pr}_H(A)$ is to consider a series of possible bets with outcome
 
-win £$c$ if $A$ occurs and £0 if $A^{\text{c}}$ occurs.
+win £$c$ if $A$ occurs and £0 if $A^{\mathrm{c}}$ occurs.
 
 How much would you be prepared to pay (stake) for placing such a bet? In
 terms of expected winnings, you should be prepared to stake £$cp$ if you
@@ -116,7 +116,7 @@ on $c$: a person who is willing to bet £1 on the spin of a coin to win
 £1000 -- most people are *risk--averse*. Therefore, we shall restrict
 our attention to the $c=1$ case: pay £$p$ for the bet
 
-win £1 if $A$ occurs and £0 if $A^{\text{c}}$ occurs.
+win £1 if $A$ occurs and £0 if $A^{\mathrm{c}}$ occurs.
 
 You can make sure that your bet is "honest" by randomising between
 whether you "host" the bet or "place" the bet. For example, suppose you
@@ -197,7 +197,7 @@ will concentrate on the subjective interpretation and describe how, if
 carefully used, it can be a more useful approach than the other two
 methods.
 
-## Bayes Theorem
+## Section 1.2: Bayes Theorem
 
 Before we state Bayes Theorem, we need a recap of conditional
 probability.
@@ -257,8 +257,7 @@ $$
 \text{Pr}(E_i|F)=\frac{\text{Pr}(F|E_i)\text{Pr}(E_i)}{\sum_{j=1}^n \text{Pr}(F|E_j)\text{Pr}(E_j)},
 \quad\quad i=1,2,\ldots,n.$$
 
-##### Proof of Theorem 1.2
-
+::: gapbox
 Using the definition of conditional probability, for $i=1,2,\ldots,n$,
 
 $$
@@ -271,6 +270,8 @@ definition}\\
 &=\frac{\text{Pr}(F|E_i)\text{Pr}(E_i)}{\sum_{j=1}^n \text{Pr}(F|E_j)\text{Pr}(E_j)}
 \quad\text{using the Law of Total Probability}.
 \end{aligned}$$
+
+:::
 
 ##### Example 1.2
 
@@ -286,7 +287,7 @@ actually have the disease.
 -   Find the probability that a person who tests negative does *not*
     have the disease.
 
-##### Solution to Example 1.2
+```{dropdown} Solution
 
 Let $D=\text{person}$ has the disease, $+ve=$ test is positive and
 $-ve=$ test is negative.
@@ -316,6 +317,8 @@ $$
  Therefore, very few people who test negative will have
 the disease. However, a high proportion (67%) who test positive do not
 have the disease.
+
+```
 
 ##### Example 1.3
 
@@ -351,7 +354,7 @@ symptoms and determine the probability of misdiagnosis.
   : Likelihood of symptoms for both faults.
 :::
 
-##### Solution to Example 1.3
+```{dropdown} Solution
 
 First we must calculate the posterior probabilities
 $\text{Pr}(\theta_1|x)$ and $\text{Pr}(\theta_2|x)$ for $x=x_1,x_2,x_3$.
@@ -395,6 +398,8 @@ $\text{Pr}(\theta_2|x_i)=1-\text{Pr}(\theta_1|x_i)$, $i=1,2,3$ and so we
 obtain the posterior distributions $\text{Pr}(\theta|x)$ given in
 Table {ref}`tab:garagepost`{reference-type="ref"
 reference="tab:garagepost"}.
+
+```
 
 ::: {#tab:garagepost}
   ------------------------------ ------- ------- -------
@@ -441,6 +446,8 @@ reference="tab:garagediag"}.
   : Diagnostic rule for faults.
 :::
 
+```{dropdown} Solution
+
 If we were to carry out this diagnostic rule repeatedly then the
 probability of misdiagnosing a fault is 
 
@@ -456,6 +463,8 @@ $$
  Therefore, in repeated use of this rule, around a third
 of the diagnoses will be wrong.
 
+```
+
 ##### Example 1.4
 
  \
@@ -465,7 +474,7 @@ probability $\theta$) or guesses randomly (with probability $1-\theta$).
 What is the probability that the student actually knew the answer to a
 question they answered correctly? []{#ex:multiple label="ex:multiple"}
 
-##### Solution to Example 1.4
+```{dropdown} Solution
 
 Let 
 
@@ -488,6 +497,8 @@ $$
         &=\frac{m\theta}{1+(m-1)\theta}.
         
 \end{aligned}$$
+
+```
 
 Suppose that there are $m=5$ alternative answers for each question. We
 can see the effect of observing a correct answer on our belief that the
@@ -525,20 +536,20 @@ $\theta$ we might be able to express our uncertainty through a
 probability distribution for $\theta$. We will see more about this in
 the next Chapter.
 
-## Likelihood
+## Section 1.3: Likelihood
 
-Suppose that an experiment results in data $\underline{x}e$ and we
-decide to model the data using a probability (density) function
-$f(\underline{x}|\theta)$. This p(d)f describes how likely different
-data $\underline{x}$ are to occur given a value of the (unknown)
-parameter $\theta$. However, once we have observed the data,
-$f(\underline{x}|\theta)$ tells us how likely different values of the
-parameters $\theta$ are: it is then known as the *likelihood function*
-for $\theta$. In other courses you may have seen it written as
-$L(\theta|\underline{x})$ or $L(\theta)$ but, whatever the notation used
-for the likelihood function, it is simply the joint probability
-(density) function of the data, $f(\underline{x}|\theta)$, regarded as a
-function of $\theta$ rather than of $\underline{x}$.
+Suppose that an experiment results in data
+$\underline{x} = (x_1, \ldots, x_n)^\top$ and we decide to model the
+data using a probability (density) function $f(\underline{x}|\theta)$.
+This p(d)f describes how likely different data $\underline{x}$ are to
+occur given a value of the (unknown) parameter $\theta$. However, once
+we have observed the data, $f(\underline{x}|\theta)$ tells us how likely
+different values of the parameters $\theta$ are: it is then known as the
+*likelihood function* for $\theta$. In other courses you may have seen
+it written as $L(\theta|\underline{x})$ or $L(\theta)$ but, whatever the
+notation used for the likelihood function, it is simply the joint
+probability (density) function of the data, $f(\underline{x}|\theta)$,
+regarded as a function of $\theta$ rather than of $\underline{x}$.
 
 The likelihood function can be simplified if we have further structure
 in the data. For example, we may have independent observations, in which
@@ -565,13 +576,14 @@ the likelihood function.
 
 ##### Example 1.5
 
-Suppose we have a random sample $\underline{x}e$ of radioactive particle
+Suppose we have a random sample
+$\underline{x} = (x_1, \ldots, x_n)^\top$ of radioactive particle
 counts. A typical model for such data would be
-$X_i|\theta\sim \text{Poisson}(\theta)$, usually abbreviated
-$X_{i}|\theta\sim\text{Po}(\theta)$, (independent). Determine the
+$X_i|\theta\sim \mathrm{Poisson}(\theta)$, usually abbreviated
+$X_{i}|\theta\sim\mathrm{Po}(\theta)$, (independent). Determine the
 likelihood function for $\theta$.
 
-##### Solution to Example 1.5
+```{dropdown} Solution
 
 Since the data is IID, we have 
 
@@ -582,19 +594,22 @@ $$
         
 \end{aligned}$$
 
+```
+
 []{#ex:poissonex label="ex:poissonex"}
 
 ##### Example 1.6
 
  \
-Suppose we have a random sample $\underline{x}e$ of times between
-radioactive particle emissions. If the emissions occur randomly in time
-then a plausible model for such data would be
-$X_i|\theta\sim \text{Exponential}(\theta)$, usually abbreviated
-$X_{i}|\theta \sim \text{Exp}(\theta)$, (independent). Determine the
+Suppose we have a random sample
+$\underline{x} = (x_1, \ldots, x_n)^\top$ of times between radioactive
+particle emissions. If the emissions occur randomly in time then a
+plausible model for such data would be
+$X_i|\theta\sim \mathrm{Exponential}(\theta)$, usually abbreviated
+$X_{i}|\theta \sim \mathrm{Exp}(\theta)$, (independent). Determine the
 likelihood function for $\theta$.
 
-##### Solution to Example 1.6
+```{dropdown} Solution
 
 Since the data is IID, we have 
 
@@ -605,15 +620,17 @@ $$
         
 \end{aligned}$$
 
+```
+
 ##### Example 1.7
 
  \
-Suppose we have a random sample $\underline{x}e$ from a normal
-distribution: $X_i|\mu,\sigma\sim \mathcal{N}(\mu,\sigma^2)$,
-$i=1,2,\ldots,n$ (independent). Determine the likelihood function
-for $(\mu,\sigma)$.
+Suppose we have a random sample
+$\underline{x} = (x_1, \ldots, x_n)^\top$ from a normal distribution:
+$X_i|\mu,\sigma\sim \mathcal{N}(\mu,\sigma^2)$, $i=1,2,\ldots,n$
+(independent). Determine the likelihood function for $(\mu,\sigma)$.
 
-##### Solution to Example 1.7
+```{dropdown} Solution
 
 The (joint) probability density function is 
 
@@ -630,3 +647,4 @@ $$
         
 \end{aligned}$$
 
+```

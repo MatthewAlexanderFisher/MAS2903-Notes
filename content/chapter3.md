@@ -1,16 +1,16 @@
-# Priors
+# Chapter 3: Priors
 
-## Introduction
+## Section 3.1: Introduction
 
 In this chapter we will consider different approaches about how to
 construct or choose a suitable prior distribution $\pi(\theta)$ for our
 parameter of interest $\theta$.
 
-For example, why did we use a $\text{Beta}(77,5)$ distribution for
+For example, why did we use a $\mathrm{Beta}(77,5)$ distribution for
 $\theta$ in the music expert example (page 31)? Why did we use a
-$\text{Beta}(2.5,12)$ distribution for $\theta$ in the example about the
-video game pirate (page 34)? And why did we assume a
-$\text{Gamma}(10,4000)$ distribution for $\theta$ in the earthquake
+$\mathrm{Beta}(2.5,12)$ distribution for $\theta$ in the example about
+the video game pirate (page 34)? And why did we assume a
+$\mathrm{Gamma}(10,4000)$ distribution for $\theta$ in the earthquake
 example (page 37)?
 
 We will consider the case of *informative priors*, where expert opinion,
@@ -33,7 +33,7 @@ In this chapter we will also consider the construction of priors for
 $\theta$ under certain parameter constraints, including the construction
 of *truncated priors*.
 
-## Informative Priors
+## Section 3.2: Informative Priors
 
 ##### Definition 3.1: Informative Prior
 
@@ -78,10 +78,10 @@ examples of *prior elicitation*.
 {ref}`ex:earth`{reference-type="ref" reference="ex:earth"} of
 Chapter 2. Recall that we were given some data on the "waiting times",
 in days, between 21 earthquakes, and we discussed why an exponential
-distribution $\text{Exp}(\theta)$ might be appropriate to model the
+distribution $\mathrm{Exp}(\theta)$ might be appropriate to model the
 waiting times. Further, we were told that an expert on earthquakes has
 prior beliefs about the rate $\theta$, described by a
-$\text{Gamma}(10,4000)$ distribution; a plot of this prior is shown in
+$\mathrm{Gamma}(10,4000)$ distribution; a plot of this prior is shown in
 Figure {ref}`fig:earthprior`{reference-type="ref"
 reference="fig:earthprior"}. Where did this prior distribution come
 from?
@@ -93,14 +93,14 @@ about 1/400 = 0.0025 per day (to match the "daily" units given above).
 Further, he is fairly certain about this and specifies a very small
 variance of $6.25 \times 10^{-7}$.
 
-A $\text{Gamma}(a,b)$ distribution seems sensible, since we can't
+A $\mathrm{Gamma}(a,b)$ distribution seems sensible, since we can't
 observe a negative daily earthquake rate and the Gamma distribution is
 specified over positive values only. Using the information provided by
 the expert, verify our use of $a=10$ and $b=4000$.
 
-##### Solution to Example 3.1
+```{dropdown} Solution
 
-Recall that if $\theta \sim \text{Gamma}(a,b)$, then 
+Recall that if $\theta \sim \mathrm{Gamma}(a,b)$, then 
 
 $$\begin{aligned}
         \text{E}[\theta] &= \frac{a}{b}, \\
@@ -134,9 +134,11 @@ $$\begin{aligned}
 So, the prior information provided by the expert is quantified correctly
 by 
 
-$$\theta\sim\text{Gamma}(10, 4000),$$
+$$\theta\sim\mathrm{Gamma}(10, 4000),$$
 
  as required.
+
+```
 
 ##### Example 3.2
 
@@ -152,7 +154,7 @@ Before conducting the experiment, we were told that the expert is very
 competent; in fact, we were told that $\theta$ should have a prior
 distribution peaking at around 0.95 and for which
 $\text{Pr}(\theta<0.8)$ is very small. To achieve this, we assumed that
-$\theta \sim \text{Beta}(77,5)$, with density given in Figure 2.4. How
+$\theta \sim \mathrm{Beta}(77,5)$, with density given in Figure 2.4. How
 did we know a beta distribution would be appropriate? And how did we
 figure out the parameters of this distribution, i.e. $a=77$ and $b=5$?
 
@@ -188,10 +190,10 @@ $$
 \int_{0}^{0.8} \frac{\theta^{(19b-18)-1}(1-\theta)^{b-1}}{\mathrm{B}(19b-18,b)} d\theta = 0.0001.$$
 
 We have set the cumulative distribution function for a
-$\text{Beta}(19b-18,b)$ random variable, evaluated at 0.8, equal to
+$\mathrm{Beta}(19b-18,b)$ random variable, evaluated at 0.8, equal to
 0.0001 and solve for $b$. Although this would be rather tricky to do by
 hand, we can do this quite easily in `R`. Recall that the `R` command
-`dbeta(x,a,b)` evaluates the density of the $\text{Beta}(a,b)$
+`dbeta(x,a,b)` evaluates the density of the $\mathrm{Beta}(a,b)$
 distribution at the point `x` (see page 25); the command `pbeta(x,a,b)`
 evaluates the corresponding cumulative distribution function at `x`.
 First of all, we re--write (3.3) to set it equal to zero:
@@ -236,14 +238,14 @@ $$
 a = 19 \times 5 -18 = 77,$$
 
  hence the use of
-$\theta \sim \text{Beta}(77,5)$ in Example
+$\theta \sim \mathrm{Beta}(77,5)$ in Example
 {ref}`ex:mozart`{reference-type="ref" reference="ex:mozart"}
 in Chapter 2.
 
 There are many more advanced approaches of *prior elicitation* and it is
 still an active area of research.
 
-## Parameter constraints
+## Section 3.3: Parameter constraints
 
 Many probability models have constraints on their parameters. For
 example, if we are interested in the *variance* $\sigma^2$ of
@@ -254,8 +256,8 @@ X_i\,|\, \sigma^2 \sim \mathcal{N}(0, \sigma^2), \quad i = 1,2,\ldots,n,$$
 
 then we must necessarily have $\sigma^2 > 0$. This is an example of a
 *parameter constraint*. Other examples include the $a,b > 0$ parameters
-that are used in the $\text{Gamma}(a,b)$ distribution, or the parameter
-$p$ used in the $\text{Binomial}(n,p)$ distribution.
+that are used in the $\mathrm{Gamma}(a,b)$ distribution, or the
+parameter $p$ used in the $\mathrm{Binomial}(n,p)$ distribution.
 
 In order to perform *Bayesian inference* on parameters which are
 constrained, we need to specify prior distributions which place zero
@@ -305,7 +307,7 @@ $$
 Suppose $\theta \sim \mathcal{N}(b,d^2)$. Find the density of the
 truncated distribution for $\theta>0$.
 
-##### Solution to Example 3.3
+```{dropdown} Solution
 
 From the definition of a truncated distribution, we have, for
 $\theta >0$:
@@ -331,6 +333,8 @@ $\theta > 0$:
 
 $$
 \pi_T(\theta)  = \frac{1}{\left(1 - \Phi\left(-\frac{b}{d}\right)\right) \sqrt{2\pi d^2}}\exp\left[-\frac{1}{2d^2}(\theta - b)^2\right]$$
+
+```
 
 Figure {ref}`fig:normaltrunc`{reference-type="ref"
 reference="fig:normaltrunc"} shows a plot of the densities of (a) a
@@ -398,7 +402,7 @@ $h$ known. Suppose we knew in advance that the experiment could only
 result in positive values for $\theta$. Find the posterior distribution
 for $\theta$.
 
-##### Solution to Example 3.4
+```{dropdown} Solution
 
 From the previous theorem, we first compute the posterior distribution
 using the non-truncated prior and then we can truncate the posterior.
@@ -425,6 +429,8 @@ $$
         \pi'(\theta | \underline{x}) = \frac{1}{\left(1 - \Phi\left(-\frac{M}{\sqrt{V}}\right)\right) \sqrt{2\pi V}}\exp\left[-\frac{1}{2V}(\theta - M)^2\right].
     
 \end{aligned}$$
+
+```
 
 Figure {ref}`fig:posttrunc`{reference-type="ref"
 reference="fig:posttrunc"} plots the $\mathcal{N}(1,1)$ posterior
@@ -490,7 +496,7 @@ have it there since otherwise an army of astronauts returning with
 samples of the said cheese will leave you unmoved"* *-- Dennis Lindley*
 :::
 
-## Uninformative Priors
+## Section 3.4: Uninformative Priors
 
 If we have very little or no prior information about the model
 parameters $\theta$, we must still choose a prior distribution in order
@@ -529,7 +535,7 @@ Suppose we have a random sample from a $\mathcal{N}(\mu,1/\tau)$
 distribution (with $\tau$ known). Determine the posterior distribution
 assuming a vague prior for $\mu$.
 
-##### Solution to Example 3.6
+```{dropdown} Solution
 
 The conjugate prior distribution is a normal distribution. We have
 already seen that if the prior is $\mu\sim \mathcal{N}(b,1/d)$ then the
@@ -553,18 +559,20 @@ $\mathcal{N}(\bar x,1/(n\tau))$ posterior distribution. Notice that the
 posterior mean is the sample mean (the likelihood mode) and that the
 posterior variance $1/D\to 0$ as $n\to\infty$.
 
+```
+
 ##### Example 3.7
 
  \
 Suppose we have a random sample from an exponential distribution, that
-is, $X_i|\theta\sim \text{Exp}(\theta)$, $i=1,2,\ldots,n$ (independent).
-Determine the posterior distribution assuming a vague prior for
-$\theta$.
+is, $X_i|\theta\sim \mathrm{Exp}(\theta)$, $i=1,2,\ldots,n$
+(independent). Determine the posterior distribution assuming a vague
+prior for $\theta$.
 
-##### Solution to Example 3.7
+```{dropdown} Solution
 
 The conjugate prior distribution is a Gamma distribution. Recall that a
-$\text{Gamma}(g,h)$ distribution has mean $m=g/h$ and variance
+$\mathrm{Gamma}(g,h)$ distribution has mean $m=g/h$ and variance
 $v=g/h^2$. Rearranging these formulae we obtain
 
 $$
@@ -572,13 +580,15 @@ g=\frac{m^2}{v}\quad\quad\text{and}\quad\quad h=\frac{m}{v}.$$
 
  Clearly
 $g\to 0$ and $h\to 0$ as $v\to\infty$ (for fixed $m$). We have seen how
-taking a $\text{Gamma}(g,h)$ prior distribution results in a
-$\text{Gamma}(g+n,h+n\bar x)$ posterior distribution. Therefore, taking
-a vague prior distribution will give a $\text{Gamma}(n,n\bar x)$
-posterior distribution.
+taking a $\mathrm{Gamma}(g,h)$ prior distribution results in a
+$\mathrm{Gamma}(g+n,h+n\bar x)$ posterior distribution. Therefore,
+taking a vague prior distribution will give a
+$\mathrm{Gamma}(n,n\bar x)$ posterior distribution.
 
 Note that the posterior mean is $1/\bar x$ (the likelihood mode) and
 that the posterior variance $1/(n\bar x^2)\to 0$ and $n\to\infty$.
+
+```
 
 ### Prior Ignorance {#prior-ignorance .unnumbered}
 
@@ -668,7 +678,7 @@ f(x|\theta)=\frac{2x\,e^{-x^2/\theta}}{\theta},\quad\quad x>0,~\theta>0.$$
 
 Determine the Jeffreys prior for this model.
 
-##### Solution to Example 3.8
+```{dropdown} Solution
 
 The likelihood function is 
 
@@ -707,6 +717,10 @@ $$
         
 \end{aligned}$$
 
+```
+
+```{dropdown} Solution
+
 $$
 \begin{aligned}
         E\left[X^2 \,| \, \theta\right]
@@ -737,6 +751,8 @@ $$
         
 \end{aligned}$$
 
+```
+
 Notice that this distribution is improper since
 $\int_0^\infty d\theta/\theta$ is a divergent integral, and so we cannot
 find a constant which ensures that the density function integrates to
@@ -746,11 +762,11 @@ one.
 
  \
 Suppose we have a random sample from an exponential distribution, that
-[]{#ex:38 label="ex:38"} is, $X_i|\theta\sim \text{Exp}(\theta)$,
+[]{#ex:38 label="ex:38"} is, $X_i|\theta\sim \mathrm{Exp}(\theta)$,
 $i=1,2,\ldots,n$ (independent). Determine the Jeffreys prior for this
 model.
 
-##### Solution to Example 3.9
+```{dropdown} Solution
 
 Recall that the likelihood function is
 $f_{\underline{X}}(\underline{x}|\theta)=\theta^n e^{-n\bar x\theta}$,
@@ -779,13 +795,15 @@ $$
     
 \end{aligned}$$
 
+```
+
 Notice that this distribution is improper since
 $\int_0^\infty d\theta/\theta$ is a divergent integral, and so we cannot
 find a constant which ensures that the density function integrates to
 one.
 
 Notice also that this density is, in fact, a limiting form of a
-$\text{Gamma}(g,h)$ density (ignoring the integration constant) since
+$\mathrm{Gamma}(g,h)$ density (ignoring the integration constant) since
 
 $$
 \frac{h^g\,\theta^{g-1}e^{-h\theta}}{\Gamma(g)}\propto
@@ -803,7 +821,7 @@ Suppose we have a random sample from a $\mathcal{N}(\mu,1/\tau)$
 distribution []{#ex:39 label="ex:39"} (with $\tau$ known). Determine the
 Jeffreys prior for this model.
 
-##### Solution to Example 3.10
+```{dropdown} Solution
 
 Recall that the likelihood function is
 
@@ -842,6 +860,8 @@ $$
     &= constant,\qquad-\infty<\mu<\infty. 
     
 \end{aligned}$$
+
+```
 
 Notice that this distribution is improper since
 $\int_{-\infty}^\infty d\mu$ is a divergent integral, and so we cannot
@@ -885,7 +905,7 @@ the density of the transformed random variable $\phi = \log\theta$.
 Finally, compute Jeffrey's prior using $\phi$ as the parameter, where
 each $X_i|\phi \sim \mathrm{Exp}(e^{\phi})$.
 
-##### Solution to Example 3.11
+```{dropdown} Solution
 
 Recall the change of variable formula: If $\theta$ is a random variable
 and $\phi = g(\theta)$ for a bijective and differentiable function $g$,
@@ -935,7 +955,9 @@ $$
 $I(\phi) = n e^{-\phi} e^{\phi} = n$. Therefore, Jeffreys prior is
 $\pi(\phi) \propto \sqrt{I(\phi)} = 1$.
 
-## Asymptotic posterior distribution
+```
+
+## Section 3.5: Asymptotic posterior distribution
 
 There are many limiting results in Statistics. The one you will probably
 remember is the Central Limit Theorem. This concerns the distribution of
@@ -945,7 +967,7 @@ $\sigma^2$), as the sample size $n\to\infty$. It is easy to show that
 $\text{E}[\bar X_n]=\mu$ and $\text{Var}[\bar X_n]=\sigma^2/n$, and so
 
 $$
-\text{E}\left[\frac{\sqrt{n}(\bar{X}_{n}-\mu)}{\sigma}\right] = 0 \qquad \text{and} \qquad \text{Var}\left[\frac{\sqrt{n}(\bar{X}_{n}-\mu)}{\sigma}\right]=1.$$
+\text{E}\left[\frac{\sqrt{n}(\bar{X}_{n}-\mu)}{\sigma}\right] = 0 \qquad \mathrm{and} \qquad \text{Var}\left[\frac{\sqrt{n}(\bar{X}_{n}-\mu)}{\sigma}\right]=1.$$
 
 These two equations are true for all values of $n$. The important part
 of the Central Limit Theorem is the description of the distribution of
@@ -963,8 +985,8 @@ gives a similar result for the posterior distribution.
 []{#theorem: asymptotic posterior label="theorem: asymptotic posterior"}
  \
 Suppose we have a statistical model $f(\underline{x}|\theta)$ for data
-$\underline{x}e$, together with a prior distribution $\pi(\theta)$ for
-$\theta$. Then
+$\underline{x} = (x_1, \ldots, x_n)^\top$, together with a prior
+distribution $\pi(\theta)$ for $\theta$. Then
 
 $$
 \sqrt{J(\hat{\theta})}~(\theta-\hat{\theta})|\underline{x} \stackrel{\cal D}
@@ -1135,7 +1157,7 @@ x_i^2 =\frac{n}{\theta^3}\left(-\theta+\frac{2}{n}\sum_{i=1}^n
 x_i^2\right).
 \end{aligned}$$
 
-##### Solution to Example 3.12
+```{dropdown} Solution
 
 Write $\overline{x^2}=\dfrac{1}{n}\displaystyle\sum_{i=1}^n x_i^2$ then
 we have 
@@ -1159,14 +1181,16 @@ $$
 \theta|\underline{x}\sim \mathcal{N}\left(\overline{x^2},\,
     \frac{1}{n}\left(\overline{x^2}\right)^2\right).$$
 
+```
+
 ##### Example 3.13
 
  \
 Suppose we have a random sample from an exponential distribution, that
-is, $X_i|\theta\sim \text{Exp}(\theta)$, $i=1,2,\ldots,n$ (independent).
-Determine the asymptotic posterior distribution for $\theta$. Note that
-from Example {ref}`ex:38`{reference-type="ref" reference="ex:38"}
-we have 
+is, $X_i|\theta\sim \mathrm{Exp}(\theta)$, $i=1,2,\ldots,n$
+(independent). Determine the asymptotic posterior distribution for
+$\theta$. Note that from Example
+{ref}`ex:38`{reference-type="ref" reference="ex:38"} we have
 
 $$
 \begin{aligned}
@@ -1176,7 +1200,7 @@ J(\theta)=-\frac{\partial^2}{\partial\theta^2} \log
 f(\underline{x}|\theta)&=\frac{n}{\theta^2}.
 \end{aligned}$$
 
-##### Solution to Example 3.13
+```{dropdown} Solution
 
 We have 
 
@@ -1198,8 +1222,10 @@ distribution for $\theta$ is
 $$
 \theta|\underline{x}\sim \mathcal{N}\left(\frac{1}{\bar x},\,\frac{1}{n\bar x^2}\right).$$
 
+```
+
 Recall that, assuming a vague prior distribution, the posterior
-distribution is a $\text{Gamma}(n,n\bar x)$ distribution, with mean
+distribution is a $\mathrm{Gamma}(n,n\bar x)$ distribution, with mean
 $1/\bar x$ and variance $1/(n\bar x^2)$. The Central Limit Theorem tells
 us that, for large $n$, the gamma distribution tends to a normal
 distribution, matched, of course, for mean and variance. Therefore, we
@@ -1224,7 +1250,7 @@ J(\mu)=-\frac{\partial^2}{\partial\mu^2} \log
 f(\underline{x}|\mu)&=n\tau.
 \end{aligned}$$
 
-##### Solution to Example 3.14
+```{dropdown} Solution
 
 We have 
 
@@ -1245,6 +1271,8 @@ distribution for $\mu$ is
 
 $$
 \mu|\underline{x}\sim \mathcal{N}\left(\bar x,\,\frac{1}{n\tau}\right).$$
+
+```
 
 Again, we have shown that the asymptotic posterior distribution is the
 same as the posterior distribution under vague prior knowledge.

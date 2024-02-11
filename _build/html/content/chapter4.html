@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Bayesian inference &#8212; MAS2903 - Notes</title>
+    <title>Chapter 4: Bayesian inference &#8212; MAS2903 - Notes</title>
   
   
   
@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/chapter4';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Priors" href="chapter3.html" />
+    <link rel="prev" title="Chapter 3: Priors" href="chapter3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -187,15 +187,15 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    MAS2903: Introduction to  Bayesian Methods
+                    MAS2903: Introduction to Bayesian Methods
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapter2.html">Bayes Theorem for Distributions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapter3.html">Priors</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Bayesian inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Chapter 1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2.html">Chapter 2: Bayes Theorem for Distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter3.html">Chapter 3: Priors</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 4: Bayesian inference</a></li>
 </ul>
 
     </div>
@@ -349,7 +349,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Bayesian inference</h1>
+    <h1>Chapter 4: Bayesian inference</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -359,32 +359,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation">Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-1-estimation">Section 4.1: Estimation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-estimates-point-estimates-unnumbered">Point estimates {#point-estimates .unnumbered}</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interval-estimates">Interval estimates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interval-estimates-interval-estimates-unnumbered">Interval estimates {#interval-estimates .unnumbered}</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-confidence-intervals-interpretation-of-confidence-intervals-unnumbered">Interpretation of confidence intervals {#interpretation-of-confidence-intervals .unnumbered}</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-1">Example 4.1</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-1">Solution to Example 4.1</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-2">Example 4.2</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-2">Solution to Example 4.2</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-3">Example 4.3</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-3">Solution to Example 4.3</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-of-hdis-for-unimodal-distributions-computation-of-hdis-for-unimodal-distributions-unnumbered">Computation of HDIs for unimodal distributions {#computation-of-hdis-for-unimodal-distributions .unnumbered}</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-hdi-reference-type-ref-reference-ex-hdi-continued-example-exhdi-continued-unnumbered">Example <span class="xref std std-ref">ex:hdi</span>{reference-type=”ref” reference=”ex:hdi”} (continued) {#example-exhdi-continued .unnumbered}</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction">Prediction</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-2-prediction">Section 4.2: Prediction</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-4">Example 4.4</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-4">Solution to Example 4.4</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-4-1-definition">Definition 4.1: Definition</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-5">Example 4.5</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-5">Solution to Example 4.5</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-distribution-predictive-distribution-unnumbered">Predictive distribution {#predictive-distribution .unnumbered}</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-4-2-inverse-beta-distribution">Definition 4.2: Inverse-Beta Distribution</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-6">Example 4.6</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-6">Solution to Example 4.6</a></li>
 </ul>
 </li>
 </ul>
@@ -400,13 +394,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="bayesian-inference">
-<h1>Bayesian inference<a class="headerlink" href="#bayesian-inference" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-4-bayesian-inference">
+<h1>Chapter 4: Bayesian inference<a class="headerlink" href="#chapter-4-bayesian-inference" title="Link to this heading">#</a></h1>
 <p>The posterior distribution <span class="math notranslate nohighlight">\(\pi(\theta|\underline{x})\)</span> summarises all
 our information about <span class="math notranslate nohighlight">\(\theta\)</span> to date. However, sometimes it is helpful
 to reduce this distribution to a few key summary measures.</p>
-<section id="estimation">
-<h2>Estimation<a class="headerlink" href="#estimation" title="Link to this heading">#</a></h2>
+<section id="section-4-1-estimation">
+<h2>Section 4.1: Estimation<a class="headerlink" href="#section-4-1-estimation" title="Link to this heading">#</a></h2>
 <section id="point-estimates-point-estimates-unnumbered">
 <h3>Point estimates {#point-estimates .unnumbered}<a class="headerlink" href="#point-estimates-point-estimates-unnumbered" title="Link to this heading">#</a></h3>
 <p>There are many useful summaries for a typical value of a random variable
@@ -414,9 +408,8 @@ with a particular distribution; for example, the mean, mode and median.
 The mode is used more often as a summary than is the case in frequentist
 statistics.</p>
 </section>
-<section id="interval-estimates">
-<span id="id1"></span><h3>Interval estimates<a class="headerlink" href="#interval-estimates" title="Link to this heading">#</a></h3>
-<p><a class="reference internal" href="#interval-estimates">Section</a></p>
+<section id="interval-estimates-interval-estimates-unnumbered">
+<h3>Interval estimates {#interval-estimates .unnumbered}<a class="headerlink" href="#interval-estimates-interval-estimates-unnumbered" title="Link to this heading">#</a></h3>
 <p>A more useful summary of the posterior distribution is one which also
 reflects its variation. For example, a <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> <em>Bayesian
 credible interval</em> for <span class="math notranslate nohighlight">\(\theta\)</span> is any region <span class="math notranslate nohighlight">\(C_\alpha\)</span> that satisfies
@@ -458,7 +451,7 @@ occasions — in repeated applications of the formula.</p></li>
 <h4>Example 4.1<a class="headerlink" href="#example-4-1" title="Link to this heading">#</a></h4>
 <p><br />
 Suppose that the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is a
-<span class="math notranslate nohighlight">\(\text{Beta}(1,24)\)</span> distribution, with probability density function</p>
+<span class="math notranslate nohighlight">\(\mathrm{Beta}(1,24)\)</span> distribution, with probability density function</p>
 <div class="math notranslate nohighlight">
 \[\pi(\theta|\underline{x})=24\,(1-\theta)^{23}, \quad 0&lt;\theta&lt;1.\]</div>
 <p>A
@@ -466,58 +459,69 @@ plot of this distribution is given in Figure
 <span class="xref std std-ref">fig:ci1</span>{reference-type=”ref” reference=”fig:ci1”}.</p>
 <p><img alt="Plot of the  posterior densityfunction" src="../_images/betaposterior.svg" />{#fig:ci1}</p>
 <p>Determine the <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> HDI for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
-</section>
-<section id="solution-to-example-4-1">
-<h4>Solution to Example 4.1<a class="headerlink" href="#solution-to-example-4-1" title="Link to this heading">#</a></h4>
-<p>The HDI must include those values of <span class="math notranslate nohighlight">\(\theta\)</span> with highest posterior
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The HDI must include those values of <span class="math notranslate nohighlight">\(\theta\)</span> with highest posterior
 density and so must take the form <span class="math notranslate nohighlight">\(C_\alpha=(0,b)\)</span>. The end-point <span class="math notranslate nohighlight">\(b\)</span>
 must satisfy</p>
 <div class="math notranslate nohighlight">
 \[\int_0^b 24\,(1-\theta)^{23}\,d\theta = 1-\alpha.\]</div>
-<p>Now</p>
+<p class="sd-card-text">Now</p>
 <div class="math notranslate nohighlight">
 \[\int_0^b 24\,(1-\theta)^{23}\,d\theta 
     = \left[-(1-\theta)^{24}\right]^b_0 = 1-(1-b)^{24}.\]</div>
-<p>Hence</p>
+<p class="sd-card-text">Hence</p>
 <div class="math notranslate nohighlight">
 \[1-(1-b)^{24}=1-\alpha \quad\Longrightarrow \quad 1-b=\alpha^{1/24}
     \quad\Longrightarrow \quad b=1-\alpha^{1/24}.\]</div>
-<p>Therefore, a
+<p class="sd-card-text">Therefore, a
 <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> HDI for <span class="math notranslate nohighlight">\(\theta\)</span> is <span class="math notranslate nohighlight">\((0,1-\alpha^{1/24})\)</span>.</p>
-</section>
+</div>
+</details></section>
 <section id="example-4-2">
 <h4>Example 4.2<a class="headerlink" href="#example-4-2" title="Link to this heading">#</a></h4>
 <p><br />
-Suppose we have a random sample <span class="math notranslate nohighlight">\(\underline{x}e\)</span> from a
+Suppose we have a random sample
+<span class="math notranslate nohighlight">\(\underline{x} = (x_1, \ldots, x_n)^\top\)</span> from a
 <span class="math notranslate nohighlight">\(\mathcal{N}(\mu,1/\tau)\)</span> distribution (where <span class="math notranslate nohighlight">\(\tau\)</span> is known). We have
 seen that, assuming vague prior knowledge, the posterior distribution is
 <span class="math notranslate nohighlight">\(\mu|\underline{x}\sim \mathcal{N}(\bar x,1/(n\tau))\)</span>. Determine the <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> HDI
 for <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-</section>
-<section id="solution-to-example-4-2">
-<h4>Solution to Example 4.2<a class="headerlink" href="#solution-to-example-4-2" title="Link to this heading">#</a></h4>
-<p>This distribution has a symmetric bell shape and so the HDI takes the
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This distribution has a symmetric bell shape and so the HDI takes the
 form <span class="math notranslate nohighlight">\(C_\alpha=(a,b)\)</span> with end-points</p>
 <div class="math notranslate nohighlight">
 \[a=\bar x - \frac{z_{\alpha/2}}{\sqrt{n\tau}}
     \quad\quad\text{and}\quad\quad
     b=\bar x + \frac{z_{\alpha/2}}{\sqrt{n\tau}},\]</div>
-<p>where <span class="math notranslate nohighlight">\(z_\alpha\)</span> is
+<p class="sd-card-text">where <span class="math notranslate nohighlight">\(z_\alpha\)</span> is
 the upper <span class="math notranslate nohighlight">\(\alpha\)</span>-quantile of the <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span> distribution.
 Therefore, the 95% HDI for <span class="math notranslate nohighlight">\(\mu\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[\left(\bar x - \frac{1.96}{\sqrt{n\tau}},\,
     \bar x + \frac{1.96}{\sqrt{n\tau}}\right).\]</div>
-<p>Note that this interval
+<p class="sd-card-text">Note that this interval
 is numerically identical to the 95% frequentist confidence interval for
 the (population) mean of a normal random sample with known variance.
 However, the interpretation is very different.</p>
-</section>
+</div>
+</details></section>
 <section id="example-4-3">
 <h4>Example 4.3<a class="headerlink" href="#example-4-3" title="Link to this heading">#</a></h4>
 <p><br />
 Suppose that the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is a []{#ex:hdi
-label=”ex:hdi”} <span class="math notranslate nohighlight">\(\text{Beta}(2,23)\)</span> distribution, with probability
+label=”ex:hdi”} <span class="math notranslate nohighlight">\(\mathrm{Beta}(2,23)\)</span> distribution, with probability
 density function</p>
 <div class="math notranslate nohighlight">
 \[\pi(\theta|\underline{x})=552\,\theta(1-\theta)^{22}, \quad 0&lt;\theta&lt;1.\]</div>
@@ -525,25 +529,30 @@ density function</p>
 <span class="xref std std-ref">fig:ci2</span>{reference-type=”ref” reference=”fig:ci2”}.</p>
 <p><img alt="Plot of the  posterior densityfunction" src="../_images/betaposterior2.svg" />{#fig:ci2}</p>
 <p>Determine the <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> HDI for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
-</section>
-<section id="solution-to-example-4-3">
-<h4>Solution to Example 4.3<a class="headerlink" href="#solution-to-example-4-3" title="Link to this heading">#</a></h4>
-<p>Since the posterior density is unimodal, we seek <span class="math notranslate nohighlight">\(0 &lt; a &lt; b &lt; 1\)</span> such
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Since the posterior density is unimodal, we seek <span class="math notranslate nohighlight">\(0 &lt; a &lt; b &lt; 1\)</span> such
 that</p>
 <div class="math notranslate nohighlight">
 \[
-\text{Pr}(\theta \in (a,b)|\underline{x}) = 1 - \alpha\]</div>
-<p>and
+\mathrm{Pr}(\theta \in (a,b)|\underline{x}) = 1 - \alpha\]</div>
+<p class="sd-card-text">and
 <span class="math notranslate nohighlight">\(\pi(a|\underline{x}) = \pi(b|\underline{x})\)</span>.</p>
-<p>Letting <span class="math notranslate nohighlight">\(F(a|\underline{x}) = \text{Pr}(\theta &lt; a|\underline{x})\)</span>
+<p class="sd-card-text">Letting <span class="math notranslate nohighlight">\(F(a|\underline{x}) = \mathrm{Pr}(\theta &lt; a|\underline{x})\)</span>
 denote the posterior CDF, this is equivalent to seeking <span class="math notranslate nohighlight">\(0&lt;a&lt;b&lt;1\)</span> such
 that</p>
 <div class="math notranslate nohighlight">
 \[
 F(b|\underline{x}) - F(a|\underline{x}) = 1 - \alpha\]</div>
-<p>and
+<p class="sd-card-text">and
 <span class="math notranslate nohighlight">\(\pi(a|\underline{x}) = \pi(b|\underline{x})\)</span>.</p>
-</section>
+</div>
+</details></section>
 </section>
 <section id="computation-of-hdis-for-unimodal-distributions-computation-of-hdis-for-unimodal-distributions-unnumbered">
 <h3>Computation of HDIs for unimodal distributions {#computation-of-hdis-for-unimodal-distributions .unnumbered}<a class="headerlink" href="#computation-of-hdis-for-unimodal-distributions-computation-of-hdis-for-unimodal-distributions-unnumbered" title="Link to this heading">#</a></h3>
@@ -569,7 +578,7 @@ determine <span class="math notranslate nohighlight">\(a\)</span> and <span clas
 <section id="example-ex-hdi-reference-type-ref-reference-ex-hdi-continued-example-exhdi-continued-unnumbered">
 <h3>Example <span class="xref std std-ref">ex:hdi</span>{reference-type=”ref” reference=”ex:hdi”} (continued) {#example-exhdi-continued .unnumbered}<a class="headerlink" href="#example-ex-hdi-reference-type-ref-reference-ex-hdi-continued-example-exhdi-continued-unnumbered" title="Link to this heading">#</a></h3>
 <p>Suppose we need the 95% HDI for <span class="math notranslate nohighlight">\(\theta\)</span> when
-<span class="math notranslate nohighlight">\(\theta|\underline{x}\sim \text{Beta}(2,23)\)</span>. One slight complication
+<span class="math notranslate nohighlight">\(\theta|\underline{x}\sim \mathrm{Beta}(2,23)\)</span>. One slight complication
 with using the above method to determine the HDI <span class="math notranslate nohighlight">\((a,b)\)</span> is that both
 <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are restricted to the unit interval. However, the <code class="docutils literal notranslate"><span class="pre">R</span></code>
 function <code class="docutils literal notranslate"><span class="pre">optim</span></code> has options for dealing with such cases. It also needs
@@ -596,8 +605,8 @@ and <span class="math notranslate nohighlight">\(f(b)-f(a)=-0.004484121\)</span>
 <span class="math notranslate nohighlight">\((0.002211733,0.1840109)\)</span>.</p>
 </section>
 </section>
-<section id="prediction">
-<h2>Prediction<a class="headerlink" href="#prediction" title="Link to this heading">#</a></h2>
+<section id="section-4-2-prediction">
+<h2>Section 4.2: Prediction<a class="headerlink" href="#section-4-2-prediction" title="Link to this heading">#</a></h2>
 <p>Much of statistical inference (both Frequentist and Bayesian) is aimed
 towards making statements about a parameter <span class="math notranslate nohighlight">\(\theta\)</span>. Often the
 inferences are used as a yardstick for similar future experiments. For
@@ -678,12 +687,16 @@ reference=”tab:predpost”}, with most likely value of <span class="math notra
 1/2, and standard deviation <span class="math notranslate nohighlight">\(\textnormal{SD}(\theta|x=10)=0.126\)</span>.</p>
 <p>Suppose now we want to predict the number of sales <span class="math notranslate nohighlight">\(Y\)</span> in the next 24
 days. If there have been no changes in the sales process (no special
-advertising campaigns etc) then we can take <span class="math notranslate nohighlight">\(Y|\theta\sim \text{Poisson}(24\,\theta)\)</span>. Determine the predictive probability
+advertising campaigns etc) then we can take <span class="math notranslate nohighlight">\(Y|\theta\sim \mathrm{Poisson}(24\,\theta)\)</span>. Determine the predictive probability
 function for <span class="math notranslate nohighlight">\(Y\)</span>.</p>
-</section>
-<section id="solution-to-example-4-4">
-<h3>Solution to Example 4.4<a class="headerlink" href="#solution-to-example-4-4" title="Link to this heading">#</a></h3>
-<p>As <span class="math notranslate nohighlight">\(\theta\)</span> is discrete, the predictive probability function for <span class="math notranslate nohighlight">\(Y\)</span> is</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">As <span class="math notranslate nohighlight">\(\theta\)</span> is discrete, the predictive probability function for <span class="math notranslate nohighlight">\(Y\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -697,7 +710,7 @@ function for <span class="math notranslate nohighlight">\(Y\)</span>.</p>
         {y!}
         
 \end{aligned}\end{split}\]</div>
-<p>For example</p>
+<p class="sd-card-text">For example</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -707,7 +720,8 @@ function for <span class="math notranslate nohighlight">\(Y\)</span>.</p>
         &amp;=0.073.
         
 \end{aligned}\end{split}\]</div>
-<p>This probability can be compared with a more naive predictive
+</div>
+</details><p>This probability can be compared with a more naive predictive
 probability calculated assuming that <span class="math notranslate nohighlight">\(\theta=\hat{\theta}\)</span>, the
 likelihood mode. Here <span class="math notranslate nohighlight">\(\hat{\theta}=1/2\)</span> and so
 <span class="math notranslate nohighlight">\(Y|\theta=\hat{\theta}\sim Po(24\hat{\theta})\equiv Po(12)\)</span>, whence</p>
@@ -758,9 +772,9 @@ and hence narrower interval, is <span class="math notranslate nohighlight">\(\{6
 <section id="definition-4-1-definition">
 <h3>Definition 4.1: Definition<a class="headerlink" href="#definition-4-1-definition" title="Link to this heading">#</a></h3>
 <p><br />
-The random variable <span class="math notranslate nohighlight">\(Y\)</span> follows a Beta-binomial <span class="math notranslate nohighlight">\(\text{BetaBin}(n,a,b)\)</span>
-distribution (<span class="math notranslate nohighlight">\(n\)</span> positive integer, <span class="math notranslate nohighlight">\(a&gt;0\)</span>, <span class="math notranslate nohighlight">\(b&gt;0\)</span>) if it has probability
-function</p>
+The random variable <span class="math notranslate nohighlight">\(Y\)</span> follows a Beta-binomial
+<span class="math notranslate nohighlight">\(\mathrm{BetaBin}(n,a,b)\)</span> distribution (<span class="math notranslate nohighlight">\(n\)</span> positive integer, <span class="math notranslate nohighlight">\(a&gt;0\)</span>,
+<span class="math notranslate nohighlight">\(b&gt;0\)</span>) if it has probability function</p>
 <div class="math notranslate nohighlight">
 \[
 f(y|n,a,b)=\binom{n}{y}\frac{\mathrm{B}(y+a,b+n-y)}{\mathrm{B}(a,b)}, \quad\quad
@@ -779,8 +793,8 @@ reference=”eq:betafn”}. It can be shown that</p>
 Suppose that <span class="math notranslate nohighlight">\(X\)</span> is the number of defective items in a sample of size 5.
 If the items are defective independently of one another and they each
 have the same probability <span class="math notranslate nohighlight">\(\theta\)</span> of being defective then
-<span class="math notranslate nohighlight">\(X|\theta\sim \text{Bin}(5,\theta)\)</span>. Suppose we believe that defective
-items are quite unlikely and so take a <span class="math notranslate nohighlight">\(\text{Beta}(1,19)\)</span> prior
+<span class="math notranslate nohighlight">\(X|\theta\sim \mathrm{Bin}(5,\theta)\)</span>. Suppose we believe that defective
+items are quite unlikely and so take a <span class="math notranslate nohighlight">\(\mathrm{Beta}(1,19)\)</span> prior
 distribution with mean and standard deviation</p>
 <div class="math notranslate nohighlight">
 \[
@@ -788,11 +802,11 @@ distribution with mean and standard deviation</p>
 <p>Suppose we take a sample of size 5 and observe <span class="math notranslate nohighlight">\(x=1\)</span> defective item. In
 this case, the likelihood mode is <span class="math notranslate nohighlight">\(\hat{\theta}=1/5=0.2\)</span>, higher than
 the prior mean. We have seen previously that, in such cases, the
-posterior distribution is a <span class="math notranslate nohighlight">\(\text{Beta}\)</span> distribution whose first and
+posterior distribution is a <span class="math notranslate nohighlight">\(\mathrm{Beta}\)</span> distribution whose first and
 second parameters are those of the prior distribution incremented by the
 number of success and the number of failures respectively. Thus, the
-posterior distribution is a <span class="math notranslate nohighlight">\(\text{Beta}(2,23)\)</span> distribution, with mean
-and standard deviation</p>
+posterior distribution is a <span class="math notranslate nohighlight">\(\mathrm{Beta}(2,23)\)</span> distribution, with
+mean and standard deviation</p>
 <div class="math notranslate nohighlight">
 \[
 \text{E}[\theta|x=1]=0.08\quad\quad\text{and}\quad\quad \textnormal{SD}(\theta|x=1)=0.053.\]</div>
@@ -800,12 +814,16 @@ and standard deviation</p>
 deviation has also increased (slightly).</p>
 <p>If we observe another sample of 5 items, what is the predictive
 probability distribution of the number found to be defective?</p>
-</section>
-<section id="solution-to-example-4-5">
-<h3>Solution to Example 4.5<a class="headerlink" href="#solution-to-example-4-5" title="Link to this heading">#</a></h3>
-<p>Suppose the number of defective items in this future sample is <span class="math notranslate nohighlight">\(Y\)</span>, with
-<span class="math notranslate nohighlight">\(Y|\theta\sim \text{Bin}(5,\theta)\)</span>. The predictive probability function
-of <span class="math notranslate nohighlight">\(Y\)</span> is, for <span class="math notranslate nohighlight">\(y=0,1,2,\ldots,5\)</span></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Suppose the number of defective items in this future sample is <span class="math notranslate nohighlight">\(Y\)</span>, with
+<span class="math notranslate nohighlight">\(Y|\theta\sim \mathrm{Bin}(5,\theta)\)</span>. The predictive probability
+function of <span class="math notranslate nohighlight">\(Y\)</span> is, for <span class="math notranslate nohighlight">\(y=0,1,2,\ldots,5\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -818,12 +836,13 @@ of <span class="math notranslate nohighlight">\(Y\)</span> is, for <span class="
     &amp;=\binom{5}{y}\frac{\mathrm{B}(y+2,28-y)}{\mathrm{B}(2,23)},
     
 \end{aligned}\end{split}\]</div>
-<p>That is, <span class="math notranslate nohighlight">\(Y|x=1\sim \text{BetaBin}(5,2,23)\)</span>.</p>
-<p>We can compare this predictive distribution with a naive predictive
+<p class="sd-card-text">That is, <span class="math notranslate nohighlight">\(Y|x=1\sim \mathrm{BetaBin}(5,2,23)\)</span>.</p>
+</div>
+</details><p>We can compare this predictive distribution with a naive predictive
 distribution based on an estimate of <span class="math notranslate nohighlight">\(\theta\)</span>, for example, the
 likelihood mode or the posterior mode. Here we shall base our naive
 predictive distribution on the posterior mode <span class="math notranslate nohighlight">\(\hat{\theta}=1/23\)</span>, that
-is, use the distribution <span class="math notranslate nohighlight">\(Y|\theta=\hat\theta\sim \text{Bin}(5,1/23)\)</span>.
+is, use the distribution <span class="math notranslate nohighlight">\(Y|\theta=\hat\theta\sim \mathrm{Bin}(5,1/23)\)</span>.
 Thus, the naive predictive probability function is, for
 <span class="math notranslate nohighlight">\(y=0,1,\ldots,5\)</span>,</p>
 <div class="math notranslate nohighlight">
@@ -852,7 +871,7 @@ small a standard deviation:</p>
               0.456 &amp; \text{using the naive }\pi^*(\theta|x=1), \\
 \end{cases}\end{split}\]</div>
 <p>these values being calculated from
-<span class="math notranslate nohighlight">\(\text{BetaBin}(5,2,23)\)</span> and binomial <span class="math notranslate nohighlight">\(\text{Bin}(5,1/23)\)</span>
+<span class="math notranslate nohighlight">\(\mathrm{BetaBin}(5,2,23)\)</span> and binomial <span class="math notranslate nohighlight">\(\mathrm{Bin}(5,1/23)\)</span>
 distributions.</p>
 <p>Using the numerical table of predictive probabilities, we can see that
 <span class="math notranslate nohighlight">\(\{0,1\}\)</span> is a 93.2% prediction set/interval. This is to be contrasted
@@ -887,12 +906,12 @@ numerator and denominator.</p>
 <p>Reworking the previous example using this formula, we have</p>
 <div class="math notranslate nohighlight">
 \[
-\theta\sim \text{Beta}(1,19),\quad X|\theta\sim \text{Bin}(5,\theta),\quad 
-Y|\theta\sim \text{Bin}(5,\theta)\]</div>
+\theta\sim \mathrm{Beta}(1,19),\quad X|\theta\sim \mathrm{Bin}(5,\theta),\quad 
+Y|\theta\sim \mathrm{Bin}(5,\theta)\]</div>
 <p>from which we obtain</p>
 <div class="math notranslate nohighlight">
 \[
-\theta|x=1\sim \text{Beta}(2,23),\quad \theta|x=1,y\sim \text{Beta}(y+2,28-y).\]</div>
+\theta|x=1\sim \mathrm{Beta}(2,23),\quad \theta|x=1,y\sim \mathrm{Beta}(y+2,28-y).\]</div>
 <p>Therefore, for <span class="math notranslate nohighlight">\(y=0,1,2,\ldots,5\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -910,8 +929,8 @@ f(y|x=1)&amp;=\frac{f(y|\theta)\pi(\theta|x=1)}{\pi(\theta|x=1,y)}\\
 <h4>Definition 4.2: Inverse-Beta Distribution<a class="headerlink" href="#definition-4-2-inverse-beta-distribution" title="Link to this heading">#</a></h4>
 <p><br />
 The random variable <span class="math notranslate nohighlight">\(Y\)</span> follows a Inverse-Beta distribution, denoted
-<span class="math notranslate nohighlight">\(Y\sim\textnormal{\text{InvBeta}}(a,b,c)\)</span> with parameters <span class="math notranslate nohighlight">\(a&gt;0\)</span>, <span class="math notranslate nohighlight">\(b&gt;0\)</span>
-and <span class="math notranslate nohighlight">\(c&gt;0\)</span>, if it has probability density function</p>
+<span class="math notranslate nohighlight">\(Y\sim\mathrm{InvBeta}(a,b,c)\)</span> with parameters <span class="math notranslate nohighlight">\(a&gt;0\)</span>, <span class="math notranslate nohighlight">\(b&gt;0\)</span> and <span class="math notranslate nohighlight">\(c&gt;0\)</span>,
+if it has probability density function</p>
 <div class="math notranslate nohighlight">
 \[
 f(y|a,b,c)=\frac{c^by^{a-1}}{\mathrm{B}(a,b)(y+c)^{a+b}} \quad\quad y&gt;0,\]</div>
@@ -921,17 +940,17 @@ reference=”eq:betafn”}. It can be shown that</p>
 <div class="math notranslate nohighlight">
 \[
 \text{E}[Y]=\frac{ac}{b-1}\quad\quad\text{and}\quad\quad \text{Var}[Y]=\frac{ac^2(a+b-1)}{(b-1)^2(b-2)}.\]</div>
-<p>The distribution gets its name because
-<span class="math notranslate nohighlight">\(Y/(Y+c)\sim \textnormal{\text{Beta}}(a,b)\)</span>. Also note that if
-<span class="math notranslate nohighlight">\(Y\sim \textnormal{\text{InvBeta}}(a,b,1)\)</span> then
-<span class="math notranslate nohighlight">\(cY\sim \textnormal{\text{InvBeta}}(a,b,c)\)</span>.</p>
+<p>The distribution gets its name because <span class="math notranslate nohighlight">\(Y/(Y+c)\sim \mathrm{Beta}(a,b)\)</span>.
+Also note that if <span class="math notranslate nohighlight">\(Y\sim \mathrm{InvBeta}(a,b,1)\)</span> then
+<span class="math notranslate nohighlight">\(cY\sim \mathrm{InvBeta}(a,b,c)\)</span>.</p>
 </section>
 <section id="example-4-6">
 <h4>Example 4.6<a class="headerlink" href="#example-4-6" title="Link to this heading">#</a></h4>
 <p><br />
-Suppose we have a random sample <span class="math notranslate nohighlight">\(\underline{x}e\)</span> from a
-<span class="math notranslate nohighlight">\(\text{Gamma}(k,\theta)\)</span> distribution, where <span class="math notranslate nohighlight">\(k\)</span> is known, and our prior
-beliefs are described by a <span class="math notranslate nohighlight">\(\text{Gamma}(g,h)\)</span> distribution. The
+Suppose we have a random sample
+<span class="math notranslate nohighlight">\(\underline{x} = (x_1, \ldots, x_n)^\top\)</span> from a
+<span class="math notranslate nohighlight">\(\mathrm{Gamma}(k,\theta)\)</span> distribution, where <span class="math notranslate nohighlight">\(k\)</span> is known, and our
+prior beliefs are described by a <span class="math notranslate nohighlight">\(\mathrm{Gamma}(g,h)\)</span> distribution. The
 likelihood function is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -945,17 +964,21 @@ f(\underline{x}|\theta)=\prod_{i=1}^n \frac{\theta^k x_i^{k-1}e^{-\theta x_i}}{\
   &amp;\propto\theta^{g+nk-1}e^{-(h+n\bar x)\theta},\quad\theta&gt;0.
 \end{aligned}\end{split}\]</div>
 <p>Hence, the posterior distribution is a
-<span class="math notranslate nohighlight">\(\text{Gamma}(g+nk,h+n\bar x)\)</span> distribution. Notice that this implies
+<span class="math notranslate nohighlight">\(\mathrm{Gamma}(g+nk,h+n\bar x)\)</span> distribution. Notice that this implies
 that the gamma distribution is the conjugate prior distribution for the
-model “random sample from a <span class="math notranslate nohighlight">\(\text{Gamma}(k,\theta)\)</span> distribution, with
-<span class="math notranslate nohighlight">\(k\)</span> known”. Determine the predictive distribution for a future
+model “random sample from a <span class="math notranslate nohighlight">\(\mathrm{Gamma}(k,\theta)\)</span> distribution,
+with <span class="math notranslate nohighlight">\(k\)</span> known”. Determine the predictive distribution for a future
 outcome <span class="math notranslate nohighlight">\(Y\)</span>.</p>
-</section>
-<section id="solution-to-example-4-6">
-<h4>Solution to Example 4.6<a class="headerlink" href="#solution-to-example-4-6" title="Link to this heading">#</a></h4>
-<p>Clearly, the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> conditional on both the
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Clearly, the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> conditional on both the
 data <span class="math notranslate nohighlight">\(\underline{x}\)</span> and the future observation <span class="math notranslate nohighlight">\(y\)</span> is given by
-<span class="math notranslate nohighlight">\(\theta|\underline{x},y\sim \text{Gamma}(G+k,H+y)\)</span>. Therefore, the
+<span class="math notranslate nohighlight">\(\theta|\underline{x},y\sim \mathrm{Gamma}(G+k,H+y)\)</span>. Therefore, the
 predictive density function is, for <span class="math notranslate nohighlight">\(y&gt;0\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -971,12 +994,12 @@ predictive density function is, for <span class="math notranslate nohighlight">\
     &amp;=\frac{H^Gy^{k-1}}{\mathrm{B}(k,G)(H+y)^{G+k}},
     
 \end{aligned}\end{split}\]</div>
-<p>That is,
-<span class="math notranslate nohighlight">\(Y|\underline{x}\sim \textnormal{\text{InvBeta}}(k,G,H)\)</span>.<br />
+<p class="sd-card-text">That is, <span class="math notranslate nohighlight">\(Y|\underline{x}\sim \mathrm{InvBeta}(k,G,H)\)</span>.<br />
 Consider the case where the data follow an exponential distribution,
 that is, where <span class="math notranslate nohighlight">\(k=1\)</span>. Determine the predictive density function and the
 <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> prediction interval for <span class="math notranslate nohighlight">\(Y\)</span>.</p>
-<p><strong>The End</strong></p>
+</div>
+</details><p><strong>The End</strong></p>
 </section>
 </section>
 </section>
@@ -1018,7 +1041,7 @@ that is, where <span class="math notranslate nohighlight">\(k=1\)</span>. Determ
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Priors</p>
+        <p class="prev-next-title">Chapter 3: Priors</p>
       </div>
     </a>
 </div>
@@ -1037,32 +1060,26 @@ that is, where <span class="math notranslate nohighlight">\(k=1\)</span>. Determ
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation">Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-1-estimation">Section 4.1: Estimation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-estimates-point-estimates-unnumbered">Point estimates {#point-estimates .unnumbered}</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interval-estimates">Interval estimates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interval-estimates-interval-estimates-unnumbered">Interval estimates {#interval-estimates .unnumbered}</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-confidence-intervals-interpretation-of-confidence-intervals-unnumbered">Interpretation of confidence intervals {#interpretation-of-confidence-intervals .unnumbered}</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-1">Example 4.1</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-1">Solution to Example 4.1</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-2">Example 4.2</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-2">Solution to Example 4.2</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-3">Example 4.3</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-3">Solution to Example 4.3</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-of-hdis-for-unimodal-distributions-computation-of-hdis-for-unimodal-distributions-unnumbered">Computation of HDIs for unimodal distributions {#computation-of-hdis-for-unimodal-distributions .unnumbered}</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-hdi-reference-type-ref-reference-ex-hdi-continued-example-exhdi-continued-unnumbered">Example <span class="xref std std-ref">ex:hdi</span>{reference-type=”ref” reference=”ex:hdi”} (continued) {#example-exhdi-continued .unnumbered}</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction">Prediction</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-2-prediction">Section 4.2: Prediction</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-4">Example 4.4</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-4">Solution to Example 4.4</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-4-1-definition">Definition 4.1: Definition</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-5">Example 4.5</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-5">Solution to Example 4.5</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-distribution-predictive-distribution-unnumbered">Predictive distribution {#predictive-distribution .unnumbered}</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-4-2-inverse-beta-distribution">Definition 4.2: Inverse-Beta Distribution</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-6">Example 4.6</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-4-6">Solution to Example 4.6</a></li>
 </ul>
 </li>
 </ul>

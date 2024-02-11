@@ -1,9 +1,9 @@
-\chapter{Bayesian inference}
+\chapter{Chapter 4: Bayesian inference}
 The posterior distribution $\pi(\theta|\underline{x})$ summarises all our
 information about $\theta$ to date. However, sometimes it is
 helpful to reduce this distribution to a few key summary measures.
 
-\section{Estimation}
+\section{Section 4.1: Estimation}
 \subsection*{Point estimates}
 There are many useful summaries for a typical value of a random
 variable with a particular distribution; for example, the mean, mode
@@ -52,7 +52,7 @@ occasions --- in repeated applications of the formula.
 
 \paragraph{Example 4.1}{~\\
 Suppose that the posterior distribution for $\theta$ is a
-$\text{Beta}(1,24)$ distribution, with probability density function
+$\mathrm{Beta}(1,24)$ distribution, with probability density function
 $$
 \pi(\theta|\underline{x})=24\,(1-\theta)^{23}, \quad 0<\theta<1.
 $$
@@ -60,17 +60,17 @@ A plot of this distribution is given in Figure \ref{fig:ci1}.
 \begin{figure}[h!]
 
 \includegraphics{images/betaposterior.svg}
-\caption{Plot of the $\text{Beta}(1,24)$ posterior density function}
+\caption{Plot of the $\mathrm{Beta}(1,24)$ posterior density function}
 \label{fig:ci1}
 
 \end{figure}
 Determine the $100(1-\alpha)\%$ HDI for~$\theta$.
 
-\newpage
 
-\paragraph{Solution to Example 4.1}{
-    
-    The HDI must include those values of $\theta$ with highest
+
+!!dropdown!!
+
+The HDI must include those values of $\theta$ with highest
     posterior density and so must take the form $C_\alpha=(0,b)$. The
     end-point $b$ must satisfy
     \begin{equation*}
@@ -87,22 +87,21 @@ Determine the $100(1-\alpha)\%$ HDI for~$\theta$.
     \quad\Longrightarrow \quad b=1-\alpha^{1/24}.
     $$
     Therefore, a $100(1-\alpha)\%$ HDI for $\theta$ is
-    $(0,1-\alpha^{1/24})$. 
-    
-    
-}}
+    $(0,1-\alpha^{1/24})$.
 
-\newpage
+!!enddropdown!!}
+
+
 
 \paragraph{Example 4.2}{~\\
-Suppose we have a random sample $\underline{x}e$ from a $\mathcal{N}(\mu,1/\tau)$
+Suppose we have a random sample $\underline{x} = (x_1, \ldots, x_n)^\top$ from a $\mathcal{N}(\mu,1/\tau)$
 distribution (where $\tau$ is known). We have seen that, assuming
 vague prior knowledge, the posterior distribution is $\mu|\underline{x}\sim
 \mathcal{N}(\bar x,1/(n\tau))$. Determine the $100(1-\alpha)\%$ HDI for~$\mu$.
 
-\paragraph{Solution to Example 4.2}{
-    
-    This distribution has a symmetric bell shape and so the HDI takes the
+!!dropdown!!
+
+This distribution has a symmetric bell shape and so the HDI takes the
     form $C_\alpha=(a,b)$ with end-points
     $$
     a=\bar x - \frac{z_{\alpha/2}}{\sqrt{n\tau}}
@@ -117,16 +116,15 @@ vague prior knowledge, the posterior distribution is $\mu|\underline{x}\sim
     $$ 
     Note that this interval is numerically identical to the 95\% frequentist confidence interval for the (population) mean of a normal random sample with known variance. However, the interpretation is very
     different.
-    
-    
-}}
 
-\newpage
+!!enddropdown!!}
+
+
 
 \paragraph{Example 4.3}{~\\
 Suppose that the posterior distribution for $\theta$ is a
 \label{ex:hdi}
-$\text{Beta}(2,23)$ distribution, with probability density function
+$\mathrm{Beta}(2,23)$ distribution, with probability density function
 $$
 \pi(\theta|\underline{x})=552\,\theta(1-\theta)^{22}, \quad 0<\theta<1.
 $$
@@ -134,24 +132,23 @@ A plot of this distribution is given in Figure \ref{fig:ci2}.
 \begin{figure}[h!]
 
 \includegraphics{images/betaposterior2.svg}
-\caption{Plot of the $\text{Beta}(2,23)$ posterior density function}
+\caption{Plot of the $\mathrm{Beta}(2,23)$ posterior density function}
 \label{fig:ci2}
 
 \end{figure}
 Determine the $100(1-\alpha)\%$ HDI for~$\theta$.
 
-\paragraph{Solution to Example 4.3}{
-    
-    Since the posterior density is unimodal, we seek $ 0 < a < b < 1 $ such that
-    $$ \text{Pr}(\theta \in (a,b)|\underline{x}) = 1 - \alpha $$
+!!dropdown!!
+
+Since the posterior density is unimodal, we seek $ 0 < a < b < 1 $ such that
+    $$ \mathrm{Pr}(\theta \in (a,b)|\underline{x}) = 1 - \alpha $$
     and $\pi(a|\underline{x}) = \pi(b|\underline{x})$.
     
-    Letting $F(a|\underline{x}) = \text{Pr}(\theta < a|\underline{x})$ denote the posterior CDF, this is equivalent to  seeking $0<a<b<1$ such that
+    Letting $F(a|\underline{x}) = \mathrm{Pr}(\theta < a|\underline{x})$ denote the posterior CDF, this is equivalent to  seeking $0<a<b<1$ such that
     $$ F(b|\underline{x}) - F(a|\underline{x}) = 1 - \alpha$$
     and $\pi(a|\underline{x}) = \pi(b|\underline{x})$.
-    
-    
-}
+
+!!enddropdown!!
 \clearpage
 
 \subsection*{Computation of HDIs for unimodal distributions}
@@ -175,7 +172,7 @@ are zeroed.  Therefore, we can used the \texttt{R} optimizer function
 \texttt{optim} to determine $a$ and $b$.
 
 \subsection*{Example~\ref{ex:hdi} (continued)}
-Suppose we need the 95\% HDI for $\theta$ when $\theta|\underline{x}\sim \text{Beta}(2,23)$. One slight complication with using the above method to determine the HDI $(a,b)$ is that both $a$ and $b$ are restricted to the unit interval. However, the \texttt{R} function \texttt{optim} has options for dealing with such cases. It also needs initial guesses at the values of $a$ and $b$. Here we base these on the values of the 95\% equi-tailed Bayesian credible interval. We also take $k=0.0001$ to balance the conditions to be zeroed.
+Suppose we need the 95\% HDI for $\theta$ when $\theta|\underline{x}\sim \mathrm{Beta}(2,23)$. One slight complication with using the above method to determine the HDI $(a,b)$ is that both $a$ and $b$ are restricted to the unit interval. However, the \texttt{R} function \texttt{optim} has options for dealing with such cases. It also needs initial guesses at the values of $a$ and $b$. Here we base these on the values of the 95\% equi-tailed Bayesian credible interval. We also take $k=0.0001$ to balance the conditions to be zeroed.
 
 The \texttt{R} code to determine $a$ and $b$ is 
 \begin{minted}{Python}
@@ -195,9 +192,9 @@ b=res$par[2]
 \end{minted}
 and gives $a=0.002211733$ and $b=0.1840109$, with $F(b)-F(a)=0.9500041$ and $f(b)-f(a)=-0.004484121$. Thus the 95\% HDI is $(0.002211733,0.1840109)$.}
 
-\newpage
 
-\section{Prediction}
+
+\section{Section 4.2: Prediction}
 Much of statistical inference (both Frequentist and Bayesian) is aimed towards making statements about a parameter $\theta$. Often the inferences are used as a yardstick for similar future experiments. For example, we may want to predict the outcome when the experiment is performed again.
 
 Clearly there will be uncertainty about the future outcome of an experiment. Suppose this future outcome $Y$ is described by a probability (density) function $f(y|\theta)$. There are several ways we could make inferences about what values of $Y$ are likely. For example, if we have an estimate $\hat{\theta}$ of $\theta$ we might base our inferences on $f(y|\theta=\hat{\theta})$. Obviously this is not the best we can do, as such inferences ignore the fact that it is very unlikely that $\theta=\hat{\theta}$. 
@@ -275,19 +272,15 @@ Thus, the posterior distribution for $\theta$ is as shown in Table \ref{tab:pred
 Suppose now we want to predict the number of sales $Y$ in the next 24
 days. If there have been no changes in the sales process (no special
 advertising campaigns etc) then we can take $Y|\theta\sim
-\text{Poisson}(24\,\theta)$. Determine the predictive probability function for~$Y$.
+\mathrm{Poisson}(24\,\theta)$. Determine the predictive probability function for~$Y$.
 
-\paragraph{Solution to Example 4.4}{
-    
-    
-    
-}
+
 
 \clearpage
 
-{
-    
-        As $\theta$ is discrete, the predictive probability
+!!dropdown!!
+
+As $\theta$ is discrete, the predictive probability
         function for $Y$ is
         \begin{align*}
         f(y&|x=10)\\
@@ -306,9 +299,8 @@ advertising campaigns etc) then we can take $Y|\theta\sim
         0.006\times 3^{10}e^{-3}}{10!}\\
         &=0.073.
         \end{align*}
-        
-    
-}
+
+!!enddropdown!!
 
 This probability can be compared with a more naive predictive
 probability calculated assuming that $\theta=\hat{\theta}$, the
@@ -321,7 +313,7 @@ Po(24\hat{\theta})\equiv Po(12)$, whence
 In the same manner, we can calculate the entire predictive distribution
 and naive predictive distribution; see Table~\ref{tab:predsimple}.
 
-\newpage
+
 
 \begin{table}[ht]
 \bigskip
@@ -388,7 +380,7 @@ distribution with too small a standard deviation:
 These standard deviations can be calculated from
 Table~\ref{tab:predsimple}. 
 
-\newpage
+
 
 We can also use the above table of predictive probabilities to determine a
 prediction interval for $Y$. Using the correct predictive
@@ -400,7 +392,7 @@ prediction interval for $Y$ is $\{2,3,\ldots,17\}$. The naive version,
 and hence narrower interval, is $\{6,7,\ldots,19\}$.}
 
 \paragraph{Definition 4.1: Definition}{~\\
-The random variable $Y$ follows a Beta-binomial $\text{BetaBin}(n,a,b)$
+The random variable $Y$ follows a Beta-binomial $\mathrm{BetaBin}(n,a,b)$
 distribution ($n$ positive integer, $a>0$, $b>0$) if it has
 probability function
 $$f(y|n,a,b)=\binom{n}{y}\frac{\mathrm{B}(y+a,b+n-y)}{\mathrm{B}(a,b)}, \quad\quad
@@ -413,8 +405,8 @@ $$\text{E}[Y] =\frac{na}{a+b}\quad\quad\text{and}\quad\quad
 Suppose that $X$ is the number of defective items in a sample of
 size~5. If the items are defective independently of one another and
 they each have the same probability $\theta$ of being defective then
-$X|\theta\sim \text{Bin}(5,\theta)$. Suppose we believe that defective items
-are quite unlikely and so take a $\text{Beta}(1,19)$ prior distribution with
+$X|\theta\sim \mathrm{Bin}(5,\theta)$. Suppose we believe that defective items
+are quite unlikely and so take a $\mathrm{Beta}(1,19)$ prior distribution with
 mean and standard deviation
 \begin{equation*}
 \text{E}[\theta]=0.05\quad\quad\text{and}\quad\quad \textnormal{SD}(\theta)=0.048.
@@ -422,10 +414,10 @@ mean and standard deviation
 Suppose we take a sample of size~5 and observe $x=1$ defective item.
 In this case, the likelihood mode is $\hat{\theta}=1/5=0.2$, higher than
 the prior mean. We have seen previously that, in such cases, the
-posterior distribution is a $\text{Beta}$ distribution whose first and second
+posterior distribution is a $\mathrm{Beta}$ distribution whose first and second
 parameters are those of the prior distribution incremented by the
 number of success and the number of failures respectively. Thus, the
-posterior distribution is a $\text{Beta}(2,23)$ distribution, with mean and
+posterior distribution is a $\mathrm{Beta}(2,23)$ distribution, with mean and
 standard deviation
 $$
 \text{E}[\theta|x=1]=0.08\quad\quad\text{and}\quad\quad \textnormal{SD}(\theta|x=1)=0.053.
@@ -438,9 +430,9 @@ probability distribution of the number found to be defective?
 
 \clearpage
 
-\paragraph{Solution to Example 4.5}{
-    
-    Suppose the number of defective items in this future sample is $Y$, with $Y|\theta\sim \text{Bin}(5,\theta)$. The predictive probability function of $Y$ is, for $y=0,1,2,\ldots,5$
+!!dropdown!!
+
+Suppose the number of defective items in this future sample is $Y$, with $Y|\theta\sim \mathrm{Bin}(5,\theta)$. The predictive probability function of $Y$ is, for $y=0,1,2,\ldots,5$
     \begin{align*}
     f(y|x=1)
     &=\int_\Theta f(y|\theta)\,\pi(\theta|x=1)\,d\theta \\
@@ -450,11 +442,11 @@ probability distribution of the number found to be defective?
     \int_0^1 \theta^{y+1}(1-\theta)^{27-y}\,d\theta \\
     &=\binom{5}{y}\frac{\mathrm{B}(y+2,28-y)}{\mathrm{B}(2,23)},
     \end{align*}
-    That is, $Y|x=1\sim \text{BetaBin}(5,2,23)$.
-    
-}}
+    That is, $Y|x=1\sim \mathrm{BetaBin}(5,2,23)$.
 
-We can compare this predictive distribution with a naive predictive distribution based on an estimate of $\theta$, for example, the likelihood mode or the posterior mode. Here we shall base our naive predictive distribution on the posterior mode $\hat{\theta}=1/23$, that is, use the distribution $Y|\theta=\hat\theta\sim \text{Bin}(5,1/23)$. Thus, the naive predictive probability function is, for $y=0,1,\ldots,5$,
+!!enddropdown!!}
+
+We can compare this predictive distribution with a naive predictive distribution based on an estimate of $\theta$, for example, the likelihood mode or the posterior mode. Here we shall base our naive predictive distribution on the posterior mode $\hat{\theta}=1/23$, that is, use the distribution $Y|\theta=\hat\theta\sim \mathrm{Bin}(5,1/23)$. Thus, the naive predictive probability function is, for $y=0,1,\ldots,5$,
 \begin{align*}
 f(y|\theta=\hat{\theta})&=\binom{5}{y}\hat{\theta}^y(1-\hat{\theta})^{5-y} 
 =\binom{5}{y}\frac{22^{5-y}}{23^5}.
@@ -497,8 +489,8 @@ standard deviation:
               0.456 & \text{using the naive }\pi^*(\theta|x=1), \\
 \end{cases}
 \end{equation*}
-these values being calculated from $\text{BetaBin}(5,2,23)$ and binomial
-$\text{Bin}(5,1/23)$ distributions.
+these values being calculated from $\mathrm{BetaBin}(5,2,23)$ and binomial
+$\mathrm{Bin}(5,1/23)$ distributions.
 
 Using the numerical table of predictive probabilities, we can see that
 $\{0,1\}$ is a 93.2\% prediction set/interval. This is to be
@@ -531,12 +523,12 @@ between the numerator and denominator.
 
 Reworking the previous example using this formula, we have
 $$
-\theta\sim \text{Beta}(1,19),\quad X|\theta\sim \text{Bin}(5,\theta),\quad 
-Y|\theta\sim \text{Bin}(5,\theta)
+\theta\sim \mathrm{Beta}(1,19),\quad X|\theta\sim \mathrm{Bin}(5,\theta),\quad 
+Y|\theta\sim \mathrm{Bin}(5,\theta)
 $$
 from which we obtain
 $$
-\theta|x=1\sim \text{Beta}(2,23),\quad \theta|x=1,y\sim \text{Beta}(y+2,28-y).
+\theta|x=1\sim \mathrm{Beta}(2,23),\quad \theta|x=1,y\sim \mathrm{Beta}(y+2,28-y).
 $$
 Therefore, for $y=0,1,2,\ldots,5$
 \begin{align*}
@@ -553,21 +545,21 @@ f(y|x=1)&=\frac{f(y|\theta)\pi(\theta|x=1)}{\pi(\theta|x=1,y)}\\
 \clearpage
 
 \paragraph{Definition 4.2: Inverse-Beta Distribution}{~\\
-The random variable $Y$ follows a Inverse-Beta distribution, denoted $Y\sim\textnormal{\text{InvBeta}}(a,b,c)$ with parameters $a>0$, $b>0$ and $c>0$,  if it has probability density function
+The random variable $Y$ follows a Inverse-Beta distribution, denoted $Y\sim\mathrm{InvBeta}(a,b,c)$ with parameters $a>0$, $b>0$ and $c>0$,  if it has probability density function
 $$
 f(y|a,b,c)=\frac{c^by^{a-1}}{\mathrm{B}(a,b)(y+c)^{a+b}} \quad\quad y>0, 
 $$
 where $\mathrm{B}(a,b)$ is the beta function defined in
 \eqref{eq:betafn}. It can be shown that
 $$\text{E}[Y]=\frac{ac}{b-1}\quad\quad\text{and}\quad\quad \text{Var}[Y]=\frac{ac^2(a+b-1)}{(b-1)^2(b-2)}.$$
-The distribution gets its name because $Y/(Y+c)\sim \textnormal{\text{Beta}}(a,b)$. Also note that if $Y\sim \textnormal{\text{InvBeta}}(a,b,1)$ then $cY\sim \textnormal{\text{InvBeta}}(a,b,c)$.}
+The distribution gets its name because $Y/(Y+c)\sim \mathrm{Beta}(a,b)$. Also note that if $Y\sim \mathrm{InvBeta}(a,b,1)$ then $cY\sim \mathrm{InvBeta}(a,b,c)$.}
 
 \clearpage
 
 \paragraph{Example 4.6}{~\\
-  Suppose we have a random sample $\underline{x}e$ from a $\text{Gamma}(k,\theta)$
+  Suppose we have a random sample $\underline{x} = (x_1, \ldots, x_n)^\top$ from a $\mathrm{Gamma}(k,\theta)$
   distribution, where $k$ is known, and our prior beliefs are
-  described by a $\text{Gamma}(g,h)$ distribution. The likelihood function is
+  described by a $\mathrm{Gamma}(g,h)$ distribution. The likelihood function is
 $$ f(\underline{x}|\theta)=\prod_{i=1}^n \frac{\theta^k x_i^{k-1}e^{-\theta x_i}}{\Gamma(k)}\propto\theta^{nk}e^{-n\bar x\theta}.$$
  Therefore, using Bayes Theorem, the posterior density is
  \begin{align*}
@@ -575,21 +567,17 @@ $$ f(\underline{x}|\theta)=\prod_{i=1}^n \frac{\theta^k x_i^{k-1}e^{-\theta x_i}
   &\propto\theta^{g-1}e^{-h\theta}\times\theta^{nk}e^{-n\bar x\theta}, \quad\theta>0 \\
   &\propto\theta^{g+nk-1}e^{-(h+n\bar x)\theta},\quad\theta>0.
 \end{align*}
-Hence, the posterior distribution is a $\text{Gamma}(g+nk,h+n\bar x)$ distribution. Notice that this implies that the gamma distribution is the conjugate prior distribution for the model ``random sample from a $\text{Gamma}(k,\theta)$ distribution, with $k$ known''. Determine the predictive distribution for a future outcome~$Y$.
+Hence, the posterior distribution is a $\mathrm{Gamma}(g+nk,h+n\bar x)$ distribution. Notice that this implies that the gamma distribution is the conjugate prior distribution for the model ``random sample from a $\mathrm{Gamma}(k,\theta)$ distribution, with $k$ known''. Determine the predictive distribution for a future outcome~$Y$.
 
-\paragraph{Solution to Example 4.6}{
-    
-    
-    
-}
+
 
 \clearpage
 
-{
-    
-    Clearly, the posterior distribution for $\theta$ conditional on both
+!!dropdown!!
+
+Clearly, the posterior distribution for $\theta$ conditional on both
     the data $\underline{x}$ and the future observation~$y$ is given by
-    $\theta|\underline{x},y\sim \text{Gamma}(G+k,H+y)$. Therefore, the predictive density
+    $\theta|\underline{x},y\sim \mathrm{Gamma}(G+k,H+y)$. Therefore, the predictive density
     function is, for $y>0$
     \begin{align*}
     f(y|\underline{x})&=\frac{f(y|\theta)\pi(\theta|\underline{x})}{\pi(\theta|\underline{x},y)}\\
@@ -602,11 +590,10 @@ Hence, the posterior distribution is a $\text{Gamma}(g+nk,h+n\bar x)$ distributi
     {}
     &=\frac{H^Gy^{k-1}}{\mathrm{B}(k,G)(H+y)^{G+k}},
     \end{align*}
-    That is, $Y|\underline{x}\sim \textnormal{\text{InvBeta}}(k,G,H)$. \\ 
+    That is, $Y|\underline{x}\sim \mathrm{InvBeta}(k,G,H)$. \\ 
     Consider the case where the data follow an exponential distribution, that is, where $k=1$. Determine the predictive density function and the $100(1-\alpha)\%$ prediction interval for~$Y$.
-    
-    
-}}
+
+!!enddropdown!!}
 
 \clearpage
 

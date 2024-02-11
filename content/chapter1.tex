@@ -1,4 +1,4 @@
-\chapter{Introduction}
+\chapter{Chapter 1: Introduction}
 
 Consider the following three experiments.
 \subsection*{Experiment 1: Fisher's tea lady}
@@ -49,7 +49,7 @@ Before we consider any detailed descriptions of Bayesian analyses, we
 recap the various interpretations of probability and highlight the
 subjective approach.
 
-\section{Probability}
+\section{Section 1.1: Probability}
 The concept of probability (chance) has been around for a very long
 time, particularly in the area of gambling. Games of chance have been
 played since about 3500 B.C.; the Egyptians started using cubical dice
@@ -86,7 +86,7 @@ at the time.
 One way of determining (or quantifying) a subjective value for
 $\text{Pr}_H(A)$ is to consider a series of possible bets with outcome
 
-win \pounds $c$ if $A$ occurs and \pounds 0 if $A^{\text{c}}$ occurs.
+win \pounds $c$ if $A$ occurs and \pounds 0 if $A^{\mathrm{c}}$ occurs.
 
 How much would you be prepared to pay (stake) for placing such a bet?
 In terms of expected winnings, you should be prepared to stake \pounds $cp$
@@ -119,7 +119,7 @@ refuse to to bet if the stakes are raised to \pounds 1000 -- most
 people are \textit{risk--averse}. Therefore, we shall restrict our attention to
 the $c=1$ case: pay \pounds $p$ for the bet
 
-win \pounds 1 if $A$ occurs and \pounds 0 if $A^{\text{c}}$ occurs.
+win \pounds 1 if $A$ occurs and \pounds 0 if $A^{\mathrm{c}}$ occurs.
 
 
 You can make sure that your bet is ``honest'' by randomising between
@@ -192,7 +192,7 @@ reasoning. In this course -- unlike any other course you have taken so far -- we
 describe how, if carefully used, it can be a more useful approach than
 the other two methods.
 
-\section{Bayes Theorem}
+\section{Section 1.2: Bayes Theorem}
 Before we state Bayes Theorem, we need a recap of conditional
 probability.
 
@@ -237,7 +237,7 @@ any event with $\text{Pr}(F)>0$ then
 $$\text{Pr}(E_i|F)=\frac{\text{Pr}(F|E_i)\text{Pr}(E_i)}{\sum_{j=1}^n \text{Pr}(F|E_j)\text{Pr}(E_j)},
 \quad\quad i=1,2,\ldots,n. $$}
 
-\paragraph{Proof of Theorem 1.2}{
+\begin{gapbox}[Proof of Theorem 1.2]
 
 
 {
@@ -253,10 +253,10 @@ definition}\\
 \end{align*}
 }
 
-}
+\end{gapbox}
 
 
-\newpage
+
 
 \paragraph{Example 1.2}{~\\
 A laboratory blood test is 95\% effective in detecting a certain
@@ -270,9 +270,9 @@ population actually have the disease.
 \end{itemize}}
 
 
-\paragraph{Solution to Example 1.2}{
-    
-    Let $D=\text{person}$ has the disease, $+ve=$ test is positive and $-ve=$ test is negative.  
+!!dropdown!!
+
+Let $D=\text{person}$ has the disease, $+ve=$ test is positive and $-ve=$ test is negative.  
 
     From the question
     we have $\text{Pr}(+ve|D)=0.95$, $\text{Pr}(+ve|D^c)=0.01$, $\text{Pr}(D)=0.005$ and
@@ -292,11 +292,11 @@ population actually have the disease.
     Therefore, very few people who test negative will have the
     disease. However, a high proportion (67\%) who test positive do not
     have the disease.
-    
-}
+
+!!enddropdown!!
 
 
-\newpage
+
 
 
 \paragraph{Example 1.3}{~\\
@@ -335,13 +335,11 @@ $\theta_2$: fault in gearbox & 0.5 & 0.3 & 0.2 \\
 
 
 
-\paragraph{Solution to Example 1.3}{
-    
-}
 
-{
-    
-    First we must calculate the posterior probabilities $\text{Pr}(\theta_1|x)$
+
+!!dropdown!!
+
+First we must calculate the posterior probabilities $\text{Pr}(\theta_1|x)$
     and $\text{Pr}(\theta_2|x)$ for $x=x_1,x_2,x_3$. Since $\theta_1$ and
     $\theta_2$ form a partition, we can use Bayes Theorem as follows.
     
@@ -371,8 +369,8 @@ $\theta_2$: fault in gearbox & 0.5 & 0.3 & 0.2 \\
     Also, $\text{Pr}(\theta_2|x_i)=1-\text{Pr}(\theta_1|x_i)$, $i=1,2,3$ and so we
     obtain the posterior distributions $\text{Pr}(\theta|x)$ given in
     Table~\ref{tab:garagepost}.
-    
-}
+
+!!enddropdown!!
 
 \begin{table}[!h]
 \bigskip
@@ -432,9 +430,9 @@ both symptoms ($x_3$) & fault in engine ($\theta_1$) \\
 
 \end{table}
 
- {
-     
-         If we were to carry out this diagnostic rule repeatedly then the
+ !!dropdown!!
+
+If we were to carry out this diagnostic rule repeatedly then the
         probability of misdiagnosing a fault is
         \begin{align*}
         \text{Pr}(\text{Misdiagnosis}) &=\text{Pr}(\theta_1,X=x_1)+Pr(\theta_1,X=x_2)+\text{Pr}(\theta_2,X=x_3) \\
@@ -444,8 +442,8 @@ both symptoms ($x_3$) & fault in engine ($\theta_1$) \\
         \end{align*}
         Therefore, in repeated use of this rule, around a third of the
         diagnoses will be wrong.
-     
- }}
+
+!!enddropdown!!}
 
 \clearpage
 
@@ -457,9 +455,9 @@ probability $1-\theta$). What is the probability that the student
 actually knew the answer to a question they answered correctly?
 \label{ex:multiple}
 
-\paragraph{Solution to Example 1.4}{
-     
-        Let
+!!dropdown!!
+
+Let
         \begin{align*}
         C&=\text{student answers question correctly} \\
         K&=\text{student knows answer}.
@@ -473,8 +471,8 @@ actually knew the answer to a question they answered correctly?
         &=\frac{1\times\theta}{1\times\theta~+~\frac{1}{m}\times(1-\theta)} \\
         &=\frac{m\theta}{1+(m-1)\theta}.
         \end{align*}
-     
- }
+
+!!enddropdown!!
 
 Suppose that there are $m=5$ alternative answers for each question. We
 can see the effect of observing a correct answer on our belief
@@ -519,8 +517,8 @@ the next Chapter.
 
 \clearpage
 
-\section{Likelihood}
-Suppose that an experiment results in data $\underline{x}e$ and we decide to model the data using a probability (density) function $f(\underline{x}|\theta)$. This p(d)f describes how likely different data~$\underline{x}$ are to occur given a value of the (unknown) parameter $\theta$. However, once we have observed the data, $f(\underline{x}|\theta)$ tells us how likely different values of the parameters~$\theta$ are: it is then known as the \emph{likelihood function} for $\theta$. In other courses you may have seen it written as $L(\theta|\underline{x})$ or $L(\theta)$ but, whatever the notation used for the likelihood function, it is simply the joint probability (density) function of the data, $f(\underline{x}|\theta)$, regarded as a function of~$\theta$ rather than of~$\underline{x}$.
+\section{Section 1.3: Likelihood}
+Suppose that an experiment results in data $\underline{x} = (x_1, \ldots, x_n)^\top$ and we decide to model the data using a probability (density) function $f(\underline{x}|\theta)$. This p(d)f describes how likely different data~$\underline{x}$ are to occur given a value of the (unknown) parameter $\theta$. However, once we have observed the data, $f(\underline{x}|\theta)$ tells us how likely different values of the parameters~$\theta$ are: it is then known as the \emph{likelihood function} for $\theta$. In other courses you may have seen it written as $L(\theta|\underline{x})$ or $L(\theta)$ but, whatever the notation used for the likelihood function, it is simply the joint probability (density) function of the data, $f(\underline{x}|\theta)$, regarded as a function of~$\theta$ rather than of~$\underline{x}$.
 
 The likelihood function can be simplified if we have further structure in the data. For example, we may have independent observations, in which case
 \begin{equation}
@@ -536,41 +534,41 @@ In this course, we will not consider models with correlated observations. Moreov
 
 \clearpage
 
-\paragraph{Example 1.5}{Suppose we have a random sample $\underline{x}e$ of radioactive particle counts. A typical model for such data would be $X_i|\theta\sim \text{Poisson}(\theta)$, usually abbreviated $X_{i}|\theta\sim\text{Po}(\theta)$, (independent). Determine the likelihood function for~$\theta$.
+\paragraph{Example 1.5}{Suppose we have a random sample $\underline{x} = (x_1, \ldots, x_n)^\top$ of radioactive particle counts. A typical model for such data would be $X_i|\theta\sim \mathrm{Poisson}(\theta)$, usually abbreviated $X_{i}|\theta\sim\mathrm{Po}(\theta)$, (independent). Determine the likelihood function for~$\theta$.
 
-\paragraph{Solution to Example 1.5}{
-    
-        Since the data is IID, we have
+!!dropdown!!
+
+Since the data is IID, we have
         \begin{align*}
             f(\underline{x}|\theta) &= \prod_{i=1}^n f_{X}(x_i|\theta) = \prod_{i=1}^n \frac{\theta^{x_i} e^{-\theta}}{x_i!} \\
             &= \frac{\theta^{\sum_{i=1}^n x_i} e^{-\theta n}}{\prod_{i=1}^n x_i!} = \frac{\theta^{n\bar{x}} e^{-n\theta}}{\prod_{i=1}^n x_i!}.
         \end{align*}
-    
-}
+
+!!enddropdown!!
 
 \label{ex:poissonex}}
 
 \paragraph{Example 1.6}{~\\
-Suppose we have a random sample $\underline{x}e$ of times between radioactive particle emissions. If the emissions occur randomly in time then a plausible model for such data would be $X_i|\theta\sim \text{Exponential}(\theta)$, usually abbreviated $X_{i}|\theta \sim \text{Exp}(\theta)$, (independent). Determine the likelihood function for~$\theta$.
+Suppose we have a random sample $\underline{x} = (x_1, \ldots, x_n)^\top$ of times between radioactive particle emissions. If the emissions occur randomly in time then a plausible model for such data would be $X_i|\theta\sim \mathrm{Exponential}(\theta)$, usually abbreviated $X_{i}|\theta \sim \mathrm{Exp}(\theta)$, (independent). Determine the likelihood function for~$\theta$.
 
-\paragraph{Solution to Example 1.6}{
-    
-        Since the data is IID, we have
+!!dropdown!!
+
+Since the data is IID, we have
         \begin{align*}
             f(\underline{x}|\theta) &= \prod_{i=1}^n f_{X}(x_i) = \prod_{i=1}^n \theta e^{-\theta x_i} \\
             &= \theta^n e^{-\theta \sum_{i=1}^n x_i} = \theta^n e^{- n \theta \bar{x}}.
         \end{align*}
-    
-}}
+
+!!enddropdown!!}
 
 \clearpage
 
 \paragraph{Example 1.7}{~\\
-Suppose we have a random sample $\underline{x}e$ from a normal distribution: $X_i|\mu,\sigma\sim \mathcal{N}(\mu,\sigma^2)$, $i=1,2,\ldots,n$ (independent). Determine the likelihood function for~$(\mu,\sigma)$.
+Suppose we have a random sample $\underline{x} = (x_1, \ldots, x_n)^\top$ from a normal distribution: $X_i|\mu,\sigma\sim \mathcal{N}(\mu,\sigma^2)$, $i=1,2,\ldots,n$ (independent). Determine the likelihood function for~$(\mu,\sigma)$.
 
-\paragraph{Solution to Example 1.7}{
-    
-        The (joint) probability density function is
+!!dropdown!!
+
+The (joint) probability density function is
         \begin{align*}
         f(\underline{x}|\mu,\sigma)
         &=\prod_{i=1}^n \frac{1}{\sqrt{2\pi\sigma^2}}
@@ -581,9 +579,8 @@ Suppose we have a random sample $\underline{x}e$ from a normal distribution: $X_
         \exp\left\{-\frac{1}{2\sigma^2}
         \left(\sum x_i^2-2\mu\sum x_i+n\mu^2\right)\right\}.
         \end{align*}
-    
-}}
 
+!!enddropdown!!}
 
 
 
@@ -905,5 +902,6 @@ Suppose we have a random sample $\underline{x}e$ from a normal distribution: $X_
 
 
 
-\newcommand{\comb}[2]{\,^{#1}\text{C}_{#2}}
+
+\newcommand{\binom}[2]{\,^{#1}\text{C}_{#2}}
 
