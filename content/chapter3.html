@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Priors &#8212; MAS2903 - Notes</title>
+    <title>Chapter 3: Priors &#8212; MAS2903 - Notes</title>
   
   
   
@@ -53,25 +53,17 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/chapter3';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bayesian inference" href="chapter4.html" />
-    <link rel="prev" title="Bayes Theorem for Distributions" href="chapter2.html" />
+    <link rel="next" title="Chapter 4: Bayesian inference" href="chapter4.html" />
+    <link rel="prev" title="Chapter 2: Bayes Theorem for Distributions" href="chapter2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -187,10 +179,10 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapter2.html">Bayes Theorem for Distributions</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Priors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapter4.html">Bayesian inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Chapter 1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2.html">Chapter 2: Bayes Theorem for Distributions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 3: Priors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter4.html">Chapter 4: Bayesian inference</a></li>
 </ul>
 
     </div>
@@ -344,7 +336,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Priors</h1>
+    <h1>Chapter 3: Priors</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -354,59 +346,47 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informative-priors">Informative Priors</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-1-introduction">Section 3.1: Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-2-informative-priors">Section 3.2: Informative Priors</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-3-1-informative-prior">Definition 3.1: Informative Prior</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-1">Example 3.1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-1">Solution to Example 3.1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-2">Example 3.2</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-constraints">Parameter constraints</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-3-parameter-constraints">Section 3.3: Parameter constraints</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-3-2-truncated-distribution">Definition 3.2: Truncated Distribution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-3">Example 3.3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-3">Solution to Example 3.3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-inference-with-truncated-priors-bayesian-inference-with-truncated-priors-unnumbered">Bayesian Inference with Truncated Priors {#bayesian-inference-with-truncated-priors .unnumbered}</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem-3-1-truncated-posterior">Theorem 3.1: Truncated Posterior</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proof">Proof</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-4">Example 3.4</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-4">Solution to Example 3.4</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-5">Example 3.5</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uninformative-priors">Uninformative Priors</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-4-uninformative-priors">Section 3.4: Uninformative Priors</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vague-prior-knowledge-vague-prior-knowledge-unnumbered">Vague Prior Knowledge {#vague-prior-knowledge .unnumbered}</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-6">Example 3.6</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-6">Solution to Example 3.6</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-7">Example 3.7</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-7">Solution to Example 3.7</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-ignorance-prior-ignorance-unnumbered">Prior Ignorance {#prior-ignorance .unnumbered}</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-8">Example 3.8</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-8">Solution to Example 3.8</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-9">Example 3.9</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-9">Solution to Example 3.9</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-10">Example 3.10</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-10">Solution to Example 3.10</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-11">Example 3.11</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-11">Solution to Example 3.11</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asymptotic-posterior-distribution">Asymptotic posterior distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-5-asymptotic-posterior-distribution">Section 3.5: Asymptotic posterior distribution</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem-3-2-asymptotic-posterior">Theorem 3.2: Asymptotic posterior</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Proof</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comments-comments-unnumbered">Comments {#comments .unnumbered}</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-12">Example 3.12</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-12">Solution to Example 3.12</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-13">Example 3.13</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-13">Solution to Example 3.13</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-14">Example 3.14</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-14">Solution to Example 3.14</a></li>
 </ul>
 </li>
 </ul>
@@ -422,18 +402,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="priors">
-<h1>Priors<a class="headerlink" href="#priors" title="Link to this heading">#</a></h1>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-3-priors">
+<h1>Chapter 3: Priors<a class="headerlink" href="#chapter-3-priors" title="Link to this heading">#</a></h1>
+<section id="section-3-1-introduction">
+<h2>Section 3.1: Introduction<a class="headerlink" href="#section-3-1-introduction" title="Link to this heading">#</a></h2>
 <p>In this chapter we will consider different approaches about how to
 construct or choose a suitable prior distribution <span class="math notranslate nohighlight">\(\pi(\theta)\)</span> for our
 parameter of interest <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
-<p>For example, why did we use a <span class="math notranslate nohighlight">\(\text{Beta}(77,5)\)</span> distribution for
+<p>For example, why did we use a <span class="math notranslate nohighlight">\(\mathrm{Beta}(77,5)\)</span> distribution for
 <span class="math notranslate nohighlight">\(\theta\)</span> in the music expert example (page 31)? Why did we use a
-<span class="math notranslate nohighlight">\(\text{Beta}(2.5,12)\)</span> distribution for <span class="math notranslate nohighlight">\(\theta\)</span> in the example about the
-video game pirate (page 34)? And why did we assume a
-<span class="math notranslate nohighlight">\(\text{Gamma}(10,4000)\)</span> distribution for <span class="math notranslate nohighlight">\(\theta\)</span> in the earthquake
+<span class="math notranslate nohighlight">\(\mathrm{Beta}(2.5,12)\)</span> distribution for <span class="math notranslate nohighlight">\(\theta\)</span> in the example about
+the video game pirate (page 34)? And why did we assume a
+<span class="math notranslate nohighlight">\(\mathrm{Gamma}(10,4000)\)</span> distribution for <span class="math notranslate nohighlight">\(\theta\)</span> in the earthquake
 example (page 37)?</p>
 <p>We will consider the case of <em>informative priors</em>, where expert opinion,
 for example, gives us good reason to believe that some values in a
@@ -453,8 +433,8 @@ example about the possibly biased coin (Example 2.1, page 28).</p>
 <span class="math notranslate nohighlight">\(\theta\)</span> under certain parameter constraints, including the construction
 of <em>truncated priors</em>.</p>
 </section>
-<section id="informative-priors">
-<h2>Informative Priors<a class="headerlink" href="#informative-priors" title="Link to this heading">#</a></h2>
+<section id="section-3-2-informative-priors">
+<h2>Section 3.2: Informative Priors<a class="headerlink" href="#section-3-2-informative-priors" title="Link to this heading">#</a></h2>
 <section id="definition-3-1-informative-prior">
 <h3>Definition 3.1: Informative Prior<a class="headerlink" href="#definition-3-1-informative-prior" title="Link to this heading">#</a></h3>
 <p><br />
@@ -492,10 +472,10 @@ examples of <em>prior elicitation</em>.</p>
 <span class="xref std std-ref">ex:earth</span>{reference-type=”ref” reference=”ex:earth”} of
 Chapter 2. Recall that we were given some data on the “waiting times”,
 in days, between 21 earthquakes, and we discussed why an exponential
-distribution <span class="math notranslate nohighlight">\(\text{Exp}(\theta)\)</span> might be appropriate to model the
+distribution <span class="math notranslate nohighlight">\(\mathrm{Exp}(\theta)\)</span> might be appropriate to model the
 waiting times. Further, we were told that an expert on earthquakes has
 prior beliefs about the rate <span class="math notranslate nohighlight">\(\theta\)</span>, described by a
-<span class="math notranslate nohighlight">\(\text{Gamma}(10,4000)\)</span> distribution; a plot of this prior is shown in
+<span class="math notranslate nohighlight">\(\mathrm{Gamma}(10,4000)\)</span> distribution; a plot of this prior is shown in
 Figure <span class="xref std std-ref">fig:earthprior</span>{reference-type=”ref”
 reference=”fig:earthprior”}. Where did this prior distribution come
 from?</p>
@@ -505,21 +485,25 @@ on average once every 400 days. This gives us a rate of occurrence of
 about 1/400 = 0.0025 per day (to match the “daily” units given above).
 Further, he is fairly certain about this and specifies a very small
 variance of <span class="math notranslate nohighlight">\(6.25 \times 10^{-7}\)</span>.</p>
-<p>A <span class="math notranslate nohighlight">\(\text{Gamma}(a,b)\)</span> distribution seems sensible, since we can’t
+<p>A <span class="math notranslate nohighlight">\(\mathrm{Gamma}(a,b)\)</span> distribution seems sensible, since we can’t
 observe a negative daily earthquake rate and the Gamma distribution is
 specified over positive values only. Using the information provided by
 the expert, verify our use of <span class="math notranslate nohighlight">\(a=10\)</span> and <span class="math notranslate nohighlight">\(b=4000\)</span>.</p>
-</section>
-<section id="solution-to-example-3-1">
-<h3>Solution to Example 3.1<a class="headerlink" href="#solution-to-example-3-1" title="Link to this heading">#</a></h3>
-<p>Recall that if <span class="math notranslate nohighlight">\(\theta \sim \text{Gamma}(a,b)\)</span>, then</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Recall that if <span class="math notranslate nohighlight">\(\theta \sim \mathrm{Gamma}(a,b)\)</span>, then</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
         \text{E}[\theta] &amp;= \frac{a}{b}, \\
         \text{Var}[\theta] &amp;= \frac{a}{b^2}.
     
 \end{aligned}\end{split}\]</div>
-<p>From the prior information supplied by the expert, we
+<p class="sd-card-text">From the prior information supplied by the expert, we
 must have <span class="math notranslate nohighlight">\(\text{E}[\theta] = 2.5\times 10^{-3}\)</span> and
 <span class="math notranslate nohighlight">\(\text{Var}[\theta] = 6.25\times 10^{-7}\)</span>. This yields a simultaneous
 equation in <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>:</p>
@@ -529,7 +513,7 @@ equation in <span class="math notranslate nohighlight">\(a\)</span> and <span cl
         \frac{a}{b^2} &amp;= 6.25\times 10^{-7} \Rightarrow a = 6.25\times 10^{-7}b^2.
     
 \end{aligned}\end{split}\]</div>
-<p>Setting these two equations equal yields a quadratic
+<p class="sd-card-text">Setting these two equations equal yields a quadratic
 equation in <span class="math notranslate nohighlight">\(b\)</span>. Since <span class="math notranslate nohighlight">\(b &gt; 0\)</span>, we are allowed to divide both sides by
 <span class="math notranslate nohighlight">\(b\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -538,13 +522,14 @@ equation in <span class="math notranslate nohighlight">\(b\)</span>. Since <span
         b &amp;= \frac{2.5\times 10^{-3}}{ 6.25\times 10^{-7}} = 4000.
     
 \end{aligned}\end{split}\]</div>
-<p>Therefore, <span class="math notranslate nohighlight">\(a = 2.5\times 10^{-3} \times 4000 = 10\)</span>.</p>
-<p>So, the prior information provided by the expert is quantified correctly
+<p class="sd-card-text">Therefore, <span class="math notranslate nohighlight">\(a = 2.5\times 10^{-3} \times 4000 = 10\)</span>.</p>
+<p class="sd-card-text">So, the prior information provided by the expert is quantified correctly
 by</p>
 <div class="math notranslate nohighlight">
-\[\theta\sim\text{Gamma}(10, 4000),\]</div>
-<p>as required.</p>
-</section>
+\[\theta\sim\mathrm{Gamma}(10, 4000),\]</div>
+<p class="sd-card-text">as required.</p>
+</div>
+</details></section>
 <section id="example-3-2">
 <h3>Example 3.2<a class="headerlink" href="#example-3-2" title="Link to this heading">#</a></h3>
 <p><br />
@@ -558,7 +543,7 @@ correct choice with probability <span class="math notranslate nohighlight">\(\th
 competent; in fact, we were told that <span class="math notranslate nohighlight">\(\theta\)</span> should have a prior
 distribution peaking at around 0.95 and for which
 <span class="math notranslate nohighlight">\(\text{Pr}(\theta&lt;0.8)\)</span> is very small. To achieve this, we assumed that
-<span class="math notranslate nohighlight">\(\theta \sim \text{Beta}(77,5)\)</span>, with density given in Figure 2.4. How
+<span class="math notranslate nohighlight">\(\theta \sim \mathrm{Beta}(77,5)\)</span>, with density given in Figure 2.4. How
 did we know a beta distribution would be appropriate? And how did we
 figure out the parameters of this distribution, i.e. <span class="math notranslate nohighlight">\(a=77\)</span> and <span class="math notranslate nohighlight">\(b=5\)</span>?</p>
 <p>By now, you should understand why we might work with a beta
@@ -589,10 +574,10 @@ get 0.0001; from Equation (2.1) on page 25, we can write this as</p>
 \[
 \int_{0}^{0.8} \frac{\theta^{(19b-18)-1}(1-\theta)^{b-1}}{\mathrm{B}(19b-18,b)} d\theta = 0.0001.\]</div>
 <p>We have set the cumulative distribution function for a
-<span class="math notranslate nohighlight">\(\text{Beta}(19b-18,b)\)</span> random variable, evaluated at 0.8, equal to
+<span class="math notranslate nohighlight">\(\mathrm{Beta}(19b-18,b)\)</span> random variable, evaluated at 0.8, equal to
 0.0001 and solve for <span class="math notranslate nohighlight">\(b\)</span>. Although this would be rather tricky to do by
 hand, we can do this quite easily in <code class="docutils literal notranslate"><span class="pre">R</span></code>. Recall that the <code class="docutils literal notranslate"><span class="pre">R</span></code> command
-<code class="docutils literal notranslate"><span class="pre">dbeta(x,a,b)</span></code> evaluates the density of the <span class="math notranslate nohighlight">\(\text{Beta}(a,b)\)</span>
+<code class="docutils literal notranslate"><span class="pre">dbeta(x,a,b)</span></code> evaluates the density of the <span class="math notranslate nohighlight">\(\mathrm{Beta}(a,b)\)</span>
 distribution at the point <code class="docutils literal notranslate"><span class="pre">x</span></code> (see page 25); the command <code class="docutils literal notranslate"><span class="pre">pbeta(x,a,b)</span></code>
 evaluates the corresponding cumulative distribution function at <code class="docutils literal notranslate"><span class="pre">x</span></code>.
 First of all, we re–write (3.3) to set it equal to zero:</p>
@@ -631,15 +616,15 @@ rounding down to <span class="math notranslate nohighlight">\(b=5\)</span> and t
 \[
 a = 19 \times 5 -18 = 77,\]</div>
 <p>hence the use of
-<span class="math notranslate nohighlight">\(\theta \sim \text{Beta}(77,5)\)</span> in Example
+<span class="math notranslate nohighlight">\(\theta \sim \mathrm{Beta}(77,5)\)</span> in Example
 <span class="xref std std-ref">ex:mozart</span>{reference-type=”ref” reference=”ex:mozart”}
 in Chapter 2.</p>
 <p>There are many more advanced approaches of <em>prior elicitation</em> and it is
 still an active area of research.</p>
 </section>
 </section>
-<section id="parameter-constraints">
-<h2>Parameter constraints<a class="headerlink" href="#parameter-constraints" title="Link to this heading">#</a></h2>
+<section id="section-3-3-parameter-constraints">
+<h2>Section 3.3: Parameter constraints<a class="headerlink" href="#section-3-3-parameter-constraints" title="Link to this heading">#</a></h2>
 <p>Many probability models have constraints on their parameters. For
 example, if we are interested in the <em>variance</em> <span class="math notranslate nohighlight">\(\sigma^2\)</span> of
 independent normally distributed data</p>
@@ -648,8 +633,8 @@ independent normally distributed data</p>
 X_i\,|\, \sigma^2 \sim \mathcal{N}(0, \sigma^2), \quad i = 1,2,\ldots,n,\]</div>
 <p>then we must necessarily have <span class="math notranslate nohighlight">\(\sigma^2 &gt; 0\)</span>. This is an example of a
 <em>parameter constraint</em>. Other examples include the <span class="math notranslate nohighlight">\(a,b &gt; 0\)</span> parameters
-that are used in the <span class="math notranslate nohighlight">\(\text{Gamma}(a,b)\)</span> distribution, or the parameter
-<span class="math notranslate nohighlight">\(p\)</span> used in the <span class="math notranslate nohighlight">\(\text{Binomial}(n,p)\)</span> distribution.</p>
+that are used in the <span class="math notranslate nohighlight">\(\mathrm{Gamma}(a,b)\)</span> distribution, or the
+parameter <span class="math notranslate nohighlight">\(p\)</span> used in the <span class="math notranslate nohighlight">\(\mathrm{Binomial}(n,p)\)</span> distribution.</p>
 <p>In order to perform <em>Bayesian inference</em> on parameters which are
 constrained, we need to specify prior distributions which place zero
 probability on the regions for which the parameter can’t take.</p>
@@ -692,15 +677,19 @@ because <span class="math notranslate nohighlight">\(\theta\)</span> is a contin
 <p><br />
 Suppose <span class="math notranslate nohighlight">\(\theta \sim \mathcal{N}(b,d^2)\)</span>. Find the density of the
 truncated distribution for <span class="math notranslate nohighlight">\(\theta&gt;0\)</span>.</p>
-</section>
-<section id="solution-to-example-3-3">
-<h3>Solution to Example 3.3<a class="headerlink" href="#solution-to-example-3-3" title="Link to this heading">#</a></h3>
-<p>From the definition of a truncated distribution, we have, for
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">From the definition of a truncated distribution, we have, for
 <span class="math notranslate nohighlight">\(\theta &gt;0\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 \pi_T(\theta) = \frac{1}{k \sqrt{2\pi d^2}}\exp\left[-\frac{1}{2d^2}(\theta - b)^2\right],\]</div>
-<p>where <span class="math notranslate nohighlight">\(k = \int_0^\infty \pi(\theta).\)</span> Note that</p>
+<p class="sd-card-text">where <span class="math notranslate nohighlight">\(k = \int_0^\infty \pi(\theta).\)</span> Note that</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -711,13 +700,14 @@ truncated distribution for <span class="math notranslate nohighlight">\(\theta&g
        &amp;= 1 - \Phi\left(-\frac{b}{d}\right).
     
 \end{aligned}\end{split}\]</div>
-<p>Here, <span class="math notranslate nohighlight">\(Z \sim \mathcal{N}(0,1)\)</span> and
+<p class="sd-card-text">Here, <span class="math notranslate nohighlight">\(Z \sim \mathcal{N}(0,1)\)</span> and
 <span class="math notranslate nohighlight">\(\Phi(z) = \text{Pr}(Z &lt; z)\)</span> is the cdf of <span class="math notranslate nohighlight">\(Z\)</span>. Therefore, for
 <span class="math notranslate nohighlight">\(\theta &gt; 0\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 \pi_T(\theta)  = \frac{1}{\left(1 - \Phi\left(-\frac{b}{d}\right)\right) \sqrt{2\pi d^2}}\exp\left[-\frac{1}{2d^2}(\theta - b)^2\right]\]</div>
-<p>Figure <span class="xref std std-ref">fig:normaltrunc</span>{reference-type=”ref”
+</div>
+</details><p>Figure <span class="xref std std-ref">fig:normaltrunc</span>{reference-type=”ref”
 reference=”fig:normaltrunc”} shows a plot of the densities of (a) a
 <span class="math notranslate nohighlight">\(\mathcal{N}(1,1)\)</span> distribution and (b) a <span class="math notranslate nohighlight">\(\mathcal{N}(1,1)\)</span>
 distribution truncated to <span class="math notranslate nohighlight">\(\theta&gt;0\)</span>. Notice that for <span class="math notranslate nohighlight">\(\theta&gt;0\)</span> the
@@ -777,17 +767,21 @@ Consider again the case of <span class="math notranslate nohighlight">\(X_i|\the
 <span class="math notranslate nohighlight">\(h\)</span> known. Suppose we knew in advance that the experiment could only
 result in positive values for <span class="math notranslate nohighlight">\(\theta\)</span>. Find the posterior distribution
 for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
-</section>
-<section id="solution-to-example-3-4">
-<h4>Solution to Example 3.4<a class="headerlink" href="#solution-to-example-3-4" title="Link to this heading">#</a></h4>
-<p>From the previous theorem, we first compute the posterior distribution
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">From the previous theorem, we first compute the posterior distribution
 using the non-truncated prior and then we can truncate the posterior.
 Recall from Example 2.7 that if we use a non-truncated prior
 <span class="math notranslate nohighlight">\(\theta \sim\mathcal{N}(b,d^2)\)</span>, we have:</p>
 <div class="math notranslate nohighlight">
 \[
 \theta | \underline{x} \sim \mathcal{N}(M, V),\]</div>
-<p>where</p>
+<p class="sd-card-text">where</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -795,7 +789,7 @@ Recall from Example 2.7 that if we use a non-truncated prior
         V &amp;= \left(\frac{n}{h^2} + \frac{1}{d^2}\right)^{-1}.
     
 \end{aligned}\end{split}\]</div>
-<p>The posterior using the truncated prior thus has
+<p class="sd-card-text">The posterior using the truncated prior thus has
 density, for <span class="math notranslate nohighlight">\(\theta &gt; 0\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -803,7 +797,8 @@ density, for <span class="math notranslate nohighlight">\(\theta &gt; 0\)</span>
         \pi'(\theta | \underline{x}) = \frac{1}{\left(1 - \Phi\left(-\frac{M}{\sqrt{V}}\right)\right) \sqrt{2\pi V}}\exp\left[-\frac{1}{2V}(\theta - M)^2\right].
     
 \end{aligned}\]</div>
-<p>Figure <span class="xref std std-ref">fig:posttrunc</span>{reference-type=”ref”
+</div>
+</details><p>Figure <span class="xref std std-ref">fig:posttrunc</span>{reference-type=”ref”
 reference=”fig:posttrunc”} plots the <span class="math notranslate nohighlight">\(\mathcal{N}(1,1)\)</span> posterior
 densities using the original and truncated priors. This plot highlights
 an important consequence of using truncated distributions for modelling
@@ -860,8 +855,8 @@ samples of the said cheese will leave you unmoved”</em> <em>– Dennis Lindley
 </section>
 </section>
 </section>
-<section id="uninformative-priors">
-<h2>Uninformative Priors<a class="headerlink" href="#uninformative-priors" title="Link to this heading">#</a></h2>
+<section id="section-3-4-uninformative-priors">
+<h2>Section 3.4: Uninformative Priors<a class="headerlink" href="#section-3-4-uninformative-priors" title="Link to this heading">#</a></h2>
 <p>If we have very little or no prior information about the model
 parameters <span class="math notranslate nohighlight">\(\theta\)</span>, we must still choose a prior distribution in order
 to operate Bayes Theorem. Obviously, it would be sensible to choose a
@@ -893,10 +888,14 @@ variance.</p>
 Suppose we have a random sample from a <span class="math notranslate nohighlight">\(\mathcal{N}(\mu,1/\tau)\)</span>
 distribution (with <span class="math notranslate nohighlight">\(\tau\)</span> known). Determine the posterior distribution
 assuming a vague prior for <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-</section>
-<section id="solution-to-example-3-6">
-<h4>Solution to Example 3.6<a class="headerlink" href="#solution-to-example-3-6" title="Link to this heading">#</a></h4>
-<p>The conjugate prior distribution is a normal distribution. We have
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The conjugate prior distribution is a normal distribution. We have
 already seen that if the prior is <span class="math notranslate nohighlight">\(\mu\sim \mathcal{N}(b,1/d)\)</span> then the
 posterior distribution is <span class="math notranslate nohighlight">\(\mu|\underline{x}\sim \mathcal{N}(B,1/D)\)</span>
 where</p>
@@ -904,43 +903,49 @@ where</p>
 \[
 B=\frac{db+n\tau\bar x}{d+n\tau}\qquad\text{and}\qquad
                 D=d+n\tau.\]</div>
-<p>If we now make our prior knowledge vague
+<p class="sd-card-text">If we now make our prior knowledge vague
 about <span class="math notranslate nohighlight">\(\mu\)</span> by letting the prior variance tend to infinity (<span class="math notranslate nohighlight">\(d\to 0\)</span>),
 we obtain</p>
 <div class="math notranslate nohighlight">
 \[
 B\to\bar x\qquad\text{and}\qquad D\to n\tau.\]</div>
-<p>Therefore,
+<p class="sd-card-text">Therefore,
 assuming vague prior knowledge for <span class="math notranslate nohighlight">\(\mu\)</span> results in a
 <span class="math notranslate nohighlight">\(\mathcal{N}(\bar x,1/(n\tau))\)</span> posterior distribution. Notice that the
 posterior mean is the sample mean (the likelihood mode) and that the
 posterior variance <span class="math notranslate nohighlight">\(1/D\to 0\)</span> as <span class="math notranslate nohighlight">\(n\to\infty\)</span>.</p>
-</section>
+</div>
+</details></section>
 <section id="example-3-7">
 <h4>Example 3.7<a class="headerlink" href="#example-3-7" title="Link to this heading">#</a></h4>
 <p><br />
 Suppose we have a random sample from an exponential distribution, that
-is, <span class="math notranslate nohighlight">\(X_i|\theta\sim \text{Exp}(\theta)\)</span>, <span class="math notranslate nohighlight">\(i=1,2,\ldots,n\)</span> (independent).
-Determine the posterior distribution assuming a vague prior for
-<span class="math notranslate nohighlight">\(\theta\)</span>.</p>
-</section>
-<section id="solution-to-example-3-7">
-<h4>Solution to Example 3.7<a class="headerlink" href="#solution-to-example-3-7" title="Link to this heading">#</a></h4>
-<p>The conjugate prior distribution is a Gamma distribution. Recall that a
-<span class="math notranslate nohighlight">\(\text{Gamma}(g,h)\)</span> distribution has mean <span class="math notranslate nohighlight">\(m=g/h\)</span> and variance
+is, <span class="math notranslate nohighlight">\(X_i|\theta\sim \mathrm{Exp}(\theta)\)</span>, <span class="math notranslate nohighlight">\(i=1,2,\ldots,n\)</span>
+(independent). Determine the posterior distribution assuming a vague
+prior for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The conjugate prior distribution is a Gamma distribution. Recall that a
+<span class="math notranslate nohighlight">\(\mathrm{Gamma}(g,h)\)</span> distribution has mean <span class="math notranslate nohighlight">\(m=g/h\)</span> and variance
 <span class="math notranslate nohighlight">\(v=g/h^2\)</span>. Rearranging these formulae we obtain</p>
 <div class="math notranslate nohighlight">
 \[
 g=\frac{m^2}{v}\quad\quad\text{and}\quad\quad h=\frac{m}{v}.\]</div>
-<p>Clearly
+<p class="sd-card-text">Clearly
 <span class="math notranslate nohighlight">\(g\to 0\)</span> and <span class="math notranslate nohighlight">\(h\to 0\)</span> as <span class="math notranslate nohighlight">\(v\to\infty\)</span> (for fixed <span class="math notranslate nohighlight">\(m\)</span>). We have seen how
-taking a <span class="math notranslate nohighlight">\(\text{Gamma}(g,h)\)</span> prior distribution results in a
-<span class="math notranslate nohighlight">\(\text{Gamma}(g+n,h+n\bar x)\)</span> posterior distribution. Therefore, taking
-a vague prior distribution will give a <span class="math notranslate nohighlight">\(\text{Gamma}(n,n\bar x)\)</span>
-posterior distribution.</p>
-<p>Note that the posterior mean is <span class="math notranslate nohighlight">\(1/\bar x\)</span> (the likelihood mode) and
+taking a <span class="math notranslate nohighlight">\(\mathrm{Gamma}(g,h)\)</span> prior distribution results in a
+<span class="math notranslate nohighlight">\(\mathrm{Gamma}(g+n,h+n\bar x)\)</span> posterior distribution. Therefore,
+taking a vague prior distribution will give a
+<span class="math notranslate nohighlight">\(\mathrm{Gamma}(n,n\bar x)\)</span> posterior distribution.</p>
+<p class="sd-card-text">Note that the posterior mean is <span class="math notranslate nohighlight">\(1/\bar x\)</span> (the likelihood mode) and
 that the posterior variance <span class="math notranslate nohighlight">\(1/(n\bar x^2)\to 0\)</span> and <span class="math notranslate nohighlight">\(n\to\infty\)</span>.</p>
-</section>
+</div>
+</details></section>
 </section>
 <section id="prior-ignorance-prior-ignorance-unnumbered">
 <h3>Prior Ignorance {#prior-ignorance .unnumbered}<a class="headerlink" href="#prior-ignorance-prior-ignorance-unnumbered" title="Link to this heading">#</a></h3>
@@ -1019,10 +1024,14 @@ Suppose we have a random sample from a distribution with probability
 \[
 f(x|\theta)=\frac{2x\,e^{-x^2/\theta}}{\theta},\quad\quad x&gt;0,~\theta&gt;0.\]</div>
 <p>Determine the Jeffreys prior for this model.</p>
-</section>
-<section id="solution-to-example-3-8">
-<h4>Solution to Example 3.8<a class="headerlink" href="#solution-to-example-3-8" title="Link to this heading">#</a></h4>
-<p>The likelihood function is</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The likelihood function is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -1032,14 +1041,14 @@ f(x|\theta)=\frac{2x\,e^{-x^2/\theta}}{\theta},\quad\quad x&gt;0,~\theta&gt;0.\]
         \exp\left\{-\frac{1}{\theta}\sum_{i=1}^n x_i^2\right\}.
         
 \end{aligned}\end{split}\]</div>
-<p>Therefore, the log-likelihood function is</p>
+<p class="sd-card-text">Therefore, the log-likelihood function is</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{aligned}
             \log f(\underline{x} | \theta) &amp;= n\log 2 - n\log \theta + \sum_{i=1}^n\log(x_i) - \frac{1}{\theta}\sum_{i=1}^n x_i^2.
         
 \end{aligned}\]</div>
-<p>The derivatives are:</p>
+<p class="sd-card-text">The derivatives are:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -1047,7 +1056,7 @@ f(x|\theta)=\frac{2x\,e^{-x^2/\theta}}{\theta},\quad\quad x&gt;0,~\theta&gt;0.\]
             \frac{\partial^2}{\partial \theta^2}\log f(\underline{x} | \theta) &amp;= \frac{n}{\theta^2} - \frac{2}{\theta^3}\sum_{i=1}^n x_i^2.
         
 \end{aligned}\end{split}\]</div>
-<p>The Fisher information is then</p>
+<p class="sd-card-text">The Fisher information is then</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -1055,6 +1064,14 @@ f(x|\theta)=\frac{2x\,e^{-x^2/\theta}}{\theta},\quad\quad x&gt;0,~\theta&gt;0.\]
             &amp;= -\frac{n}{\theta^2} + \frac{2}{\theta^3}\sum_{i=1}^n \text{E}[X_i^2|\theta].
         
 \end{aligned}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -1067,13 +1084,13 @@ f(x|\theta)=\frac{2x\,e^{-x^2/\theta}}{\theta},\quad\quad x&gt;0,~\theta&gt;0.\]
         &amp;=\theta.
         
 \end{aligned}\end{split}\]</div>
-<p>Therefore</p>
+<p class="sd-card-text">Therefore</p>
 <div class="math notranslate nohighlight">
 \[
 I(\theta)
         =-\frac{n}{\theta^2}+\left(\frac{2n}{\theta^3}\times\theta\right) 
         =\frac{n}{\theta^2}.\]</div>
-<p>Hence, the Jeffreys prior for this model
+<p class="sd-card-text">Hence, the Jeffreys prior for this model
 is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1083,7 +1100,8 @@ is</p>
         &amp;\propto \frac{1}{\theta},\quad\quad\theta&gt;0.
         
 \end{aligned}\end{split}\]</div>
-<p>Notice that this distribution is improper since
+</div>
+</details><p>Notice that this distribution is improper since
 <span class="math notranslate nohighlight">\(\int_0^\infty d\theta/\theta\)</span> is a divergent integral, and so we cannot
 find a constant which ensures that the density function integrates to
 one.</p>
@@ -1092,13 +1110,17 @@ one.</p>
 <h4>Example 3.9<a class="headerlink" href="#example-3-9" title="Link to this heading">#</a></h4>
 <p><br />
 Suppose we have a random sample from an exponential distribution, that
-[]{#ex:38 label=”ex:38”} is, <span class="math notranslate nohighlight">\(X_i|\theta\sim \text{Exp}(\theta)\)</span>,
+[]{#ex:38 label=”ex:38”} is, <span class="math notranslate nohighlight">\(X_i|\theta\sim \mathrm{Exp}(\theta)\)</span>,
 <span class="math notranslate nohighlight">\(i=1,2,\ldots,n\)</span> (independent). Determine the Jeffreys prior for this
 model.</p>
-</section>
-<section id="solution-to-example-3-9">
-<h4>Solution to Example 3.9<a class="headerlink" href="#solution-to-example-3-9" title="Link to this heading">#</a></h4>
-<p>Recall that the likelihood function is
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Recall that the likelihood function is
 <span class="math notranslate nohighlight">\(f_{\underline{X}}(\underline{x}|\theta)=\theta^n e^{-n\bar x\theta}\)</span>,
 and therefore</p>
 <div class="math notranslate nohighlight">
@@ -1114,7 +1136,7 @@ and therefore</p>
     f_{\underline{X}}(\underline{x}|\theta)\right]=\frac{n}{\theta^2}.
     
 \end{aligned}\end{split}\]</div>
-<p>Hence, the Jeffreys prior for this model is</p>
+<p class="sd-card-text">Hence, the Jeffreys prior for this model is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -1123,12 +1145,13 @@ and therefore</p>
     &amp;\propto \frac{1}{\theta},\quad\quad\theta&gt;0.
     
 \end{aligned}\end{split}\]</div>
-<p>Notice that this distribution is improper since
+</div>
+</details><p>Notice that this distribution is improper since
 <span class="math notranslate nohighlight">\(\int_0^\infty d\theta/\theta\)</span> is a divergent integral, and so we cannot
 find a constant which ensures that the density function integrates to
 one.</p>
 <p>Notice also that this density is, in fact, a limiting form of a
-<span class="math notranslate nohighlight">\(\text{Gamma}(g,h)\)</span> density (ignoring the integration constant) since</p>
+<span class="math notranslate nohighlight">\(\mathrm{Gamma}(g,h)\)</span> density (ignoring the integration constant) since</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{h^g\,\theta^{g-1}e^{-h\theta}}{\Gamma(g)}\propto
@@ -1144,16 +1167,20 @@ prior or vague prior knowledge.</p>
 Suppose we have a random sample from a <span class="math notranslate nohighlight">\(\mathcal{N}(\mu,1/\tau)\)</span>
 distribution []{#ex:39 label=”ex:39”} (with <span class="math notranslate nohighlight">\(\tau\)</span> known). Determine the
 Jeffreys prior for this model.</p>
-</section>
-<section id="solution-to-example-3-10">
-<h4>Solution to Example 3.10<a class="headerlink" href="#solution-to-example-3-10" title="Link to this heading">#</a></h4>
-<p>Recall that the likelihood function is</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Recall that the likelihood function is</p>
 <div class="math notranslate nohighlight">
 \[
 f_{\underline{X}}(\underline{x}|\mu)=
     \left(\frac{\tau}{2\pi}\right)^{n/2}
     \exp\left\{-\frac{\tau}{2}\sum_{i=1}^n (x_i-\mu)^2\right\},\]</div>
-<p>and
+<p class="sd-card-text">and
 therefore</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1173,7 +1200,7 @@ therefore</p>
     f_{\underline{X}}(\underline{x}|\mu)\right]=n\tau.
     
 \end{aligned}\end{split}\]</div>
-<p>Hence, the Jeffreys prior for this model is</p>
+<p class="sd-card-text">Hence, the Jeffreys prior for this model is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -1182,7 +1209,8 @@ therefore</p>
     &amp;= constant,\qquad-\infty&lt;\mu&lt;\infty. 
     
 \end{aligned}\end{split}\]</div>
-<p>Notice that this distribution is improper since
+</div>
+</details><p>Notice that this distribution is improper since
 <span class="math notranslate nohighlight">\(\int_{-\infty}^\infty d\mu\)</span> is a divergent integral, and so we cannot
 find a constant which ensures that the density function integrates to
 one.</p>
@@ -1217,22 +1245,26 @@ X_i|\theta\sim \mathrm{Exp}(\theta), \quad i = 1,\ldots, n\]</div>
 the density of the transformed random variable <span class="math notranslate nohighlight">\(\phi = \log\theta\)</span>.</p>
 <p>Finally, compute Jeffrey’s prior using <span class="math notranslate nohighlight">\(\phi\)</span> as the parameter, where
 each <span class="math notranslate nohighlight">\(X_i|\phi \sim \mathrm{Exp}(e^{\phi})\)</span>.</p>
-</section>
-<section id="solution-to-example-3-11">
-<h4>Solution to Example 3.11<a class="headerlink" href="#solution-to-example-3-11" title="Link to this heading">#</a></h4>
-<p>Recall the change of variable formula: If <span class="math notranslate nohighlight">\(\theta\)</span> is a random variable
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Recall the change of variable formula: If <span class="math notranslate nohighlight">\(\theta\)</span> is a random variable
 and <span class="math notranslate nohighlight">\(\phi = g(\theta)\)</span> for a bijective and differentiable function <span class="math notranslate nohighlight">\(g\)</span>,
 then</p>
 <div class="math notranslate nohighlight">
 \[
 \pi_{\phi}(\phi) = \pi_{\theta}(g^{-1}(\phi))\left|\frac{\partial}{\partial \phi} g^{-1}(\phi)\right|.\]</div>
-<p>We have <span class="math notranslate nohighlight">\(g(\theta) = \log\theta\)</span> and so <span class="math notranslate nohighlight">\(g^{-1}(\phi) = e^{\phi}\)</span> and
+<p class="sd-card-text">We have <span class="math notranslate nohighlight">\(g(\theta) = \log\theta\)</span> and so <span class="math notranslate nohighlight">\(g^{-1}(\phi) = e^{\phi}\)</span> and
 <span class="math notranslate nohighlight">\(\frac{\partial}{\partial\phi}  \left(e^{\phi}\right) = e^{\phi}.\)</span>
 Therefore, the density of <span class="math notranslate nohighlight">\(\phi = \log \theta\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
 \pi_{\phi}(\phi) \propto \frac{1}{e^{\phi}} \times e^{\phi}  = 1.\]</div>
-<p>The likelihood function of the model
+<p class="sd-card-text">The likelihood function of the model
 <span class="math notranslate nohighlight">\(X_i|\phi \sim \mathrm{Exp}(e^{\phi}), \quad i=1,\ldots,n\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1240,13 +1272,13 @@ Therefore, the density of <span class="math notranslate nohighlight">\(\phi = \l
              f(\underline{x}|\phi) &amp;= \prod_{i=1}^n e^{\phi} e^{-e^{\phi}x_i} = e^{n\phi} \exp\left\{-n\bar{x}e^{\phi}\right\}.
          
 \end{aligned}\]</div>
-<p>We have
+<p class="sd-card-text">We have
 <span class="math notranslate nohighlight">\(\log f(\underline{x}|\phi) = n\phi -  n\bar{x}e^{\phi}.\)</span> The second
 derivative with respect to <span class="math notranslate nohighlight">\(\phi\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial^2}{\partial\phi^2} \log f(\underline{x}|\phi) = - n\bar{x}e^{\phi}.\]</div>
-<p>Therefore, Fishers information is</p>
+<p class="sd-card-text">Therefore, Fishers information is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -1254,18 +1286,19 @@ derivative with respect to <span class="math notranslate nohighlight">\(\phi\)</
             &amp;= \text{E}_{\underline{X}|\phi}[n\bar{X}e^{\phi}].
         
 \end{aligned}\end{split}\]</div>
-<p>Note that</p>
+<p class="sd-card-text">Note that</p>
 <div class="math notranslate nohighlight">
 \[
 \text{E}[X_i] = e^{-\phi}\]</div>
-<p>and so
+<p class="sd-card-text">and so
 <span class="math notranslate nohighlight">\(I(\phi) = n e^{-\phi} e^{\phi} = n\)</span>. Therefore, Jeffreys prior is
 <span class="math notranslate nohighlight">\(\pi(\phi) \propto \sqrt{I(\phi)} = 1\)</span>.</p>
+</div>
+</details></section>
 </section>
 </section>
-</section>
-<section id="asymptotic-posterior-distribution">
-<h2>Asymptotic posterior distribution<a class="headerlink" href="#asymptotic-posterior-distribution" title="Link to this heading">#</a></h2>
+<section id="section-3-5-asymptotic-posterior-distribution">
+<h2>Section 3.5: Asymptotic posterior distribution<a class="headerlink" href="#section-3-5-asymptotic-posterior-distribution" title="Link to this heading">#</a></h2>
 <p>There are many limiting results in Statistics. The one you will probably
 remember is the Central Limit Theorem. This concerns the distribution of
 <span class="math notranslate nohighlight">\(\bar X_n\)</span>, the mean of <span class="math notranslate nohighlight">\(n\)</span> independent and identically distributed
@@ -1274,7 +1307,7 @@ random variables (each with known mean <span class="math notranslate nohighlight
 <span class="math notranslate nohighlight">\(\text{E}[\bar X_n]=\mu\)</span> and <span class="math notranslate nohighlight">\(\text{Var}[\bar X_n]=\sigma^2/n\)</span>, and so</p>
 <div class="math notranslate nohighlight">
 \[
-\text{E}\left[\frac{\sqrt{n}(\bar{X}_{n}-\mu)}{\sigma}\right] = 0 \qquad \text{and} \qquad \text{Var}\left[\frac{\sqrt{n}(\bar{X}_{n}-\mu)}{\sigma}\right]=1.\]</div>
+\text{E}\left[\frac{\sqrt{n}(\bar{X}_{n}-\mu)}{\sigma}\right] = 0 \qquad \mathrm{and} \qquad \text{Var}\left[\frac{\sqrt{n}(\bar{X}_{n}-\mu)}{\sigma}\right]=1.\]</div>
 <p>These two equations are true for all values of <span class="math notranslate nohighlight">\(n\)</span>. The important part
 of the Central Limit Theorem is the description of the distribution of
 <span class="math notranslate nohighlight">\(\sqrt{n}(\bar{X}_{n}-\mu)/\sigma\)</span> as <span class="math notranslate nohighlight">\(n \to \infty\)</span>:</p>
@@ -1289,8 +1322,8 @@ gives a similar result for the posterior distribution.</p>
 <p>[]{#theorem: asymptotic posterior label=”theorem: asymptotic posterior”}
  <br />
 Suppose we have a statistical model <span class="math notranslate nohighlight">\(f(\underline{x}|\theta)\)</span> for data
-<span class="math notranslate nohighlight">\(\underline{x}e\)</span>, together with a prior distribution <span class="math notranslate nohighlight">\(\pi(\theta)\)</span> for
-<span class="math notranslate nohighlight">\(\theta\)</span>. Then</p>
+<span class="math notranslate nohighlight">\(\underline{x} = (x_1, \ldots, x_n)^\top\)</span>, together with a prior
+distribution <span class="math notranslate nohighlight">\(\pi(\theta)\)</span> for <span class="math notranslate nohighlight">\(\theta\)</span>. Then</p>
 <div class="math notranslate nohighlight">
 \[
 \sqrt{J(\hat{\theta})}~(\theta-\hat{\theta})|\underline{x} \stackrel{\cal D}
@@ -1449,10 +1482,14 @@ f(\underline{x}|\theta)&amp;=-\frac{n}{\theta^2} +\frac{2}{\theta^3}\sum_{i=1}^n
 x_i^2 =\frac{n}{\theta^3}\left(-\theta+\frac{2}{n}\sum_{i=1}^n
 x_i^2\right).
 \end{aligned}\end{split}\]</div>
-</section>
-<section id="solution-to-example-3-12">
-<h4>Solution to Example 3.12<a class="headerlink" href="#solution-to-example-3-12" title="Link to this heading">#</a></h4>
-<p>Write <span class="math notranslate nohighlight">\(\overline{x^2}=\dfrac{1}{n}\displaystyle\sum_{i=1}^n x_i^2\)</span> then
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Write <span class="math notranslate nohighlight">\(\overline{x^2}=\dfrac{1}{n}\displaystyle\sum_{i=1}^n x_i^2\)</span> then
 we have</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1466,21 +1503,22 @@ we have</p>
     J(\hat\theta)^{-1}=\frac{1}{n}\left(\overline{x^2}\right)^2.
     
 \end{aligned}\end{split}\]</div>
-<p>Therefore, for large <span class="math notranslate nohighlight">\(n\)</span>, the (approximate) posterior
+<p class="sd-card-text">Therefore, for large <span class="math notranslate nohighlight">\(n\)</span>, the (approximate) posterior
 distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
 \theta|\underline{x}\sim \mathcal{N}\left(\overline{x^2},\,
     \frac{1}{n}\left(\overline{x^2}\right)^2\right).\]</div>
-</section>
+</div>
+</details></section>
 <section id="example-3-13">
 <h4>Example 3.13<a class="headerlink" href="#example-3-13" title="Link to this heading">#</a></h4>
 <p><br />
 Suppose we have a random sample from an exponential distribution, that
-is, <span class="math notranslate nohighlight">\(X_i|\theta\sim \text{Exp}(\theta)\)</span>, <span class="math notranslate nohighlight">\(i=1,2,\ldots,n\)</span> (independent).
-Determine the asymptotic posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span>. Note that
-from Example <span class="xref std std-ref">ex:38</span>{reference-type=”ref” reference=”ex:38”}
-we have</p>
+is, <span class="math notranslate nohighlight">\(X_i|\theta\sim \mathrm{Exp}(\theta)\)</span>, <span class="math notranslate nohighlight">\(i=1,2,\ldots,n\)</span>
+(independent). Determine the asymptotic posterior distribution for
+<span class="math notranslate nohighlight">\(\theta\)</span>. Note that from Example
+<span class="xref std std-ref">ex:38</span>{reference-type=”ref” reference=”ex:38”} we have</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -1489,10 +1527,14 @@ f(\underline{x}|\theta)&amp;=\frac{n}{\theta}-n\bar x , \\
 J(\theta)=-\frac{\partial^2}{\partial\theta^2} \log
 f(\underline{x}|\theta)&amp;=\frac{n}{\theta^2}.
 \end{aligned}\end{split}\]</div>
-</section>
-<section id="solution-to-example-3-13">
-<h4>Solution to Example 3.13<a class="headerlink" href="#solution-to-example-3-13" title="Link to this heading">#</a></h4>
-<p>We have</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">We have</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -1505,13 +1547,14 @@ f(\underline{x}|\theta)&amp;=\frac{n}{\theta^2}.
     J(\hat\theta)^{-1}=\frac{1}{n\bar x^2}.
     
 \end{aligned}\end{split}\]</div>
-<p>Therefore, for large <span class="math notranslate nohighlight">\(n\)</span>, the (approximate) posterior
+<p class="sd-card-text">Therefore, for large <span class="math notranslate nohighlight">\(n\)</span>, the (approximate) posterior
 distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
 \theta|\underline{x}\sim \mathcal{N}\left(\frac{1}{\bar x},\,\frac{1}{n\bar x^2}\right).\]</div>
-<p>Recall that, assuming a vague prior distribution, the posterior
-distribution is a <span class="math notranslate nohighlight">\(\text{Gamma}(n,n\bar x)\)</span> distribution, with mean
+</div>
+</details><p>Recall that, assuming a vague prior distribution, the posterior
+distribution is a <span class="math notranslate nohighlight">\(\mathrm{Gamma}(n,n\bar x)\)</span> distribution, with mean
 <span class="math notranslate nohighlight">\(1/\bar x\)</span> and variance <span class="math notranslate nohighlight">\(1/(n\bar x^2)\)</span>. The Central Limit Theorem tells
 us that, for large <span class="math notranslate nohighlight">\(n\)</span>, the gamma distribution tends to a normal
 distribution, matched, of course, for mean and variance. Therefore, we
@@ -1535,10 +1578,14 @@ f(\underline{x}|\mu)&amp;=n\tau(\bar x-\mu), \\
 J(\mu)=-\frac{\partial^2}{\partial\mu^2} \log
 f(\underline{x}|\mu)&amp;=n\tau.
 \end{aligned}\end{split}\]</div>
-</section>
-<section id="solution-to-example-3-14">
-<h4>Solution to Example 3.14<a class="headerlink" href="#solution-to-example-3-14" title="Link to this heading">#</a></h4>
-<p>We have</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">We have</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -1551,12 +1598,13 @@ f(\underline{x}|\mu)&amp;=n\tau.
     J(\hat\mu)^{-1}=\frac{1}{n\tau}.
     
 \end{aligned}\end{split}\]</div>
-<p>Therefore, for large <span class="math notranslate nohighlight">\(n\)</span>, the (approximate) posterior
+<p class="sd-card-text">Therefore, for large <span class="math notranslate nohighlight">\(n\)</span>, the (approximate) posterior
 distribution for <span class="math notranslate nohighlight">\(\mu\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
 \mu|\underline{x}\sim \mathcal{N}\left(\bar x,\,\frac{1}{n\tau}\right).\]</div>
-<p>Again, we have shown that the asymptotic posterior distribution is the
+</div>
+</details><p>Again, we have shown that the asymptotic posterior distribution is the
 same as the posterior distribution under vague prior knowledge.</p>
 </section>
 </section>
@@ -1599,7 +1647,7 @@ same as the posterior distribution under vague prior knowledge.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Bayes Theorem for Distributions</p>
+        <p class="prev-next-title">Chapter 2: Bayes Theorem for Distributions</p>
       </div>
     </a>
     <a class="right-next"
@@ -1607,7 +1655,7 @@ same as the posterior distribution under vague prior knowledge.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bayesian inference</p>
+        <p class="prev-next-title">Chapter 4: Bayesian inference</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1627,59 +1675,47 @@ same as the posterior distribution under vague prior knowledge.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informative-priors">Informative Priors</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-1-introduction">Section 3.1: Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-2-informative-priors">Section 3.2: Informative Priors</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-3-1-informative-prior">Definition 3.1: Informative Prior</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-1">Example 3.1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-1">Solution to Example 3.1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-2">Example 3.2</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-constraints">Parameter constraints</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-3-parameter-constraints">Section 3.3: Parameter constraints</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-3-2-truncated-distribution">Definition 3.2: Truncated Distribution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-3">Example 3.3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-3">Solution to Example 3.3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-inference-with-truncated-priors-bayesian-inference-with-truncated-priors-unnumbered">Bayesian Inference with Truncated Priors {#bayesian-inference-with-truncated-priors .unnumbered}</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem-3-1-truncated-posterior">Theorem 3.1: Truncated Posterior</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proof">Proof</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-4">Example 3.4</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-4">Solution to Example 3.4</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-5">Example 3.5</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uninformative-priors">Uninformative Priors</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-4-uninformative-priors">Section 3.4: Uninformative Priors</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vague-prior-knowledge-vague-prior-knowledge-unnumbered">Vague Prior Knowledge {#vague-prior-knowledge .unnumbered}</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-6">Example 3.6</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-6">Solution to Example 3.6</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-7">Example 3.7</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-7">Solution to Example 3.7</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-ignorance-prior-ignorance-unnumbered">Prior Ignorance {#prior-ignorance .unnumbered}</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-8">Example 3.8</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-8">Solution to Example 3.8</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-9">Example 3.9</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-9">Solution to Example 3.9</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-10">Example 3.10</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-10">Solution to Example 3.10</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-11">Example 3.11</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-11">Solution to Example 3.11</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asymptotic-posterior-distribution">Asymptotic posterior distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-5-asymptotic-posterior-distribution">Section 3.5: Asymptotic posterior distribution</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem-3-2-asymptotic-posterior">Theorem 3.2: Asymptotic posterior</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Proof</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comments-comments-unnumbered">Comments {#comments .unnumbered}</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-12">Example 3.12</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-12">Solution to Example 3.12</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-13">Example 3.13</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-13">Solution to Example 3.13</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-14">Example 3.14</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-3-14">Solution to Example 3.14</a></li>
 </ul>
 </li>
 </ul>

@@ -1,6 +1,6 @@
-# Bayes Theorem for Distributions
+# Chapter 2: Bayes Theorem for Distributions
 
-## Introduction
+## Section 2.1: Introduction
 
 Suppose we have data $\underline{x}$ which we model using the
 probability (density) function $f(\underline{x}|\theta)$, which depends
@@ -84,19 +84,20 @@ of its shape.
 You should remember from MAS1608 that
 
 $$
-\text{E}[Y] = \frac{a+b}{2} \quad \text{and} \quad \text{Var}[Y] = \frac{(b-a)^{2}}{12}.$$
+\text{E}[Y] = \frac{a+b}{2} \quad \mathrm{and} \quad \text{Var}[Y] = \frac{(b-a)^{2}}{12}.$$
 
 In the space below, sketch the probability density functions for
 $U(0,1)$ and $U(10,50)$.
 
-##### Plot of Uniform pdfs
+::: gapbox
+:::
 
 ##### Definition 2.2: Beta distribution
 
  \
-The random variable $Y$ follows a beta $\textnormal{\text{Beta}}(a,b)$
-distribution ($a>0$, []{#def:beta label="def:beta"} $b>0$) if it has
-probability density function
+The random variable $Y$ follows a beta $\mathrm{Beta}(a,b)$ distribution
+($a>0$, []{#def:beta label="def:beta"} $b>0$) if it has probability
+density function
 
 $$
 f(y|a,b)=\frac{y^{a-1}(1-y)^{b-1}}{\mathrm{B}(a,b)},\quad\quad 0<y<1.
@@ -156,8 +157,8 @@ $$
 ##### Definition 2.3: Gamma distribution
 
  \
-The random variable $Y$ follows a Gamma $\text{Gamma}(a,b)$ distribution
-($a>0$, $b>0$) if it has probability density function
+The random variable $Y$ follows a Gamma $\mathrm{Gamma}(a,b)$
+distribution ($a>0$, $b>0$) if it has probability density function
 
 $$
 f(y|a,b) =\frac{b^ay^{a-1}e^{-by}}{\Gamma(a)},\quad\quad y>0,$$
@@ -190,7 +191,7 @@ x = seq(0,1, 0.01)
 
 which specifies $x$ to take all values in the range 0 to 1, in steps of
 0.01. The following code then calculates the density of
-$\text{Beta}(2,5)$, as given by Equation
+$\mathrm{Beta}(2,5)$, as given by Equation
 {ref}`eq:betapdf`{reference-type="eqref"
 reference="eq:betapdf"} with $a=2$ and $b=5$:
 
@@ -199,33 +200,34 @@ y = dbeta(x, 2,5)
 ```
 
 Plotting $y$ against $x$ and joining with lines gives the
-$\text{Beta}(2,5)$ density shown in Figure 2.1 (top left); in `R` this
+$\mathrm{Beta}(2,5)$ density shown in Figure 2.1 (top left); in `R` this
 is achieved by typing:
 
 ``` Python
 plot(x, y, type='l')
 ```
 
-Also shown in Figure 2.1 are densities for the $\text{Beta}(0.5,0.5)$
-(top right), $\text{Beta}(77,5)$ (bottom left) and $\text{Beta}(10,10)$
-(bottom right) distributions. Notice that different combinations of
-$(a,b)$ give rise to different shapes of distribution between the limits
-of 0 and 1 -- symmetric, positively skewed and negatively skewed:
-careful choices of $a$ and $b$ could thus be used to express our prior
-beliefs about probabilities/proportions we think might be more or less
-likely to occur. When $a=b$ we have a distribution which is symmetric
-about 0.5. Similar plots can be constructed for any standard
-distribution of interest using, for example, `dgamma` or `dnorm` instead
-of `dbeta` for the gamma or Normal distributions, respectively; Figure
-2.2 shows densities for various gamma distributions.
+Also shown in Figure 2.1 are densities for the $\mathrm{Beta}(0.5,0.5)$
+(top right), $\mathrm{Beta}(77,5)$ (bottom left) and
+$\mathrm{Beta}(10,10)$ (bottom right) distributions. Notice that
+different combinations of $(a,b)$ give rise to different shapes of
+distribution between the limits of 0 and 1 -- symmetric, positively
+skewed and negatively skewed: careful choices of $a$ and $b$ could thus
+be used to express our prior beliefs about probabilities/proportions we
+think might be more or less likely to occur. When $a=b$ we have a
+distribution which is symmetric about 0.5. Similar plots can be
+constructed for any standard distribution of interest using, for
+example, `dgamma` or `dnorm` instead of `dbeta` for the gamma or Normal
+distributions, respectively; Figure 2.2 shows densities for various
+gamma distributions.
 
-![Plots of $\text{Beta}(a,b)$ densities for various values of
+![Plots of $\mathrm{Beta}(a,b)$ densities for various values of
 $(a,b)$.](images/figures/betaplot1.svg)
 
-![Plots of $\text{Gamma}(a,2)$ densities, for various values of
+![Plots of $\mathrm{Gamma}(a,2)$ densities, for various values of
 $a$.](images/gammaplot1.svg)
 
-## Bayes Theorem for distributions in action
+## Section 2.2: Bayes Theorem for distributions in action
 
 We will now see Bayes Theorem for distributions in operation. Remember
 -- for now, we will assume that someone else has provided the prior
@@ -236,7 +238,7 @@ be done.
 
  \
 Consider an experiment with a possibly biased coin. Let []{#ex:coin
-label="ex:coin"} $\theta=\text{Pr}(\text{Head})$. Suppose that, before
+label="ex:coin"} $\theta=\text{Pr}(\mathrm{Head})$. Suppose that, before
 conducting the experiment, we believe that all values of $\theta$ are
 equally likely: this gives a prior distribution $\theta\sim U(0,1)$, and
 so 
@@ -249,9 +251,9 @@ $$
 $\text{E}[\theta]=0.5$. We now toss the coin 5 times and observe 1 head.
 Determine the posterior distribution for $\theta$ given this data.
 
-##### Solution to Example 2.1
+```{dropdown} Solution
 
-The data is an observation on the random variable $X|\theta\sim         \text{Bin}(5,\theta)$. This gives a likelihood function
+The data is an observation on the random variable $X|\theta\sim         \mathrm{Bin}(5,\theta)$. This gives a likelihood function
 
 $$
 f(x=1|\theta)=5\theta(1-\theta)^4
@@ -284,10 +286,12 @@ $$
 \end{aligned}$$
 
  and so the posterior distribution is
-$\theta|x=1\sim \textnormal{\text{Beta}}(2,5)$ -- see
+$\theta|x=1\sim \mathrm{Beta}(2,5)$ -- see
 Definition [\[def:beta\]](#def:beta){reference-type="ref"
 reference="def:beta"}. This distribution has its mode at $\theta=0.2$,
 and mean at $\text{E}[\theta|x=1]=2/7=0.286$.
+
+```
 
 The main difficulty in calculating the posterior distribution was in
 obtaining the $f(x)$ term. However, in many cases we can recognise the
@@ -305,10 +309,9 @@ $$
  As $\theta$ is a continuous quantity, what we would like
 to know is what continuous distribution defined on $(0,1)$ has a
 probability density function which takes the form
-$k\theta^{g-1}(1-\theta)^{h-1}$. The answer is the
-$\textnormal{\text{Beta}}(g,h)$ distribution. Therefore, choosing $g$
-and $h$ appropriately, we can see that the posterior distribution is
-$\theta|x=1\sim \textnormal{\text{Beta}}(2,5)$.
+$k\theta^{g-1}(1-\theta)^{h-1}$. The answer is the $\mathrm{Beta}(g,h)$
+distribution. Therefore, choosing $g$ and $h$ appropriately, we can see
+that the posterior distribution is $\theta|x=1\sim \mathrm{Beta}(2,5)$.
 
 **Summary:**
 
@@ -336,8 +339,7 @@ Suppose that, before conducting the experiment, we have been told that
 the expert is very competent. In fact, it is suggested that we should
 have a prior distribution which has a mode around $\theta=0.95$ and for
 which $\textnormal{Pr}(\theta<0.8)$ is very small. We choose
-$\theta\sim \textnormal{\text{Beta}}(77,5)$, with probability density
-function
+$\theta\sim \mathrm{Beta}(77,5)$, with probability density function
 
 $$
 \pi(\theta)=128107980\,\theta^{76}(1-\theta)^4,\quad\quad 0<\theta<1.
@@ -353,9 +355,9 @@ In the experiment, the music expert makes the correct choice 9 out of 10
 times. Determine the posterior distribution for $\theta$ given this
 information.
 
-##### Solution to Example 2.2
+```{dropdown} Solution
 
-We have an observation on the random variable $X|\theta\sim         \text{Bin}(10,\theta)$. This gives a likelihood function of
+We have an observation on the random variable $X|\theta\sim         \mathrm{Bin}(10,\theta)$. This gives a likelihood function of
 
 $$
 f(x=9|\theta)=10\,\theta^9(1-\theta)
@@ -376,7 +378,9 @@ $$
 \end{aligned}$$
 
  We can recognise this density function as one from the
-Beta family. So, the posterior distribution is $\theta|x=9\sim         \textnormal{\text{Beta}}(86,6)$.
+Beta family. So, the posterior distribution is $\theta|x=9\sim         \mathrm{Beta}(86,6)$.
+
+```
 
 **Summary:**
 
@@ -415,10 +419,9 @@ Max, a video game pirate, is trying to identify the proportion of
 potential customers $\theta$ who might be interested in buying *Call of
 Duty: Modern Warfare II* next month. []{#ex:max label="ex:max"} Based on
 the proportion of customers who have bought similarly violent games from
-him in the past, he assumes that
-$\theta \sim \textnormal{\text{Beta}}(2.5,12)$; a plot of this prior
-density is shown in Figure {ref}`fig:maxprior`{reference-type="ref"
-reference="fig:maxprior"}.
+him in the past, he assumes that $\theta \sim \mathrm{Beta}(2.5,12)$; a
+plot of this prior density is shown in Figure
+{ref}`fig:maxprior`{reference-type="ref" reference="fig:maxprior"}.
 
 ![Max's prior density.](images/priorplot3.svg){#fig:maxprior}
 
@@ -426,21 +429,21 @@ Max asks five potential customers if they would buy *Call of Duty:
 Modern Warfare II* from him, and four say they would. Using this
 information, what is Max's posterior distribution for $\theta$?
 
-##### Solution to Example 2.3
+```{dropdown} Solution
 
-We have been told that the prior for $\theta$ is a $\text{Beta}(2.5,12)$
-distribution -- this has density given by
+We have been told that the prior for $\theta$ is a
+$\mathrm{Beta}(2.5,12)$ distribution -- this has density given by
 
 $$
 \frac{1}{\mathrm{B}(2.5,12)}\theta^{2.5-1}(1-\theta)^{12-1} = 435.1867\theta^{1.5}(1-\theta)^{11}.
     \label{eq:max1}$$
 
  We have an observation on the random variable
-$X|\theta \sim \text{Bin}(5,\theta)$. This gives a likelihood function
+$X|\theta \sim \mathrm{Bin}(5,\theta)$. This gives a likelihood function
 of
 
 $$
-f(x=4|\theta)  = \comb{5}{4} \theta^{4}(1-\theta)^{1} = 5 \theta^{4}(1-\theta),
+f(x=4|\theta)  = \binom{5}{4} \theta^{4}(1-\theta)^{1} = 5 \theta^{4}(1-\theta),
     \label{eq:max2}$$
 
  which favours values of $\theta$ near its maximum
@@ -464,8 +467,10 @@ $$
     \label{eq:max3}$$
 
  You should recognise this density function as one
-from the beta family. In fact, we have a $\text{Beta}(6.5, 13)$, i.e.
-$\theta|x=4 \sim \text{Beta}(6.5,13)$.
+from the beta family. In fact, we have a $\mathrm{Beta}(6.5, 13)$, i.e.
+$\theta|x=4 \sim \mathrm{Beta}(6.5,13)$.
+
+```
 
 **Summary:**
 
@@ -521,7 +526,7 @@ rate $\theta$ (and mean $1/\theta$). The parameter $\theta$ describes
 the rate at which earthquakes occur.
 
 An expert on earthquakes has prior beliefs about the rate of
-earthquakes, $\theta$, described by a $\text{Gamma}(10,4000)$
+earthquakes, $\theta$, described by a $\mathrm{Gamma}(10,4000)$
 distribution, which has density density 
 
 $$
@@ -540,7 +545,7 @@ distribution for $\theta$.
 ![Prior density for the earthquake rate
 $\theta$](images/priorplot4.svg){#fig:earthprior}
 
-##### Solution to Example 2.4
+```{dropdown} Solution
 
 The data are observations on $X_i|\theta\sim Exp(\theta)$,
 $i=1,2,\ldots,20$ (independent). Therefore, the likelihood function
@@ -572,16 +577,18 @@ $$
 \end{aligned}$$
 
  The only continuous distribution which takes the form
-$k\theta^{g-1}e^{-h\theta}$, $\theta>0$ is the $\text{Gamma}(g,h)$
+$k\theta^{g-1}e^{-h\theta}$, $\theta>0$ is the $\mathrm{Gamma}(g,h)$
 distribution. Therefore, the posterior distribution must be
-$\theta|\underline{x}\sim     \text{Gamma}(30,13633)$.
+$\theta|\underline{x}\sim     \mathrm{Gamma}(30,13633)$.
+
+```
 
 **Summary:**
 
 The data have updated our beliefs about $\theta$ from a
-$\text{Gamma}(10,4000)$ distribution to a\
-$\text{Gamma}(30,13633)$ distribution. Plots of these distributions are
-given in Figure {ref}`fig:earthpost`{reference-type="ref"
+$\mathrm{Gamma}(10,4000)$ distribution to a\
+$\mathrm{Gamma}(30,13633)$ distribution. Plots of these distributions
+are given in Figure {ref}`fig:earthpost`{reference-type="ref"
 reference="fig:earthpost"}, and
 Table {ref}`tab:earthsum`{reference-type="ref"
 reference="tab:earthsum"} gives a summary of the main changes induced by
@@ -613,9 +620,9 @@ $\theta$.](images/priorposterior3.svg){#fig:earthpost}
  \
 We now consider the general case of the problem discussed in
 Example {ref}`ex:earth`{reference-type="ref"
-reference="ex:earth"}. Suppose $X_i|\theta\sim \text{Exp}(\theta)$,
+reference="ex:earth"}. Suppose $X_i|\theta\sim \mathrm{Exp}(\theta)$,
 $i=1,2,\ldots,n$ (independent) and our prior beliefs about $\theta$ are
-summarised by a $\text{Gamma}(g,h)$ distribution (with $g$ and $h$
+summarised by a $\mathrm{Gamma}(g,h)$ distribution (with $g$ and $h$
 known), with density 
 
 $$
@@ -625,7 +632,7 @@ $$
 
  Determine the posterior distribution for $\theta$.
 
-##### Solution to Example 2.5
+```{dropdown} Solution
 
 The likelihood function for $\theta$ is 
 
@@ -656,15 +663,17 @@ $$
 $\theta$. Therefore, the posterior distribution takes the form
 $k\theta^{g-1}e^{-h\theta}$, $\theta>0$ and so must be a gamma
 distribution. Thus we have
-$\theta|\underline{x}\sim \text{Gamma}(g+n,h+n\bar x)$.
+$\theta|\underline{x}\sim \mathrm{Gamma}(g+n,h+n\bar x)$.
+
+```
 
 **Summary:**
 
-If we have a random sample from an $\text{Exp}(\theta)$ distribution and
-our prior beliefs about $\theta$ follow a $\text{Gamma}(g,h)$
+If we have a random sample from an $\mathrm{Exp}(\theta)$ distribution
+and our prior beliefs about $\theta$ follow a $\mathrm{Gamma}(g,h)$
 distribution then, after incorporating the data, our (posterior) beliefs
-about $\theta$ follow a $\text{Gamma}(g+n,h+n\bar x)$ distribution. The
-changes in our beliefs about $\theta$ are summarised in
+about $\theta$ follow a $\mathrm{Gamma}(g+n,h+n\bar x)$ distribution.
+The changes in our beliefs about $\theta$ are summarised in
 Table {ref}`tab:gam`{reference-type="ref" reference="tab:gam"}, taking
 $g\geq 1$.
 
@@ -710,23 +719,25 @@ on users of Twitter. They obtain a total of $n$ impressions.
 -   Using a **Beta prior**, quantify **your prior beliefs** about
     $\theta$.
 
-##### Solution to Example 2.6(a)
+```{dropdown} Solution
 
 By plotting different Beta distributions, or by specifying
 $\text{E}[\theta]$ and $\text{Var}[\theta]$ and solving the system of
 equations to specify $a$ and $b$, I arrived at the following prior:
 
 $$
-\theta \sim \text{Beta}(5, 100).$$
+\theta \sim \mathrm{Beta}(5, 100).$$
 
  This places the vast majority of
 the probability mass for values $\theta < 0.2$. I chose this because I
 expect that the click-through rate is very small, but I also have some
 uncertainty about $\theta$.
 
+```
+
 -   Specify a **probability model** for the number of successful clicks.
 
-##### Solution to Example 2.6(b)
+```{dropdown} Solution
 
 In each given impression, a user either clicks on the advert or does
 not. A success is if the user does click on the advert. Therefore,
@@ -734,23 +745,24 @@ assuming independence between each impression (which is plausible), the
 appropriate model is 
 
 $$
-X|\theta \sim \text{Binomial}(n, \theta),$$
+X|\theta \sim \mathrm{Binomial}(n, \theta),$$
 
- where
-$n$ is the total number of impressions.
+where $n$ is the total number of impressions.
+
+```
 
 -   Using your probability model, and a general
-    $\theta \sim \text{Beta}(a,b)$ prior, derive the posterior
+    $\theta \sim \mathrm{Beta}(a,b)$ prior, derive the posterior
     distribution.
 
-##### Solution to Example 2.6(c)
+```{dropdown} Solution
 
-The prior is $\theta\sim \text{Beta}(a,b)$ and so the prior pdf is
+The prior is $\theta\sim \mathrm{Beta}(a,b)$ and so the prior pdf is
 
 $$
 \pi(\theta) = \frac{\theta^{a-1}(1-\theta)^{b-1}}{\mathrm{B}(a,b)}.$$
 
-Our probability model was $X|\theta \sim \text{Binomial}(n, \theta)$.
+Our probability model was $X|\theta \sim \mathrm{Binomial}(n, \theta)$.
 Therefore, the posterior is 
 
 $$
@@ -765,33 +777,37 @@ $$
 we conclude that 
 
 $$
-\theta | x \sim \text{Beta}(a + x, b + n - x).$$
+\theta | x \sim \mathrm{Beta}(a + x, b + n - x).$$
+
+```
 
 -   Using your prior and the following data, derive your **posterior
     distribution**. Out $n=10,000$ impressions, there were 47 successful
     clicks.
 
-##### Solution to Example 2.6(d)
+```{dropdown} Solution
 
-My prior was $\theta \sim \text{Beta}(5, 100)$. Using the update formula
-from part (c), with $n = 10000$ and $x = 47$, my revised belief about
-$\theta$ is 
+My prior was $\theta \sim \mathrm{Beta}(5, 100)$. Using the update
+formula from part (c), with $n = 10000$ and $x = 47$, my revised belief
+about $\theta$ is 
 
 $$
-\theta | x \sim \text{Beta}(52, 10053).$$
+\theta | x \sim \mathrm{Beta}(52, 10053).$$
 
- Note that
-$\text{E}[\theta|x] = \frac{52}{10053} = 0.00517$ (3 s.f.) and
+ Note
+that $\text{E}[\theta|x] = \frac{52}{10053} = 0.00517$ (3 s.f.) and
 $\text{Var}[\theta|x] = 5.07\times 10^{-7}$ (3 s.f.). Due to the amount
 of data, the posterior is dominated by the likelihood function since the
 variance is so small.
+
+```
 
 **Summary:**
 
 The prior, likelihood function and posterior can be seen in
 Figure {ref}`fig:clickthrough`{reference-type="ref"
 reference="fig:clickthrough"}. Here, I used my prior
-$\theta \sim \text{Beta}(5,100)$. Our changes in belief about the
+$\theta \sim \mathrm{Beta}(5,100)$. Our changes in belief about the
 click-through rate $\theta$ are summarised in
 Table {ref}`tab:clickthrough`{reference-type="ref"
 reference="tab:clickthrough"}, after incorporating the data.
@@ -829,7 +845,7 @@ There are a **multitude of factors** that additively result in
 -   Using a **normal prior**, quantify **your prior beliefs** about
     $\theta$.
 
-##### Solution to Example 2.7(a)
+```{dropdown} Solution
 
 Since there are physical constraints on the speed $\theta$, note that a
 normal prior may not be appropriate. This is because a normal
@@ -848,10 +864,12 @@ $$
 places little mass outside the regions $\theta < 0$ and $\theta > c$ and
 does not provide much information about the speed of the particle.
 
+```
+
 -   Why is a **normal distribution** appropriate for the likelihood?
     Write down the likelihood.
 
-##### Solution to Example 2.7(b)
+```{dropdown} Solution
 
 Since there an accumulation of random errors, by the central limit
 theorem $X_i|\theta\sim\mathcal{N}(\theta, \sigma^2)$ is a sensible
@@ -863,11 +881,13 @@ f(\underline{x}|\theta,\sigma) =  (2\pi)^{-n/2}\sigma^{-n}
         \exp\left\{-\frac{1}{2\sigma^2}
         \left(\sum_{i=1}^n x_i^2-2\theta\sum_{i=1}^n x_i+n\theta^2\right)\right\}.$$
 
+```
+
 -   Assuming that the **standard deviation** of the measurements
     $\sigma$ is know, derive the posterior using a general
     $\theta \sim \mathcal{N}(\mu_0, \sigma^2_0)$ prior.
 
-##### Solution to Example 2.7(c)
+```{dropdown} Solution
 
 We will use the fact that $e^{x+y} = e^x e^y$ throughout this example.
 First, note that
@@ -911,6 +931,8 @@ with mean $M$ and variance $V$. So,
 $$
 \theta |\underline{x} \sim \mathcal{N}(M,V).$$
 
+```
+
 -   Suppose you attempted to measure the speed of the particle $4$ times
     and obtained the measurements (in $km/s$): 306135, 293227, 307985,
     301298.
@@ -918,7 +940,7 @@ $$
     Using your prior, setting $\sigma = 5000$ and using this data,
     derive your **posterior distribution**.
 
-##### Solution to Example 2.7(d)
+```{dropdown} Solution
 
 Using our posterior update rule from part (c) with
 $\bar{x} = 302161.25$, $\sigma^2 = 5000^2$, $\mu_0 = 150000$ and
@@ -926,6 +948,8 @@ $\sigma_0^2 = 40000^2$, the posterior is
 
 $$
 \theta | \underline{x} \sim \mathcal{N}(271729, 2236.068^2).$$
+
+```
 
 **Summary:**
 
@@ -961,13 +985,13 @@ Let $Y$ be the retreat, in feet, of the *Zachariae Isstrøm* glacier. A
 geophysical activity, with probability density function
 
 $$
-f(y|\kappa,\theta) = \theta\kappa^{\theta}y^{-(\theta+1)}, \qquad \theta,\kappa>0 \text{ and } y>\kappa.$$
+f(y|\kappa,\theta) = \theta\kappa^{\theta}y^{-(\theta+1)}, \qquad \theta,\kappa>0 \mathrm{ and } y>\kappa.$$
 
 -   Obtain the likelihood function for $\theta$ given the parameter
     $\kappa$ and some observed data $y_{1}, y_{2}, \ldots, y_{n}$
     (independent).
 
-##### Solution to Example 2.8(a)
+```{dropdown} Solution
 
 The likelihood function is simply the product of the probability density
 function evaluated at each observation $y_{i}$, ($i=1, \ldots, n$), i.e.
@@ -980,21 +1004,25 @@ $$
     
 \end{aligned}$$
 
+```
+
 -   Suppose we observe a retreat of 20 feet at the *Zachariae Isstrøm*
     glacier in 2012. Write down the likelihood function for $\theta$.
 
-##### Solution to Example 2.8(b)
+```{dropdown} Solution
 
 We simply substitute $n=1$ and $y_{1}=20$ into the likelihood, giving
 
 $$
 f(\theta|\kappa,y_{1}=20)     =\theta \kappa^{\theta} 20^{-(\theta+1)}.$$
 
--   Using the prior $\theta \sim \text{Gamma}(9,0.36)$ for the rate of
+```
+
+-   Using the prior $\theta \sim \mathrm{Gamma}(9,0.36)$ for the rate of
     retreat and assuming $\kappa$ is known to be 12, obtain the
     posterior distribution $\pi(\theta|y_{1}=20)$.
 
-##### Solution to Example 2.8(c)
+```{dropdown} Solution
 
 Using Bayes Theorem, and following the examples in Chapter 2, we know
 that
@@ -1003,7 +1031,7 @@ $$
 \pi(\theta|y_{1}=20) \propto \pi(\theta)\times f(y_1 =20 | \theta).$$
 
 Recall from Example 3.4 that our elicited prior for $\theta$ is
-$\text{Gamma}(9,0.36)$, which has density
+$\mathrm{Gamma}(9,0.36)$, which has density
 
 $$
 \pi(\theta) = \frac{0.36^{9}\theta^{8}e^{-0.36\theta}}{\Gamma(9)}.$$
@@ -1023,20 +1051,20 @@ $$
 Now consider the term $12^{\theta}20^{-\theta}$. Taking logs, we get
 
 $$
-\theta \text{ln}12 - \theta \text{ln}20  = (\text{ln}12 - \text{ln}20)\theta;$$
+\theta \mathrm{ln}12 - \theta \mathrm{ln}20  = (\mathrm{ln}12 - \mathrm{ln}20)\theta;$$
 
 exponentiating to 're--balance', you should see that
 
 $$
-12^{\theta}20^{-\theta} = e^{(\text{ln}12 - \text{ln}20)\theta}.$$
+12^{\theta}20^{-\theta} = e^{(\mathrm{ln}12 - \mathrm{ln}20)\theta}.$$
 
 Substituting back into (3.6) gives 
 
 $$
 \begin{aligned}
-          \pi(\theta|y_{1}=20)  &\propto& \theta^{9}e^{-0.36 \theta} e^{(\text{ln}12 - \text{ln}20)\theta}     \qquad \text{i.e.}     \\
+          \pi(\theta|y_{1}=20)  &\propto& \theta^{9}e^{-0.36 \theta} e^{(\mathrm{ln}12 - \mathrm{ln}20)\theta}     \qquad \mathrm{i.e.}     \\
                    & & \\
-                                &\propto& \theta^{9}e^{-0.36\theta +(\text{ln}12-\text{ln}20)\theta}    \\
+                                &\propto& \theta^{9}e^{-0.36\theta +(\mathrm{ln}12-\mathrm{ln}20)\theta}    \\
                          & & \\
                                 &\propto& \theta^{9}e^{-0.87 \theta}.
         
@@ -1044,13 +1072,15 @@ $$
 
  Referring to our definition of the gamma distribution on
 page 25 of these notes, you should recognise this as a
-$\text{Gamma}(10,0.87)$ distribution.
+$\mathrm{Gamma}(10,0.87)$ distribution.
+
+```
 
 ![Prior (dashed) and posterior (solid) densities for the rate of glacial
 retreat at the *Zachariae Isstrøm*
 glacier.](images/glacier_posterior.svg)
 
-## Conjugacy
+## Section 2.3: Conjugacy
 
 In Example 2.5, a gamma prior leads to a gamma posterior. This is an
 example of *conjugacy*, where choosing a prior in a family of
@@ -1072,8 +1102,8 @@ distribution is a conjugate prior for the exponential model.
 
 There are usually simple formulae to update the conjugate prior to the
 corresponding posterior. For instance, Example 2.5 showed that a
-$\text{Gamma}(g,h)$ prior for an exponential model leads to a
-$\text{Gamma}(g+n,h+n\bar x)$ distribution. For this reason, conjugate
+$\mathrm{Gamma}(g,h)$ prior for an exponential model leads to a
+$\mathrm{Gamma}(g+n,h+n\bar x)$ distribution. For this reason, conjugate
 priors are usually a convenient choice to reduce the mathematical and
 computational effort of deriving the posterior.
 
@@ -1088,7 +1118,7 @@ Some examples of conjugacy are as follows:
 3.  Normal random sample (known variance), Normal prior distribution
     $\longrightarrow$ Normal posterior distribution (Example 2.6)
 
-4.  $\text{Gamma}(k,\theta)$ random sample ($k$ known), Gamma prior
+4.  $\mathrm{Gamma}(k,\theta)$ random sample ($k$ known), Gamma prior
     distribution $\longrightarrow$ Gamma posterior distribution.
 
 ##### Example 2.9
@@ -1097,7 +1127,7 @@ Some examples of conjugacy are as follows:
 Suppose we have a random sample from a normal distribution. In Bayesian
 statistics, when dealing with the normal distribution, the mathematics
 is more straightforward if we work with the precision
-($=1/\text{variance}$) of the distribution rather than the variance
+($=1/\mathrm{variance}$) of the distribution rather than the variance
 itself. So we will assume that this population has unknown mean $\mu$
 but known precision $\tau$. That is,
 
@@ -1116,7 +1146,7 @@ $$
 
 Determine the posterior distribution for $\mu$.
 
-##### Solution to Example 2.9
+```{dropdown} Solution
 
 The likelihood function for $\mu$ is 
 
@@ -1195,6 +1225,8 @@ Therefore, the posterior distribution takes the form
 $k\exp\{-D(\mu-B)^2/2\}$, $-\infty<\mu<\infty$ and so must be a normal
 distribution: we have $\mu|\underline{x}\sim \mathcal{N}(B,1/D)$.
 
+```
+
 **Summary:**
 
 If we have a random sample from a $\mathcal{N}(\mu,1/\tau)$ distribution
@@ -1263,7 +1295,7 @@ chemical analysis yields $x=421$. What is the posterior distribution for
 $\mu$ and what is the probability that the rock will be older than 400
 million years?
 
-##### Solution to Example 2.10
+```{dropdown} Solution
 
 We have $n=1$, $\bar x=x=421$, $\tau=1/64$, $b=370$ and $d=1/400$.
 Therefore, we have: 
@@ -1292,6 +1324,8 @@ chemical analysis, the only basis for determining the age of the rock is
 via the prior distribution: the (prior) probability that the rock will
 be older than 400 million years is $Pr(\mu>400)=0.0668$ calculated using
 the R command $1-\texttt{pnorm}(400,370,20)$.
+
+```
 
 This highlights the benefit of taking the chemical measurements. Note
 that the large difference between these probabilities is not necessarily
