@@ -1,8 +1,8 @@
-# MAS2903: Introduction to Bayesian Methods
+**MAS2903: Introduction to Bayesian Methods**
 
 **Dr. Matthew Fisher**
 
-Office: Room 4.13, Herschel Building
+Office: [Room 4.14a, Herschel Building]{.sans-serif}
 
 Email: `matthew.fisher@newcastle.ac.uk`
 
@@ -36,7 +36,7 @@ make-up is 80% summer exam, 20% in-course assessment. Further details:
     -   Numbas Assessment 2 (20 marks)
 
 Some of the questions in the in-course assessment will require you to
-produce plots in `R` or `Python`, so it might be a good idea to type up your
+produce plots in `R`, so it might be a good idea to type up your
 solutions and upload a single PDF file (which includes any necessary
 plots/computing work) to Canvas.
 
@@ -67,7 +67,7 @@ are broader references which go well beyond the contents of this course.
 
 These notes are a small modification on notes by Dr Lee Fawcett.
 
-# Preface: What is Bayesian Statistics?
+# Preface: What is Bayesian Statistics? 
 
 There are two main approaches to statistics: *frequentist* (or
 classical) statistics and *Bayesian* statistics. All of the statistics
@@ -115,7 +115,7 @@ which will be explored later in the course. For example we'll see that
 the idea of the *likelihood function* is very important in Bayesian
 statistics.
 
-## Motivating example
+## Motivating example 
 
 Air France Flight 447 disappeared over the Atlantic Ocean on June 1st
 2009, during an overnight flight from Rio de Janeiro to Paris. A search
@@ -157,7 +157,7 @@ most likely locations to search. In April 2011 they decided to try
 assuming that the 'pingers' in item 3 were probably damaged. One week
 later the black boxes were found![^1]
 
-## The frequentist vs. Bayesian debate
+## The frequentist vs. Bayesian debate 
 
 This example illustrates some key features of the Bayesian approach:
 
@@ -192,7 +192,7 @@ suited to the Air France example as incorporating expert knowledge was
 particularly important in the solution. Therefore it's good to be
 familiar with both Bayesian and frequentist methods.
 
-## The history of Bayesian statistics
+## The history of Bayesian statistics 
 
 The reason why we use the word "Bayesian" is because Bayes Theorem is
 crucial for statistical analysis if we adopt the Bayesian approach.
@@ -208,6 +208,21 @@ Laplace's theory had weaknesses[^3] and in the early 20th century it was
 replaced by the more rigorous frequentist approach. R. A. Fisher was one
 of the leading creators of this approach. He was also the first to use
 the term "Bayesian statistics".
+
+<figure>
+<p><embed src="images/bayes1.eps" /> <embed
+src="images/bayes_essay.eps" /></p>
+<figcaption>Portrait believed to be of Thomas Bayes, and letter from
+Richard Price to the Philosophical Transactions of the Royal Society of
+London</figcaption>
+</figure>
+
+<figure>
+<p><embed src="images/Laplace.eps" /> <embed
+src="images/figures/Fisher.eps" /></p>
+<figcaption>Pierre-Simon Laplace (left) and R. A. Fisher
+(right)</figcaption>
+</figure>
 
 Nonetheless there was still some interest in Bayesian methods. For
 example, Alan Turing's group invented some new Bayesian methods to help
@@ -233,7 +248,7 @@ was that applying Bayes theorem often became very mathematically
 challenging, resulting in problems that were too difficult or impossible
 to solve by hand.
 
-### Recent developments
+### Recent developments 
 
 In the 1990s a solution to these mathematical problems was developed,
 making use of the emergence of more powerful computers and "Markov chain
@@ -244,7 +259,7 @@ Statistics, to the extent that today Bayesian data analyses are as
 popular as frequentist approaches and are routinely used in fields as
 diverse as artificial intelligence, biology, astrophysics and sociology.
 
-### Newcastle's contribution
+### Newcastle's contribution 
 
 Since 1980, the number of academic staff in Mathematics & Statistics at
 Newcastle publishing advanced research using Bayesian methods has
