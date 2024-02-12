@@ -23,10 +23,10 @@ $\pi(\theta|\underline{x})\sim\pi(\theta)$.}
 
 \includegraphics{images/priorposterior1.svg}
 \caption{Prior (dashed) and posterior (solid) densities for the music expert's skill for the $0.8 < \theta < 1$.}
-\label{fig:substantial}
+
 
 \end{figure}
-An example of  an informative prior was given in Example~\ref{ex:mozart} where a music expert was trying to distinguish between pages from Mozart and Haydn scores. Figure~\ref{fig:substantial} shows the prior and posterior distributions for $\theta$, the probability that the expert makes the correct choice. Notice the similarity between the prior and posterior distributions. Observing the data has not altered our beliefs about $\theta$ very much.
+An example of  an informative prior was given in Example~ where a music expert was trying to distinguish between pages from Mozart and Haydn scores. Figure~ shows the prior and posterior distributions for $\theta$, the probability that the expert makes the correct choice. Notice the similarity between the prior and posterior distributions. Observing the data has not altered our beliefs about $\theta$ very much.
 
 When we have prior information there can be some difficulties:
 \begin{enumerate}
@@ -41,8 +41,8 @@ In the following two examples, we consider the specification of informative prio
 \clearpage
 
 \paragraph{Example 3.1}{~\\
-\label{ex:earthret}
-\noindent Let us return to Example \ref{ex:earth} of Chapter 2.  Recall that we were given some data on the ``waiting times'', in days, between 21 earthquakes, and we discussed why an exponential distribution $\mathrm{Exp}(\theta)$ might be appropriate to model the waiting times.  Further, we were told that an expert on earthquakes has prior beliefs about the rate $\theta$, described by a $\mathrm{Gamma}(10,4000)$ distribution; a plot of this prior is shown in Figure \ref{fig:earthprior}.  Where did this prior distribution come from?
+
+\noindent Let us return to Example  of Chapter 2.  Recall that we were given some data on the ``waiting times'', in days, between 21 earthquakes, and we discussed why an exponential distribution $\mathrm{Exp}(\theta)$ might be appropriate to model the waiting times.  Further, we were told that an expert on earthquakes has prior beliefs about the rate $\theta$, described by a $\mathrm{Gamma}(10,4000)$ distribution; a plot of this prior is shown in Figure .  Where did this prior distribution come from?
 
 Suppose the expert tells us that earthquakes in the region we are interested in usually occur less than once per year; in fact, they occur on average once every 400 days.  This gives us a rate of occurrence of about 1/400 = 0.0025 per day (to match the ``daily'' units given above).  Further, he is fairly certain about this and specifies a very small variance of $6.25 \times 10^{-7}$.  
 
@@ -75,7 +75,7 @@ Recall that if $\theta \sim \mathrm{Gamma}(a,b)$, then
 
 
 \paragraph{Example 3.2}{~\\
-Now let us return to Example \ref{ex:mozart} of Chapter 2.  We considered an experiment to determine how good a music expert is at distinguishing between pages from Haydn and Mozart scores; when presented with a score from each composer, the expert makes the correct choice with probability $\theta$.  
+Now let us return to Example  of Chapter 2.  We considered an experiment to determine how good a music expert is at distinguishing between pages from Haydn and Mozart scores; when presented with a score from each composer, the expert makes the correct choice with probability $\theta$.  
 
 Before conducting the experiment, we were told that the expert is very competent; in fact, we were told that $\theta$ should have a prior distribution peaking at around 0.95 and for which $\text{Pr}(\theta<0.8)$ is very small.  To achieve this, we assumed that $\theta \sim \mathrm{Beta}(77,5)$, with density given in Figure 2.4.  How did we know a beta distribution would be appropriate?  And how did we figure out the parameters of this distribution, i.e. $a=77$ and $b=5$?  
 
@@ -141,7 +141,7 @@ Thus, the solution to Equation (3.3) is $b=5.06513$.  For simplicity, rounding d
 $$
 a = 19 \times 5 -18 = 77,
 $$
-hence the use of $\theta \sim \mathrm{Beta}(77,5)$ in Example \ref{ex:mozart} in Chapter 2.}
+hence the use of $\theta \sim \mathrm{Beta}(77,5)$ in Example  in Chapter 2.}
 
 There are many more advanced approaches of \emph{prior elicitation} and it is still an active area of research.
 
@@ -386,7 +386,7 @@ From the definition of a truncated distribution, we have, for $\theta >0$:
 
 !!enddropdown!!}
 
-Figure~\ref{fig:normaltrunc} shows a plot of the densities of (a) a $\mathcal{N}(1,1)$
+Figure~ shows a plot of the densities of (a) a $\mathcal{N}(1,1)$
 distribution and (b) a $\mathcal{N}(1,1)$ distribution truncated to $\theta>0$.
 Notice that for $\theta>0$ the truncated normal's density
 has the same shape as that of the original distribution.
@@ -403,7 +403,7 @@ Calculating the new values can be difficult.
 \psfrag{x}{$\theta$}
 \includegraphics{images/truncatednormal.svg}
 \caption{Plot of a normal and truncated normal distribution}
-\label{fig:normaltrunc}
+
 
 \end{figure}
 
@@ -413,11 +413,11 @@ Calculating the new values can be difficult.
 Suppose we can do a Bayesian analysis for an ordinary prior.
 Then it's easy to do the analysis for a truncated version of this prior by the following theorem.
 
-\paragraph{Theorem 3.1: Truncated Posterior}{\label{theorem: truncated posterior} ~\\ 
+\paragraph{Theorem 3.1: Truncated Posterior}{~\\ 
 Suppose that for a prior $\pi(\theta)$ the resulting posterior is $\pi(\theta | \underline{x})$.
 Let $\pi_T(\theta)$ be the result of truncating the prior to $[a,b]$.
 Then the corresponding posterior is $\pi(\theta | \underline{x})$ truncated to $[a,b]$.
-\paragraph{Proof}{Theorem}{\ref{theorem: truncated posterior}}
+\paragraph{Proof}{Theorem}{}
 Let $\pi'(\theta | \underline{x})$ be the posterior for the truncated prior. Then:
 \begin{align*}
 \pi'(\theta | \underline{x}) &\propto \pi_T(\theta) f(\underline{x}|\theta) \\
@@ -475,7 +475,7 @@ From the previous theorem, we first compute the posterior distribution using the
 
 !!enddropdown!!
 
-Figure~\ref{fig:posttrunc} plots the $\mathcal{N}(1,1)$ posterior densities
+Figure~ plots the $\mathcal{N}(1,1)$ posterior densities
 using the original and truncated priors.
 This plot highlights an important consequence of using truncated
 distributions for modelling prior beliefs, namely, that if particular
@@ -491,7 +491,7 @@ likelihood function is large, misleading conclusions can be made.
 \includegraphics{images/truncposterior.svg}
 \caption{Plot of a posterior distribution determined using a
 non-truncated and a truncated prior distribution}
-\label{fig:posttrunc}
+
 
 \end{figure}}
 \clearpage
@@ -508,14 +508,14 @@ prior with $\text{Pr}(\theta>9)\simeq 10^{-9}$ or a truncated version of the
 prior with $\text{Pr}(\theta>9)=0$?
 
 If no truncation is applied to the prior distribution then Bayes
-Theorem produces the posterior distribution $\theta|\underline{x}\sim \mathcal{N}(10,0.25^2)$. The discussion preceding this example tells us that imposing the truncation $\theta<9$ on the prior distribution produces a posterior distribution which is a $\mathcal{N}(10,0.25^2)$ distribution, truncated to $\theta<9$.  Figure~\ref{fig:posttrunc2} shows the resulting posterior densities. Clearly, truncating the prior distribution to $\theta<9$ has resulted in a posterior distribution truncated to $\theta<9$, even though the likelihood function is very peaked at $\theta\simeq 10.47$. So our prior has ruled out the most likely values according to the data! Using a prior distribution which gives very small -- but non-zero -- probability to values of $\theta>9$, avoids this problem.
+Theorem produces the posterior distribution $\theta|\underline{x}\sim \mathcal{N}(10,0.25^2)$. The discussion preceding this example tells us that imposing the truncation $\theta<9$ on the prior distribution produces a posterior distribution which is a $\mathcal{N}(10,0.25^2)$ distribution, truncated to $\theta<9$.  Figure~ shows the resulting posterior densities. Clearly, truncating the prior distribution to $\theta<9$ has resulted in a posterior distribution truncated to $\theta<9$, even though the likelihood function is very peaked at $\theta\simeq 10.47$. So our prior has ruled out the most likely values according to the data! Using a prior distribution which gives very small -- but non-zero -- probability to values of $\theta>9$, avoids this problem.
 \begin{figure}[h!]
 
 \psfrag{x}{$\theta$}
 \includegraphics{images/truncposterior2.svg}
 \caption{Plot of a posterior distribution determined using a
 non-truncated and a truncated prior distribution}
-\label{fig:posttrunc2}
+
 
 \end{figure}}
 
@@ -533,13 +533,13 @@ with very low prior probability (density) but with very high likelihood.
 \section{Section 3.4: Uninformative Priors}
 If we have very little or no prior information about the model parameters $\theta$, we must still choose a prior distribution in order to operate Bayes Theorem. Obviously, it would be sensible to choose a prior distribution which is not concentrated about any particular value, that is, one with a very large variance. In particular, most of the information about $\theta$ will be passed through to the posterior distribution via the data, and so we have $\pi(\theta|\underline{x})\sim f(\underline{x}|\theta)$.
 
-An example of vague prior knowledge was given in Example \ref{ex:coin} where a possibly biased coin was assessed. Figure \ref{fig:little} shows the prior and posterior distributions for $\theta=\text{Pr(Head)}$. Notice that the prior and posterior distributions look very different. In fact, in this example, the posterior distribution is simply a scaled version of the likelihood function -- likelihood functions are not usually proper probability (density) functions and so scaling is required to ensure that it integrates to one. Most of our beliefs about $\theta$ have come from observing the data.
+An example of vague prior knowledge was given in Example  where a possibly biased coin was assessed. Figure  shows the prior and posterior distributions for $\theta=\text{Pr(Head)}$. Notice that the prior and posterior distributions look very different. In fact, in this example, the posterior distribution is simply a scaled version of the likelihood function -- likelihood functions are not usually proper probability (density) functions and so scaling is required to ensure that it integrates to one. Most of our beliefs about $\theta$ have come from observing the data.
 
 \begin{figure}[ht]
 
 \includegraphics{images/priorplot1.svg}
 \caption{Prior (dashed) and posterior (solid) densities for $\theta$}
-\label{fig:little}
+
 
 \end{figure}
 
@@ -594,7 +594,7 @@ This distribution is improper because $\int_{-\infty}^\infty \pi(\theta)\,d\thet
 
 Suppose that $X$ is a random variable with probability density function $f_X(x)$. If $g$ is a bijective (1--1) function then the random variable $Y=g(X)$ has probability density function
 \begin{equation}
-\label{eq:p14}
+!!startlabel!! eq:p14 !!endlabel!!
 f_Y(y)=f_X\left(g^{-1}(y)\right)\left|\frac{d}{dy}\,g^{-1}(y)\right|.
 \end{equation}
 
@@ -614,7 +614,7 @@ $\phi_1=\theta^3$, $\phi_2=e^\theta$, $\phi_3=1/\theta$,
 
 A solution to problems of this type was suggested by Sir~Harold Jeffreys. His suggestion was specified in terms of Fisher's Information:
 \begin{equation}
-\label{eq:fisher}
+!!startlabel!! eq:fisher !!endlabel!!
 I(\theta)=E_{\underline{X}|\theta}\left[-
 \frac{\partial^2}{\partial\theta^{2}}\,
 \log f(\underline{X}|\theta)\right].
@@ -626,7 +626,7 @@ He recommended that we represent prior ignorance by the prior distribution
 Such a prior distribution is known as a Jeffreys prior distribution.
 
 \paragraph{Example 3.8}{~\\
-Suppose we have a random sample from a distribution with probability \label{ex:37} density function
+Suppose we have a random sample from a distribution with probability  density function
 \begin{equation*}
 f(x|\theta)=\frac{2x\,e^{-x^2/\theta}}{\theta},\quad\quad x>0,~\theta>0.
 \end{equation*}
@@ -692,7 +692,7 @@ Notice that this distribution is improper since $\int_0^\infty d\theta/\theta$ i
 \clearpage
 
 \paragraph{Example 3.9}{~\\
-Suppose we have a random sample from an exponential distribution, that \label{ex:38} is, $X_i|\theta\sim \mathrm{Exp}(\theta)$, $i=1,2,\ldots,n$ (independent). Determine the Jeffreys prior for this model.
+Suppose we have a random sample from an exponential distribution, that  is, $X_i|\theta\sim \mathrm{Exp}(\theta)$, $i=1,2,\ldots,n$ (independent). Determine the Jeffreys prior for this model.
 
 !!dropdown!!
 
@@ -731,7 +731,7 @@ Therefore, we obtain the same posterior distribution whether we adopt the Jeffre
 \clearpage
 
 \paragraph{Example 3.10}{~\\
-Suppose we have a random sample from a $\mathcal{N}(\mu,1/\tau)$ distribution \label{ex:39} (with $\tau$ known). Determine the Jeffreys prior for this model.
+Suppose we have a random sample from a $\mathcal{N}(\mu,1/\tau)$ distribution  (with $\tau$ known). Determine the Jeffreys prior for this model.
 
 !!dropdown!!
 
@@ -831,7 +831,7 @@ These two equations are true for all values of $n$.  The important part of the C
 The following theorem gives a similar result for the posterior
 distribution. 
 
-\paragraph{Theorem 3.2: Asymptotic posterior}{\label{theorem: asymptotic posterior} ~\\ 
+\paragraph{Theorem 3.2: Asymptotic posterior}{~\\ 
 Suppose we have a statistical model $f(\underline{x}|\theta)$ for data
 $\underline{x} = (x_1, \ldots, x_n)^\top$, together with a prior distribution $\pi(\theta)$ for
 $\theta$. Then
@@ -842,13 +842,13 @@ $$\sqrt{J(\hat{\theta})}~(\theta-\hat{\theta})|\underline{x} \stackrel{\cal D}
     is the \emph{observed information}:
     $$ J(\theta)=-\frac{\partial^2}{\partial\theta^2}\, \log f(\underline{x}|\theta).$$}
 \clearpage
-\paragraph{Proof}{Theorem}{\ref{theorem: asymptotic posterior}}
+\paragraph{Proof}{Theorem}{}
 Using Bayes Theorem, the posterior distribution for $\theta$ is
 $$\pi(\theta|\underline{x}) \propto\pi(\theta)\,f(\underline{x}|\theta).$$
 Let $\psi=\sqrt{n}(\theta-\hat\theta)$ and
 $$\ell_n(\theta) =\frac{1}{n}\,\log f(\underline{x}|\theta) $$
 be the average log-likelihood per observation, in which
-case, $f(\underline{x}|\theta)=e^{n\ell_n(\theta)}$. Using \eqref{eq:p14},
+case, $f(\underline{x}|\theta)=e^{n\ell_n(\theta)}$. Using ,
 the posterior distribution of $\psi$ is
 \begin{align*}
 \pi_\psi(\psi|\underline{x})
@@ -928,15 +928,15 @@ $$
 \right)
 \quad\quad\text{approximately}.
 $$
-\item The observed information is similar to Fisher's information $\eqref{eq:fisher}$. In fact, Fisher's information is the expected value of the observed information, where the expectation is taken over the distribution of $\underline{X}|\theta$, that is, $I(\theta)=E_{\underline{X}|\theta}[J(\theta)]$.
+\item The observed information is similar to Fisher's information $$. In fact, Fisher's information is the expected value of the observed information, where the expectation is taken over the distribution of $\underline{X}|\theta$, that is, $I(\theta)=E_{\underline{X}|\theta}[J(\theta)]$.
 \item This limiting result is similar to one for the maximum likelihood estimator in Frequentist Statistics:
 \begin{equation}
-\label{eq:mle}
+!!startlabel!! eq:mle !!endlabel!!
 \sqrt{I(\theta)}~(\hat{\theta}-\theta)|\underline{x}
 \stackrel{\cal D} \longrightarrow \mathcal{N}(0,1).
 \quad\quad\text{as }n\to\infty, 
 \end{equation}
-Note that $\eqref{eq:mle}$ is a statement about the distribution of $\hat{\theta}$ for fixed (unknown) $\theta$, whereas the Theorem is a statement about the distribution of $\theta$ for fixed (known)~$\hat{\theta}$.
+Note that $$ is a statement about the distribution of $\hat{\theta}$ for fixed (unknown) $\theta$, whereas the Theorem is a statement about the distribution of $\theta$ for fixed (known)~$\hat{\theta}$.
 \end{enumerate}
 
 \clearpage
@@ -945,7 +945,7 @@ Suppose we have a random sample from a distribution with probability density fun
 \begin{equation*}
 f(x|\theta)=\frac{2x\,e^{-x^2/\theta}}{\theta},\quad\quad x>0,~\theta>0.
 \end{equation*}
-Determine the asymptotic posterior distribution for~$\theta$. Note that from Example~\ref{ex:37} we have 
+Determine the asymptotic posterior distribution for~$\theta$. Note that from Example~ we have 
 \begin{align*}
 \frac{\partial}{\partial\theta} \log
 f(\underline{x}|\theta)&=-\frac{n}{\theta}+\frac{1}{\theta^2}\sum_{i=1}^n
@@ -980,7 +980,7 @@ Write $\overline{x^2}=\dfrac{1}{n}\displaystyle\sum_{i=1}^n x_i^2$ then we have
 
 
 \paragraph{Example 3.13}{~\\
-Suppose we have a random sample from an exponential distribution, that is, $X_i|\theta\sim \mathrm{Exp}(\theta)$, $i=1,2,\ldots,n$ (independent). Determine the asymptotic posterior distribution for $\theta$. Note that from Example \ref{ex:38} we have
+Suppose we have a random sample from an exponential distribution, that is, $X_i|\theta\sim \mathrm{Exp}(\theta)$, $i=1,2,\ldots,n$ (independent). Determine the asymptotic posterior distribution for $\theta$. Note that from Example  we have
 \begin{align*}
 \frac{\partial}{\partial\theta} \log
 f(\underline{x}|\theta)&=\frac{n}{\theta}-n\bar x , \\
@@ -1021,7 +1021,7 @@ surprising result!}
 \paragraph{Example 3.14}{~\\
 Suppose we have a random sample from a $\mathcal{N}(\mu,1/\tau)$ distribution
 (with $\tau$ known). Determine the asymptotic posterior distribution
-for~$\mu$. Note that from Example~\ref{ex:39} we have
+for~$\mu$. Note that from Example~ we have
 \begin{align*}
 \frac{\partial}{\partial\mu} \log
 f(\underline{x}|\mu)&=n\tau(\bar x-\mu), \\

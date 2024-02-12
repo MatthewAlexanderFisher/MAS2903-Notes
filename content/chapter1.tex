@@ -140,9 +140,9 @@ Consider the following events and their probabilities:
 \begin{enumerate}
 \item The probability $\text{Pr}(\text{Newcastle Utd win the Premier League
 this season})$ could only be determined using a subjective assessment.
-\item The probability $\text{Pr}(\text{M\&S student chosen at random was born in
+\item The probability $\text{Pr}(\text{M&S student chosen at random was born in
 January})$ could be determined using a frequency or classical
-interpretation (with a list of all M\&S students and their birth dates)
+interpretation (with a list of all M&S students and their birth dates)
 or a subjective interpretation.
 \item The probability $\text{Pr}(\text{England win the toss at a given Test
 Match})$ could be determined using either the classical or subjective
@@ -208,30 +208,30 @@ The events $E_1,E_2,\ldots,E_n$ form a {\it partition} of the sample
 space ${\cal S}$ if they are disjoint events ($E_i\cap E_j=\emptyset$,
 $i\neq j$) with $\textnormal{Pr}(E_i)>0$, $i=1,2,\ldots,n$, and
 $\displaystyle{\cup_{i=1}^n E_i}={\cal S}$.
-Figure~\ref{fig:partition} gives a diagram of a typical partition with
+Figure~ gives a diagram of a typical partition with
 an additional event $F$.
 
 \begin{figure}[ht]
 
 \includegraphics{images/partition.svg}
 \caption{Diagram of a partition $E_1,E_2,\ldots,E_n$ and an event $F$}
-\label{fig:partition}
+
 
 \end{figure}}
 \clearpage
-\paragraph{Theorem 1.1: Law of Total Probability}{\label{theorem: law of total probability} ~\\
+\paragraph{Theorem 1.1: Law of Total Probability}{~\\
 If $E_1,E_2,\ldots,E_n$ are a {\it partition} of ${\cal S}$ and $F$ is
 any event then
 $$
 \text{Pr}(F)=\sum_{i=1}^n \text{Pr}(F|E_i)\text{Pr}(E_i).
 $$}
-\paragraph{Proof}{Theorem}{\ref{theorem: law of total probability}}
+\paragraph{Proof}{Theorem}{}
 As $E_1,E_2,\ldots,E_n$ are a {\it partition} of ${\cal S}$, we have
 \begin{align*}
 \text{Pr}(F)&=\sum_{i=1}^n \text{Pr}(F\cap E_i) \\
 &=\sum_{i=1}^n \text{Pr}(F|E_i)\text{Pr}(E_i).
 \end{align*}
-\paragraph{Theorem 1.2: Bayes Theorem}{\label{theorem: bayes} ~\\
+\paragraph{Theorem 1.2: Bayes Theorem}{~\\
 If $E_1,E_2,\ldots,E_n$ are a {\it partition} of ${\cal S}$ and $F$ is
 any event with $\text{Pr}(F)>0$ then
 $$\text{Pr}(E_i|F)=\frac{\text{Pr}(F|E_i)\text{Pr}(E_i)}{\sum_{j=1}^n \text{Pr}(F|E_j)\text{Pr}(E_j)},
@@ -312,27 +312,12 @@ x_3:&~\text{both symptoms}.
 \end{align*}
 Suppose it is known in the garage trade that these symptoms occur with
 probabilities that depend on the fault. The probabilities
-$\text{Pr}(x|\theta)$ are given in Table~\ref{tab:garagelik}. Construct a
+$\text{Pr}(x|\theta)$ are given in Table~. Construct a
 diagnostic rule for these symptoms and determine the probability of
 misdiagnosis.
-\begin{table}[h]
-\bigskip
 
-\begin{tabular}{|l|ccc|}
-\cline{2-4}
-\multicolumn{1}{c|}{~}& O/H & I/T & Both \\
-\multicolumn{1}{c|}{~}& $x_1$ & $x_2$ & $x_3$ \\
-\hline
-$\theta_1$: fault in engine & 0.1 & 0.4 & 0.5 \\
-\hline
-$\theta_2$: fault in gearbox & 0.5 & 0.3 & 0.2 \\
-\hline
-\end{tabular}
-\caption{Likelihood of symptoms for both faults.}
-\label{tab:garagelik}
 
-\end{table}
-
+!!table1!!
 
 
 
@@ -368,26 +353,13 @@ First we must calculate the posterior probabilities $\text{Pr}(\theta_1|x)$
     \end{align*}
     Also, $\text{Pr}(\theta_2|x_i)=1-\text{Pr}(\theta_1|x_i)$, $i=1,2,3$ and so we
     obtain the posterior distributions $\text{Pr}(\theta|x)$ given in
-    Table~\ref{tab:garagepost}.
+    Table~.
 
 !!enddropdown!!
 
-\begin{table}[!h]
-\bigskip
 
-\begin{tabular}{|l|c|c|c|}
-\cline{2-4}
-\multicolumn{1}{c|}{~}& O/H & I/T & Both \\
-\multicolumn{1}{c|}{~}& $x_1$ & $x_2$ & $x_3$ \\
-\hline
-$\theta_1$: fault in engine & 0.118 & 0.471 & 0.625 \\
-$\theta_2$: fault in gearbox & 0.882 & 0.529 & 0.375 \\
-\hline
-\end{tabular}
-\caption{Posterior probabilities of the faults for various symptoms.}
-\label{tab:garagepost}
 
-\end{table}
+!!table2!!
 
 This table is very informative. For example, it shows that if both
 symptoms~($x_3$) are observed, then the probability that the fault is
@@ -411,24 +383,11 @@ the fault as in the gearbox~($\theta_2$) since
 $\text{Pr}(\theta_2|x_1)>\text{Pr}(\theta_1|x_1)$. In the same way, we can determine
 the best (most likely) diagnosis having observed irregular traction
 only~($x_2$) and both symptoms~($x_3$), giving the diagnostic rule in
-Table~\ref{tab:garagediag}.
+Table~.
 
-\begin{table}[ht]
-\bigskip
 
-\begin{tabular}{|l|l|}
-\hline
-\quad\quad Symptom & \quad\quad Diagnosis \\
-\hline
-overheating only ($x_1$) & fault in gearbox ($\theta_2$) \\
-irregular traction only ($x_2$) & fault in gearbox ($\theta_2$) \\
-both symptoms ($x_3$) & fault in engine ($\theta_1$) \\
-\hline
-\end{tabular}
-\caption{Diagnostic rule for faults.}
-\label{tab:garagediag}
 
-\end{table}
+!!table3!!
 
  !!dropdown!!
 
@@ -453,7 +412,7 @@ alternative answers to each question. The student either knows the
 answer (with probability $\theta$) or guesses randomly (with
 probability $1-\theta$). What is the probability that the student
 actually knew the answer to a question they answered correctly?
-\label{ex:multiple}
+
 
 !!dropdown!!
 
@@ -477,33 +436,11 @@ Let
 Suppose that there are $m=5$ alternative answers for each question. We
 can see the effect of observing a correct answer on our belief
 that the student actually knows the answer by calculating $\text{Pr}(K|C)$
-for various~$\theta$ -- see Table~\ref{tab:kc}.}
+for various~$\theta$ -- see Table~.}
 
-\begin{table}[h]
-\bigskip
 
-\begin{tabular}{|c|c|}
-\hline
-$\text{Pr}(K)$ & $\text{Pr}(K|C)$ \\
-$=\theta$ & $=5\theta/(1+4\theta)$ \\
-\hline
-0.0 & 0.000 \\
-0.1 & 0.357 \\
-0.2 & 0.556 \\
-0.3 & 0.682 \\
-0.4 & 0.769 \\
-0.5 & 0.833 \\
-0.6 & 0.882 \\
-0.7 & 0.921 \\
-0.8 & 0.952 \\
-0.9 & 0.978 \\
-1.0 & 1.000 \\
-\hline
-\end{tabular}
-\caption{Values of $\text{Pr}(K|C)$ for various values of $\text{Pr}(K)$.}
-\label{tab:kc}
 
-\end{table}
+!!table4!!
 
 The main problem with this solution is that, in order to use this
 table we must know the exact value of $\theta$: we have actually found
@@ -522,15 +459,15 @@ Suppose that an experiment results in data $\underline{x} = (x_1, \ldots, x_n)^\
 
 The likelihood function can be simplified if we have further structure in the data. For example, we may have independent observations, in which case
 \begin{equation}
-\label{eq:indep}
+!!startlabel!! eq:indep !!endlabel!!
 f(\underline{x}|\theta)=\prod_{i=1}^n f_{X_i}(x_i|\theta),
 \end{equation}
 or independent and identically distributed observations (random sample), so that
 \begin{equation}
-\label{eq:iid}
+!!startlabel!! eq:iid !!endlabel!!
 f(\underline{x}|\theta)=\prod_{i=1}^n f_{X}(x_i|\theta).
 \end{equation}
-In this course, we will not consider models with correlated observations. Moreover, we will concentrate on how to make inferences from random samples using prior information. This will require extensive use of the \eqref{eq:iid} form of the likelihood function.
+In this course, we will not consider models with correlated observations. Moreover, we will concentrate on how to make inferences from random samples using prior information. This will require extensive use of the  form of the likelihood function.
 
 \clearpage
 
@@ -544,9 +481,7 @@ Since the data is IID, we have
             &= \frac{\theta^{\sum_{i=1}^n x_i} e^{-\theta n}}{\prod_{i=1}^n x_i!} = \frac{\theta^{n\bar{x}} e^{-n\theta}}{\prod_{i=1}^n x_i!}.
         \end{align*}
 
-!!enddropdown!!
-
-\label{ex:poissonex}}
+!!enddropdown!!}
 
 \paragraph{Example 1.6}{~\\
 Suppose we have a random sample $\underline{x} = (x_1, \ldots, x_n)^\top$ of times between radioactive particle emissions. If the emissions occur randomly in time then a plausible model for such data would be $X_i|\theta\sim \mathrm{Exponential}(\theta)$, usually abbreviated $X_{i}|\theta \sim \mathrm{Exp}(\theta)$, (independent). Determine the likelihood function for~$\theta$.

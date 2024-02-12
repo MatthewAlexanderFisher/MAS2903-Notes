@@ -56,12 +56,12 @@ $\mathrm{Beta}(1,24)$ distribution, with probability density function
 $$
 \pi(\theta|\underline{x})=24\,(1-\theta)^{23}, \quad 0<\theta<1.
 $$
-A plot of this distribution is given in Figure \ref{fig:ci1}.
+A plot of this distribution is given in Figure .
 \begin{figure}[h!]
 
 \includegraphics{images/betaposterior.svg}
 \caption{Plot of the $\mathrm{Beta}(1,24)$ posterior density function}
-\label{fig:ci1}
+
 
 \end{figure}
 Determine the $100(1-\alpha)\%$ HDI for~$\theta$.
@@ -123,17 +123,17 @@ This distribution has a symmetric bell shape and so the HDI takes the
 
 \paragraph{Example 4.3}{~\\
 Suppose that the posterior distribution for $\theta$ is a
-\label{ex:hdi}
+
 $\mathrm{Beta}(2,23)$ distribution, with probability density function
 $$
 \pi(\theta|\underline{x})=552\,\theta(1-\theta)^{22}, \quad 0<\theta<1.
 $$
-A plot of this distribution is given in Figure \ref{fig:ci2}.
+A plot of this distribution is given in Figure .
 \begin{figure}[h!]
 
 \includegraphics{images/betaposterior2.svg}
 \caption{Plot of the $\mathrm{Beta}(2,23)$ posterior density function}
-\label{fig:ci2}
+
 
 \end{figure}
 Determine the $100(1-\alpha)\%$ HDI for~$\theta$.
@@ -171,7 +171,7 @@ where $k>0$ is a tuning parameter that tries to ensure that both terms
 are zeroed.  Therefore, we can used the \texttt{R} optimizer function
 \texttt{optim} to determine $a$ and $b$.
 
-\subsection*{Example~\ref{ex:hdi} (continued)}
+\subsection*{Example~ (continued)}
 Suppose we need the 95\% HDI for $\theta$ when $\theta|\underline{x}\sim \mathrm{Beta}(2,23)$. One slight complication with using the above method to determine the HDI $(a,b)$ is that both $a$ and $b$ are restricted to the unit interval. However, the \texttt{R} function \texttt{optim} has options for dealing with such cases. It also needs initial guesses at the values of $a$ and $b$. Here we base these on the values of the 95\% equi-tailed Bayesian credible interval. We also take $k=0.0001$ to balance the conditions to be zeroed.
 
 The \texttt{R} code to determine $a$ and $b$ is 
@@ -194,7 +194,26 @@ and gives $a=0.002211733$ and $b=0.1840109$, with $F(b)-F(a)=0.9500041$ and $f(b
 
 
 
-\section{Section 4.2: Prediction}
+\section{Section 4.2: Hypothesis Testing}
+
+Bayesian hypothesis testing offers a probabilistic framework for making decisions about hypotheses based on observed data and prior beliefs. Unlike classical hypothesis testing, which relies on p-values and rejection regions, Bayesian hypothesis testing evaluates the plausibility of hypotheses directly through the posterior probabilities. Given a parameter of interest $\theta$ and observed data $\underline{x}$, the aim is to assess the evidence provided by the data for or against a specific hypothesis regarding $\theta$.
+
+In Bayesian analysis, the prior distribution $\pi(\theta)$ represents our beliefs about the possible values of $\theta$ before observing the data. Upon observing the data $\underline{x}$, these beliefs are updated to form the posterior distribution $\pi(\theta|\underline{x})$, which combines the information from the prior and the likelihood of the observed data under different values of $\theta$. The likelihood function $f(\underline{x}|\theta)$ plays a crucial role in this update, quantifying how probable the observed data are for different values of $\theta$.
+
+To perform hypothesis testing, consider a null hypothesis $H_0$ that posits a specific value or range of values for $\theta$, and an alternative hypothesis $H_1$ that represents other possible values. Bayesian hypothesis testing involves calculating the posterior probabilities of these hypotheses given the data. This can often be facilitated by computing the Bayes factor, which is the ratio of the marginal likelihoods of the data under each hypothesis:
+
+\begin{equation*}
+\text{BF}_{01} = \frac{\int f(\underline{x}|\theta) \pi(\theta|H_0)\,d\theta}{\int f(\underline{x}|\theta) \pi(\theta|H_1)\,d\theta}.
+\end{equation*}
+
+This ratio provides a measure of the evidence in favor of $H_0$ relative to $H_1$, adjusted for the prior probabilities of the hypotheses. A Bayes factor greater than 1 indicates evidence in favor of $H_0$, while a Bayes factor less than 1 indicates evidence in favor of $H_1$. The magnitude of the Bayes factor reflects the strength of this evidence.
+
+Ultimately, Bayesian hypothesis testing yields a probabilistic assessment of hypotheses that incorporates both the observed data and prior knowledge. This approach not only provides a direct measure of evidence for hypotheses but also allows for a more nuanced understanding of uncertainty and the impact of prior beliefs on the conclusions drawn from data.
+
+
+
+
+\section{Section 4.3: Prediction}
 Much of statistical inference (both Frequentist and Bayesian) is aimed towards making statements about a parameter $\theta$. Often the inferences are used as a yardstick for similar future experiments. For example, we may want to predict the outcome when the experiment is performed again.
 
 Clearly there will be uncertainty about the future outcome of an experiment. Suppose this future outcome $Y$ is described by a probability (density) function $f(y|\theta)$. There are several ways we could make inferences about what values of $Y$ are likely. For example, if we have an estimate $\hat{\theta}$ of $\theta$ we might base our inferences on $f(y|\theta=\hat{\theta})$. Obviously this is not the best we can do, as such inferences ignore the fact that it is very unlikely that $\theta=\hat{\theta}$. 
@@ -211,24 +230,11 @@ If the true value of $\theta$ were known, say $\theta_0$, then any prediction ca
 We can use the predictive distribution to provide a useful range of plausible values for the outcome of a future experiment. This \emph{prediction interval} is similar to a HDI interval. A $100(1-\alpha)\%$ \emph{prediction interval} for $Y$ is the region $C_\alpha=\{y:~f(y|\underline{x})\geq\gamma\}$ where $\gamma$ is chosen so that $\text{Pr}(Y\in C_\alpha|\underline{x})=1-\alpha$.
 
 \paragraph{Example 4.4}{~\\
-Suppose that $X$ is the number of expensive goods sold in a shop over 24 days. If $\theta$ is the expected number of sales per day then it may be plausible that $X|\theta\sim Po(24\,\theta)$. Also, suppose our prior distribution for $\theta$ is as given in Table~\ref{tab:predprior}.
+Suppose that $X$ is the number of expensive goods sold in a shop over 24 days. If $\theta$ is the expected number of sales per day then it may be plausible that $X|\theta\sim Po(24\,\theta)$. Also, suppose our prior distribution for $\theta$ is as given in Table~.
 
-\begin{table}[ht]
-\bigskip
 
-\begin{tabular}{|c|c|c|}
-\cline{2-3}
-\multicolumn{1}{c|}{~}& $\theta$ & $\pi(\theta)$ \\
-\hline
-``great'' & 1/2 & 0.2 \\
-``good'' & 1/4 & 0.5 \\
-``poor'' & 1/8 & 0.3 \\
-\hline
-\end{tabular}
-\caption{Prior distribution for $\theta$}
-\label{tab:predprior}
 
-\end{table}
+!!table1!!
 
 Clearly, we believe that the most likely value of $\theta$ is 1/4, indicating that we would expect around 6 expensive goods to be sold in any 24 day period. Suppose now that we observe that $x=10$ expensive goods were sold in the last 24 days. This will impact our beliefs about $\theta$. We can calculate the posterior distribution for
 $\theta$ as follows. The likelihood term is
@@ -251,23 +257,11 @@ and so, using Bayes Theorem
 \pi(\theta=1/4|x=10)&=\cdots=0.493 \\
 \pi(\theta=1/8|x=10)&=\cdots=0.006.
 \end{align*}
-Thus, the posterior distribution for $\theta$ is as shown in Table \ref{tab:predpost}, with most likely value of $\theta$ now being 1/2, and standard deviation $\textnormal{SD}(\theta|x=10)=0.126$.
-\begin{table}[ht]
-\bigskip
+Thus, the posterior distribution for $\theta$ is as shown in Table , with most likely value of $\theta$ now being 1/2, and standard deviation $\textnormal{SD}(\theta|x=10)=0.126$.
 
-\begin{tabular}{|c|c|c|}
-\cline{2-3}
-\multicolumn{1}{c|}{~}& $\theta$ & $\pi(\theta|x=10)$ \\
-\hline
-``great'' & 1/2 & 0.501 \\
-``good''  & 1/4 & 0.493 \\
-``poor''  & 1/8 & 0.006 \\
-\hline
-\end{tabular}
-\caption{Posterior distribution for $\theta$}
-\label{tab:predpost}
 
-\end{table}
+
+!!table2!!
 
 Suppose now we want to predict the number of sales $Y$ in the next 24
 days. If there have been no changes in the sales process (no special
@@ -311,47 +305,14 @@ Po(24\hat{\theta})\equiv Po(12)$, whence
 \end{equation*}
 
 In the same manner, we can calculate the entire predictive distribution
-and naive predictive distribution; see Table~\ref{tab:predsimple}.
+and naive predictive distribution; see Table~.
 
 
 
-\begin{table}[ht]
-\bigskip
 
-\begin{tabular}{|r|c|c|}
-\cline{2-3}
-\multicolumn{1}{c|}{~}& correct & naive \\
-\cline{1-1}
-$y$ & $f(y|x=10)$ & $f(y|\theta=\hat{\theta})$ \\
-\hline
-0 & 0.002 & 0.000 \\
-1 & 0.008 & 0.000 \\
-2 & 0.024 & 0.000 \\
-3 & 0.046 & 0.002 \\
-4 & 0.070 & 0.005 \\
-5 & 0.086 & 0.013 \\
-6 & 0.092 & 0.025 \\
-7 & 0.090 & 0.044 \\
-8 & 0.084 & 0.066 \\
-9 & 0.078 & 0.087 \\
-10 & 0.073 & 0.105 \\
-11 & 0.068 & 0.114 \\
-12 & 0.063 & 0.114 \\
-13 & 0.055 & 0.106 \\
-14 & 0.046 & 0.090 \\
-15 & 0.037 & 0.072 \\
-16 & 0.027 & 0.054 \\
-17 & 0.019 & 0.038 \\
-18 & 0.013 & 0.026 \\
-19 & 0.008 & 0.016 \\
-20 & 0.005 & 0.010 \\
-$\vdots$ & $\vdots$ & $\vdots$ \\
-\hline
-\end{tabular}
-\caption{Predictive and ``naive'' predictive probability functions}
-\label{tab:predsimple}
 
-\end{table}
+!!table3!!
+
 Notice that the correct predictive probability distribution has more
 probability out in the tails of its distribution, that is, the
 probabilities of 0, 1, 2, $\ldots$ are larger than their ``naive''
@@ -378,7 +339,7 @@ distribution with too small a standard deviation:
          \end{cases}
 \end{equation*}
 These standard deviations can be calculated from
-Table~\ref{tab:predsimple}. 
+Table~. 
 
 
 
@@ -397,7 +358,7 @@ distribution ($n$ positive integer, $a>0$, $b>0$) if it has
 probability function
 $$f(y|n,a,b)=\binom{n}{y}\frac{\mathrm{B}(y+a,b+n-y)}{\mathrm{B}(a,b)}, \quad\quad
 y=0,1,\ldots,n,$$ 
-where $\mathrm{B}(a,b)$ is the beta function defined in \eqref{eq:betafn}. It can be shown that
+where $\mathrm{B}(a,b)$ is the beta function defined in . It can be shown that
 $$\text{E}[Y] =\frac{na}{a+b}\quad\quad\text{and}\quad\quad
 \text{Var}[Y]=\frac{nab(a+b+n)}{(a+b)^2(a+b+1)}. $$}
 
@@ -452,28 +413,11 @@ f(y|\theta=\hat{\theta})&=\binom{5}{y}\hat{\theta}^y(1-\hat{\theta})^{5-y}
 =\binom{5}{y}\frac{22^{5-y}}{23^5}.
 \end{align*}
 
-Numerical values for the predictive and naive predictive probability functions are given in Table~\ref{tab:predbetabin}.
-\begin{table}[ht]
-\bigskip
+Numerical values for the predictive and naive predictive probability functions are given in Table~.
 
-\begin{tabular}{|r|c|c|}
-\cline{2-3}
-\multicolumn{1}{c|}{~}& correct & naive \\
-\cline{1-1}
-$y$ & $f(y|x=1)$ & $f(y|\theta=\hat{\theta})$ \\
-\hline
-0 & 0.680 & 0.801 \\
-1 & 0.252 & 0.182 \\
-2 & 0.058 & 0.017 \\
-3 & 0.009 & 0.001 \\
-4 & 0.001 & 0.000 \\
-5 & 0.000 & 0.000 \\
-\hline
-\end{tabular}
 
-\caption{Predictive and naive predictive probability functions}
-\label{tab:predbetabin}
-\end{table}
+!!table4!!
+
 Again, the naive predictive distribution is a predictive
 distribution which, instead of using the correct posterior
 distribution, uses a degenerate posterior distribution
@@ -550,7 +494,7 @@ $$
 f(y|a,b,c)=\frac{c^by^{a-1}}{\mathrm{B}(a,b)(y+c)^{a+b}} \quad\quad y>0, 
 $$
 where $\mathrm{B}(a,b)$ is the beta function defined in
-\eqref{eq:betafn}. It can be shown that
+. It can be shown that
 $$\text{E}[Y]=\frac{ac}{b-1}\quad\quad\text{and}\quad\quad \text{Var}[Y]=\frac{ac^2(a+b-1)}{(b-1)^2(b-2)}.$$
 The distribution gets its name because $Y/(Y+c)\sim \mathrm{Beta}(a,b)$. Also note that if $Y\sim \mathrm{InvBeta}(a,b,1)$ then $cY\sim \mathrm{InvBeta}(a,b,c)$.}
 

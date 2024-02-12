@@ -43,16 +43,12 @@ distribution *dominates* the posterior distribution, that is
 $\pi(\theta|\underline{x})\sim\pi(\theta)$.
 
 ![Prior (dashed) and posterior (solid) densities for the music expert's
-skill for the
-$0.8 < \theta < 1$.](images/priorposterior1.svg){#fig:substantial}
+skill for the $0.8 < \theta < 1$.](images/priorposterior1.svg)
 
-An example of an informative prior was given in
-Example {ref}`ex:mozart`{reference-type="ref"
-reference="ex:mozart"} where a music expert was trying to distinguish
-between pages from Mozart and Haydn scores.
-Figure {ref}`fig:substantial`{reference-type="ref"
-reference="fig:substantial"} shows the prior and posterior distributions
-for $\theta$, the probability that the expert makes the correct choice.
+An example of an informative prior was given in Example  where a music
+expert was trying to distinguish between pages from Mozart and Haydn
+scores. Figure  shows the prior and posterior distributions for
+$\theta$, the probability that the expert makes the correct choice.
 Notice the similarity between the prior and posterior distributions.
 Observing the data has not altered our beliefs about $\theta$ very much.
 
@@ -74,17 +70,13 @@ examples of *prior elicitation*.
 ##### Example 3.1
 
  \
-[]{#ex:earthret label="ex:earthret"} Let us return to Example
-{ref}`ex:earth`{reference-type="ref" reference="ex:earth"} of
-Chapter 2. Recall that we were given some data on the "waiting times",
-in days, between 21 earthquakes, and we discussed why an exponential
-distribution $\mathrm{Exp}(\theta)$ might be appropriate to model the
-waiting times. Further, we were told that an expert on earthquakes has
-prior beliefs about the rate $\theta$, described by a
-$\mathrm{Gamma}(10,4000)$ distribution; a plot of this prior is shown in
-Figure {ref}`fig:earthprior`{reference-type="ref"
-reference="fig:earthprior"}. Where did this prior distribution come
-from?
+Let us return to Example of Chapter 2. Recall that we were given some
+data on the "waiting times", in days, between 21 earthquakes, and we
+discussed why an exponential distribution $\mathrm{Exp}(\theta)$ might
+be appropriate to model the waiting times. Further, we were told that an
+expert on earthquakes has prior beliefs about the rate $\theta$,
+described by a $\mathrm{Gamma}(10,4000)$ distribution; a plot of this
+prior is shown in Figure . Where did this prior distribution come from?
 
 Suppose the expert tells us that earthquakes in the region we are
 interested in usually occur less than once per year; in fact, they occur
@@ -143,12 +135,10 @@ $$\theta\sim\mathrm{Gamma}(10, 4000),$$
 ##### Example 3.2
 
  \
-Now let us return to Example
-{ref}`ex:mozart`{reference-type="ref" reference="ex:mozart"}
-of Chapter 2. We considered an experiment to determine how good a music
-expert is at distinguishing between pages from Haydn and Mozart scores;
-when presented with a score from each composer, the expert makes the
-correct choice with probability $\theta$.
+Now let us return to Example of Chapter 2. We considered an experiment
+to determine how good a music expert is at distinguishing between pages
+from Haydn and Mozart scores; when presented with a score from each
+composer, the expert makes the correct choice with probability $\theta$.
 
 Before conducting the experiment, we were told that the expert is very
 competent; in fact, we were told that $\theta$ should have a prior
@@ -238,9 +228,7 @@ $$
 a = 19 \times 5 -18 = 77,$$
 
  hence the use of
-$\theta \sim \mathrm{Beta}(77,5)$ in Example
-{ref}`ex:mozart`{reference-type="ref" reference="ex:mozart"}
-in Chapter 2.
+$\theta \sim \mathrm{Beta}(77,5)$ in Example in Chapter 2.
 
 There are many more advanced approaches of *prior elicitation* and it is
 still an active area of research.
@@ -336,24 +324,22 @@ $$
 
 ```
 
-Figure {ref}`fig:normaltrunc`{reference-type="ref"
-reference="fig:normaltrunc"} shows a plot of the densities of (a) a
-$\mathcal{N}(1,1)$ distribution and (b) a $\mathcal{N}(1,1)$
-distribution truncated to $\theta>0$. Notice that for $\theta>0$ the
-truncated normal's density has the same shape as that of the original
-distribution. However the truncated density takes proportionately larger
-values, since both curves must have an area underneath of one. Also, we
-can see that the mean of the truncated distribution will be larger than
-the mean of the original distribution and the standard deviation will be
-smaller.
+Figure  shows a plot of the densities of (a) a $\mathcal{N}(1,1)$
+distribution and (b) a $\mathcal{N}(1,1)$ distribution truncated to
+$\theta>0$. Notice that for $\theta>0$ the truncated normal's density
+has the same shape as that of the original distribution. However the
+truncated density takes proportionately larger values, since both curves
+must have an area underneath of one. Also, we can see that the mean of
+the truncated distribution will be larger than the mean of the original
+distribution and the standard deviation will be smaller.
 
 This is an important general point. Truncating a distribution changes
 the mean and variance. Calculating the new values can be difficult.
 
 ![Plot of a normal and truncated normal
-distribution](images/truncatednormal.svg){#fig:normaltrunc}
+distribution](images/truncatednormal.svg)
 
-### Bayesian Inference with Truncated Priors {#bayesian-inference-with-truncated-priors .unnumbered}
+### Bayesian Inference with Truncated Priors 
 
 Suppose we can do a Bayesian analysis for an ordinary prior. Then it's
 easy to do the analysis for a truncated version of this prior by the
@@ -361,7 +347,6 @@ following theorem.
 
 ##### Theorem 3.1: Truncated Posterior
 
-[]{#theorem: truncated posterior label="theorem: truncated posterior"}
  \
 Suppose that for a prior $\pi(\theta)$ the resulting posterior is
 $\pi(\theta | \underline{x})$. Let $\pi_T(\theta)$ be the result of
@@ -370,10 +355,8 @@ $\pi(\theta | \underline{x})$ truncated to $[a,b]$.
 
 ##### Proof
 
-Theorem[\[theorem: truncated posterior\]](#theorem: truncated posterior){reference-type="ref"
-reference="theorem: truncated posterior"} Let
-$\pi'(\theta | \underline{x})$ be the posterior for the truncated prior.
-Then: 
+Theorem Let $\pi'(\theta | \underline{x})$ be the posterior for the
+truncated prior. Then: 
 
 $$
 \begin{aligned}
@@ -432,20 +415,18 @@ $$
 
 ```
 
-Figure {ref}`fig:posttrunc`{reference-type="ref"
-reference="fig:posttrunc"} plots the $\mathcal{N}(1,1)$ posterior
-densities using the original and truncated priors. This plot highlights
-an important consequence of using truncated distributions for modelling
-prior beliefs, namely, that if particular parameter values are ruled out
-prior to seeing the data then they are also ruled out after seeing the
-data. Normally, this is not a problem but, as the following example
-shows, when the truncation in a prior distribution does not include
-parameter values for which the likelihood function is large, misleading
+Figure  plots the $\mathcal{N}(1,1)$ posterior densities using the
+original and truncated priors. This plot highlights an important
+consequence of using truncated distributions for modelling prior
+beliefs, namely, that if particular parameter values are ruled out prior
+to seeing the data then they are also ruled out after seeing the data.
+Normally, this is not a problem but, as the following example shows,
+when the truncation in a prior distribution does not include parameter
+values for which the likelihood function is large, misleading
 conclusions can be made.
 
 ![Plot of a posterior distribution determined using a non-truncated and
-a truncated prior
-distribution](images/truncposterior.svg){#fig:posttrunc}
+a truncated prior distribution](images/truncposterior.svg)
 
 ##### Example 3.5
 
@@ -466,19 +447,17 @@ produces the posterior distribution
 $\theta|\underline{x}\sim \mathcal{N}(10,0.25^2)$. The discussion
 preceding this example tells us that imposing the truncation $\theta<9$
 on the prior distribution produces a posterior distribution which is a
-$\mathcal{N}(10,0.25^2)$ distribution, truncated to $\theta<9$.
-Figure {ref}`fig:posttrunc2`{reference-type="ref"
-reference="fig:posttrunc2"} shows the resulting posterior densities.
-Clearly, truncating the prior distribution to $\theta<9$ has resulted in
-a posterior distribution truncated to $\theta<9$, even though the
-likelihood function is very peaked at $\theta\simeq 10.47$. So our prior
-has ruled out the most likely values according to the data! Using a
-prior distribution which gives very small -- but non-zero -- probability
-to values of $\theta>9$, avoids this problem.
+$\mathcal{N}(10,0.25^2)$ distribution, truncated to $\theta<9$. Figure 
+shows the resulting posterior densities. Clearly, truncating the prior
+distribution to $\theta<9$ has resulted in a posterior distribution
+truncated to $\theta<9$, even though the likelihood function is very
+peaked at $\theta\simeq 10.47$. So our prior has ruled out the most
+likely values according to the data! Using a prior distribution which
+gives very small -- but non-zero -- probability to values of $\theta>9$,
+avoids this problem.
 
 ![Plot of a posterior distribution determined using a non-truncated and
-a truncated prior
-distribution](images/truncposterior2.svg){#fig:posttrunc2}
+a truncated prior distribution](images/truncposterior2.svg)
 
 This example motivates the pragmatic rule: never rule out values for
 parameters which are very implausible but not impossible. Instead these
@@ -507,22 +486,20 @@ information about $\theta$ will be passed through to the posterior
 distribution via the data, and so we have
 $\pi(\theta|\underline{x})\sim f(\underline{x}|\theta)$.
 
-An example of vague prior knowledge was given in Example
-{ref}`ex:coin`{reference-type="ref" reference="ex:coin"} where
-a possibly biased coin was assessed. Figure
-{ref}`fig:little`{reference-type="ref" reference="fig:little"} shows
-the prior and posterior distributions for $\theta=\text{Pr(Head)}$.
-Notice that the prior and posterior distributions look very different.
-In fact, in this example, the posterior distribution is simply a scaled
-version of the likelihood function -- likelihood functions are not
-usually proper probability (density) functions and so scaling is
-required to ensure that it integrates to one. Most of our beliefs about
-$\theta$ have come from observing the data.
+An example of vague prior knowledge was given in Example where a
+possibly biased coin was assessed. Figure shows the prior and posterior
+distributions for $\theta=\text{Pr(Head)}$. Notice that the prior and
+posterior distributions look very different. In fact, in this example,
+the posterior distribution is simply a scaled version of the likelihood
+function -- likelihood functions are not usually proper probability
+(density) functions and so scaling is required to ensure that it
+integrates to one. Most of our beliefs about $\theta$ have come from
+observing the data.
 
 ![Prior (dashed) and posterior (solid) densities for
-$\theta$](images/priorplot1.svg){#fig:little}
+$\theta$](images/priorplot1.svg)
 
-### Vague Prior Knowledge {#vague-prior-knowledge .unnumbered}
+### Vague Prior Knowledge 
 
 We represent vague prior knowledge by using a prior distribution which
 is conjugate to the model for $\underline{x}$ and which has "infinite"
@@ -590,7 +567,7 @@ that the posterior variance $1/(n\bar x^2)\to 0$ and $n\to\infty$.
 
 ```
 
-### Prior Ignorance {#prior-ignorance .unnumbered}
+### Prior Ignorance 
 
 We could represent ignorance by the concept "all values of $\theta$ are
 equally likely". If $\theta$ were discrete with $m$ possible values then
@@ -618,11 +595,12 @@ distribution on $\theta$. Recall the result from Distribution Theory:
 
 Suppose that $X$ is a random variable with probability density function
 $f_X(x)$. If $g$ is a bijective (1--1) function then the random variable
-$Y=g(X)$ has probability density function 
+$Y=g(X)$ has probability density function
 
-$$
-\label{eq:p14}
-f_Y(y)=f_X\left(g^{-1}(y)\right)\left|\frac{d}{dy}\,g^{-1}(y)\right|.$$
+```{math}
+:label: eq:p14
+f_Y(y)=f_X\left(g^{-1}(y)\right)\left|\frac{d}{dy}\,g^{-1}(y)\right|.
+```
 
 Applying this result to $\theta=e^\phi$ gives 
 
@@ -652,11 +630,12 @@ have a uniform/ignorance prior for $e^\theta$.
 A solution to problems of this type was suggested by Sir Harold
 Jeffreys. His suggestion was specified in terms of Fisher's Information:
 
-$$
-\label{eq:fisher}
+```{math}
+:label: eq:fisher
 I(\theta)=E_{\underline{X}|\theta}\left[-
 \frac{\partial^2}{\partial\theta^{2}}\,
-\log f(\underline{X}|\theta)\right].$$
+\log f(\underline{X}|\theta)\right].
+```
 
  He recommended that we represent
 prior ignorance by the prior distribution
@@ -671,7 +650,7 @@ known as a Jeffreys prior distribution.
 
  \
 Suppose we have a random sample from a distribution with probability
-[]{#ex:37 label="ex:37"} density function
+density function
 
 $$
 f(x|\theta)=\frac{2x\,e^{-x^2/\theta}}{\theta},\quad\quad x>0,~\theta>0.$$
@@ -762,9 +741,8 @@ one.
 
  \
 Suppose we have a random sample from an exponential distribution, that
-[]{#ex:38 label="ex:38"} is, $X_i|\theta\sim \mathrm{Exp}(\theta)$,
-$i=1,2,\ldots,n$ (independent). Determine the Jeffreys prior for this
-model.
+is, $X_i|\theta\sim \mathrm{Exp}(\theta)$, $i=1,2,\ldots,n$
+(independent). Determine the Jeffreys prior for this model.
 
 ```{dropdown} Solution
 
@@ -818,8 +796,8 @@ prior or vague prior knowledge.
 
  \
 Suppose we have a random sample from a $\mathcal{N}(\mu,1/\tau)$
-distribution []{#ex:39 label="ex:39"} (with $\tau$ known). Determine the
-Jeffreys prior for this model.
+distribution (with $\tau$ known). Determine the Jeffreys prior for this
+model.
 
 ```{dropdown} Solution
 
@@ -982,7 +960,6 @@ gives a similar result for the posterior distribution.
 
 ##### Theorem 3.2: Asymptotic posterior
 
-[]{#theorem: asymptotic posterior label="theorem: asymptotic posterior"}
  \
 Suppose we have a statistical model $f(\underline{x}|\theta)$ for data
 $\underline{x} = (x_1, \ldots, x_n)^\top$, together with a prior
@@ -1001,9 +978,7 @@ J(\theta)=-\frac{\partial^2}{\partial\theta^2}\, \log f(\underline{x}|\theta).$$
 
 ##### Proof
 
-Theorem[\[theorem: asymptotic posterior\]](#theorem: asymptotic posterior){reference-type="ref"
-reference="theorem: asymptotic posterior"} Using Bayes Theorem, the
-posterior distribution for $\theta$ is
+Theorem Using Bayes Theorem, the posterior distribution for $\theta$ is
 
 $$
 \pi(\theta|\underline{x}) \propto\pi(\theta)\,f(\underline{x}|\theta).$$
@@ -1015,9 +990,8 @@ $$
 
  be the
 average log-likelihood per observation, in which case,
-$f(\underline{x}|\theta)=e^{n\ell_n(\theta)}$. Using
-{ref}`eq:p14`{reference-type="eqref" reference="eq:p14"}, the
-posterior distribution of $\psi$ is 
+$f(\underline{x}|\theta)=e^{n\ell_n(\theta)}$. Using , the posterior
+distribution of $\psi$ is 
 
 $$
 \begin{aligned}
@@ -1102,36 +1076,7 @@ $$$
 
  as required.
 
-### Comments {#comments .unnumbered}
-
-1.  This asymptotic result can give us a useful approximation to the
-    posterior distribution for $\theta$ when $n$ is large:
-    
-
-$$
-\theta|\underline{x}\sim \mathcal{N}\left(\hat\theta,J(\hat{\theta})^{-1}
-    \right)
-    \quad\quad\text{approximately}.$$
-
-2.  The observed information is similar to Fisher's information
-    $\eqref{eq:fisher}$. In fact, Fisher's information is the expected
-    value of the observed information, where the expectation is taken
-    over the distribution of $\underline{X}|\theta$, that is,
-    $I(\theta)=E_{\underline{X}|\theta}[J(\theta)]$.
-
-3.  This limiting result is similar to one for the maximum likelihood
-    estimator in Frequentist Statistics: 
-
-$$
-\label{eq:mle}
-    \sqrt{I(\theta)}~(\hat{\theta}-\theta)|\underline{x}
-    \stackrel{\cal D} \longrightarrow \mathcal{N}(0,1).
-    \quad\quad\text{as }n\to\infty,$$
-
- Note that $\eqref{eq:mle}$ is a
-    statement about the distribution of $\hat{\theta}$ for fixed
-    (unknown) $\theta$, whereas the Theorem is a statement about the
-    distribution of $\theta$ for fixed (known) $\hat{\theta}$.
+### Comments 
 
 ##### Example 3.12
 
@@ -1143,8 +1088,7 @@ $$
 f(x|\theta)=\frac{2x\,e^{-x^2/\theta}}{\theta},\quad\quad x>0,~\theta>0.$$
 
 Determine the asymptotic posterior distribution for $\theta$. Note that
-from Example {ref}`ex:37`{reference-type="ref" reference="ex:37"}
-we have 
+from Example  we have 
 
 $$
 \begin{aligned}
@@ -1189,8 +1133,7 @@ $$
 Suppose we have a random sample from an exponential distribution, that
 is, $X_i|\theta\sim \mathrm{Exp}(\theta)$, $i=1,2,\ldots,n$
 (independent). Determine the asymptotic posterior distribution for
-$\theta$. Note that from Example
-{ref}`ex:38`{reference-type="ref" reference="ex:38"} we have
+$\theta$. Note that from Example we have 
 
 $$
 \begin{aligned}
@@ -1238,9 +1181,7 @@ a surprising result!
  \
 Suppose we have a random sample from a $\mathcal{N}(\mu,1/\tau)$
 distribution (with $\tau$ known). Determine the asymptotic posterior
-distribution for $\mu$. Note that from
-Example {ref}`ex:39`{reference-type="ref" reference="ex:39"} we
-have 
+distribution for $\mu$. Note that from Example  we have
 
 $$
 \begin{aligned}

@@ -17,7 +17,7 @@ distribution for $\theta$ as it expresses our beliefs about $\theta$
 *after* seeing the data. It summarises all our current knowledge about
 the parameter $\theta$.
 
-### Bayes Theorem {#bayes-theorem .unnumbered}
+### Bayes Theorem 
 
 The posterior probability (density) function for $\theta$ is
 
@@ -96,34 +96,36 @@ $U(0,1)$ and $U(10,50)$.
 
  \
 The random variable $Y$ follows a beta $\mathrm{Beta}(a,b)$ distribution
-($a>0$, []{#def:beta label="def:beta"} $b>0$) if it has probability
-density function
+($a>0$,$b>0$) if it has probability density function
 
-$$
+```{math}
+:label: eq:betapdf
 f(y|a,b)=\frac{y^{a-1}(1-y)^{b-1}}{\mathrm{B}(a,b)},\quad\quad 0<y<1.
-\label{eq:betapdf}$$
+```
 
- The constant term $\mathrm{B}(a,b)$, also known as
-the *beta function*, ensures that the density integrates to one.
-Therefore 
+ The constant term
+$\mathrm{B}(a,b)$, also known as the *beta function*, ensures that the
+density integrates to one. Therefore 
 
-$$
+```{math}
+:label: eq:betafn
 \mathrm{B}(a,b)=\int_0^1
 y^{a-1}(1-y)^{b-1}\,dy.
-\label{eq:betafn}$$
+```
 
- It can be shown that the beta function can be
-expressed in terms of another function, called the *gamma function*
-$\Gamma(\cdot)$, as
+ It can be shown that the beta
+function can be expressed in terms of another function, called the
+*gamma function* $\Gamma(\cdot)$, as
 
 $$
 \mathrm{B}(a,b) =\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)},$$
 
  where
 
-$$
-\label{eq:gammafn}
-\Gamma(a)=\int_0^\infty x^{a-1}e^{-x}\,dx.$$
+```{math}
+:label: eq:gammafn
+\Gamma(a)=\int_0^\infty x^{a-1}e^{-x}\,dx.
+```
 
  Tables are available for
 both $\mathrm{B}(a,b)$ and $\Gamma(a)$. However, these functions are
@@ -164,9 +166,7 @@ $$
 f(y|a,b) =\frac{b^ay^{a-1}e^{-by}}{\Gamma(a)},\quad\quad y>0,$$
 
  where
-$\Gamma(a)$ is the gamma function defined in
-{ref}`eq:gammafn`{reference-type="eqref"
-reference="eq:gammafn"}. It can be shown that 
+$\Gamma(a)$ is the gamma function defined in . It can be shown that
 
 $$
 \begin{aligned}
@@ -191,9 +191,7 @@ x = seq(0,1, 0.01)
 
 which specifies $x$ to take all values in the range 0 to 1, in steps of
 0.01. The following code then calculates the density of
-$\mathrm{Beta}(2,5)$, as given by Equation
-{ref}`eq:betapdf`{reference-type="eqref"
-reference="eq:betapdf"} with $a=2$ and $b=5$:
+$\mathrm{Beta}(2,5)$, as given by Equation with $a=2$ and $b=5$:
 
 ``` Python
 y = dbeta(x, 2,5)
@@ -237,35 +235,41 @@ be done.
 ##### Example 2.1
 
  \
-Consider an experiment with a possibly biased coin. Let []{#ex:coin
-label="ex:coin"} $\theta=\text{Pr}(\mathrm{Head})$. Suppose that, before
-conducting the experiment, we believe that all values of $\theta$ are
-equally likely: this gives a prior distribution $\theta\sim U(0,1)$, and
-so 
+Consider an experiment with a possibly biased coin. Let
 
-$$
+$\theta=\text{Pr}(\mathrm{Head})$. Suppose that, before conducting the
+experiment, we believe that all values of $\theta$ are equally likely:
+this gives a prior distribution $\theta\sim U(0,1)$, and so
+
+```{math}
+:label: eq:p1
 \pi(\theta)=1,\quad\quad0<\theta<1.
-\label{eq:p1}$$
+```
 
- Note that with this prior distribution
-$\text{E}[\theta]=0.5$. We now toss the coin 5 times and observe 1 head.
-Determine the posterior distribution for $\theta$ given this data.
+ Note that with this prior
+distribution $\text{E}[\theta]=0.5$. We now toss the coin 5 times and
+observe 1 head. Determine the posterior distribution for $\theta$ given
+this data.
 
 ```{dropdown} Solution
 
 The data is an observation on the random variable $X|\theta\sim         \mathrm{Bin}(5,\theta)$. This gives a likelihood function
 
-$$
+<div style="text-align: center;">
+    <a id="eq:p2"></a>
+    <div class="math notranslate nohighlight">
+        $$
 f(x=1|\theta)=5\theta(1-\theta)^4
-        \label{eq:p2}$$
+        $$
+    </div>
+</div>
 
- which favours values of $\theta$ near its
-maximum $\theta=0.2$. Therefore, we have a conflict of opinions: the
-prior distribution {ref}`eq:p1`{reference-type="eqref"
-reference="eq:p1"} suggests that $\theta$ is probably around 0.5 and the
-data {ref}`eq:p2`{reference-type="eqref" reference="eq:p2"}
-suggest that it is around 0.2. We can use Bayes Theorem to combine these
-two sources of information in a coherent way. First 
+ which favours values of
+$\theta$ near its maximum $\theta=0.2$. Therefore, we have a conflict of
+opinions: the prior distribution suggests that $\theta$ is probably
+around 0.5 and the data suggest that it is around 0.2. We can use Bayes
+Theorem to combine these two sources of information in a coherent way.
+First 
 
 $$
 \begin{aligned}
@@ -286,10 +290,9 @@ $$
 \end{aligned}$$
 
  and so the posterior distribution is
-$\theta|x=1\sim \mathrm{Beta}(2,5)$ -- see
-Definition [\[def:beta\]](#def:beta){reference-type="ref"
-reference="def:beta"}. This distribution has its mode at $\theta=0.2$,
-and mean at $\text{E}[\theta|x=1]=2/7=0.286$.
+$\theta|x=1\sim \mathrm{Beta}(2,5)$ -- see Definition . This
+distribution has its mode at $\theta=0.2$, and mean at
+$\text{E}[\theta|x=1]=2/7=0.286$.
 
 ```
 
@@ -323,33 +326,32 @@ average, we would expect $\theta$ to be around 0.286. Uncertainty about
 $\theta$ has changed from a (prior) standard deviation of 0.289 to a
 (posterior) standard deviation of 0.160. The changes in our beliefs
 about $\theta$ are more fully described by the prior and posterior
-distributions shown in Figure {ref}`fig:betaplot2`{reference-type="ref"
-reference="fig:betaplot2"}.
+distributions shown in Figure .
 
 ![Prior (dashed) and posterior (solid) densities for
-$\theta=\text{Pr(Head)}$](images/figures/priorplot1.svg){#fig:betaplot2}
+$\theta=\text{Pr(Head)}$](images/figures/priorplot1.svg)
 
 ##### Example 2.2
 
  \
 Consider an experiment to determine how good a music expert is at
-[]{#ex:mozart label="ex:mozart"} distinguishing between pages from Haydn
-and Mozart scores. Let $\theta=\text{Pr}(\text{correct choice})$.
-Suppose that, before conducting the experiment, we have been told that
-the expert is very competent. In fact, it is suggested that we should
-have a prior distribution which has a mode around $\theta=0.95$ and for
-which $\textnormal{Pr}(\theta<0.8)$ is very small. We choose
+distinguishing between pages from Haydn and Mozart scores. Let
+$\theta=\text{Pr}(\text{correct choice})$. Suppose that, before
+conducting the experiment, we have been told that the expert is very
+competent. In fact, it is suggested that we should have a prior
+distribution which has a mode around $\theta=0.95$ and for which
+$\textnormal{Pr}(\theta<0.8)$ is very small. We choose
 $\theta\sim \mathrm{Beta}(77,5)$, with probability density function
 
-$$
+```{math}
+:label: eq:p3
 \pi(\theta)=128107980\,\theta^{76}(1-\theta)^4,\quad\quad 0<\theta<1.
-\label{eq:p3}$$
+```
 
- A graph of this prior density is given in Figure
- {ref}`fig:betaplot3`{reference-type="ref" reference="fig:betaplot3"}.
+ A graph of this prior density is
+given in Figure  .
 
-![Prior density for the music expert's
-skill.](images/priorplot2.svg){#fig:betaplot3}
+![Prior density for the music expert's skill.](images/priorplot2.svg)
 
 In the experiment, the music expert makes the correct choice 9 out of 10
 times. Determine the posterior distribution for $\theta$ given this
@@ -359,23 +361,32 @@ information.
 
 We have an observation on the random variable $X|\theta\sim         \mathrm{Bin}(10,\theta)$. This gives a likelihood function of
 
-$$
+<div style="text-align: center;">
+    <a id="eq:p4"></a>
+    <div class="math notranslate nohighlight">
+        $$
 f(x=9|\theta)=10\,\theta^9(1-\theta)
-        \label{eq:p4}$$
+        $$
+    </div>
+</div>
 
- which favours values of $\theta$ near its
-maximum $\theta=0.9$. We combine these two sources of information using
-Bayes Theorem. The posterior density function is 
+ which favours values of
+$\theta$ near its maximum $\theta=0.9$. We combine these two sources of
+information using Bayes Theorem. The posterior density function is
 
-$$
+<div style="text-align: center;">
+    <a id="eq:p5"></a>
+    <div class="math notranslate nohighlight">
+        $$
 \begin{aligned}
-        \label{eq:p5}
         \pi(\theta|x=9)&\propto\pi(\theta)f(x=9|\theta) \notag \\
         &\propto 128107980\,\theta^{76}(1-\theta)^4\times 10\,\theta^9(1-\theta),
         \quad\quad 0<\theta<1 \notag \\
         &=k\theta^{85}(1-\theta)^5,\quad\quad 0<\theta<1.
-        
-\end{aligned}$$
+\end{aligned}
+        $$
+    </div>
+</div>
 
  We can recognise this density function as one from the
 Beta family. So, the posterior distribution is $\theta|x=9\sim         \mathrm{Beta}(86,6)$.
@@ -385,27 +396,23 @@ Beta family. So, the posterior distribution is $\theta|x=9\sim         \mathrm{B
 **Summary:**
 
 The changes in our beliefs about $\theta$ are described by the prior and
-posterior distributions shown in
-Figure {ref}`fig:betaplot4`{reference-type="ref"
-reference="fig:betaplot4"} and summarised in
-Table {ref}`tab:betaplot4`{reference-type="ref"
-reference="tab:betaplot4"}.
+posterior distributions shown in Figure  and summarised in Table .
 
 ![Prior (dashed) and posterior (solid) densities for the music expert's
-skill for the
-$0.8 < \theta < 1$.](images/priorposterior1.svg){#fig:betaplot4}
+skill for the $0.8 < \theta < 1$.](images/priorposterior1.svg)
 
-::: {#tab:betaplot4}
-  ----------------------------- ---------------------------------------------------------------- ---------------------------------------------------------------- ----------------------------------------------------------------
-  2-4                                                        Prior                                                          Likelihood                                                       Posterior
-                                  ({ref}`eq:p3`{reference-type="ref" reference="eq:p3"})    ({ref}`eq:p4`{reference-type="ref" reference="eq:p4"})    ({ref}`eq:p5`{reference-type="ref" reference="eq:p5"})
-  $\textnormal{Mode}(\theta)$                                0.950                                                            0.900                                                            0.944
-  $\text{E}[\theta]$                                         0.939                                                              --                                                             0.935
-  $\textnormal{SD}(\theta)$                                  0.0263                                                             --                                                             0.0256
-  ----------------------------- ---------------------------------------------------------------- ---------------------------------------------------------------- ----------------------------------------------------------------
+```{table} Changes in beliefs about $\theta$.
+:widths: auto
+:align: center
+:name: tab:betaplot4
 
-  : Changes in beliefs about $\theta$.
-:::
+|                           | [Prior](#eq:p3) | [Likelihood](#eq:p4) | [Posterior](#eq:p5) |
+|---------------------------|---------------------|--------------------------|-------------------------|
+| $\textnormal{Mode}(\theta)$ | 0.950              | 0.900                    | 0.944                   |
+| $\textnormal{E}[\theta]$              | 0.939               | --                       | 0.935                   |
+| $\textnormal{SD}(\theta)$ | 0.0263              | --                       | 0.0256                  |
+```
+
 
 Notice that, having observed only a 90% success rate in the experiment,
 the posterior mode and mean are smaller than their prior values. Also,
@@ -417,13 +424,12 @@ uncertainty about $\theta$ being only very slightly reduced.
  \
 Max, a video game pirate, is trying to identify the proportion of
 potential customers $\theta$ who might be interested in buying *Call of
-Duty: Modern Warfare II* next month. []{#ex:max label="ex:max"} Based on
-the proportion of customers who have bought similarly violent games from
-him in the past, he assumes that $\theta \sim \mathrm{Beta}(2.5,12)$; a
-plot of this prior density is shown in Figure
-{ref}`fig:maxprior`{reference-type="ref" reference="fig:maxprior"}.
+Duty: Modern Warfare II* next month. Based on the proportion of
+customers who have bought similarly violent games from him in the past,
+he assumes that $\theta \sim \mathrm{Beta}(2.5,12)$; a plot of this
+prior density is shown in Figure .
 
-![Max's prior density.](images/priorplot3.svg){#fig:maxprior}
+![Max's prior density.](images/priorplot3.svg)
 
 Max asks five potential customers if they would buy *Call of Duty:
 Modern Warfare II* from him, and four say they would. Using this
@@ -434,24 +440,32 @@ information, what is Max's posterior distribution for $\theta$?
 We have been told that the prior for $\theta$ is a
 $\mathrm{Beta}(2.5,12)$ distribution -- this has density given by
 
-$$
+<div style="text-align: center;">
+    <a id="eq:max1"></a>
+    <div class="math notranslate nohighlight">
+        $$
 \frac{1}{\mathrm{B}(2.5,12)}\theta^{2.5-1}(1-\theta)^{12-1} = 435.1867\theta^{1.5}(1-\theta)^{11}.
-    \label{eq:max1}$$
+        $$
+    </div>
+</div>
 
- We have an observation on the random variable
-$X|\theta \sim \mathrm{Bin}(5,\theta)$. This gives a likelihood function
-of
+ We have an observation on the
+random variable $X|\theta \sim \mathrm{Bin}(5,\theta)$. This gives a
+likelihood function of
 
-$$
+<div style="text-align: center;">
+    <a id="eq:max2"></a>
+    <div class="math notranslate nohighlight">
+        $$
 f(x=4|\theta)  = \binom{5}{4} \theta^{4}(1-\theta)^{1} = 5 \theta^{4}(1-\theta),
-    \label{eq:max2}$$
+        $$
+    </div>
+</div>
 
- which favours values of $\theta$ near its maximum
-0.8. We combine our prior information
-({ref}`eq:max1`{reference-type="ref" reference="eq:max1"}) with
-the data ({ref}`eq:max2`{reference-type="ref"
-reference="eq:max2"}) -- to obtain our posterior distribution -- using
-Bayes Theorem. The posterior density function is 
+ which favours values of
+$\theta$ near its maximum 0.8. We combine our prior information () with
+the data () -- to obtain our posterior distribution -- using Bayes
+Theorem. The posterior density function is 
 
 $$
 \begin{aligned}
@@ -462,13 +476,18 @@ $$
 
  giving
 
-$$
+<div style="text-align: center;">
+    <a id="eq:max3"></a>
+    <div class="math notranslate nohighlight">
+        $$
 \pi(\theta|x=4) = k \theta^{5.5}(1-\theta)^{12}, \qquad 0<\theta<1.
-    \label{eq:max3}$$
+        $$
+    </div>
+</div>
 
- You should recognise this density function as one
-from the beta family. In fact, we have a $\mathrm{Beta}(6.5, 13)$, i.e.
-$\theta|x=4 \sim \mathrm{Beta}(6.5,13)$.
+ You should recognise this
+density function as one from the beta family. In fact, we have a
+$\mathrm{Beta}(6.5, 13)$, i.e. $\theta|x=4 \sim \mathrm{Beta}(6.5,13)$.
 
 ```
 
@@ -480,15 +499,18 @@ posterior distributions shown in Figure 2.7 and summarised in Table 2.2.
 ![Prior (dashed) and posterior (solid) densities for Max's
 problem.](images/priorposterior2.svg)
 
-  ----------------------------- --------------------------------------------------------------------- --------------------------------------------------------------------- ---------------------------------------------------------------------
-  2-4                                                           Prior                                                              Likelihood                                                             Posterior
-                                 ({ref}`eq:max1`{reference-type="ref" reference="eq:max1"})   ({ref}`eq:max2`{reference-type="ref" reference="eq:max2"})   ({ref}`eq:max3`{reference-type="ref" reference="eq:max3"})
-  $\textnormal{Mode}(\theta)$                                   0.12                                                                   0.8                                                                  0.314
-  $\text{E}[\theta]$                                            0.172                                                                  --                                                                   0.333
-  $\textnormal{SD}(\theta)$                                     0.096                                                                  --                                                                   0.104
-  ----------------------------- --------------------------------------------------------------------- --------------------------------------------------------------------- ---------------------------------------------------------------------
+```{table} Changes in beliefs about $\theta$.
+:widths: auto
+:align: center
+:name: tab:betaposterior
 
-  : Changes in beliefs about $\theta$.
+|                           | [Prior](#eq:max1) | [Likelihood](#eq:max2) | [Posterior](#eq:max3) |
+|---------------------------|---------------------|--------------------------|-------------------------|
+| $\textnormal{Mode}(\theta)$ | 0.12               | 0.8                      | 0.314                   |
+| $\textnormal{E}[\theta]$              | 0.172               | --                       | 0.333                   |
+| $\textnormal{SD}(\theta)$ | 0.096               | --                       | 0.104                   |
+```
+
 
 Notice how the posterior has been "pulled" from the prior towards the
 observed value: the mode has moved up from 0.12 to 0.314, and the mean
@@ -500,22 +522,22 @@ standard deviation with the addition of more data values.
 ##### Example 2.4
 
  \
-Table {ref}`tab:earth`{reference-type="ref" reference="tab:earth"}
-shows some data on the times between serious []{#ex:earth
-label="ex:earth"} earthquakes. An earthquake is included if its
-magnitude is at least 7.5 on the Richter scale or if over 1000 people
-were killed. Recording starts on 16 December 1902 (4500 killed in
-Turkistan). The table includes data on 21 earthquakes, that is,
-20 "waiting times" between earthquakes.
+Table  shows some data on the times between serious earthquakes. An
+earthquake is included if its magnitude is at least 7.5 on the Richter
+scale or if over 1000 people were killed. Recording starts on
+16 December 1902 (4500 killed in Turkistan). The table includes data on
+21 earthquakes, that is, 20 "waiting times" between earthquakes.
 
-::: {#tab:earth}
-  ----- ----- ----- ------ ----- ----- ----- ----- ----- -----
-    840   157   145     44    33   121   150   280   434   736
-    584   887   263   1901   695   294   562   721    76   710
-  ----- ----- ----- ------ ----- ----- ----- ----- ----- -----
+```{table} Time intervals between major earthquakes (in days).
+:widths: auto
+:align: center
+:name: tab:earth
 
-  : Time intervals between major earthquakes (in days).
-:::
+| 840 | 157 | 145 | 44  | 33  | 121 | 150 | 280 | 434 | 736 |
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| 584 | 887 | 263 | 1901| 695 | 294 | 562 | 721 | 76  | 710 |
+```
+
 
 It is believed that earthquakes happen in a random haphazard kind of way
 and that times between earthquakes can be described by an exponential
@@ -527,23 +549,21 @@ the rate at which earthquakes occur.
 
 An expert on earthquakes has prior beliefs about the rate of
 earthquakes, $\theta$, described by a $\mathrm{Gamma}(10,4000)$
-distribution, which has density density 
+distribution, which has density density
 
-$$
-\label{eq:earthprior}
+```{math}
+:label: eq:earthprior
 \pi(\theta)=\frac{4000^{10}\,\theta^9e^{-4000\theta}}{\Gamma(10)}, 
-\quad\theta>0,$$
+\quad\theta>0,
+```
 
  and mean $\text{E}[\theta]=0.0025$. A plot of this
-prior distribution can be found in
-Figure {ref}`fig:earthprior`{reference-type="ref"
-reference="fig:earthprior"}. As you might expect, the expert believes
-that, realistically, only very small values of $\theta$ are likely,
-though larger values are not ruled out! Determine the posterior
-distribution for $\theta$.
+prior distribution can be found in Figure . As you might expect, the
+expert believes that, realistically, only very small values of $\theta$
+are likely, though larger values are not ruled out! Determine the
+posterior distribution for $\theta$.
 
-![Prior density for the earthquake rate
-$\theta$](images/priorplot4.svg){#fig:earthprior}
+![Prior density for the earthquake rate $\theta$](images/priorplot4.svg)
 
 ```{dropdown} Solution
 
@@ -551,30 +571,38 @@ The data are observations on $X_i|\theta\sim Exp(\theta)$,
 $i=1,2,\ldots,20$ (independent). Therefore, the likelihood function
 for $\theta$ is 
 
-$$
+<div style="text-align: center;">
+    <a id="eq:earthlik"></a>
+    <div class="math notranslate nohighlight">
+        $$
 \begin{aligned}
-    \label{eq:earthlik}
     f(\underline{x}|\theta)&=\prod_{i=1}^{20} \theta e^{-\theta x_i}, 
     \quad\quad\theta>0 \notag \\
     &=\theta^{20}\exp\left(-\theta\sum_{i=1}^{20} x_i\right),
     \quad\quad\theta>0 \notag \\
     &=\theta^{20} e^{-9633\theta},
     \quad\quad\theta>0. 
-    
-\end{aligned}$$
+\end{aligned}
+        $$
+    </div>
+</div>
 
  We now apply Bayes Theorem to combine the expert opinion
 with the observed data. The posterior density function is
 
-$$
+<div style="text-align: center;">
+    <a id="eq:earthpost"></a>
+    <div class="math notranslate nohighlight">
+        $$
 \begin{aligned}
-    \label{eq:earthpost}
     \pi(\theta|\underline{x})&\propto\pi(\theta)f(\underline{x}|\theta) \notag \\
     &\propto\frac{4000^{10}\,\theta^{9}e^{-4000\theta}}{\Gamma(10)}\times
     \theta^{20} e^{-9633\theta},\quad\quad\theta>0 \notag  \\
     &=k\,\theta^{30-1}e^{-13633\theta},\quad\quad\theta>0.
-    
-\end{aligned}$$
+\end{aligned}
+        $$
+    </div>
+</div>
 
  The only continuous distribution which takes the form
 $k\theta^{g-1}e^{-h\theta}$, $\theta>0$ is the $\mathrm{Gamma}(g,h)$
@@ -588,47 +616,45 @@ $\theta|\underline{x}\sim     \mathrm{Gamma}(30,13633)$.
 The data have updated our beliefs about $\theta$ from a
 $\mathrm{Gamma}(10,4000)$ distribution to a\
 $\mathrm{Gamma}(30,13633)$ distribution. Plots of these distributions
-are given in Figure {ref}`fig:earthpost`{reference-type="ref"
-reference="fig:earthpost"}, and
-Table {ref}`tab:earthsum`{reference-type="ref"
-reference="tab:earthsum"} gives a summary of the main changes induced by
-incorporating the data. Notice that, as the mode of the likelihood
-function is close to that of the prior distribution, the information in
-the data is consistent with that in the prior distribution. This results
-in a reduction in variability from the prior to the posterior
-distributions. The similarity between the prior beliefs and the data has
-reduced the uncertainty we have about the likely earthquake
-rate $\theta$.
+are given in Figure , and Table  gives a summary of the main changes
+induced by incorporating the data. Notice that, as the mode of the
+likelihood function is close to that of the prior distribution, the
+information in the data is consistent with that in the prior
+distribution. This results in a reduction in variability from the prior
+to the posterior distributions. The similarity between the prior beliefs
+and the data has reduced the uncertainty we have about the likely
+earthquake rate $\theta$.
 
 ![Prior (dashed) and posterior (solid) densities for the earthquake rate
-$\theta$.](images/priorposterior3.svg){#fig:earthpost}
+$\theta$.](images/priorposterior3.svg)
 
-::: {#tab:earthsum}
-  ----------------------------- ------------------------- ----------------------- ------------------------
-  2-4                                     Prior                 Likelihood               Posterior
-                                 $\eqref{eq:earthprior}$   $\eqref{eq:earthlik}$   $\eqref{eq:earthpost}$
-  $\textnormal{Mode}(\theta)$            0.00225                  0.00208                 0.00213
-  $\text{E}[\theta]$                     0.00250                    --                    0.00220
-  $\textnormal{SD}(\theta)$              0.00079                    --                    0.00040
-  ----------------------------- ------------------------- ----------------------- ------------------------
+```{table} Changes in beliefs about $\theta$.
+:widths: auto
+:align: center
+:name: tab:earthsum
 
-  : Changes in beliefs about $\theta$.
-:::
+|                           | [Prior](#eq:earthprior) | [Likelihood](#eq:earthlik) | [Posterior](#eq:earthpost) |
+|---------------------------|---------------------------|------------------------------|------------------------------|
+| $\textnormal{Mode}(\theta)$ | 0.00225                   | 0.00208                      | 0.00213                      |
+| $\textnormal{E}[\theta]$              | 0.00250                   | --                           | 0.00220                      |
+| $\textnormal{SD}(\theta)$ | 0.00079                   | --                           | 0.00040                      |
+```
+
 
 ##### Example 2.5
 
  \
-We now consider the general case of the problem discussed in
-Example {ref}`ex:earth`{reference-type="ref"
-reference="ex:earth"}. Suppose $X_i|\theta\sim \mathrm{Exp}(\theta)$,
-$i=1,2,\ldots,n$ (independent) and our prior beliefs about $\theta$ are
-summarised by a $\mathrm{Gamma}(g,h)$ distribution (with $g$ and $h$
-known), with density 
+We now consider the general case of the problem discussed in Example .
+Suppose $X_i|\theta\sim \mathrm{Exp}(\theta)$, $i=1,2,\ldots,n$
+(independent) and our prior beliefs about $\theta$ are summarised by a
+$\mathrm{Gamma}(g,h)$ distribution (with $g$ and $h$ known), with
+density 
 
-$$
-\label{eq:p6}
+```{math}
+:label: eq:p6
 \pi(\theta)=\frac{h^g\,\theta^{g-1}e^{-h\theta}}{\Gamma(g)}, 
-\quad\theta>0.$$
+\quad\theta>0.
+```
 
  Determine the posterior distribution for $\theta$.
 
@@ -636,14 +662,18 @@ $$
 
 The likelihood function for $\theta$ is 
 
-$$
+<div style="text-align: center;">
+    <a id="eq:p7"></a>
+    <div class="math notranslate nohighlight">
+        $$
 \begin{aligned}
-    \label{eq:p7}
-   f(\underline{x}|\theta)&=\prod_{i=1}^n \theta e^{-\theta x_i}, 
+    f(\underline{x}|\theta)&=\prod_{i=1}^n \theta e^{-\theta x_i}, 
     \quad\quad\theta>0 \notag \\
     &= \theta^n e^{-n\bar x\theta}, \quad\quad\theta>0. 
-    
-\end{aligned}$$
+\end{aligned}
+        $$
+    </div>
+</div>
 
  We now apply Bayes Theorem. The posterior density
 function is 
@@ -652,17 +682,24 @@ $$
 \begin{aligned}
     \pi(\theta|\underline{x})&\propto\pi(\theta)f(\underline{x}|\theta) \notag \\
     &\propto\frac{h^g\,\theta^{g-1}e^{-h\theta}}{\Gamma(g)}\times
-    \theta^n e^{-n\bar x\theta},\quad\quad\theta>0. \notag \\
-    \pi(\theta|\underline{x})
-    \label{eq:p8}
-    &=k\theta^{g+n-1}e^{-(h+n\bar x)\theta},\quad\quad\theta>0.
+    \theta^n e^{-n\bar x\theta},\quad\quad\theta>0. \notag
     
 \end{aligned}$$
 
- where $k$ is a constant that does not depend on
-$\theta$. Therefore, the posterior distribution takes the form
-$k\theta^{g-1}e^{-h\theta}$, $\theta>0$ and so must be a gamma
-distribution. Thus we have
+ Therefore,
+
+<div style="text-align: center;">
+    <a id="eq:p8"></a>
+    <div class="math notranslate nohighlight">
+        $$
+\pi(\theta|\underline{x}) = k\theta^{g+n-1}e^{-(h+n\bar x)\theta},\quad\quad\theta>0
+        $$
+    </div>
+</div>
+
+where $k$ is a constant that does not depend on $\theta$. Therefore, the
+posterior distribution takes the form $k\theta^{g-1}e^{-h\theta}$,
+$\theta>0$ and so must be a gamma distribution. Thus we have
 $\theta|\underline{x}\sim \mathrm{Gamma}(g+n,h+n\bar x)$.
 
 ```
@@ -673,21 +710,21 @@ If we have a random sample from an $\mathrm{Exp}(\theta)$ distribution
 and our prior beliefs about $\theta$ follow a $\mathrm{Gamma}(g,h)$
 distribution then, after incorporating the data, our (posterior) beliefs
 about $\theta$ follow a $\mathrm{Gamma}(g+n,h+n\bar x)$ distribution.
-The changes in our beliefs about $\theta$ are summarised in
-Table {ref}`tab:gam`{reference-type="ref" reference="tab:gam"}, taking
-$g\geq 1$.
+The changes in our beliefs about $\theta$ are summarised in Table ,
+taking $g\geq 1$.
 
-::: {#tab:gam}
-  ----------------------------- ----------------- ----------------- --------------------------
-  2-4                                 Prior          Likelihood             Posterior
-                                 $\eqref{eq:p6}$   $\eqref{eq:p7}$       $\eqref{eq:p8}$
-  $\textnormal{Mode}(\theta)$       $(g-1)/h$        $1/\bar x$       $(g+n-1)/(h+n\bar x)$
-  $\text{E}[\theta]$                  $g/h$              --            $(g+n)/(h+n\bar x)$
-  $\textnormal{SD}(\theta)$       $\sqrt{g}/h$           --          $\sqrt{g+n}/(h+n\bar x)$
-  ----------------------------- ----------------- ----------------- --------------------------
+```{table} Changes in beliefs about $\theta$.
+:widths: auto
+:align: center
+:name: tab:gam
 
-  : Changes in beliefs about $\theta$.
-:::
+|                           | [Prior](#eq:p6) | [Likelihood](#eq:p7) | [Posterior](#eq:p8) |
+|---------------------------|--------------------|------------------------|-----------------------|
+| $\textnormal{Mode}(\theta)$ | $(g-1)/h$           | $1/\bar x$             | $(g+n-1)/(h+n\bar x)$ |
+| $\textnormal{E}[\theta]$              | $g/h$               | --                     | $(g+n)/(h+n\bar x)$   |
+| $\textnormal{SD}(\theta)$ | $\sqrt{g}/h$        | --                     | $\sqrt{g+n}/(h+n\bar x)$ |
+```
+
 
 Notice that the posterior mean is greater than the prior mean if and
 only if the likelihood mode is greater than the prior mean, that is,
@@ -804,31 +841,29 @@ variance is so small.
 
 **Summary:**
 
-The prior, likelihood function and posterior can be seen in
-Figure {ref}`fig:clickthrough`{reference-type="ref"
-reference="fig:clickthrough"}. Here, I used my prior
-$\theta \sim \mathrm{Beta}(5,100)$. Our changes in belief about the
-click-through rate $\theta$ are summarised in
-Table {ref}`tab:clickthrough`{reference-type="ref"
-reference="tab:clickthrough"}, after incorporating the data.
+The prior, likelihood function and posterior can be seen in Figure .
+Here, I used my prior $\theta \sim \mathrm{Beta}(5,100)$. Our changes in
+belief about the click-through rate $\theta$ are summarised in Table ,
+after incorporating the data.
 
 Note how our posterior beliefs are dominated by the likelihood function.
 This is because we have so much data ($n = 10000$).
 
 ![Prior, likelihood function and posterior of the click-through rate
-$\theta$.](images/clickthroughrate_priorposterior.svg){#fig:clickthrough}
+$\theta$.](images/clickthroughrate_priorposterior.svg)
 
-::: {#tab:clickthrough}
-  ----------------------------- ----------------- ----------------- ---------------------
-  2-4                                 Prior          Likelihood           Posterior
-                                 $\eqref{eq:p6}$   $\eqref{eq:p7}$     $\eqref{eq:p8}$
-  $\textnormal{Mode}(\theta)$        $0.039$          $0.0047$             $0.005$
-  $\text{E}[\theta]$                $0.0476$             --               $0.00517$
-  $\textnormal{SD}(\theta)$         $0.0207$             --          $7.1\times 10^{-4}$
-  ----------------------------- ----------------- ----------------- ---------------------
+```{table} Changes in beliefs about $\theta$.
+:widths: auto
+:align: center
+:name: tab:clickthrough
 
-  : Changes in beliefs about $\theta$.
-:::
+|                           | [Prior](#eq:p6)       | [Likelihood](#eq:p7) | [Posterior](#eq:p8) |
+|---------------------------|-------------------------|------------------------|-----------------------|
+| $\textnormal{Mode}(\theta)$ | $0.039$                 | $0.0047$               | $0.005$               |
+| $\textnormal{E}[\theta]$              | $0.0476$                | --                     | $0.00517$             |
+| $\textnormal{SD}(\theta)$ | $0.0207$                | --                     | $7.1\times 10^{-4}$   |
+```
+
 
 ##### Example 2.7
 
@@ -971,11 +1006,10 @@ $$
     V &= \left(\frac{n}{\sigma^2} + \frac{1}{\sigma_0^2}\right)^{-1}.
 \end{aligned}$$
 
-The prior, likelihood function and posterior can be seen in
-Figure {ref}`fig:speed`{reference-type="ref" reference="fig:speed"}.
+The prior, likelihood function and posterior can be seen in Figure .
 
 ![Prior, likelihood function and posterior of the speed of the particle
-$\theta$.](images/speed_priorposterior.svg){#fig:speed}
+$\theta$.](images/speed_priorposterior.svg)
 
 ##### Example 2.8
 
@@ -1123,7 +1157,7 @@ Some examples of conjugacy are as follows:
 
 ##### Example 2.9
 
-[]{#ex:normal label="ex:normal"} \
+ \
 Suppose we have a random sample from a normal distribution. In Bayesian
 statistics, when dealing with the normal distribution, the mathematics
 is more straightforward if we work with the precision
@@ -1139,10 +1173,11 @@ X_i|\mu\sim \mathcal{N}(\mu,1/\tau),$$
 $\mu$ can be summarised by a $\mathcal{N}(b,1/d)$ distribution, with
 probability density function 
 
-$$
-\label{eq:p11}
+```{math}
+:label: eq:p11
 \pi(\mu)=
-\left(\frac{d}{2\pi}\right)^{1/2}\exp\left\{-\frac{d}{2}(\mu-b)^2\right\}.$$
+\left(\frac{d}{2\pi}\right)^{1/2}\exp\left\{-\frac{d}{2}(\mu-b)^2\right\}.
+```
 
 Determine the posterior distribution for $\mu$.
 
@@ -1172,9 +1207,15 @@ s^2 =\frac{1}{n}\sum_{i=1}^n (x_i-\bar x)^2$$
  and
 then 
 
-$$
+<div style="text-align: center;">
+    <a id="eq:p10"></a>
+    <div class="math notranslate nohighlight">
+        $$
 f(\underline{x} | \mu) = \left(\frac{\tau}{2\pi}\right)^{n/2}
-        \exp\left\{-\frac{n\tau}{2}\left[s^2+(\bar x-\mu)^2\right]\right\}. \label{eq:p10}$$
+        \exp\left\{-\frac{n\tau}{2}\left[s^2+(\bar x-\mu)^2\right]\right\}.
+        $$
+    </div>
+</div>
 
 Applying Bayes Theorem, the posterior density function is
 
@@ -1203,22 +1244,32 @@ d(\mu-b)^2&+n\tau(\bar x-\mu)^2\\
 -\left(\frac{db+n\tau\bar x}{d+n\tau}\right)\right\}^2+c
 \end{aligned}$$
 
- where $c$ does not depend on $\mu$. Let 
+ where $c$ does not depend on $\mu$. Let
 
-$$
-\label{eq:p12}
+<div style="text-align: center;">
+    <a id="eq:p12"></a>
+    <div class="math notranslate nohighlight">
+        $$
 B=\frac{db+n\tau\bar x}{d+n\tau}\quad\quad\text{and}\quad\quad
-D=d+n\tau.$$
+D=d+n\tau.
+        $$
+    </div>
+</div>
 
  Then 
 
-$$
+<div style="text-align: center;">
+    <a id="eq:p13"></a>
+    <div class="math notranslate nohighlight">
+        $$
 \begin{aligned}
-\label{eq:p13}
 \pi(\mu|\underline{x})&=k_1\exp\left\{-\frac{D}{2}(\mu-B)^2-\frac{c}{2}\right\}
 \notag \\
 &=k\exp\left\{-\frac{D}{2}(\mu-B)^2\right\},
-\end{aligned}$$
+\end{aligned}
+        $$
+    </div>
+</div>
 
  where $k$ is a constant that does not depend on $\mu$.
 Therefore, the posterior distribution takes the form
@@ -1258,11 +1309,10 @@ $$
 
 arises in other models and is known as the *Bayes linear rule*.
 
-The changes in our beliefs about $\mu$ are summarised in
-Table {ref}`tab:norknown`{reference-type="ref"
-reference="tab:norknown"}. Notice that the posterior mean is greater
-than the prior mean if and only if the likelihood mode (sample mean) is
-greater than the prior mean, that is
+The changes in our beliefs about $\mu$ are summarised in Table . Notice
+that the posterior mean is greater than the prior mean if and only if
+the likelihood mode (sample mean) is greater than the prior mean, that
+is
 
 $$
 \text{E}[\mu|\underline{x}] > \text{E}[\mu] \quad\iff\quad \textnormal{Mode}(f(\underline{x}|\mu))>\text{E}[\mu].$$
@@ -1270,26 +1320,26 @@ $$
 Also, the standard deviation of the posterior distribution is smaller
 than that of the prior distribution.
 
-::: {#tab:norknown}
-  ------------------------------- ------------------ ------------------ ------------------------------
-  2-4                                   Prior            Likelihood               Posterior
-                                   $\eqref{eq:p11}$   $\eqref{eq:p10}$         $\eqref{eq:p13}$
-  $\textnormal{Mode}(\mu)$               $b$              $\bar x$       $(db+n\tau\bar x)/(d+n\tau)$
-  $\text{E}[\mu]$                        $b$                 --          $(db+n\tau\bar x)/(d+n\tau)$
-  $\textnormal{Precision}(\mu)$          $d$                 --                   $d+n\tau$
-  ------------------------------- ------------------ ------------------ ------------------------------
+```{table} Changes in beliefs about $\mu$.
+:widths: auto
+:align: center
+:name: tab:norknown
 
-  : Changes in beliefs about $\mu$.
-:::
+|                            | [Prior](#eq:p11)       | [Likelihood](#eq:p10) | [Posterior](#eq:p13) |
+|----------------------------|--------------------------|-------------------------|------------------------|
+| $\textnormal{Mode}(\mu)$   | $b$                      | $\bar x$                | $(db+n\tau\bar x)/(d+n\tau)$ |
+| $\textnormal{E}[\mu]$                  | $b$                      | --                      | $(db+n\tau\bar x)/(d+n\tau)$ |
+| $\textnormal{Precision}(\mu)$ | $d$                   | --                      | $d+n\tau$              |
+```
+
 
 ##### Example 2.10
 
  \
-The ages of *Ennerdale granophyre* rocks can be determined using
-[]{#ex:rocks label="ex:rocks"} the relative proportions of rubidium--87
-and strontium--87 in the rock. An expert in the field suggests that the
-ages of such rocks (in millions of years)
-$X|\mu\sim \mathcal{N}(\mu,8^2)$ and that a prior distribution
+The ages of *Ennerdale granophyre* rocks can be determined using the
+relative proportions of rubidium--87 and strontium--87 in the rock. An
+expert in the field suggests that the ages of such rocks (in millions of
+years) $X|\mu\sim \mathcal{N}(\mu,8^2)$ and that a prior distribution
 $\mu\sim \mathcal{N}(370,20^2)$ is appropriate. A rock is found whose
 chemical analysis yields $x=421$. What is the posterior distribution for
 $\mu$ and what is the probability that the rock will be older than 400
@@ -1331,8 +1381,7 @@ This highlights the benefit of taking the chemical measurements. Note
 that the large difference between these probabilities is not necessarily
 due to the expert's prior distribution being inaccurate, *per se*, it is
 probably due to the large prior uncertainty about rock ages, as shown in
-Figure {ref}`fig:normalplot`{reference-type="ref"
-reference="fig:normalplot"}.
+Figure .
 
 ![Prior (dashed) and posterior (solid) densities for the age of the
-rock.](images/priorposterior4.svg){#fig:normalplot}
+rock.](images/priorposterior4.svg)
