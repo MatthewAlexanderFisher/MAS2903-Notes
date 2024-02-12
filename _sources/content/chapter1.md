@@ -2,17 +2,17 @@
 
 Consider the following three experiments.
 
-### Experiment 1: Fisher's tea lady {#experiment-1-fishers-tea-lady .unnumbered}
+### Experiment 1: Fisher's tea lady 
 
 The tea lady claims to know whether milk or tea is poured in first: for
 10 pairs of cups of tea she makes the correct choice each time.
 
-### Experiment 2: Music expert {#experiment-2-music-expert .unnumbered}
+### Experiment 2: Music expert 
 
 The expert claims he can distinguish between a page from a Haydn score
 and a page from a Mozart score: he does so correctly 10 times.
 
-### Experiment 3: The Drunk {#experiment-3-the-drunk .unnumbered}
+### Experiment 3: The Drunk 
 
 A somewhat inebriated friend at a party claims they can predict the
 outcome of the toss of a coin: they do so correctly 10 times.
@@ -74,7 +74,7 @@ around the 17th century by Galilei, Pascal and Fermat to solve (again)
 gambling problems. There are three main ways of understanding and
 thinking about probability.
 
-### Frequency interpretation {#frequency-interpretation .unnumbered}
+### Frequency interpretation 
 
 The probability of an outcome is the relative frequency with which the
 outcome would be obtained if the experiment were repeated a large number
@@ -88,14 +88,14 @@ probability to be about 0.5. Most of your courses will have used the
 frequentist interpretation: repeated sampling ideas are fundamental to
 the techniques described.
 
-### Classical interpretation {#classical-interpretation .unnumbered}
+### Classical interpretation 
 
 This is based on the concept of equally likely outcomes resulting from
 ideas of symmetry. If the outcome of an experiment must be one of $n$
 different outcomes and these $n$ outcomes are equally likely then the
 probability of each outcome is $1/n$.
 
-### Subjective interpretation {#subjective-interpretation .unnumbered}
+### Subjective interpretation 
 
 Your subjective probability for an outcome $A$ represents your own
 judgement of the likelihood that the outcome will occur. This judgement
@@ -139,7 +139,7 @@ Consider the following events and their probabilities:
     assessment.
 
 2.  The probability
-    $\text{Pr}(\text{M\&S student chosen at random was born in     January})$ could be determined using a frequency or classical
+    $\text{Pr}(\text{M&S student chosen at random was born in     January})$ could be determined using a frequency or classical
     interpretation (with a list of all M&S students and their birth
     dates) or a subjective interpretation.
 
@@ -217,18 +217,15 @@ $$
 The events $E_1,E_2,\ldots,E_n$ form a *partition* of the sample space
 ${\cal S}$ if they are disjoint events ($E_i\cap E_j=\emptyset$,
 $i\neq j$) with $\textnormal{Pr}(E_i)>0$, $i=1,2,\ldots,n$, and
-$\displaystyle{\cup_{i=1}^n E_i}={\cal S}$.
-Figure {ref}`fig:partition`{reference-type="ref"
-reference="fig:partition"} gives a diagram of a typical partition with
-an additional event $F$.
+$\displaystyle{\cup_{i=1}^n E_i}={\cal S}$. Figure  gives a diagram of a
+typical partition with an additional event $F$.
 
 ![Diagram of a partition $E_1,E_2,\ldots,E_n$ and an event
-$F$](images/partition.svg){#fig:partition}
+$F$](images/partition.svg)
 
 ##### Theorem 1.1: Law of Total Probability
 
-[]{#theorem: law of total probability
-label="theorem: law of total probability"}  \
+ \
 If $E_1,E_2,\ldots,E_n$ are a *partition* of ${\cal S}$ and $F$ is any
 event then 
 
@@ -237,9 +234,7 @@ $$
 
 ##### Proof
 
-Theorem[\[theorem: law of total probability\]](#theorem: law of total probability){reference-type="ref"
-reference="theorem: law of total probability"} As $E_1,E_2,\ldots,E_n$
-are a *partition* of ${\cal S}$, we have 
+Theorem As $E_1,E_2,\ldots,E_n$ are a *partition* of ${\cal S}$, we have
 
 $$
 \begin{aligned}
@@ -249,7 +244,7 @@ $$
 
 ##### Theorem 1.2: Bayes Theorem
 
-[]{#theorem: bayes label="theorem: bayes"}  \
+ \
 If $E_1,E_2,\ldots,E_n$ are a *partition* of ${\cal S}$ and $F$ is any
 event with $\text{Pr}(F)>0$ then
 
@@ -338,21 +333,22 @@ x_3:&~\text{both symptoms}.
 
  Suppose it is known in the garage trade that these
 symptoms occur with probabilities that depend on the fault. The
-probabilities $\text{Pr}(x|\theta)$ are given in
-Table {ref}`tab:garagelik`{reference-type="ref"
-reference="tab:garagelik"}. Construct a diagnostic rule for these
-symptoms and determine the probability of misdiagnosis.
+probabilities $\text{Pr}(x|\theta)$ are given in Table . Construct a
+diagnostic rule for these symptoms and determine the probability of
+misdiagnosis.
 
-::: {#tab:garagelik}
-  ------------------------------ ------- ------- -------
-  2-4                              O/H     I/T    Both
-                                  $x_1$   $x_2$   $x_3$
-  $\theta_1$: fault in engine      0.1     0.4     0.5
-  $\theta_2$: fault in gearbox     0.5     0.3     0.2
-  ------------------------------ ------- ------- -------
+```{table} Likelihood of symptoms for both faults.
+:widths: auto
+:align: center
+:name: tab:garagelik
 
-  : Likelihood of symptoms for both faults.
-:::
+|                              | O/H | I/T | Both |
+|------------------------------|-----|-----|------|
+|                              | $x_1$ | $x_2$ | $x_3$ |
+| $\theta_1$: fault in engine | 0.1 | 0.4 | 0.5  |
+| $\theta_2$: fault in gearbox | 0.5 | 0.3 | 0.2  |
+```
+
 
 ```{dropdown} Solution
 
@@ -396,21 +392,21 @@ $$
  Also,
 $\text{Pr}(\theta_2|x_i)=1-\text{Pr}(\theta_1|x_i)$, $i=1,2,3$ and so we
 obtain the posterior distributions $\text{Pr}(\theta|x)$ given in
-Table {ref}`tab:garagepost`{reference-type="ref"
-reference="tab:garagepost"}.
+Table .
 
 ```
 
-::: {#tab:garagepost}
-  ------------------------------ ------- ------- -------
-  2-4                              O/H     I/T    Both
-                                  $x_1$   $x_2$   $x_3$
-  $\theta_1$: fault in engine     0.118   0.471   0.625
-  $\theta_2$: fault in gearbox    0.882   0.529   0.375
-  ------------------------------ ------- ------- -------
+```{table} Posterior probabilities of the faults for various symptoms.
+:widths: auto
+:align: center
+:name: tab:garagepost
 
-  : Posterior probabilities of the faults for various symptoms.
-:::
+|                            | O/H   | I/T   | Both  |
+|----------------------------|-------|-------|-------|
+| $\theta_1$: fault in engine | 0.118 | 0.471 | 0.625 |
+| $\theta_2$: fault in gearbox | 0.882 | 0.529 | 0.375 |
+```
+
 
 This table is very informative. For example, it shows that if both
 symptoms ($x_3$) are observed, then the probability that the fault is in
@@ -433,18 +429,20 @@ fault as in the gearbox ($\theta_2$) since
 $\text{Pr}(\theta_2|x_1)>\text{Pr}(\theta_1|x_1)$. In the same way, we
 can determine the best (most likely) diagnosis having observed irregular
 traction only ($x_2$) and both symptoms ($x_3$), giving the diagnostic
-rule in Table {ref}`tab:garagediag`{reference-type="ref"
-reference="tab:garagediag"}.
+rule in Table .
 
-::: {#tab:garagediag}
-  Symptom                           Diagnosis
-  --------------------------------- -------------------------------
-  overheating only ($x_1$)          fault in gearbox ($\theta_2$)
-  irregular traction only ($x_2$)   fault in gearbox ($\theta_2$)
-  both symptoms ($x_3$)             fault in engine ($\theta_1$)
+```{table} Diagnostic rule for faults.
+:widths: auto
+:align: center
+:name: tab:garagediag
 
-  : Diagnostic rule for faults.
-:::
+| Symptom                            | Diagnosis                           |
+|------------------------------------|-------------------------------------|
+| overheating only ($x_1$)           | fault in gearbox ($\theta_2$)       |
+| irregular traction only ($x_2$)    | fault in gearbox ($\theta_2$)       |
+| both symptoms ($x_3$)              | fault in engine ($\theta_1$)        |
+```
+
 
 ```{dropdown} Solution
 
@@ -472,7 +470,7 @@ A student sits a multiple choice exam in which there are $m$ alternative
 answers to each question. The student either knows the answer (with
 probability $\theta$) or guesses randomly (with probability $1-\theta$).
 What is the probability that the student actually knew the answer to a
-question they answered correctly? []{#ex:multiple label="ex:multiple"}
+question they answered correctly?
 
 ```{dropdown} Solution
 
@@ -503,28 +501,28 @@ $$
 Suppose that there are $m=5$ alternative answers for each question. We
 can see the effect of observing a correct answer on our belief that the
 student actually knows the answer by calculating $\text{Pr}(K|C)$ for
-various $\theta$ -- see Table {ref}`tab:kc`{reference-type="ref"
-reference="tab:kc"}.
+various $\theta$ -- see Table .
 
-::: {#tab:kc}
-  ---------------- ------------------------
-   $\text{Pr}(K)$      $\text{Pr}(K|C)$
-     $=\theta$      $=5\theta/(1+4\theta)$
-        0.0                 0.000
-        0.1                 0.357
-        0.2                 0.556
-        0.3                 0.682
-        0.4                 0.769
-        0.5                 0.833
-        0.6                 0.882
-        0.7                 0.921
-        0.8                 0.952
-        0.9                 0.978
-        1.0                 1.000
-  ---------------- ------------------------
+```{table} Values of $\text{Pr}(K|C)$ for various values of $\text{Pr}(K)$.
+:widths: auto
+:align: center
+:name: tab:kc
 
-  : Values of $\text{Pr}(K|C)$ for various values of $\text{Pr}(K)$.
-:::
+| $\text{Pr}(K) = \theta$ | $\text{Pr}(K|C) = 5\theta/(1+4\theta)$ |
+|----------------|------------------|
+| 0.0            | 0.000            |
+| 0.1            | 0.357            |
+| 0.2            | 0.556            |
+| 0.3            | 0.682            |
+| 0.4            | 0.769            |
+| 0.5            | 0.833            |
+| 0.6            | 0.882            |
+| 0.7            | 0.921            |
+| 0.8            | 0.952            |
+| 0.9            | 0.978            |
+| 1.0            | 1.000            |
+```
+
 
 The main problem with this solution is that, in order to use this table
 we must know the exact value of $\theta$: we have actually found an
@@ -555,24 +553,25 @@ The likelihood function can be simplified if we have further structure
 in the data. For example, we may have independent observations, in which
 case 
 
-$$
-\label{eq:indep}
-f(\underline{x}|\theta)=\prod_{i=1}^n f_{X_i}(x_i|\theta),$$
+```{math}
+:label: eq:indep
+f(\underline{x}|\theta)=\prod_{i=1}^n f_{X_i}(x_i|\theta),
+```
 
  or
 independent and identically distributed observations (random sample), so
 that 
 
-$$
-\label{eq:iid}
-f(\underline{x}|\theta)=\prod_{i=1}^n f_{X}(x_i|\theta).$$
+```{math}
+:label: eq:iid
+f(\underline{x}|\theta)=\prod_{i=1}^n f_{X}(x_i|\theta).
+```
 
  In this
 course, we will not consider models with correlated observations.
 Moreover, we will concentrate on how to make inferences from random
 samples using prior information. This will require extensive use of the
-{ref}`eq:iid`{reference-type="eqref" reference="eq:iid"} form of
-the likelihood function.
+form of the likelihood function.
 
 ##### Example 1.5
 
@@ -595,8 +594,6 @@ $$
 \end{aligned}$$
 
 ```
-
-[]{#ex:poissonex label="ex:poissonex"}
 
 ##### Example 1.6
 

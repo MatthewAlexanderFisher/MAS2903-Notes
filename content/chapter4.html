@@ -173,7 +173,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    MAS2903: Introduction to Bayesian Methods
+                    Preface: What is Bayesian Statistics?
                 </a>
             </li>
         </ul>
@@ -346,23 +346,24 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-1-estimation">Section 4.1: Estimation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-estimates-point-estimates-unnumbered">Point estimates {#point-estimates .unnumbered}</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interval-estimates-interval-estimates-unnumbered">Interval estimates {#interval-estimates .unnumbered}</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-confidence-intervals-interpretation-of-confidence-intervals-unnumbered">Interpretation of confidence intervals {#interpretation-of-confidence-intervals .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-estimates">Point estimates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interval-estimates">Interval estimates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-confidence-intervals">Interpretation of confidence intervals</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-1">Example 4.1</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-2">Example 4.2</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-3">Example 4.3</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-of-hdis-for-unimodal-distributions-computation-of-hdis-for-unimodal-distributions-unnumbered">Computation of HDIs for unimodal distributions {#computation-of-hdis-for-unimodal-distributions .unnumbered}</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-hdi-reference-type-ref-reference-ex-hdi-continued-example-exhdi-continued-unnumbered">Example <span class="xref std std-ref">ex:hdi</span>{reference-type=”ref” reference=”ex:hdi”} (continued) {#example-exhdi-continued .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-of-hdis-for-unimodal-distributions">Computation of HDIs for unimodal distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-continued">Example  (continued)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-2-prediction">Section 4.2: Prediction</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-2-hypothesis-testing">Section 4.2: Hypothesis Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-3-prediction">Section 4.3: Prediction</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-4">Example 4.4</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-4-1-definition">Definition 4.1: Definition</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-5">Example 4.5</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-distribution-predictive-distribution-unnumbered">Predictive distribution {#predictive-distribution .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-distribution">Predictive distribution</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-4-2-inverse-beta-distribution">Definition 4.2: Inverse-Beta Distribution</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-6">Example 4.6</a></li>
 </ul>
@@ -387,15 +388,15 @@ our information about <span class="math notranslate nohighlight">\(\theta\)</spa
 to reduce this distribution to a few key summary measures.</p>
 <section id="section-4-1-estimation">
 <h2>Section 4.1: Estimation<a class="headerlink" href="#section-4-1-estimation" title="Link to this heading">#</a></h2>
-<section id="point-estimates-point-estimates-unnumbered">
-<h3>Point estimates {#point-estimates .unnumbered}<a class="headerlink" href="#point-estimates-point-estimates-unnumbered" title="Link to this heading">#</a></h3>
+<section id="point-estimates">
+<h3>Point estimates<a class="headerlink" href="#point-estimates" title="Link to this heading">#</a></h3>
 <p>There are many useful summaries for a typical value of a random variable
 with a particular distribution; for example, the mean, mode and median.
 The mode is used more often as a summary than is the case in frequentist
 statistics.</p>
 </section>
-<section id="interval-estimates-interval-estimates-unnumbered">
-<h3>Interval estimates {#interval-estimates .unnumbered}<a class="headerlink" href="#interval-estimates-interval-estimates-unnumbered" title="Link to this heading">#</a></h3>
+<section id="interval-estimates">
+<h3>Interval estimates<a class="headerlink" href="#interval-estimates" title="Link to this heading">#</a></h3>
 <p>A more useful summary of the posterior distribution is one which also
 reflects its variation. For example, a <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> <em>Bayesian
 credible interval</em> for <span class="math notranslate nohighlight">\(\theta\)</span> is any region <span class="math notranslate nohighlight">\(C_\alpha\)</span> that satisfies
@@ -420,8 +421,8 @@ will be the union of several disjoint regions; for example, the HDI
 could take the form <span class="math notranslate nohighlight">\(C_\alpha=(a,b)\cup(c,d)\cup(e,f)\)</span>, where
 <span class="math notranslate nohighlight">\(a&lt;b&lt;c&lt;d&lt;e&lt;f\)</span>.</p>
 </section>
-<section id="interpretation-of-confidence-intervals-interpretation-of-confidence-intervals-unnumbered">
-<h3>Interpretation of confidence intervals {#interpretation-of-confidence-intervals .unnumbered}<a class="headerlink" href="#interpretation-of-confidence-intervals-interpretation-of-confidence-intervals-unnumbered" title="Link to this heading">#</a></h3>
+<section id="interpretation-of-confidence-intervals">
+<h3>Interpretation of confidence intervals<a class="headerlink" href="#interpretation-of-confidence-intervals" title="Link to this heading">#</a></h3>
 <p>Suppose <span class="math notranslate nohighlight">\(C_B\)</span> is a 95% Bayesian credible interval for <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(C_F\)</span>
 is a 95% frequentist confidence interval for <span class="math notranslate nohighlight">\(\theta\)</span>. These intervals
 do not have the same interpretation:</p>
@@ -441,9 +442,8 @@ Suppose that the posterior distribution for <span class="math notranslate nohigh
 <div class="math notranslate nohighlight">
 \[\pi(\theta|\underline{x})=24\,(1-\theta)^{23}, \quad 0&lt;\theta&lt;1.\]</div>
 <p>A
-plot of this distribution is given in Figure
-<span class="xref std std-ref">fig:ci1</span>{reference-type=”ref” reference=”fig:ci1”}.</p>
-<p><img alt="Plot of the  posterior densityfunction" src="../_images/betaposterior.svg" />{#fig:ci1}</p>
+plot of this distribution is given in Figure .</p>
+<p><img alt="Plot of the  posterior densityfunction" src="../_images/betaposterior.svg" /></p>
 <p>Determine the <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> HDI for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -506,14 +506,12 @@ However, the interpretation is very different.</p>
 <section id="example-4-3">
 <h4>Example 4.3<a class="headerlink" href="#example-4-3" title="Link to this heading">#</a></h4>
 <p><br />
-Suppose that the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is a []{#ex:hdi
-label=”ex:hdi”} <span class="math notranslate nohighlight">\(\mathrm{Beta}(2,23)\)</span> distribution, with probability
-density function</p>
+Suppose that the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is a</p>
+<p><span class="math notranslate nohighlight">\(\mathrm{Beta}(2,23)\)</span> distribution, with probability density function</p>
 <div class="math notranslate nohighlight">
 \[\pi(\theta|\underline{x})=552\,\theta(1-\theta)^{22}, \quad 0&lt;\theta&lt;1.\]</div>
-<p>A plot of this distribution is given in Figure
-<span class="xref std std-ref">fig:ci2</span>{reference-type=”ref” reference=”fig:ci2”}.</p>
-<p><img alt="Plot of the  posterior densityfunction" src="../_images/betaposterior2.svg" />{#fig:ci2}</p>
+<p>A plot of this distribution is given in Figure .</p>
+<p><img alt="Plot of the  posterior densityfunction" src="../_images/betaposterior2.svg" /></p>
 <p>Determine the <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> HDI for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -540,8 +538,8 @@ F(b|\underline{x}) - F(a|\underline{x}) = 1 - \alpha\]</div>
 </div>
 </details></section>
 </section>
-<section id="computation-of-hdis-for-unimodal-distributions-computation-of-hdis-for-unimodal-distributions-unnumbered">
-<h3>Computation of HDIs for unimodal distributions {#computation-of-hdis-for-unimodal-distributions .unnumbered}<a class="headerlink" href="#computation-of-hdis-for-unimodal-distributions-computation-of-hdis-for-unimodal-distributions-unnumbered" title="Link to this heading">#</a></h3>
+<section id="computation-of-hdis-for-unimodal-distributions">
+<h3>Computation of HDIs for unimodal distributions<a class="headerlink" href="#computation-of-hdis-for-unimodal-distributions" title="Link to this heading">#</a></h3>
 <p>Suppose that we require the HDI (<span class="math notranslate nohighlight">\(a,b\)</span>) for a unimodal distribution with
 density <span class="math notranslate nohighlight">\(f(\cdot)\)</span> and distribution function <span class="math notranslate nohighlight">\(F(\cdot)\)</span>. We have seen
 that if one of the end-points is known (because of the shape of the
@@ -561,8 +559,8 @@ g(a,b)=\bigl\{F(b)-F(a)-(1-\alpha)\bigr\}^2+k\bigl\{f(b)-f(a)\bigr\}^2,\]</div>
 are zeroed. Therefore, we can used the <code class="docutils literal notranslate"><span class="pre">R</span></code> optimizer function <code class="docutils literal notranslate"><span class="pre">optim</span></code> to
 determine <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
 </section>
-<section id="example-ex-hdi-reference-type-ref-reference-ex-hdi-continued-example-exhdi-continued-unnumbered">
-<h3>Example <span class="xref std std-ref">ex:hdi</span>{reference-type=”ref” reference=”ex:hdi”} (continued) {#example-exhdi-continued .unnumbered}<a class="headerlink" href="#example-ex-hdi-reference-type-ref-reference-ex-hdi-continued-example-exhdi-continued-unnumbered" title="Link to this heading">#</a></h3>
+<section id="example-continued">
+<h3>Example  (continued)<a class="headerlink" href="#example-continued" title="Link to this heading">#</a></h3>
 <p>Suppose we need the 95% HDI for <span class="math notranslate nohighlight">\(\theta\)</span> when
 <span class="math notranslate nohighlight">\(\theta|\underline{x}\sim \mathrm{Beta}(2,23)\)</span>. One slight complication
 with using the above method to determine the HDI <span class="math notranslate nohighlight">\((a,b)\)</span> is that both
@@ -591,8 +589,49 @@ and <span class="math notranslate nohighlight">\(f(b)-f(a)=-0.004484121\)</span>
 <span class="math notranslate nohighlight">\((0.002211733,0.1840109)\)</span>.</p>
 </section>
 </section>
-<section id="section-4-2-prediction">
-<h2>Section 4.2: Prediction<a class="headerlink" href="#section-4-2-prediction" title="Link to this heading">#</a></h2>
+<section id="section-4-2-hypothesis-testing">
+<h2>Section 4.2: Hypothesis Testing<a class="headerlink" href="#section-4-2-hypothesis-testing" title="Link to this heading">#</a></h2>
+<p>Bayesian hypothesis testing offers a probabilistic framework for making
+decisions about hypotheses based on observed data and prior beliefs.
+Unlike classical hypothesis testing, which relies on p-values and
+rejection regions, Bayesian hypothesis testing evaluates the
+plausibility of hypotheses directly through the posterior probabilities.
+Given a parameter of interest <span class="math notranslate nohighlight">\(\theta\)</span> and observed data
+<span class="math notranslate nohighlight">\(\underline{x}\)</span>, the aim is to assess the evidence provided by the data
+for or against a specific hypothesis regarding <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>In Bayesian analysis, the prior distribution <span class="math notranslate nohighlight">\(\pi(\theta)\)</span> represents
+our beliefs about the possible values of <span class="math notranslate nohighlight">\(\theta\)</span> before observing the
+data. Upon observing the data <span class="math notranslate nohighlight">\(\underline{x}\)</span>, these beliefs are updated
+to form the posterior distribution <span class="math notranslate nohighlight">\(\pi(\theta|\underline{x})\)</span>, which
+combines the information from the prior and the likelihood of the
+observed data under different values of <span class="math notranslate nohighlight">\(\theta\)</span>. The likelihood
+function <span class="math notranslate nohighlight">\(f(\underline{x}|\theta)\)</span> plays a crucial role in this update,
+quantifying how probable the observed data are for different values of
+<span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>To perform hypothesis testing, consider a null hypothesis <span class="math notranslate nohighlight">\(H_0\)</span> that
+posits a specific value or range of values for <span class="math notranslate nohighlight">\(\theta\)</span>, and an
+alternative hypothesis <span class="math notranslate nohighlight">\(H_1\)</span> that represents other possible values.
+Bayesian hypothesis testing involves calculating the posterior
+probabilities of these hypotheses given the data. This can often be
+facilitated by computing the Bayes factor, which is the ratio of the
+marginal likelihoods of the data under each hypothesis:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{BF}_{01} = \frac{\int f(\underline{x}|\theta) \pi(\theta|H_0)\,d\theta}{\int f(\underline{x}|\theta) \pi(\theta|H_1)\,d\theta}.\]</div>
+<p>This ratio provides a measure of the evidence in favor of <span class="math notranslate nohighlight">\(H_0\)</span> relative
+to <span class="math notranslate nohighlight">\(H_1\)</span>, adjusted for the prior probabilities of the hypotheses. A
+Bayes factor greater than 1 indicates evidence in favor of <span class="math notranslate nohighlight">\(H_0\)</span>, while
+a Bayes factor less than 1 indicates evidence in favor of <span class="math notranslate nohighlight">\(H_1\)</span>. The
+magnitude of the Bayes factor reflects the strength of this evidence.</p>
+<p>Ultimately, Bayesian hypothesis testing yields a probabilistic
+assessment of hypotheses that incorporates both the observed data and
+prior knowledge. This approach not only provides a direct measure of
+evidence for hypotheses but also allows for a more nuanced understanding
+of uncertainty and the impact of prior beliefs on the conclusions drawn
+from data.</p>
+</section>
+<section id="section-4-3-prediction">
+<h2>Section 4.3: Prediction<a class="headerlink" href="#section-4-3-prediction" title="Link to this heading">#</a></h2>
 <p>Much of statistical inference (both Frequentist and Bayesian) is aimed
 towards making statements about a parameter <span class="math notranslate nohighlight">\(\theta\)</span>. Often the
 inferences are used as a yardstick for similar future experiments. For
@@ -635,9 +674,30 @@ so that <span class="math notranslate nohighlight">\(\text{Pr}(Y\in C_\alpha|\un
 Suppose that <span class="math notranslate nohighlight">\(X\)</span> is the number of expensive goods sold in a shop over 24
 days. If <span class="math notranslate nohighlight">\(\theta\)</span> is the expected number of sales per day then it may be
 plausible that <span class="math notranslate nohighlight">\(X|\theta\sim Po(24\,\theta)\)</span>. Also, suppose our prior
-distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is as given in
-Table <span class="xref std std-ref">tab:predprior</span>{reference-type=”ref”
-reference=”tab:predprior”}.</p>
+distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is as given in Table .</p>
+<table class="table table-center" id="tab-predprior">
+<caption><span class="caption-number">Table 11 </span><span class="caption-text">Prior distribution for <span class="math notranslate nohighlight">\(\theta\)</span>.</span><a class="headerlink" href="#tab-predprior" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\theta\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\pi(\theta)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>“great”</p></td>
+<td><p>1/2</p></td>
+<td><p>0.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>“good”</p></td>
+<td><p>1/4</p></td>
+<td><p>0.5</p></td>
+</tr>
+<tr class="row-even"><td><p>“poor”</p></td>
+<td><p>1/8</p></td>
+<td><p>0.3</p></td>
+</tr>
+</tbody>
+</table>
 <p>Clearly, we believe that the most likely value of <span class="math notranslate nohighlight">\(\theta\)</span> is 1/4,
 indicating that we would expect around 6 expensive goods to be sold in
 any 24 day period. Suppose now that we observe that <span class="math notranslate nohighlight">\(x=10\)</span> expensive
@@ -668,9 +728,8 @@ follows. The likelihood term is</p>
 \pi(\theta=1/8|x=10)&amp;=\cdots=0.006.
 \end{aligned}\end{split}\]</div>
 <p>Thus, the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is as
-shown in Table <span class="xref std std-ref">tab:predpost</span>{reference-type=”ref”
-reference=”tab:predpost”}, with most likely value of <span class="math notranslate nohighlight">\(\theta\)</span> now being
-1/2, and standard deviation <span class="math notranslate nohighlight">\(\textnormal{SD}(\theta|x=10)=0.126\)</span>.</p>
+shown in Table , with most likely value of <span class="math notranslate nohighlight">\(\theta\)</span> now being 1/2, and
+standard deviation <span class="math notranslate nohighlight">\(\textnormal{SD}(\theta|x=10)=0.126\)</span>.</p>
 <p>Suppose now we want to predict the number of sales <span class="math notranslate nohighlight">\(Y\)</span> in the next 24
 days. If there have been no changes in the sales process (no special
 advertising campaigns etc) then we can take <span class="math notranslate nohighlight">\(Y|\theta\sim \mathrm{Poisson}(24\,\theta)\)</span>. Determine the predictive probability
@@ -715,9 +774,106 @@ likelihood mode. Here <span class="math notranslate nohighlight">\(\hat{\theta}=
 \[
 \text{Pr}(Y=10|\theta=\hat{\theta})=\frac{12^{10} e^{-12}}{10!}=0.1048.\]</div>
 <p>In the same manner, we can calculate the entire predictive distribution
-and naive predictive distribution; see
-Table <span class="xref std std-ref">tab:predsimple</span>{reference-type=”ref”
-reference=”tab:predsimple”}.</p>
+and naive predictive distribution; see Table .</p>
+<table class="table table-center" id="tab-predsimple">
+<caption><span class="caption-number">Table 12 </span><span class="caption-text">Predictive and “naive” predictive probability functions.</span><a class="headerlink" href="#tab-predsimple" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(y\)</span></p></th>
+<th class="head"><p>Correct <span class="math notranslate nohighlight">\(f(y|x=10)\)</span></p></th>
+<th class="head"><p>Naive <span class="math notranslate nohighlight">\(f(y|\theta=\hat{\theta})\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0.002</p></td>
+<td><p>0.000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0.008</p></td>
+<td><p>0.000</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0.024</p></td>
+<td><p>0.000</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>0.046</p></td>
+<td><p>0.002</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>0.070</p></td>
+<td><p>0.005</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>0.086</p></td>
+<td><p>0.013</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>0.092</p></td>
+<td><p>0.025</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>0.090</p></td>
+<td><p>0.044</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>0.084</p></td>
+<td><p>0.066</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>0.078</p></td>
+<td><p>0.087</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>0.073</p></td>
+<td><p>0.105</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>0.068</p></td>
+<td><p>0.114</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>0.063</p></td>
+<td><p>0.114</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>0.055</p></td>
+<td><p>0.106</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>0.046</p></td>
+<td><p>0.090</p></td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>0.037</p></td>
+<td><p>0.072</p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>0.027</p></td>
+<td><p>0.054</p></td>
+</tr>
+<tr class="row-odd"><td><p>17</p></td>
+<td><p>0.019</p></td>
+<td><p>0.038</p></td>
+</tr>
+<tr class="row-even"><td><p>18</p></td>
+<td><p>0.013</p></td>
+<td><p>0.026</p></td>
+</tr>
+<tr class="row-odd"><td><p>19</p></td>
+<td><p>0.008</p></td>
+<td><p>0.016</p></td>
+</tr>
+<tr class="row-even"><td><p>20</p></td>
+<td><p>0.005</p></td>
+<td><p>0.010</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+</tr>
+</tbody>
+</table>
 <p>Notice that the correct predictive probability distribution has more
 probability out in the tails of its distribution, that is, the
 probabilities of 0, 1, 2, <span class="math notranslate nohighlight">\(\ldots\)</span> are larger than their “naive”
@@ -745,8 +901,7 @@ standard deviation:</p>
               3.46  &amp; \text{using the naive }\pi^*(\theta|x=10). \\
          \end{cases}\end{split}\]</div>
 <p>These standard deviations can be calculated from
-Table <span class="xref std std-ref">tab:predsimple</span>{reference-type=”ref”
-reference=”tab:predsimple”}.</p>
+Table .</p>
 <p>We can also use the above table of predictive probabilities to determine
 a prediction interval for <span class="math notranslate nohighlight">\(Y\)</span>. Using the correct predictive
 distribution, and recalling the highest density feature of prediction
@@ -766,8 +921,7 @@ The random variable <span class="math notranslate nohighlight">\(Y\)</span> foll
 f(y|n,a,b)=\binom{n}{y}\frac{\mathrm{B}(y+a,b+n-y)}{\mathrm{B}(a,b)}, \quad\quad
 y=0,1,\ldots,n,\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathrm{B}(a,b)\)</span> is the beta function defined
-in <span class="xref std std-ref">eq:betafn</span>{reference-type=”eqref”
-reference=”eq:betafn”}. It can be shown that</p>
+in . It can be shown that</p>
 <div class="math notranslate nohighlight">
 \[
 \text{E}[Y] =\frac{na}{a+b}\quad\quad\text{and}\quad\quad
@@ -838,9 +992,7 @@ f(y|\theta=\hat{\theta})&amp;=\binom{5}{y}\hat{\theta}^y(1-\hat{\theta})^{5-y}
 =\binom{5}{y}\frac{22^{5-y}}{23^5}.
 \end{aligned}\]</div>
 <p>Numerical values for the predictive and naive predictive probability
-functions are given in
-Table <span class="xref std std-ref">tab:predbetabin</span>{reference-type=”ref”
-reference=”tab:predbetabin”}.</p>
+functions are given in Table .</p>
 <p>Again, the naive predictive distribution is a predictive distribution
 which, instead of using the correct posterior distribution, uses a
 degenerate posterior distribution <span class="math notranslate nohighlight">\(\pi^*(\theta|x=1)\)</span> which essentially
@@ -865,8 +1017,8 @@ with the more “optimistic” calculation using the naive predictive
 distribution which shows that <span class="math notranslate nohighlight">\(\{0,1\}\)</span> is a 98.3% prediction
 set/interval.</p>
 </section>
-<section id="predictive-distribution-predictive-distribution-unnumbered">
-<h3>Predictive distribution {#predictive-distribution .unnumbered}<a class="headerlink" href="#predictive-distribution-predictive-distribution-unnumbered" title="Link to this heading">#</a></h3>
+<section id="predictive-distribution">
+<h3>Predictive distribution<a class="headerlink" href="#predictive-distribution" title="Link to this heading">#</a></h3>
 <p>In the previous example, a non-trivial integral had to be evaluated.
 However, when the past data <span class="math notranslate nohighlight">\(\underline{x}\)</span> and future data <span class="math notranslate nohighlight">\(y\)</span> are
 independent (given <span class="math notranslate nohighlight">\(\theta\)</span>) and we use a conjugate prior distribution,
@@ -920,9 +1072,8 @@ if it has probability density function</p>
 <div class="math notranslate nohighlight">
 \[
 f(y|a,b,c)=\frac{c^by^{a-1}}{\mathrm{B}(a,b)(y+c)^{a+b}} \quad\quad y&gt;0,\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathrm{B}(a,b)\)</span> is the beta function defined in
-<span class="xref std std-ref">eq:betafn</span>{reference-type=”eqref”
-reference=”eq:betafn”}. It can be shown that</p>
+<p>where <span class="math notranslate nohighlight">\(\mathrm{B}(a,b)\)</span> is the beta function defined in . It can be
+shown that</p>
 <div class="math notranslate nohighlight">
 \[
 \text{E}[Y]=\frac{ac}{b-1}\quad\quad\text{and}\quad\quad \text{Var}[Y]=\frac{ac^2(a+b-1)}{(b-1)^2(b-2)}.\]</div>
@@ -1047,23 +1198,24 @@ that is, where <span class="math notranslate nohighlight">\(k=1\)</span>. Determ
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-1-estimation">Section 4.1: Estimation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-estimates-point-estimates-unnumbered">Point estimates {#point-estimates .unnumbered}</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interval-estimates-interval-estimates-unnumbered">Interval estimates {#interval-estimates .unnumbered}</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-confidence-intervals-interpretation-of-confidence-intervals-unnumbered">Interpretation of confidence intervals {#interpretation-of-confidence-intervals .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-estimates">Point estimates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interval-estimates">Interval estimates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-confidence-intervals">Interpretation of confidence intervals</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-1">Example 4.1</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-2">Example 4.2</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-3">Example 4.3</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-of-hdis-for-unimodal-distributions-computation-of-hdis-for-unimodal-distributions-unnumbered">Computation of HDIs for unimodal distributions {#computation-of-hdis-for-unimodal-distributions .unnumbered}</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-hdi-reference-type-ref-reference-ex-hdi-continued-example-exhdi-continued-unnumbered">Example <span class="xref std std-ref">ex:hdi</span>{reference-type=”ref” reference=”ex:hdi”} (continued) {#example-exhdi-continued .unnumbered}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-of-hdis-for-unimodal-distributions">Computation of HDIs for unimodal distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-continued">Example  (continued)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-2-prediction">Section 4.2: Prediction</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-2-hypothesis-testing">Section 4.2: Hypothesis Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-3-prediction">Section 4.3: Prediction</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-4">Example 4.4</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-4-1-definition">Definition 4.1: Definition</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-5">Example 4.5</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-distribution-predictive-distribution-unnumbered">Predictive distribution {#predictive-distribution .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-distribution">Predictive distribution</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-4-2-inverse-beta-distribution">Definition 4.2: Inverse-Beta Distribution</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-6">Example 4.6</a></li>
 </ul>

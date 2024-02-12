@@ -174,7 +174,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    MAS2903: Introduction to Bayesian Methods
+                    Preface: What is Bayesian Statistics?
                 </a>
             </li>
         </ul>
@@ -356,7 +356,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-3-parameter-constraints">Section 3.3: Parameter constraints</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-3-2-truncated-distribution">Definition 3.2: Truncated Distribution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-3">Example 3.3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-inference-with-truncated-priors-bayesian-inference-with-truncated-priors-unnumbered">Bayesian Inference with Truncated Priors {#bayesian-inference-with-truncated-priors .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-inference-with-truncated-priors">Bayesian Inference with Truncated Priors</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem-3-1-truncated-posterior">Theorem 3.1: Truncated Posterior</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proof">Proof</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-4">Example 3.4</a></li>
@@ -366,12 +366,12 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-4-uninformative-priors">Section 3.4: Uninformative Priors</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vague-prior-knowledge-vague-prior-knowledge-unnumbered">Vague Prior Knowledge {#vague-prior-knowledge .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vague-prior-knowledge">Vague Prior Knowledge</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-6">Example 3.6</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-7">Example 3.7</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-ignorance-prior-ignorance-unnumbered">Prior Ignorance {#prior-ignorance .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-ignorance">Prior Ignorance</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-8">Example 3.8</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-9">Example 3.9</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-10">Example 3.10</a></li>
@@ -383,7 +383,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-5-asymptotic-posterior-distribution">Section 3.5: Asymptotic posterior distribution</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem-3-2-asymptotic-posterior">Theorem 3.2: Asymptotic posterior</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Proof</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comments-comments-unnumbered">Comments {#comments .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-12">Example 3.12</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-13">Example 3.13</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-14">Example 3.14</a></li>
@@ -441,14 +441,11 @@ of <em>truncated priors</em>.</p>
 We have <em>substantial prior information</em> for <span class="math notranslate nohighlight">\(\theta\)</span> when the prior
 distribution <em>dominates</em> the posterior distribution, that is
 <span class="math notranslate nohighlight">\(\pi(\theta|\underline{x})\sim\pi(\theta)\)</span>.</p>
-<p><img alt="Prior (dashed) and posterior (solid) densities for the music expert'sskill for the." src="../_images/priorposterior1.svg" />{#fig:substantial}</p>
-<p>An example of an informative prior was given in
-Example <span class="xref std std-ref">ex:mozart</span>{reference-type=”ref”
-reference=”ex:mozart”} where a music expert was trying to distinguish
-between pages from Mozart and Haydn scores.
-Figure <span class="xref std std-ref">fig:substantial</span>{reference-type=”ref”
-reference=”fig:substantial”} shows the prior and posterior distributions
-for <span class="math notranslate nohighlight">\(\theta\)</span>, the probability that the expert makes the correct choice.
+<p><img alt="Prior (dashed) and posterior (solid) densities for the music expert'sskill for the ." src="../_images/priorposterior1.svg" /></p>
+<p>An example of an informative prior was given in Example  where a music
+expert was trying to distinguish between pages from Mozart and Haydn
+scores. Figure  shows the prior and posterior distributions for
+<span class="math notranslate nohighlight">\(\theta\)</span>, the probability that the expert makes the correct choice.
 Notice the similarity between the prior and posterior distributions.
 Observing the data has not altered our beliefs about <span class="math notranslate nohighlight">\(\theta\)</span> very much.</p>
 <p>When we have prior information there can be some difficulties:</p>
@@ -468,17 +465,13 @@ examples of <em>prior elicitation</em>.</p>
 <section id="example-3-1">
 <h3>Example 3.1<a class="headerlink" href="#example-3-1" title="Link to this heading">#</a></h3>
 <p><br />
-[]{#ex:earthret label=”ex:earthret”} Let us return to Example
-<span class="xref std std-ref">ex:earth</span>{reference-type=”ref” reference=”ex:earth”} of
-Chapter 2. Recall that we were given some data on the “waiting times”,
-in days, between 21 earthquakes, and we discussed why an exponential
-distribution <span class="math notranslate nohighlight">\(\mathrm{Exp}(\theta)\)</span> might be appropriate to model the
-waiting times. Further, we were told that an expert on earthquakes has
-prior beliefs about the rate <span class="math notranslate nohighlight">\(\theta\)</span>, described by a
-<span class="math notranslate nohighlight">\(\mathrm{Gamma}(10,4000)\)</span> distribution; a plot of this prior is shown in
-Figure <span class="xref std std-ref">fig:earthprior</span>{reference-type=”ref”
-reference=”fig:earthprior”}. Where did this prior distribution come
-from?</p>
+Let us return to Example of Chapter 2. Recall that we were given some
+data on the “waiting times”, in days, between 21 earthquakes, and we
+discussed why an exponential distribution <span class="math notranslate nohighlight">\(\mathrm{Exp}(\theta)\)</span> might
+be appropriate to model the waiting times. Further, we were told that an
+expert on earthquakes has prior beliefs about the rate <span class="math notranslate nohighlight">\(\theta\)</span>,
+described by a <span class="math notranslate nohighlight">\(\mathrm{Gamma}(10,4000)\)</span> distribution; a plot of this
+prior is shown in Figure . Where did this prior distribution come from?</p>
 <p>Suppose the expert tells us that earthquakes in the region we are
 interested in usually occur less than once per year; in fact, they occur
 on average once every 400 days. This gives us a rate of occurrence of
@@ -533,12 +526,10 @@ by</p>
 <section id="example-3-2">
 <h3>Example 3.2<a class="headerlink" href="#example-3-2" title="Link to this heading">#</a></h3>
 <p><br />
-Now let us return to Example
-<span class="xref std std-ref">ex:mozart</span>{reference-type=”ref” reference=”ex:mozart”}
-of Chapter 2. We considered an experiment to determine how good a music
-expert is at distinguishing between pages from Haydn and Mozart scores;
-when presented with a score from each composer, the expert makes the
-correct choice with probability <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+Now let us return to Example of Chapter 2. We considered an experiment
+to determine how good a music expert is at distinguishing between pages
+from Haydn and Mozart scores; when presented with a score from each
+composer, the expert makes the correct choice with probability <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
 <p>Before conducting the experiment, we were told that the expert is very
 competent; in fact, we were told that <span class="math notranslate nohighlight">\(\theta\)</span> should have a prior
 distribution peaking at around 0.95 and for which
@@ -616,9 +607,7 @@ rounding down to <span class="math notranslate nohighlight">\(b=5\)</span> and t
 \[
 a = 19 \times 5 -18 = 77,\]</div>
 <p>hence the use of
-<span class="math notranslate nohighlight">\(\theta \sim \mathrm{Beta}(77,5)\)</span> in Example
-<span class="xref std std-ref">ex:mozart</span>{reference-type=”ref” reference=”ex:mozart”}
-in Chapter 2.</p>
+<span class="math notranslate nohighlight">\(\theta \sim \mathrm{Beta}(77,5)\)</span> in Example in Chapter 2.</p>
 <p>There are many more advanced approaches of <em>prior elicitation</em> and it is
 still an active area of research.</p>
 </section>
@@ -707,29 +696,26 @@ Solution<div class="sd-summary-down docutils">
 \[
 \pi_T(\theta)  = \frac{1}{\left(1 - \Phi\left(-\frac{b}{d}\right)\right) \sqrt{2\pi d^2}}\exp\left[-\frac{1}{2d^2}(\theta - b)^2\right]\]</div>
 </div>
-</details><p>Figure <span class="xref std std-ref">fig:normaltrunc</span>{reference-type=”ref”
-reference=”fig:normaltrunc”} shows a plot of the densities of (a) a
-<span class="math notranslate nohighlight">\(\mathcal{N}(1,1)\)</span> distribution and (b) a <span class="math notranslate nohighlight">\(\mathcal{N}(1,1)\)</span>
-distribution truncated to <span class="math notranslate nohighlight">\(\theta&gt;0\)</span>. Notice that for <span class="math notranslate nohighlight">\(\theta&gt;0\)</span> the
-truncated normal’s density has the same shape as that of the original
-distribution. However the truncated density takes proportionately larger
-values, since both curves must have an area underneath of one. Also, we
-can see that the mean of the truncated distribution will be larger than
-the mean of the original distribution and the standard deviation will be
-smaller.</p>
+</details><p>Figure  shows a plot of the densities of (a) a <span class="math notranslate nohighlight">\(\mathcal{N}(1,1)\)</span>
+distribution and (b) a <span class="math notranslate nohighlight">\(\mathcal{N}(1,1)\)</span> distribution truncated to
+<span class="math notranslate nohighlight">\(\theta&gt;0\)</span>. Notice that for <span class="math notranslate nohighlight">\(\theta&gt;0\)</span> the truncated normal’s density
+has the same shape as that of the original distribution. However the
+truncated density takes proportionately larger values, since both curves
+must have an area underneath of one. Also, we can see that the mean of
+the truncated distribution will be larger than the mean of the original
+distribution and the standard deviation will be smaller.</p>
 <p>This is an important general point. Truncating a distribution changes
 the mean and variance. Calculating the new values can be difficult.</p>
-<p><img alt="Plot of a normal and truncated normaldistribution" src="../_images/truncatednormal.svg" />{#fig:normaltrunc}</p>
+<p><img alt="Plot of a normal and truncated normaldistribution" src="../_images/truncatednormal.svg" /></p>
 </section>
-<section id="bayesian-inference-with-truncated-priors-bayesian-inference-with-truncated-priors-unnumbered">
-<h3>Bayesian Inference with Truncated Priors {#bayesian-inference-with-truncated-priors .unnumbered}<a class="headerlink" href="#bayesian-inference-with-truncated-priors-bayesian-inference-with-truncated-priors-unnumbered" title="Link to this heading">#</a></h3>
+<section id="bayesian-inference-with-truncated-priors">
+<h3>Bayesian Inference with Truncated Priors<a class="headerlink" href="#bayesian-inference-with-truncated-priors" title="Link to this heading">#</a></h3>
 <p>Suppose we can do a Bayesian analysis for an ordinary prior. Then it’s
 easy to do the analysis for a truncated version of this prior by the
 following theorem.</p>
 <section id="theorem-3-1-truncated-posterior">
 <h4>Theorem 3.1: Truncated Posterior<a class="headerlink" href="#theorem-3-1-truncated-posterior" title="Link to this heading">#</a></h4>
-<p>[]{#theorem: truncated posterior label=”theorem: truncated posterior”}
- <br />
+<p><br />
 Suppose that for a prior <span class="math notranslate nohighlight">\(\pi(\theta)\)</span> the resulting posterior is
 <span class="math notranslate nohighlight">\(\pi(\theta | \underline{x})\)</span>. Let <span class="math notranslate nohighlight">\(\pi_T(\theta)\)</span> be the result of
 truncating the prior to <span class="math notranslate nohighlight">\([a,b]\)</span>. Then the corresponding posterior is
@@ -737,10 +723,8 @@ truncating the prior to <span class="math notranslate nohighlight">\([a,b]\)</sp
 </section>
 <section id="proof">
 <h4>Proof<a class="headerlink" href="#proof" title="Link to this heading">#</a></h4>
-<p>Theorem[[theorem: truncated posterior]](#theorem: truncated posterior){reference-type=”ref”
-reference=”theorem: truncated posterior”} Let
-<span class="math notranslate nohighlight">\(\pi'(\theta | \underline{x})\)</span> be the posterior for the truncated prior.
-Then:</p>
+<p>Theorem Let <span class="math notranslate nohighlight">\(\pi'(\theta | \underline{x})\)</span> be the posterior for the
+truncated prior. Then:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -798,17 +782,16 @@ density, for <span class="math notranslate nohighlight">\(\theta &gt; 0\)</span>
     
 \end{aligned}\]</div>
 </div>
-</details><p>Figure <span class="xref std std-ref">fig:posttrunc</span>{reference-type=”ref”
-reference=”fig:posttrunc”} plots the <span class="math notranslate nohighlight">\(\mathcal{N}(1,1)\)</span> posterior
-densities using the original and truncated priors. This plot highlights
-an important consequence of using truncated distributions for modelling
-prior beliefs, namely, that if particular parameter values are ruled out
-prior to seeing the data then they are also ruled out after seeing the
-data. Normally, this is not a problem but, as the following example
-shows, when the truncation in a prior distribution does not include
-parameter values for which the likelihood function is large, misleading
+</details><p>Figure  plots the <span class="math notranslate nohighlight">\(\mathcal{N}(1,1)\)</span> posterior densities using the
+original and truncated priors. This plot highlights an important
+consequence of using truncated distributions for modelling prior
+beliefs, namely, that if particular parameter values are ruled out prior
+to seeing the data then they are also ruled out after seeing the data.
+Normally, this is not a problem but, as the following example shows,
+when the truncation in a prior distribution does not include parameter
+values for which the likelihood function is large, misleading
 conclusions can be made.</p>
-<p><img alt="Plot of a posterior distribution determined using a non-truncated anda truncated priordistribution" src="../_images/truncposterior.svg" />{#fig:posttrunc}</p>
+<p><img alt="Plot of a posterior distribution determined using a non-truncated anda truncated prior distribution" src="../_images/truncposterior.svg" /></p>
 </section>
 <section id="example-3-5">
 <h4>Example 3.5<a class="headerlink" href="#example-3-5" title="Link to this heading">#</a></h4>
@@ -828,16 +811,15 @@ produces the posterior distribution
 <span class="math notranslate nohighlight">\(\theta|\underline{x}\sim \mathcal{N}(10,0.25^2)\)</span>. The discussion
 preceding this example tells us that imposing the truncation <span class="math notranslate nohighlight">\(\theta&lt;9\)</span>
 on the prior distribution produces a posterior distribution which is a
-<span class="math notranslate nohighlight">\(\mathcal{N}(10,0.25^2)\)</span> distribution, truncated to <span class="math notranslate nohighlight">\(\theta&lt;9\)</span>.
-Figure <span class="xref std std-ref">fig:posttrunc2</span>{reference-type=”ref”
-reference=”fig:posttrunc2”} shows the resulting posterior densities.
-Clearly, truncating the prior distribution to <span class="math notranslate nohighlight">\(\theta&lt;9\)</span> has resulted in
-a posterior distribution truncated to <span class="math notranslate nohighlight">\(\theta&lt;9\)</span>, even though the
-likelihood function is very peaked at <span class="math notranslate nohighlight">\(\theta\simeq 10.47\)</span>. So our prior
-has ruled out the most likely values according to the data! Using a
-prior distribution which gives very small – but non-zero – probability
-to values of <span class="math notranslate nohighlight">\(\theta&gt;9\)</span>, avoids this problem.</p>
-<p><img alt="Plot of a posterior distribution determined using a non-truncated anda truncated priordistribution" src="../_images/truncposterior2.svg" />{#fig:posttrunc2}</p>
+<span class="math notranslate nohighlight">\(\mathcal{N}(10,0.25^2)\)</span> distribution, truncated to <span class="math notranslate nohighlight">\(\theta&lt;9\)</span>. Figure 
+shows the resulting posterior densities. Clearly, truncating the prior
+distribution to <span class="math notranslate nohighlight">\(\theta&lt;9\)</span> has resulted in a posterior distribution
+truncated to <span class="math notranslate nohighlight">\(\theta&lt;9\)</span>, even though the likelihood function is very
+peaked at <span class="math notranslate nohighlight">\(\theta\simeq 10.47\)</span>. So our prior has ruled out the most
+likely values according to the data! Using a prior distribution which
+gives very small – but non-zero – probability to values of <span class="math notranslate nohighlight">\(\theta&gt;9\)</span>,
+avoids this problem.</p>
+<p><img alt="Plot of a posterior distribution determined using a non-truncated anda truncated prior distribution" src="../_images/truncposterior2.svg" /></p>
 <p>This example motivates the pragmatic rule: never rule out values for
 parameters which are very implausible but not impossible. Instead these
 parameter values should be given very small probability density. The
@@ -865,20 +847,18 @@ that is, one with a very large variance. In particular, most of the
 information about <span class="math notranslate nohighlight">\(\theta\)</span> will be passed through to the posterior
 distribution via the data, and so we have
 <span class="math notranslate nohighlight">\(\pi(\theta|\underline{x})\sim f(\underline{x}|\theta)\)</span>.</p>
-<p>An example of vague prior knowledge was given in Example
-<span class="xref std std-ref">ex:coin</span>{reference-type=”ref” reference=”ex:coin”} where
-a possibly biased coin was assessed. Figure
-<span class="xref std std-ref">fig:little</span>{reference-type=”ref” reference=”fig:little”} shows
-the prior and posterior distributions for <span class="math notranslate nohighlight">\(\theta=\text{Pr(Head)}\)</span>.
-Notice that the prior and posterior distributions look very different.
-In fact, in this example, the posterior distribution is simply a scaled
-version of the likelihood function – likelihood functions are not
-usually proper probability (density) functions and so scaling is
-required to ensure that it integrates to one. Most of our beliefs about
-<span class="math notranslate nohighlight">\(\theta\)</span> have come from observing the data.</p>
-<p><img alt="Prior (dashed) and posterior (solid) densities for" src="content/images/priorplot1.svg" />{#fig:little}</p>
-<section id="vague-prior-knowledge-vague-prior-knowledge-unnumbered">
-<h3>Vague Prior Knowledge {#vague-prior-knowledge .unnumbered}<a class="headerlink" href="#vague-prior-knowledge-vague-prior-knowledge-unnumbered" title="Link to this heading">#</a></h3>
+<p>An example of vague prior knowledge was given in Example where a
+possibly biased coin was assessed. Figure shows the prior and posterior
+distributions for <span class="math notranslate nohighlight">\(\theta=\text{Pr(Head)}\)</span>. Notice that the prior and
+posterior distributions look very different. In fact, in this example,
+the posterior distribution is simply a scaled version of the likelihood
+function – likelihood functions are not usually proper probability
+(density) functions and so scaling is required to ensure that it
+integrates to one. Most of our beliefs about <span class="math notranslate nohighlight">\(\theta\)</span> have come from
+observing the data.</p>
+<p><img alt="Prior (dashed) and posterior (solid) densities for" src="content/images/priorplot1.svg" /></p>
+<section id="vague-prior-knowledge">
+<h3>Vague Prior Knowledge<a class="headerlink" href="#vague-prior-knowledge" title="Link to this heading">#</a></h3>
 <p>We represent vague prior knowledge by using a prior distribution which
 is conjugate to the model for <span class="math notranslate nohighlight">\(\underline{x}\)</span> and which has “infinite”
 variance.</p>
@@ -947,8 +927,8 @@ that the posterior variance <span class="math notranslate nohighlight">\(1/(n\ba
 </div>
 </details></section>
 </section>
-<section id="prior-ignorance-prior-ignorance-unnumbered">
-<h3>Prior Ignorance {#prior-ignorance .unnumbered}<a class="headerlink" href="#prior-ignorance-prior-ignorance-unnumbered" title="Link to this heading">#</a></h3>
+<section id="prior-ignorance">
+<h3>Prior Ignorance<a class="headerlink" href="#prior-ignorance" title="Link to this heading">#</a></h3>
 <p>We could represent ignorance by the concept “all values of <span class="math notranslate nohighlight">\(\theta\)</span> are
 equally likely”. If <span class="math notranslate nohighlight">\(\theta\)</span> were discrete with <span class="math notranslate nohighlight">\(m\)</span> possible values then
 we could assign each value the same probability <span class="math notranslate nohighlight">\(1/m\)</span>. However, if
@@ -974,10 +954,8 @@ distribution on <span class="math notranslate nohighlight">\(\theta\)</span>. Re
 <p>Suppose that <span class="math notranslate nohighlight">\(X\)</span> is a random variable with probability density function
 <span class="math notranslate nohighlight">\(f_X(x)\)</span>. If <span class="math notranslate nohighlight">\(g\)</span> is a bijective (1–1) function then the random variable
 <span class="math notranslate nohighlight">\(Y=g(X)\)</span> has probability density function</p>
-<div class="math notranslate nohighlight">
-\[
-\label{eq:p14}
-f_Y(y)=f_X\left(g^{-1}(y)\right)\left|\frac{d}{dy}\,g^{-1}(y)\right|.\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-p14">
+<span class="eqno">(11)<a class="headerlink" href="#equation-eq-p14" title="Link to this equation">#</a></span>\[f_Y(y)=f_X\left(g^{-1}(y)\right)\left|\frac{d}{dy}\,g^{-1}(y)\right|.\]</div>
 <p>Applying this result to <span class="math notranslate nohighlight">\(\theta=e^\phi\)</span> gives</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1002,10 +980,8 @@ assigning a uniform/ignorance prior to <span class="math notranslate nohighlight
 have a uniform/ignorance prior for <span class="math notranslate nohighlight">\(e^\theta\)</span>.</p>
 <p>A solution to problems of this type was suggested by Sir Harold
 Jeffreys. His suggestion was specified in terms of Fisher’s Information:</p>
-<div class="math notranslate nohighlight">
-\[
-\label{eq:fisher}
-I(\theta)=E_{\underline{X}|\theta}\left[-
+<div class="math notranslate nohighlight" id="equation-eq-fisher">
+<span class="eqno">(12)<a class="headerlink" href="#equation-eq-fisher" title="Link to this equation">#</a></span>\[I(\theta)=E_{\underline{X}|\theta}\left[-
 \frac{\partial^2}{\partial\theta^{2}}\,
 \log f(\underline{X}|\theta)\right].\]</div>
 <p>He recommended that we represent
@@ -1019,7 +995,7 @@ known as a Jeffreys prior distribution.</p>
 <h4>Example 3.8<a class="headerlink" href="#example-3-8" title="Link to this heading">#</a></h4>
 <p><br />
 Suppose we have a random sample from a distribution with probability
-[]{#ex:37 label=”ex:37”} density function</p>
+density function</p>
 <div class="math notranslate nohighlight">
 \[
 f(x|\theta)=\frac{2x\,e^{-x^2/\theta}}{\theta},\quad\quad x&gt;0,~\theta&gt;0.\]</div>
@@ -1110,9 +1086,8 @@ one.</p>
 <h4>Example 3.9<a class="headerlink" href="#example-3-9" title="Link to this heading">#</a></h4>
 <p><br />
 Suppose we have a random sample from an exponential distribution, that
-[]{#ex:38 label=”ex:38”} is, <span class="math notranslate nohighlight">\(X_i|\theta\sim \mathrm{Exp}(\theta)\)</span>,
-<span class="math notranslate nohighlight">\(i=1,2,\ldots,n\)</span> (independent). Determine the Jeffreys prior for this
-model.</p>
+is, <span class="math notranslate nohighlight">\(X_i|\theta\sim \mathrm{Exp}(\theta)\)</span>, <span class="math notranslate nohighlight">\(i=1,2,\ldots,n\)</span>
+(independent). Determine the Jeffreys prior for this model.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Solution<div class="sd-summary-down docutils">
@@ -1165,8 +1140,8 @@ prior or vague prior knowledge.</p>
 <h4>Example 3.10<a class="headerlink" href="#example-3-10" title="Link to this heading">#</a></h4>
 <p><br />
 Suppose we have a random sample from a <span class="math notranslate nohighlight">\(\mathcal{N}(\mu,1/\tau)\)</span>
-distribution []{#ex:39 label=”ex:39”} (with <span class="math notranslate nohighlight">\(\tau\)</span> known). Determine the
-Jeffreys prior for this model.</p>
+distribution (with <span class="math notranslate nohighlight">\(\tau\)</span> known). Determine the Jeffreys prior for this
+model.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Solution<div class="sd-summary-down docutils">
@@ -1319,8 +1294,7 @@ of the Central Limit Theorem is the description of the distribution of
 gives a similar result for the posterior distribution.</p>
 <section id="theorem-3-2-asymptotic-posterior">
 <h3>Theorem 3.2: Asymptotic posterior<a class="headerlink" href="#theorem-3-2-asymptotic-posterior" title="Link to this heading">#</a></h3>
-<p>[]{#theorem: asymptotic posterior label=”theorem: asymptotic posterior”}
- <br />
+<p><br />
 Suppose we have a statistical model <span class="math notranslate nohighlight">\(f(\underline{x}|\theta)\)</span> for data
 <span class="math notranslate nohighlight">\(\underline{x} = (x_1, \ldots, x_n)^\top\)</span>, together with a prior
 distribution <span class="math notranslate nohighlight">\(\pi(\theta)\)</span> for <span class="math notranslate nohighlight">\(\theta\)</span>. Then</p>
@@ -1337,9 +1311,7 @@ J(\theta)=-\frac{\partial^2}{\partial\theta^2}\, \log f(\underline{x}|\theta).\]
 </section>
 <section id="id1">
 <h3>Proof<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>Theorem[[theorem: asymptotic posterior]](#theorem: asymptotic posterior){reference-type=”ref”
-reference=”theorem: asymptotic posterior”} Using Bayes Theorem, the
-posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is</p>
+<p>Theorem Using Bayes Theorem, the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
 \pi(\theta|\underline{x}) \propto\pi(\theta)\,f(\underline{x}|\theta).\]</div>
@@ -1349,9 +1321,8 @@ posterior distribution for <span class="math notranslate nohighlight">\(\theta\)
 \ell_n(\theta) =\frac{1}{n}\,\log f(\underline{x}|\theta)\]</div>
 <p>be the
 average log-likelihood per observation, in which case,
-<span class="math notranslate nohighlight">\(f(\underline{x}|\theta)=e^{n\ell_n(\theta)}\)</span>. Using
-<span class="xref std std-ref">eq:p14</span>{reference-type=”eqref” reference=”eq:p14”}, the
-posterior distribution of <span class="math notranslate nohighlight">\(\psi\)</span> is</p>
+<span class="math notranslate nohighlight">\(f(\underline{x}|\theta)=e^{n\ell_n(\theta)}\)</span>. Using , the posterior
+distribution of <span class="math notranslate nohighlight">\(\psi\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -1430,36 +1401,8 @@ $n\ell_n(\theta)=\log f(\underline{x}|\theta)</p>
 \quad\quad\text{as }n\to\infty,\]</div>
 <p>as required.</p>
 </section>
-<section id="comments-comments-unnumbered">
-<h3>Comments {#comments .unnumbered}<a class="headerlink" href="#comments-comments-unnumbered" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>This asymptotic result can give us a useful approximation to the
-posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> when <span class="math notranslate nohighlight">\(n\)</span> is large:</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[
-\theta|\underline{x}\sim \mathcal{N}\left(\hat\theta,J(\hat{\theta})^{-1}
-    \right)
-    \quad\quad\text{approximately}.\]</div>
-<ol class="arabic simple" start="2">
-<li><p>The observed information is similar to Fisher’s information
-<span class="math notranslate nohighlight">\(\eqref{eq:fisher}\)</span>. In fact, Fisher’s information is the expected
-value of the observed information, where the expectation is taken
-over the distribution of <span class="math notranslate nohighlight">\(\underline{X}|\theta\)</span>, that is,
-<span class="math notranslate nohighlight">\(I(\theta)=E_{\underline{X}|\theta}[J(\theta)]\)</span>.</p></li>
-<li><p>This limiting result is similar to one for the maximum likelihood
-estimator in Frequentist Statistics:</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[
-\label{eq:mle}
-    \sqrt{I(\theta)}~(\hat{\theta}-\theta)|\underline{x}
-    \stackrel{\cal D} \longrightarrow \mathcal{N}(0,1).
-    \quad\quad\text{as }n\to\infty,\]</div>
-<p>Note that <span class="math notranslate nohighlight">\(\eqref{eq:mle}\)</span> is a
-statement about the distribution of <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> for fixed
-(unknown) <span class="math notranslate nohighlight">\(\theta\)</span>, whereas the Theorem is a statement about the
-distribution of <span class="math notranslate nohighlight">\(\theta\)</span> for fixed (known) <span class="math notranslate nohighlight">\(\hat{\theta}\)</span>.</p>
+<section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Link to this heading">#</a></h3>
 <section id="example-3-12">
 <h4>Example 3.12<a class="headerlink" href="#example-3-12" title="Link to this heading">#</a></h4>
 <p><br />
@@ -1469,8 +1412,7 @@ density function</p>
 \[
 f(x|\theta)=\frac{2x\,e^{-x^2/\theta}}{\theta},\quad\quad x&gt;0,~\theta&gt;0.\]</div>
 <p>Determine the asymptotic posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span>. Note that
-from Example <span class="xref std std-ref">ex:37</span>{reference-type=”ref” reference=”ex:37”}
-we have</p>
+from Example  we have</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -1517,8 +1459,7 @@ distribution for <span class="math notranslate nohighlight">\(\theta\)</span> is
 Suppose we have a random sample from an exponential distribution, that
 is, <span class="math notranslate nohighlight">\(X_i|\theta\sim \mathrm{Exp}(\theta)\)</span>, <span class="math notranslate nohighlight">\(i=1,2,\ldots,n\)</span>
 (independent). Determine the asymptotic posterior distribution for
-<span class="math notranslate nohighlight">\(\theta\)</span>. Note that from Example
-<span class="xref std std-ref">ex:38</span>{reference-type=”ref” reference=”ex:38”} we have</p>
+<span class="math notranslate nohighlight">\(\theta\)</span>. Note that from Example we have</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -1567,9 +1508,7 @@ a surprising result!</p>
 <p><br />
 Suppose we have a random sample from a <span class="math notranslate nohighlight">\(\mathcal{N}(\mu,1/\tau)\)</span>
 distribution (with <span class="math notranslate nohighlight">\(\tau\)</span> known). Determine the asymptotic posterior
-distribution for <span class="math notranslate nohighlight">\(\mu\)</span>. Note that from
-Example <span class="xref std std-ref">ex:39</span>{reference-type=”ref” reference=”ex:39”} we
-have</p>
+distribution for <span class="math notranslate nohighlight">\(\mu\)</span>. Note that from Example  we have</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -1685,7 +1624,7 @@ same as the posterior distribution under vague prior knowledge.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-3-parameter-constraints">Section 3.3: Parameter constraints</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-3-2-truncated-distribution">Definition 3.2: Truncated Distribution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-3">Example 3.3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-inference-with-truncated-priors-bayesian-inference-with-truncated-priors-unnumbered">Bayesian Inference with Truncated Priors {#bayesian-inference-with-truncated-priors .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-inference-with-truncated-priors">Bayesian Inference with Truncated Priors</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem-3-1-truncated-posterior">Theorem 3.1: Truncated Posterior</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proof">Proof</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-4">Example 3.4</a></li>
@@ -1695,12 +1634,12 @@ same as the posterior distribution under vague prior knowledge.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-4-uninformative-priors">Section 3.4: Uninformative Priors</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vague-prior-knowledge-vague-prior-knowledge-unnumbered">Vague Prior Knowledge {#vague-prior-knowledge .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vague-prior-knowledge">Vague Prior Knowledge</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-6">Example 3.6</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-7">Example 3.7</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-ignorance-prior-ignorance-unnumbered">Prior Ignorance {#prior-ignorance .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-ignorance">Prior Ignorance</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-8">Example 3.8</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-9">Example 3.9</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-10">Example 3.10</a></li>
@@ -1712,7 +1651,7 @@ same as the posterior distribution under vague prior knowledge.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-5-asymptotic-posterior-distribution">Section 3.5: Asymptotic posterior distribution</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem-3-2-asymptotic-posterior">Theorem 3.2: Asymptotic posterior</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Proof</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comments-comments-unnumbered">Comments {#comments .unnumbered}</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-12">Example 3.12</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-13">Example 3.13</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-14">Example 3.14</a></li>
