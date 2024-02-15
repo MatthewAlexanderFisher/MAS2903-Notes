@@ -220,8 +220,12 @@ $i\neq j$) with $\textnormal{Pr}(E_i)>0$, $i=1,2,\ldots,n$, and
 $\displaystyle{\cup_{i=1}^n E_i}={\cal S}$. Figure  gives a diagram of a
 typical partition with an additional event $F$.
 
-![Diagram of a partition $E_1,E_2,\ldots,E_n$ and an event
-$F$](images/partition.svg)
+```{figure} images/partition.svg
+:name: fig:partition
+
+Diagram of a partition $E_1,E_2,\ldots,E_n$ and an event
+$F$
+```
 
 ##### Theorem 1.1: Law of Total Probability
 

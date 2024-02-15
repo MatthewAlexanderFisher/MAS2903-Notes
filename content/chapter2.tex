@@ -66,7 +66,7 @@ In the space below, sketch the probability density functions for $U(0,1)$ and $U
 \end{gapbox}
 
 \paragraph{Definition 2.2: Beta distribution}{~\\
- The random variable $Y$ follows a beta $\mathrm{Beta}(a,b)$ distribution ($a>0$,$b>0$) if it has probability density function
+\label{def:beta} The random variable $Y$ follows a beta $\mathrm{Beta}(a,b)$ distribution ($a>0$,$b>0$) if it has probability density function
 \begin{equation}
 f(y|a,b)=\frac{y^{a-1}(1-y)^{b-1}}{\mathrm{B}(a,b)},\quad\quad 0<y<1.
 !!startlabel!! eq:betapdf !!endlabel!!
@@ -129,10 +129,13 @@ Plotting $y$ against $x$ and joining with lines gives the $\mathrm{Beta}(2,5)$ d
 \begin{minted}{Python}
 plot(x, y, type='l')
 \end{minted}
-\noindent Also shown in Figure 2.1 are densities for the $\mathrm{Beta}(0.5,0.5)$ (top right), $\mathrm{Beta}(77,5)$ (bottom left) and  $\mathrm{Beta}(10,10)$ (bottom right) distributions.  Notice that different combinations of $(a,b)$ give rise to different shapes of distribution between the limits of 0 and 1 -- symmetric, positively skewed and negatively skewed: careful choices of $a$ and $b$ could thus be used to express our prior beliefs about probabilities/proportions we think might be more or less likely to occur.  When $a=b$ we have a distribution which is symmetric about 0.5.  Similar plots can be constructed for any standard distribution of interest using, for example, \texttt{dgamma} or \texttt{dnorm} instead of \texttt{dbeta} for the gamma or Normal distributions, respectively; Figure 2.2 shows densities for various gamma distributions.\begin{figure}[!h]
+\noindent Also shown in Figure 2.1 are densities for the $\mathrm{Beta}(0.5,0.5)$ (top right), $\mathrm{Beta}(77,5)$ (bottom left) and  $\mathrm{Beta}(10,10)$ (bottom right) distributions.  Notice that different combinations of $(a,b)$ give rise to different shapes of distribution between the limits of 0 and 1 -- symmetric, positively skewed and negatively skewed: careful choices of $a$ and $b$ could thus be used to express our prior beliefs about probabilities/proportions we think might be more or less likely to occur.  When $a=b$ we have a distribution which is symmetric about 0.5.  Similar plots can be constructed for any standard distribution of interest using, for example, \texttt{dgamma} or \texttt{dnorm} instead of \texttt{dbeta} for the gamma or Normal distributions, respectively; Figure 2.2 shows densities for various gamma distributions.
+
+\begin{figure}[!h]
 \centering
-\includegraphics{images/figures/betaplot1.svg}
+\includegraphics{images/betaplot1.svg}
 \caption{Plots of $\mathrm{Beta}(a,b)$ densities for various values of $(a,b)$.}
+\label{fig:betaplot1}
 \end{figure}
 
 
@@ -141,6 +144,7 @@ plot(x, y, type='l')
 \centering
 \includegraphics{images/gammaplot1.svg}
 \caption{Plots of $\mathrm{Gamma}(a,2)$ densities, for various values of $a$.}
+\label{fig:gammaplot1}
 \end{figure}
 
 \clearpage
@@ -212,9 +216,9 @@ As $\theta$ is a continuous quantity, what we would like to know is what continu
 It is possible that we have a biased coin. If we suppose that all values of $\theta=\text{Pr(Head)}$ are equally likely and then observe 1 head out of 5, then the most likely value of $\theta$ is 0.2 --- the same as the most likely value from the data alone (not surprising!). However, on average, we would expect $\theta$ to be around 0.286. Uncertainty about $\theta$ has changed from a (prior) standard deviation of 0.289 to a (posterior) standard deviation of 0.160. The changes in our beliefs about $\theta$ are more fully described by the prior and posterior distributions shown in Figure~.
 \begin{figure}[ht]
 
-\includegraphics{images/figures/priorplot1.svg}
+\includegraphics{images/priorplot1.svg}
 \caption{Prior (dashed) and posterior (solid) densities for $\theta=\text{Pr(Head)}$}
-
+\label{fig:betaplot2}
 
 \end{figure}}
 
@@ -229,7 +233,7 @@ A graph of this prior density is given in Figure ~.
 
 \includegraphics{images/priorplot2.svg}
 \caption{Prior density for the music expert's skill.}
-
+\label{fig:betaplot3}
 
 \end{figure}
 
@@ -268,7 +272,7 @@ The changes in our beliefs about $\theta$ are described by the prior and posteri
 
 \includegraphics{images/priorposterior1.svg}
 \caption{Prior (dashed) and posterior (solid) densities for the music expert's skill for the $0.8 < \theta < 1$.}
-
+\label{fig:betaplot4}
 
 \end{figure}
 
@@ -287,7 +291,7 @@ Max, a video game pirate, is trying to identify the proportion of potential cust
 
 \includegraphics{images/priorplot3.svg}
 \caption{Max's prior density.}
-
+\label{fig:maxprior}
 
 \end{figure}
 Max asks five potential customers if they would buy \textit{Call of Duty: Modern Warfare II} from him, and four say they would.  Using this information, what is Max's posterior distribution for $\theta$?   
@@ -322,12 +326,12 @@ We have been told that the prior for $\theta$ is a $\mathrm{Beta}(2.5,12)$ distr
 
 \textbf{Summary:}
 
-The changes in our beliefs about $\theta$ are described by the prior and posterior distributions shown in Figure 2.7 and summarised in Table 2.2.
+The changes in our beliefs about $\theta$ are described by the prior and posterior distributions shown in Figure  and summarised in Table .
 \begin{figure}[h!]
 
 \includegraphics{images/priorposterior2.svg}
 \caption{Prior (dashed) and posterior (solid) densities for Max's problem.}
-
+\label{fig:priorposterior2}
 
 \end{figure}
 
@@ -361,7 +365,7 @@ and mean $\text{E}[\theta]=0.0025$. A plot of this prior distribution can be fou
 
 \includegraphics{images/priorplot4.svg}
 \caption{Prior density for the earthquake rate $\theta$}
-
+\label{fig:earthprior}
 
 \end{figure}
 
@@ -405,7 +409,7 @@ these distributions are given in Figure~, and Table~ gives a summary of the main
 
 \includegraphics{images/priorposterior3.svg}
 \caption{Prior (dashed) and posterior (solid) densities for the earthquake rate $\theta$.} 
-
+\label{fig:earthpost}
 
 \end{figure}
 
@@ -539,7 +543,7 @@ Note how our posterior beliefs are dominated by the likelihood function. This is
 \includegraphics{images/clickthroughrate_priorposterior.svg}
 \caption{Prior, likelihood function and posterior of the click-through rate $\theta$.}
 
-
+\label{fig:clickthrough}
 \end{figure}}
 
 
@@ -641,7 +645,7 @@ The prior, likelihood function and posterior can be seen in Figure~.
 \includegraphics{images/speed_priorposterior.svg}
 \caption{Prior, likelihood function and posterior of the speed of the particle $\theta$.}
 
-
+\label{fig:speed}
 \end{figure}}
 
 \clearpage
@@ -731,6 +735,7 @@ Using Bayes Theorem, and following the examples in Chapter 2, we know that
 \includegraphics{images/glacier_posterior.svg}
 \caption{Prior (dashed) and posterior (solid) densities for the rate of glacial retreat at the \textit{Zachariae Isstr\o m} glacier.}
 
+\label{fig:glacierposterior}
 \end{figure}}
 
 
@@ -907,7 +912,7 @@ This highlights the benefit of taking the chemical measurements. Note that the l
 
 \includegraphics{images/priorposterior4.svg}
 \caption{Prior (dashed) and posterior (solid) densities for the age of the rock.}
-
+\label{fig:normalplot}
 
 \end{figure}}
 

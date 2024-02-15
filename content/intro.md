@@ -2,7 +2,7 @@
 
 **Dr. Matthew Fisher**
 
-Office: [Room 4.14a, Herschel Building]{.sans-serif}
+Office: [Room 4.13, Herschel Building]
 
 Email: `matthew.fisher@newcastle.ac.uk`
 

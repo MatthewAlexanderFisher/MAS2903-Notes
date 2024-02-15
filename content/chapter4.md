@@ -68,8 +68,12 @@ $$\pi(\theta|\underline{x})=24\,(1-\theta)^{23}, \quad 0<\theta<1.$$
  A
 plot of this distribution is given in Figure .
 
-![Plot of the $\mathrm{Beta}(1,24)$ posterior density
-function](images/betaposterior.svg)
+```{figure} images/betaposterior.svg
+:name: fig:ci1
+
+Plot of the $\mathrm{Beta}(1,24)$ posterior density
+function
+```
 
 Determine the $100(1-\alpha)\%$ HDI for $\theta$.
 
@@ -140,8 +144,12 @@ $$\pi(\theta|\underline{x})=552\,\theta(1-\theta)^{22}, \quad 0<\theta<1.$$
 
 A plot of this distribution is given in Figure .
 
-![Plot of the $\mathrm{Beta}(2,23)$ posterior density
-function](images/betaposterior2.svg)
+```{figure} images/betaposterior2.svg
+:name: fig:ci2
+
+Plot of the $\mathrm{Beta}(2,23)$ posterior density
+function
+```
 
 Determine the $100(1-\alpha)\%$ HDI for $\theta$.
 

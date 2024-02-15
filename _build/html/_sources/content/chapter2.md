@@ -95,8 +95,9 @@ $U(0,1)$ and $U(10,50)$.
 ##### Definition 2.2: Beta distribution
 
  \
-The random variable $Y$ follows a beta $\mathrm{Beta}(a,b)$ distribution
-($a>0$,$b>0$) if it has probability density function
+[]{#def:beta label="def:beta"} The random variable $Y$ follows a beta
+$\mathrm{Beta}(a,b)$ distribution ($a>0$,$b>0$) if it has probability
+density function
 
 ```{math}
 :label: eq:betapdf
@@ -219,11 +220,19 @@ example, `dgamma` or `dnorm` instead of `dbeta` for the gamma or Normal
 distributions, respectively; Figure 2.2 shows densities for various
 gamma distributions.
 
-![Plots of $\mathrm{Beta}(a,b)$ densities for various values of
-$(a,b)$.](images/figures/betaplot1.svg)
+```{figure} images/betaplot1.svg
+:name: fig:betaplot1
 
-![Plots of $\mathrm{Gamma}(a,2)$ densities, for various values of
-$a$.](images/gammaplot1.svg)
+Plots of $\mathrm{Beta}(a,b)$ densities for various values of
+$(a,b)$.
+```
+
+```{figure} images/gammaplot1.svg
+:name: fig:gammaplot1
+
+Plots of $\mathrm{Gamma}(a,2)$ densities, for various values of
+$a$.
+```
 
 ## Section 2.2: Bayes Theorem for distributions in action
 
@@ -328,8 +337,12 @@ $\theta$ has changed from a (prior) standard deviation of 0.289 to a
 about $\theta$ are more fully described by the prior and posterior
 distributions shown in Figure .
 
-![Prior (dashed) and posterior (solid) densities for
-$\theta=\text{Pr(Head)}$](images/figures/priorplot1.svg)
+```{figure} images/priorplot1.svg
+:name: fig:betaplot2
+
+Prior (dashed) and posterior (solid) densities for
+$\theta=\text{Pr(Head)}$
+```
 
 ##### Example 2.2
 
@@ -351,7 +364,12 @@ $\theta\sim \mathrm{Beta}(77,5)$, with probability density function
  A graph of this prior density is
 given in Figure  .
 
-![Prior density for the music expert's skill.](images/priorplot2.svg)
+```{figure} images/priorplot2.svg
+:name: fig:betaplot3
+
+Prior density for the music expert's
+skill.
+```
 
 In the experiment, the music expert makes the correct choice 9 out of 10
 times. Determine the posterior distribution for $\theta$ given this
@@ -398,8 +416,13 @@ Beta family. So, the posterior distribution is $\theta|x=9\sim         \mathrm{B
 The changes in our beliefs about $\theta$ are described by the prior and
 posterior distributions shown in Figure  and summarised in Table .
 
-![Prior (dashed) and posterior (solid) densities for the music expert's
-skill for the $0.8 < \theta < 1$.](images/priorposterior1.svg)
+```{figure} images/priorposterior1.svg
+:name: fig:betaplot4
+
+Prior (dashed) and posterior (solid) densities for the music expert's
+skill for the
+$0.8 < \theta < 1$.
+```
 
 ```{table} Changes in beliefs about $\theta$.
 :widths: auto
@@ -429,7 +452,11 @@ customers who have bought similarly violent games from him in the past,
 he assumes that $\theta \sim \mathrm{Beta}(2.5,12)$; a plot of this
 prior density is shown in Figure .
 
-![Max's prior density.](images/priorplot3.svg)
+```{figure} images/priorplot3.svg
+:name: fig:maxprior
+
+Max's prior density.
+```
 
 Max asks five potential customers if they would buy *Call of Duty:
 Modern Warfare II* from him, and four say they would. Using this
@@ -494,10 +521,14 @@ $\mathrm{Beta}(6.5, 13)$, i.e. $\theta|x=4 \sim \mathrm{Beta}(6.5,13)$.
 **Summary:**
 
 The changes in our beliefs about $\theta$ are described by the prior and
-posterior distributions shown in Figure 2.7 and summarised in Table 2.2.
+posterior distributions shown in Figure and summarised in Table .
 
-![Prior (dashed) and posterior (solid) densities for Max's
-problem.](images/priorposterior2.svg)
+```{figure} images/priorposterior2.svg
+:name: fig:priorposterior2
+
+Prior (dashed) and posterior (solid) densities for Max's
+problem.
+```
 
 ```{table} Changes in beliefs about $\theta$.
 :widths: auto
@@ -563,7 +594,12 @@ expert believes that, realistically, only very small values of $\theta$
 are likely, though larger values are not ruled out! Determine the
 posterior distribution for $\theta$.
 
-![Prior density for the earthquake rate $\theta$](images/priorplot4.svg)
+```{figure} images/priorplot4.svg
+:name: fig:earthprior
+
+Prior density for the earthquake rate
+$\theta$
+```
 
 ```{dropdown} Solution
 
@@ -625,8 +661,12 @@ to the posterior distributions. The similarity between the prior beliefs
 and the data has reduced the uncertainty we have about the likely
 earthquake rate $\theta$.
 
-![Prior (dashed) and posterior (solid) densities for the earthquake rate
-$\theta$.](images/priorposterior3.svg)
+```{figure} images/priorposterior3.svg
+:name: fig:earthpost
+
+Prior (dashed) and posterior (solid) densities for the earthquake rate
+$\theta$.
+```
 
 ```{table} Changes in beliefs about $\theta$.
 :widths: auto
@@ -849,8 +889,12 @@ after incorporating the data.
 Note how our posterior beliefs are dominated by the likelihood function.
 This is because we have so much data ($n = 10000$).
 
-![Prior, likelihood function and posterior of the click-through rate
-$\theta$.](images/clickthroughrate_priorposterior.svg)
+```{figure} images/clickthroughrate_priorposterior.svg
+:name: fig:clickthrough
+
+Prior, likelihood function and posterior of the click-through rate
+$\theta$.
+```
 
 ```{table} Changes in beliefs about $\theta$.
 :widths: auto
@@ -1008,8 +1052,12 @@ $$
 
 The prior, likelihood function and posterior can be seen in Figure .
 
-![Prior, likelihood function and posterior of the speed of the particle
-$\theta$.](images/speed_priorposterior.svg)
+```{figure} images/speed_priorposterior.svg
+:name: fig:speed
+
+Prior, likelihood function and posterior of the speed of the particle
+$\theta$.
+```
 
 ##### Example 2.8
 
@@ -1110,9 +1158,13 @@ $\mathrm{Gamma}(10,0.87)$ distribution.
 
 ```
 
-![Prior (dashed) and posterior (solid) densities for the rate of glacial
+```{figure} images/glacier_posterior.svg
+:name: fig:glacierposterior
+
+Prior (dashed) and posterior (solid) densities for the rate of glacial
 retreat at the *Zachariae Isstrøm*
-glacier.](images/glacier_posterior.svg)
+glacier.
+```
 
 ## Section 2.3: Conjugacy
 
@@ -1383,5 +1435,9 @@ due to the expert's prior distribution being inaccurate, *per se*, it is
 probably due to the large prior uncertainty about rock ages, as shown in
 Figure .
 
-![Prior (dashed) and posterior (solid) densities for the age of the
-rock.](images/priorposterior4.svg)
+```{figure} images/priorposterior4.svg
+:name: fig:normalplot
+
+Prior (dashed) and posterior (solid) densities for the age of the
+rock.
+```

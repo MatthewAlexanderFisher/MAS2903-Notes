@@ -34,4 +34,5 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: false
+  favicon: _static/favicon.ico  # Adjust the path as needed
 

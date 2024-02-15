@@ -42,8 +42,13 @@ We have *substantial prior information* for $\theta$ when the prior
 distribution *dominates* the posterior distribution, that is
 $\pi(\theta|\underline{x})\sim\pi(\theta)$.
 
-![Prior (dashed) and posterior (solid) densities for the music expert's
-skill for the $0.8 < \theta < 1$.](images/priorposterior1.svg)
+```{figure} images/priorposterior1.svg
+:name: fig:substantial
+
+Prior (dashed) and posterior (solid) densities for the music expert's
+skill for the
+$0.8 < \theta < 1$.
+```
 
 An example of an informative prior was given in Example  where a music
 expert was trying to distinguish between pages from Mozart and Haydn
@@ -336,8 +341,12 @@ distribution and the standard deviation will be smaller.
 This is an important general point. Truncating a distribution changes
 the mean and variance. Calculating the new values can be difficult.
 
-![Plot of a normal and truncated normal
-distribution](images/truncatednormal.svg)
+```{figure} images/truncatednormal.svg
+:name: fig:normaltrunc
+
+Plot of a normal and truncated normal
+distribution
+```
 
 ### Bayesian Inference with Truncated Priors 
 
@@ -425,8 +434,13 @@ when the truncation in a prior distribution does not include parameter
 values for which the likelihood function is large, misleading
 conclusions can be made.
 
-![Plot of a posterior distribution determined using a non-truncated and
-a truncated prior distribution](images/truncposterior.svg)
+```{figure} images/truncposterior.svg
+:name: fig:posttrunc
+
+Plot of a posterior distribution determined using a non-truncated and
+a truncated prior
+distribution
+```
 
 ##### Example 3.5
 
@@ -456,8 +470,13 @@ likely values according to the data! Using a prior distribution which
 gives very small -- but non-zero -- probability to values of $\theta>9$,
 avoids this problem.
 
-![Plot of a posterior distribution determined using a non-truncated and
-a truncated prior distribution](images/truncposterior2.svg)
+```{figure} images/truncposterior2.svg
+:name: fig:posttrunc2
+
+Plot of a posterior distribution determined using a non-truncated and
+a truncated prior
+distribution
+```
 
 This example motivates the pragmatic rule: never rule out values for
 parameters which are very implausible but not impossible. Instead these
@@ -496,8 +515,12 @@ function -- likelihood functions are not usually proper probability
 integrates to one. Most of our beliefs about $\theta$ have come from
 observing the data.
 
-![Prior (dashed) and posterior (solid) densities for
-$\theta$](images/priorplot1.svg)
+```{figure} images/priorplot1.svg
+:name: fig:little
+
+Prior (dashed) and posterior (solid) densities for
+$\theta$
+```
 
 ### Vague Prior Knowledge 
 
