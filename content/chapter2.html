@@ -60,6 +60,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/chapter2';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chapter 3: Priors" href="chapter3.html" />
@@ -467,8 +468,9 @@ of its shape.</p>
 <section id="definition-2-2-beta-distribution">
 <h4>Definition 2.2: Beta distribution<a class="headerlink" href="#definition-2-2-beta-distribution" title="Link to this heading">#</a></h4>
 <p><br />
-The random variable <span class="math notranslate nohighlight">\(Y\)</span> follows a beta <span class="math notranslate nohighlight">\(\mathrm{Beta}(a,b)\)</span> distribution
-(<span class="math notranslate nohighlight">\(a&gt;0\)</span>,<span class="math notranslate nohighlight">\(b&gt;0\)</span>) if it has probability density function</p>
+[]{#def:beta label=”def:beta”} The random variable <span class="math notranslate nohighlight">\(Y\)</span> follows a beta
+<span class="math notranslate nohighlight">\(\mathrm{Beta}(a,b)\)</span> distribution (<span class="math notranslate nohighlight">\(a&gt;0\)</span>,<span class="math notranslate nohighlight">\(b&gt;0\)</span>) if it has probability
+density function</p>
 <div class="math notranslate nohighlight" id="equation-eq-betapdf">
 <span class="eqno">(3)<a class="headerlink" href="#equation-eq-betapdf" title="Link to this equation">#</a></span>\[f(y|a,b)=\frac{y^{a-1}(1-y)^{b-1}}{\mathrm{B}(a,b)},\quad\quad 0&lt;y&lt;1.\]</div>
 <p>The constant term
@@ -565,8 +567,18 @@ constructed for any standard distribution of interest using, for
 example, <code class="docutils literal notranslate"><span class="pre">dgamma</span></code> or <code class="docutils literal notranslate"><span class="pre">dnorm</span></code> instead of <code class="docutils literal notranslate"><span class="pre">dbeta</span></code> for the gamma or Normal
 distributions, respectively; Figure 2.2 shows densities for various
 gamma distributions.</p>
-<p><img alt="Plots of  densities for various values of." src="content/images/figures/betaplot1.svg" /></p>
-<p><img alt="Plots of  densities, for various values of." src="../_images/gammaplot1.svg" /></p>
+<figure class="align-default" id="fig-betaplot1">
+<img alt="../_images/betaplot1.svg" src="../_images/betaplot1.svg" /><figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Plots of <span class="math notranslate nohighlight">\(\mathrm{Beta}(a,b)\)</span> densities for various values of
+<span class="math notranslate nohighlight">\((a,b)\)</span>.</span><a class="headerlink" href="#fig-betaplot1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-gammaplot1">
+<img alt="../_images/gammaplot1.svg" src="../_images/gammaplot1.svg" /><figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Plots of <span class="math notranslate nohighlight">\(\mathrm{Gamma}(a,2)\)</span> densities, for various values of
+<span class="math notranslate nohighlight">\(a\)</span>.</span><a class="headerlink" href="#fig-gammaplot1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 </section>
@@ -661,7 +673,12 @@ average, we would expect <span class="math notranslate nohighlight">\(\theta\)</
 (posterior) standard deviation of 0.160. The changes in our beliefs
 about <span class="math notranslate nohighlight">\(\theta\)</span> are more fully described by the prior and posterior
 distributions shown in Figure .</p>
-<p><img alt="Prior (dashed) and posterior (solid) densities for" src="content/images/figures/priorplot1.svg" /></p>
+<figure class="align-default" id="fig-betaplot2">
+<img alt="../_images/priorplot1.svg" src="../_images/priorplot1.svg" /><figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Prior (dashed) and posterior (solid) densities for
+<span class="math notranslate nohighlight">\(\theta=\text{Pr(Head)}\)</span></span><a class="headerlink" href="#fig-betaplot2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="example-2-2">
 <h3>Example 2.2<a class="headerlink" href="#example-2-2" title="Link to this heading">#</a></h3>
@@ -678,7 +695,12 @@ distribution which has a mode around <span class="math notranslate nohighlight">
 <span class="eqno">(7)<a class="headerlink" href="#equation-eq-p3" title="Link to this equation">#</a></span>\[\pi(\theta)=128107980\,\theta^{76}(1-\theta)^4,\quad\quad 0&lt;\theta&lt;1.\]</div>
 <p>A graph of this prior density is
 given in Figure  .</p>
-<p><img alt="Prior density for the music expert's skill." src="content/images/priorplot2.svg" /></p>
+<figure class="align-default" id="fig-betaplot3">
+<img alt="../_images/priorplot2.svg" src="../_images/priorplot2.svg" /><figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Prior density for the music expert’s
+skill.</span><a class="headerlink" href="#fig-betaplot3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <p>In the experiment, the music expert makes the correct choice 9 out of 10
 times. Determine the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> given this
 information.</p>
@@ -720,7 +742,13 @@ Beta family. So, the posterior distribution is <span class="math notranslate noh
 </details><p><strong>Summary:</strong></p>
 <p>The changes in our beliefs about <span class="math notranslate nohighlight">\(\theta\)</span> are described by the prior and
 posterior distributions shown in Figure  and summarised in Table .</p>
-<p><img alt="Prior (dashed) and posterior (solid) densities for the music expert'sskill for the ." src="../_images/priorposterior1.svg" /></p>
+<figure class="align-default" id="fig-betaplot4">
+<img alt="../_images/priorposterior1.svg" src="../_images/priorposterior1.svg" /><figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Prior (dashed) and posterior (solid) densities for the music expert’s
+skill for the
+<span class="math notranslate nohighlight">\(0.8 &lt; \theta &lt; 1\)</span>.</span><a class="headerlink" href="#fig-betaplot4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <table class="table table-center" id="tab-betaplot4">
 <caption><span class="caption-number">Table 4 </span><span class="caption-text">Changes in beliefs about <span class="math notranslate nohighlight">\(\theta\)</span>.</span><a class="headerlink" href="#tab-betaplot4" title="Link to this table">#</a></caption>
 <thead>
@@ -762,7 +790,11 @@ Duty: Modern Warfare II</em> next month. Based on the proportion of
 customers who have bought similarly violent games from him in the past,
 he assumes that <span class="math notranslate nohighlight">\(\theta \sim \mathrm{Beta}(2.5,12)\)</span>; a plot of this
 prior density is shown in Figure .</p>
-<p><img alt="Max's prior density." src="../_images/priorplot3.svg" /></p>
+<figure class="align-default" id="fig-maxprior">
+<img alt="../_images/priorplot3.svg" src="../_images/priorplot3.svg" /><figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Max’s prior density.</span><a class="headerlink" href="#fig-maxprior" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Max asks five potential customers if they would buy <em>Call of Duty:
 Modern Warfare II</em> from him, and four say they would. Using this
 information, what is Max’s posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span>?</p>
@@ -820,8 +852,13 @@ density function as one from the beta family. In fact, we have a
 </div>
 </details><p><strong>Summary:</strong></p>
 <p>The changes in our beliefs about <span class="math notranslate nohighlight">\(\theta\)</span> are described by the prior and
-posterior distributions shown in Figure 2.7 and summarised in Table 2.2.</p>
-<p><img alt="Prior (dashed) and posterior (solid) densities for Max'sproblem." src="../_images/priorposterior2.svg" /></p>
+posterior distributions shown in Figure and summarised in Table .</p>
+<figure class="align-default" id="fig-priorposterior2">
+<img alt="../_images/priorposterior2.svg" src="../_images/priorposterior2.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Prior (dashed) and posterior (solid) densities for Max’s
+problem.</span><a class="headerlink" href="#fig-priorposterior2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <table class="table table-center" id="tab-betaposterior">
 <caption><span class="caption-number">Table 5 </span><span class="caption-text">Changes in beliefs about <span class="math notranslate nohighlight">\(\theta\)</span>.</span><a class="headerlink" href="#tab-betaposterior" title="Link to this table">#</a></caption>
 <thead>
@@ -911,7 +948,12 @@ prior distribution can be found in Figure . As you might expect, the
 expert believes that, realistically, only very small values of <span class="math notranslate nohighlight">\(\theta\)</span>
 are likely, though larger values are not ruled out! Determine the
 posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
-<p><img alt="Prior density for the earthquake rate " src="../_images/priorplot4.svg" /></p>
+<figure class="align-default" id="fig-earthprior">
+<img alt="../_images/priorplot4.svg" src="../_images/priorplot4.svg" /><figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Prior density for the earthquake rate
+<span class="math notranslate nohighlight">\(\theta\)</span></span><a class="headerlink" href="#fig-earthprior" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Solution<div class="sd-summary-down docutils">
@@ -969,7 +1011,12 @@ distribution. This results in a reduction in variability from the prior
 to the posterior distributions. The similarity between the prior beliefs
 and the data has reduced the uncertainty we have about the likely
 earthquake rate <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
-<p><img alt="Prior (dashed) and posterior (solid) densities for the earthquake rate." src="../_images/priorposterior3.svg" /></p>
+<figure class="align-default" id="fig-earthpost">
+<img alt="../_images/priorposterior3.svg" src="../_images/priorposterior3.svg" /><figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Prior (dashed) and posterior (solid) densities for the earthquake rate
+<span class="math notranslate nohighlight">\(\theta\)</span>.</span><a class="headerlink" href="#fig-earthpost" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <table class="table table-center" id="tab-earthsum">
 <caption><span class="caption-number">Table 7 </span><span class="caption-text">Changes in beliefs about <span class="math notranslate nohighlight">\(\theta\)</span>.</span><a class="headerlink" href="#tab-earthsum" title="Link to this table">#</a></caption>
 <thead>
@@ -1215,7 +1262,12 @@ belief about the click-through rate <span class="math notranslate nohighlight">\
 after incorporating the data.</p>
 <p>Note how our posterior beliefs are dominated by the likelihood function.
 This is because we have so much data (<span class="math notranslate nohighlight">\(n = 10000\)</span>).</p>
-<p><img alt="Prior, likelihood function and posterior of the click-through rate." src="../_images/clickthroughrate_priorposterior.svg" /></p>
+<figure class="align-default" id="fig-clickthrough">
+<img alt="../_images/clickthroughrate_priorposterior.svg" src="../_images/clickthroughrate_priorposterior.svg" /><figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Prior, likelihood function and posterior of the click-through rate
+<span class="math notranslate nohighlight">\(\theta\)</span>.</span><a class="headerlink" href="#fig-clickthrough" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <table class="table table-center" id="tab-clickthrough">
 <caption><span class="caption-number">Table 9 </span><span class="caption-text">Changes in beliefs about <span class="math notranslate nohighlight">\(\theta\)</span>.</span><a class="headerlink" href="#tab-clickthrough" title="Link to this table">#</a></caption>
 <thead>
@@ -1391,7 +1443,12 @@ distributed with mean <span class="math notranslate nohighlight">\(M\)</span> an
     V &amp;= \left(\frac{n}{\sigma^2} + \frac{1}{\sigma_0^2}\right)^{-1}.
 \end{aligned}\end{split}\]</div>
 <p>The prior, likelihood function and posterior can be seen in Figure .</p>
-<p><img alt="Prior, likelihood function and posterior of the speed of the particle." src="../_images/speed_priorposterior.svg" /></p>
+<figure class="align-default" id="fig-speed">
+<img alt="../_images/speed_priorposterior.svg" src="../_images/speed_priorposterior.svg" /><figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Prior, likelihood function and posterior of the speed of the particle
+<span class="math notranslate nohighlight">\(\theta\)</span>.</span><a class="headerlink" href="#fig-speed" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="example-2-8">
 <h3>Example 2.8<a class="headerlink" href="#example-2-8" title="Link to this heading">#</a></h3>
@@ -1497,7 +1554,13 @@ that</p>
 page 25 of these notes, you should recognise this as a
 <span class="math notranslate nohighlight">\(\mathrm{Gamma}(10,0.87)\)</span> distribution.</p>
 </div>
-</details><p><img alt="Prior (dashed) and posterior (solid) densities for the rate of glacialretreat at the Zachariae Isstrømglacier." src="../_images/glacier_posterior.svg" /></p>
+</details><figure class="align-default" id="fig-glacierposterior">
+<img alt="../_images/glacier_posterior.svg" src="../_images/glacier_posterior.svg" /><figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Prior (dashed) and posterior (solid) densities for the rate of glacial
+retreat at the <em>Zachariae Isstrøm</em>
+glacier.</span><a class="headerlink" href="#fig-glacierposterior" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 <section id="section-2-3-conjugacy">
@@ -1755,7 +1818,12 @@ that the large difference between these probabilities is not necessarily
 due to the expert’s prior distribution being inaccurate, <em>per se</em>, it is
 probably due to the large prior uncertainty about rock ages, as shown in
 Figure .</p>
-<p><img alt="Prior (dashed) and posterior (solid) densities for the age of therock." src="../_images/priorposterior4.svg" /></p>
+<figure class="align-default" id="fig-normalplot">
+<img alt="../_images/priorposterior4.svg" src="../_images/priorposterior4.svg" /><figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Prior (dashed) and posterior (solid) densities for the age of the
+rock.</span><a class="headerlink" href="#fig-normalplot" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 </section>

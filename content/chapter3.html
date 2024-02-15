@@ -60,6 +60,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/chapter3';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chapter 4: Bayesian inference" href="chapter4.html" />
@@ -441,7 +442,13 @@ of <em>truncated priors</em>.</p>
 We have <em>substantial prior information</em> for <span class="math notranslate nohighlight">\(\theta\)</span> when the prior
 distribution <em>dominates</em> the posterior distribution, that is
 <span class="math notranslate nohighlight">\(\pi(\theta|\underline{x})\sim\pi(\theta)\)</span>.</p>
-<p><img alt="Prior (dashed) and posterior (solid) densities for the music expert'sskill for the ." src="../_images/priorposterior1.svg" /></p>
+<figure class="align-default" id="fig-substantial">
+<img alt="../_images/priorposterior1.svg" src="../_images/priorposterior1.svg" /><figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Prior (dashed) and posterior (solid) densities for the music expert’s
+skill for the
+<span class="math notranslate nohighlight">\(0.8 &lt; \theta &lt; 1\)</span>.</span><a class="headerlink" href="#fig-substantial" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <p>An example of an informative prior was given in Example  where a music
 expert was trying to distinguish between pages from Mozart and Haydn
 scores. Figure  shows the prior and posterior distributions for
@@ -706,7 +713,12 @@ the truncated distribution will be larger than the mean of the original
 distribution and the standard deviation will be smaller.</p>
 <p>This is an important general point. Truncating a distribution changes
 the mean and variance. Calculating the new values can be difficult.</p>
-<p><img alt="Plot of a normal and truncated normaldistribution" src="../_images/truncatednormal.svg" /></p>
+<figure class="align-default" id="fig-normaltrunc">
+<img alt="../_images/truncatednormal.svg" src="../_images/truncatednormal.svg" /><figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Plot of a normal and truncated normal
+distribution</span><a class="headerlink" href="#fig-normaltrunc" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="bayesian-inference-with-truncated-priors">
 <h3>Bayesian Inference with Truncated Priors<a class="headerlink" href="#bayesian-inference-with-truncated-priors" title="Link to this heading">#</a></h3>
@@ -791,7 +803,13 @@ Normally, this is not a problem but, as the following example shows,
 when the truncation in a prior distribution does not include parameter
 values for which the likelihood function is large, misleading
 conclusions can be made.</p>
-<p><img alt="Plot of a posterior distribution determined using a non-truncated anda truncated prior distribution" src="../_images/truncposterior.svg" /></p>
+<figure class="align-default" id="fig-posttrunc">
+<img alt="../_images/truncposterior.svg" src="../_images/truncposterior.svg" /><figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Plot of a posterior distribution determined using a non-truncated and
+a truncated prior
+distribution</span><a class="headerlink" href="#fig-posttrunc" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="example-3-5">
 <h4>Example 3.5<a class="headerlink" href="#example-3-5" title="Link to this heading">#</a></h4>
@@ -819,7 +837,13 @@ peaked at <span class="math notranslate nohighlight">\(\theta\simeq 10.47\)</spa
 likely values according to the data! Using a prior distribution which
 gives very small – but non-zero – probability to values of <span class="math notranslate nohighlight">\(\theta&gt;9\)</span>,
 avoids this problem.</p>
-<p><img alt="Plot of a posterior distribution determined using a non-truncated anda truncated prior distribution" src="../_images/truncposterior2.svg" /></p>
+<figure class="align-default" id="fig-posttrunc2">
+<img alt="../_images/truncposterior2.svg" src="../_images/truncposterior2.svg" /><figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Plot of a posterior distribution determined using a non-truncated and
+a truncated prior
+distribution</span><a class="headerlink" href="#fig-posttrunc2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <p>This example motivates the pragmatic rule: never rule out values for
 parameters which are very implausible but not impossible. Instead these
 parameter values should be given very small probability density. The
@@ -856,7 +880,12 @@ function – likelihood functions are not usually proper probability
 (density) functions and so scaling is required to ensure that it
 integrates to one. Most of our beliefs about <span class="math notranslate nohighlight">\(\theta\)</span> have come from
 observing the data.</p>
-<p><img alt="Prior (dashed) and posterior (solid) densities for" src="content/images/priorplot1.svg" /></p>
+<figure class="align-default" id="fig-little">
+<img alt="../_images/priorplot1.svg" src="../_images/priorplot1.svg" /><figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Prior (dashed) and posterior (solid) densities for
+<span class="math notranslate nohighlight">\(\theta\)</span></span><a class="headerlink" href="#fig-little" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <section id="vague-prior-knowledge">
 <h3>Vague Prior Knowledge<a class="headerlink" href="#vague-prior-knowledge" title="Link to this heading">#</a></h3>
 <p>We represent vague prior knowledge by using a prior distribution which
